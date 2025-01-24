@@ -32,7 +32,7 @@ export default function Page() {
       {showFacade?.show && (
         <Image
           onLoad={() => setImageLoaded(true)}
-          className="absolute inset-0 w-full h-full object-cover z-20"
+          className="absolute mt-16 md:mt-0 inset-0 md:w-full md:h-full object-cover z-20"
           src={showFacade.src}
           alt={'exterior'}
           width={3000}
