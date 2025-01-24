@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen overflow-hidden bg-background font-sans ",
+          "overflow-hidden bg-background font-sans ",
           fontSans.variable
         )}
       >
@@ -36,7 +36,7 @@ export default function RootLayout({
           <Provider store={store}>
 
             <Header />
-            <div className="flex flex-col-reverse md:flex-row h-screen overflow-hidden">
+            <div className="flex flex-col-reverse md:flex-row max-h-[80vh] md:max-h-screen md:h-screen overflow-hidden">
               <SideBar />
               <div className="w-full md:w-9/12 z-10">
                 {children}

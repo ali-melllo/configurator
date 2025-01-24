@@ -45,7 +45,7 @@ export default function SideBar() {
 
 
     return (
-        <div className="relative overflow-y-scroll overflow-x-hidden w-full md:w-3/12 md:pt-20 pb-72 md:h-full p-5 shadow-2xl md:z-20 dark:border-r border-dashed dark:border-gray-700">
+        <div className="relative overflow-y-scroll overflow-x-hidden w-full md:w-3/12 md:pt-20 pb-24 md:pb-72 md:h-screen p-5 shadow-2xl md:z-20 dark:border-r border-dashed dark:border-gray-700">
 
             {/* //////////////////////////////////////////////////// */}
 

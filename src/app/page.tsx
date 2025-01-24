@@ -15,7 +15,7 @@ export default function Page() {
   }, [showFacade]);
 
   return (
-     <main className="relative shadow-2xl flex h-6/12 md:h-full">
+     <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
       {/* Main Image */}
       <Image
         className={`inset-0 mt-16 md:mt-0 ${imageLoaded ? 'animate-none' : 'animate-pulse'} w-full h-full object-cover z-10`}
