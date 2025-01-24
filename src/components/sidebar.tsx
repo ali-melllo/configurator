@@ -105,9 +105,7 @@ export default function SideBar() {
                                             <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
                                                 <Lock />
                                             </div>
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-3 mt-3">
@@ -135,9 +133,7 @@ export default function SideBar() {
                                             <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
                                                 <Lock />
                                             </div>
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </AccordionContent>
