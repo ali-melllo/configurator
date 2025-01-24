@@ -15,10 +15,10 @@ export default function Page() {
   }, [showFacade]);
 
   return (
-     <main className="relative flex h-screen">
+     <main className="relative shadow-2xl flex h-6/12 md:h-full">
       {/* Main Image */}
       <Image
-        className={`inset-0 ${imageLoaded ? 'animate-none' : 'animate-pulse'} w-full h-full object-cover z-10`}
+        className={`inset-0 mt-16 md:mt-0 ${imageLoaded ? 'animate-none' : 'animate-pulse'} w-full h-full object-cover z-10`}
         onLoad={() => setImageLoaded(true)}
         src={'/main.png'}
         alt={'exterior'}

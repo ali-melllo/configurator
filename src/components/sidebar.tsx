@@ -45,11 +45,11 @@ export default function SideBar() {
 
 
     return (
-        <div className="relative overflow-y-scroll overflow-x-hidden w-3/12 pt-20 pb-72 h-full p-5 shadow-2xl z-20 dark:border-r border-dashed dark:border-gray-700">
+        <div className="relative overflow-y-scroll overflow-x-hidden w-full md:w-3/12 md:pt-20 pb-72 md:h-full p-5 shadow-2xl md:z-20 dark:border-r border-dashed dark:border-gray-700">
 
             {/* //////////////////////////////////////////////////// */}
 
-            <Card className="w-full mt-5">
+            <Card className="w-full md:mt-5">
                 <CardHeader className="flex pt-3 flex-row justify-between items-center">
                     <CardTitle>Surface Area</CardTitle>
                     <CardTitle className="font-bold text-2xl text-primary -mr-2">8 m²</CardTitle>
@@ -72,7 +72,7 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////// */}
 
-            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-5 px-5">
+            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-3 md:mt-5 px-5">
                 <AccordionItem value="item-1">
                     <AccordionTrigger>Exterior</AccordionTrigger>
                     <AccordionContent>
@@ -183,7 +183,7 @@ export default function SideBar() {
                 </AccordionItem>
             </Accordion>
 
-            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-5 px-5">
+            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-3 md:mt-5 px-5">
                 <AccordionItem value="item-1">
                     <AccordionTrigger>Inside</AccordionTrigger>
                     <AccordionContent>
@@ -242,25 +242,25 @@ export default function SideBar() {
                 </CardHeader>
                 <CardContent>
                     <form>
-                        <div className="grid w-full items-center gap-y-2">
+                        <div className="grid w-full items-center gap-y-1 md:gap-y-2">
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-lg">Surface:</Label>
+                                <Label className="font-bold text-base md:text-lg">Surface:</Label>
                                 <Label className="text-base text-muted-foreground -mr-2">8 m²</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-lg">Depth:</Label>
+                                <Label className="font-bold text-base md:text-lg">Depth:</Label>
                                 <Label className="text-base text-muted-foreground">250 cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-lg">Width:</Label>
+                                <Label className="font-bold text-base md:text-lg">Width:</Label>
                                 <Label className="text-base text-muted-foreground">200 cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-lg">Exterior:</Label>
+                                <Label className="font-bold text-base md:text-lg">Exterior:</Label>
                                 <Label className="text-base text-muted-foreground">€ 43.983</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-lg">Inside:</Label>
+                                <Label className="font-bold text-base md:text-lg">Inside:</Label>
                                 <Label className="text-base text-muted-foreground">€ 1.179</Label>
                             </div>
                         </div>
@@ -283,7 +283,7 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////////////////// */}
 
-            <div className="w-3/12 inset-x-0 fixed flex justify-center items-start pb-10  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
+            <div className="md:w-3/12 inset-x-0 fixed flex justify-center items-start pb-5 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
 
                 <Dialog>
                     <DialogTrigger asChild>
@@ -300,21 +300,19 @@ export default function SideBar() {
                         </DialogHeader>
                         <div className="grid gap-4 py-4">
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label htmlFor="name" className="text-right">
+                                <Label className="text-right">
                                     Full Name
                                 </Label>
                                 <Input
-                                    id="name"
                                     placeholder="Full Name "
                                     className="col-span-3"
                                 />
                             </div>
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label htmlFor="email" className="text-right">
+                                <Label className="text-right">
                                     Email
                                 </Label>
                                 <Input
-                                    id="email"
                                     placeholder="Email "
                                     className="col-span-3"
                                 />
