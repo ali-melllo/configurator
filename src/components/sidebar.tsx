@@ -234,7 +234,7 @@ export default function SideBar() {
             {/* //////////////////////////////////////////////////////////////// */}
 
             <Card className="w-full mt-5">
-                <CardHeader className="pt-3">
+                <CardHeader className="pt-3 md:pt-5">
                     <CardTitle>Check Out Order Price</CardTitle>
                     <CardDescription className="text-sm !mt-2">
                         <span className="!font-semibold text-foreground">Note:</span> the exact price will be emailed to your account for confirmation
