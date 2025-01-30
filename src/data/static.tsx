@@ -1,6 +1,49 @@
 import { Icons } from "@/components/icons";
-import { EnterIcon } from "@radix-ui/react-icons";
-import { Eye, EyeIcon, HomeIcon, ListChecks, NotebookIcon, Outdent, RefreshCcw, Send, SquareArrowOutUpRight, SquareDashedMousePointer } from "lucide-react";
+import { EyeIcon, HomeIcon, ListChecks, RefreshCcw, SquareArrowOutUpRight, SquareDashedMousePointer } from "lucide-react";
+
+
+export const MATERIALS = {
+  exterior: [
+    { 
+      key:"facade",
+      name: "Facade Cladding",
+      items: [
+        {
+          name: "Composite",
+          items: [
+            { src : "/composite-selector-1.svg" , objectSrc:"/facade-composite-1.png" , price : "400" , fullName : "Brown Composite vertical line"},
+            { src : "/composite-selector-2.svg" , objectSrc:"/facade-composite-2.png" , price : "450" , fullName : "Brown Composite Horizontal line"}
+          ]
+        },
+        {
+          name: "Bricks",
+          items: [
+            { src : "/brick-selector-1.svg", objectSrc:"/brick-1.png" , price : "400" , fullName : "Brown classic brick"},
+            { src : "/brick-selector-2.svg", objectSrc:"/brick-2.png"  , price : "450" , fullName : "Light classic brick"}
+          ]
+        }
+      ]
+    },
+    { 
+      key:"frames",
+      name: "Frames",
+      items: [
+        {
+          name: "Layout",
+          items: [
+            { src : "/layout-selector-1.svg" , objectSrc:"/layout-1.png" , price : "400" , fullName : "classic layout"},
+            { src : "/layout-selector-2.svg" , objectSrc:"/layout-2.png" , price : "450" , fullName : "linear layout"}
+          ]
+        }
+      ]
+    }
+  ],
+  inside: [
+    {
+
+    }
+  ]
+}
 
 export const DATA = {
   name: "Configurator",
@@ -11,104 +54,9 @@ export const DATA = {
   description:
     "Home design tool",
   summary:
-    "At the end of 2019, I started by learning from Udemy courses, [some are mentioned here](/#education), at first place i started working in [Navoshgaran asre parse](https://navoshgaran.com) as a part of 6 members frontend team , and [collaborated in over 8 projects](/#hackathons) for almost 2/5 years career. the second place I Started to work in was [Fanavary Rayan](https://fanavaryrayan.com) for almost 1 year as a part of 4 members frontend team. mean while i started a hybrid experience in [PlayCo](https://playco.tv/) for about six months developing their single project . [Yottab](https://yottab.io/) was the last place i was working as a front end developer having a 4 months contract for implementing their main dashboard panel for PaaS services.",
+    "a new super fast home design tool for everyone",
   avatarUrl: "/me.jpg",
-  marquee: [
-    {
-      alt: "Jack",
-      img: "/shahedan-logo.png",
-    },
-    {
-      alt: "atrafe man",
-      img: "/atrafe-man.png",
-    },
-    {
-      alt: "kloud",
-      img: "/logo.png",
-    },
-    {
-      alt: "meow shop",
-      img: "/meowshop-logo.jpg",
-    },
-    {
-      alt: "kloud new",
-      img: "/logo-symbol.svg",
-    },
-    {
-      alt: "Jack",
-      img: "/sarafiroyal-logo.png",
-    },
-    {
-      alt: "Jack",
-      img: "/ugym-logo.jpg",
-    },
-    {
-      alt: "takhte",
-      img: "/takhte-logo.png",
-    },
-    {
-      alt: "PlayCo",
-      img: "/playco-logo.png",
-    },
-    {
-      alt: "Navoshgaran",
-      img: "/navoshgaran-logo.png",
-    },
-    {
-      alt: "90 roz",
-      img: "/90-roz.webp",
-    },
-  ],
-  morphins: [
-    "+16 Real World Projects",
-    "+7 Teams Collaborated",
-    "+5 years of Experience",
-    "Looking forward for big stuff :)",
-  ],
-  skills: [
-    "React",
-    "Next.js",
-    "Tailwind",
-    "Shad-cn",
-    "REST Api",
-    "grpc",
-    "trpc",
-    "CI/CD",
-    "SSO",
-    "Bootstrap",
-    "Typescript",
-    "Node.js",
-    "MongoDB",
-    "Mongoose",
-    "Express",
-    "Docker",
-    "Redux toolkit",
-    "RTK Query",
-    "Redux Thunk",
-    "Axios",
-    "React Query",
-    "React-Router",
-    "PWA",
-    "Socket.io",
-    "useWebSocket",
-    "Framer Motion",
-    "Material UI",
-    "React Context",
-    "Xterm",
-    "Ethers",
-    "Metamask",
-    "Phantom Wallet Adapter",
-    "Tron web",
-    "AG-charts",
-    "Headless ui ",
-    "Css Modules",
-    "Styled Components",
-    "Flowbite",
-    "Scrum",
-    "Jest ( unit & integration )",
-    "Git",
-    "Azure DevOps",
-  ],
+
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
   ],
@@ -149,7 +97,7 @@ export const DATA = {
       },
     },
   },
-  
+
   work: [
     {
       company: "Atomic Finance",

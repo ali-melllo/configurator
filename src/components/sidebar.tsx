@@ -29,211 +29,90 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import Image from "next/image";
-import { Lock } from "lucide-react";
-import { useDispatch } from "react-redux";
-import { changeFacade } from "@/redux/globalSlice";
+import { Check } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToExterior, changeExterior } from "@/redux/globalSlice";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import SurfaceCard from "./main/surface-card";
+import { MATERIALS } from "@/data/static";
+
 
 export default function SideBar() {
 
     const [constructionOld, setConstructionOld] = useState<boolean>(false);
+
     const dispatch = useDispatch();
+    const { finalQuote } = useSelector((state: any) => state.global);
 
     const handleConstructionOldChange = useCallback((event: any) => {
-        console.log(event)
         setConstructionOld(event)
-    }, [])
-
+    }, []);
 
     return (
         <div className="relative overflow-y-scroll overflow-x-hidden w-full md:w-3/12 md:pt-20 pb-24 md:pb-72 md:h-screen p-5 shadow-2xl md:z-20 dark:border-r border-dashed dark:border-gray-700">
 
-            {/* //////////////////////////////////////////////////// */}
-
-            <Card className="w-full md:mt-5">
-                <CardHeader className="flex pt-3 flex-row justify-between items-center">
-                    <CardTitle>Surface Area</CardTitle>
-                    <CardTitle className="font-bold text-2xl text-primary -mr-2">8 m²</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <form>
-                        <div className="grid grid-cols-2 w-full items-center gap-4">
-                            <div className="flex flex-col space-y-1.5">
-                                <Label className="text-sm" htmlFor="width">Width</Label>
-                                <Input id="width" placeholder="400 cm" />
-                            </div>
-                            <div className="flex flex-col space-y-1.5">
-                                <Label className="text-sm" htmlFor="depth">Depth</Label>
-                                <Input id="depth" placeholder="200 cm" />
-                            </div>
-                        </div>
-                    </form>
-                </CardContent>
-            </Card>
+            <SurfaceCard />
 
             {/* //////////////////////////////////////////////////// */}
 
-            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-3 md:mt-5 px-5">
-                <AccordionItem value="item-1">
-                    <AccordionTrigger>Exterior</AccordionTrigger>
-                    <AccordionContent>
-                        <Accordion type="single" collapsible className="w-full border-b bg-card text-card-foreground">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Facade cladding</AccordionTrigger>
-                                <AccordionContent>
-                                    <div className="flex flex-col gap-3">
-                                        <p className="text-muted-foreground">Composite</p>
-                                        <div className="flex items-center overflow-scroll gap-x-4">
-                                            <Image
-                                                onClick={() => dispatch(changeFacade({ show: true, src: '/facade-composite-1.png' }))}
-                                                className="size-16 rounded-lg shadow cursor-pointer"
-                                                src={'/composite-selector-1.svg'}
-                                                alt={'composite'}
-                                                width={150}
-                                                height={150}
-                                            />
-                                            <Image
-                                                onClick={() => dispatch(changeFacade({ show: true, src: '/facade-composite-2.png' }))}
-                                                className="size-16 rounded-lg shadow cursor-pointer"
-                                                src={'/composite-selector-2.svg'}
-                                                alt={'composite'}
-                                                width={150}
-                                                height={150}
-                                            />
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
+            <Tabs defaultValue="account" className="my-5">
+                <TabsList >
+                    <TabsTrigger value="account">
+                        Exterior
+                    </TabsTrigger>
+                    <TabsTrigger value="password">
+                        Inside
+                    </TabsTrigger>
+                </TabsList>
+                <TabsContent value="account" className="rounded-2xl">
+                    {
+                        MATERIALS.exterior.map((material) => (
+                            <Accordion key={material.key} type="single" collapsible className="w-full rounded-xl mt-3 border shadow px-5 border-b bg-card text-card-foreground">
+                                <AccordionItem value={material.name}>
+                                    <AccordionTrigger className="text-base font-semibold">{material.name}</AccordionTrigger>
+                                    <AccordionContent>
+                                        {material.items.map((subMaterial) => (
+                                            <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
+                                                <p className="text-muted-foreground">{subMaterial.name}</p>
+                                                <div className="flex items-center overflow-scroll gap-x-4">
+                                                    {subMaterial.items.map((image) => (
+                                                        <div key={image.src} className="relative">
+                                                            {finalQuote.exterior.find((x:any) => x.key === material.key && x.objectSrc === image.objectSrc ) &&
+                                                                <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl size-5 flex justify-center items-center"><Check className="size-4" /></span>
+                                                            }
+                                                            <Image
+                                                                onClick={() => {
+                                                                    dispatch(changeExterior(true));
+                                                                    dispatch(addToExterior({
+                                                                        key: material.key,
+                                                                        categoryName: material.name,
+                                                                        objectSrc: image.objectSrc,
+                                                                        objectName: image.fullName
+                                                                    }));
+                                                                }}
+                                                                className="size-16 my-1 rounded-xl shadow relative cursor-pointer"
+                                                                src={image.src}
+                                                                alt={image.fullName}
+                                                                width={150}
+                                                                height={150}
+                                                            />
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col gap-3 mt-3">
-                                        <p className="text-muted-foreground">Brick</p>
-                                        <div className="flex items-center overflow-scroll gap-x-4">
-                                            <Image
-                                                onClick={() => dispatch(changeFacade({ show: true, src: '/brick-1.png' }))}
-                                                className="size-16 rounded-lg shadow cursor-pointer"
-                                                src={'/brick-selector-1.svg'}
-                                                alt={'composite'}
-                                                width={150}
-                                                height={150}
-                                            />
-                                            <Image
-                                                onClick={() => dispatch(changeFacade({ show: true, src: '/brick-2.png' }))}
-                                                className="size-16 rounded-lg shadow cursor-pointer"
-                                                src={'/brick-selector-2.svg'}
-                                                alt={'composite'}
-                                                width={150}
-                                                height={150}
-                                            />
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
-                                            </div>
-                                            <div className="flex justify-center items-center size-16 rounded-lg shadow backdrop-blur-lg bg-muted to-transparent [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background">
-                                                <Lock />
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Frames </AccordionTrigger>
-                                <AccordionContent>
+                                        ))}
 
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Dakoverstek </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Daktrim </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Daklich </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Outdoor lightning </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                    </AccordionContent>
-                </AccordionItem>
-            </Accordion>
-
-            <Accordion type="single" collapsible className="w-full rounded-xl border bg-card text-card-foreground shadow mt-3 md:mt-5 px-5">
-                <AccordionItem value="item-1">
-                    <AccordionTrigger>Inside</AccordionTrigger>
-                    <AccordionContent>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Plaster Board </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Heating </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Wall Lamp </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Light point </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                        <Accordion type="single" disabled collapsible className="w-full text-gray-400 dark:text-gray-600 border-b bg-card">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger className="text-base font-semibold">Outdoor light switch </AccordionTrigger>
-                                <AccordionContent>
-
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                    </AccordionContent>
-                </AccordionItem>
-            </Accordion>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        ))
+                    }
+                </TabsContent>
+            </Tabs>
 
             {/* //////////////////////////////////////////////////////////////// */}
 
-            <Card className="w-full mt-5">
+            <Card className="w-full mt-3">
                 <CardHeader className="pt-3 md:pt-5">
                     <CardTitle>Check Out Order Price</CardTitle>
                     <CardDescription className="text-sm !mt-2">
@@ -244,23 +123,23 @@ export default function SideBar() {
                     <form>
                         <div className="grid w-full items-center gap-y-1 md:gap-y-2">
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-base md:text-lg">Surface:</Label>
+                                <Label className="font-bold text-base">Surface:</Label>
                                 <Label className="text-base text-muted-foreground -mr-2">8 m²</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-base md:text-lg">Depth:</Label>
+                                <Label className="font-bold text-base">Depth:</Label>
                                 <Label className="text-base text-muted-foreground">250 cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-base md:text-lg">Width:</Label>
+                                <Label className="font-bold text-base">Width:</Label>
                                 <Label className="text-base text-muted-foreground">200 cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-base md:text-lg">Exterior:</Label>
+                                <Label className="font-bold text-base">Exterior:</Label>
                                 <Label className="text-base text-muted-foreground">€ 43.983</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
-                                <Label className="font-bold text-base md:text-lg">Inside:</Label>
+                                <Label className="font-bold text-base">Inside:</Label>
                                 <Label className="text-base text-muted-foreground">€ 1.179</Label>
                             </div>
                         </div>
@@ -313,7 +192,7 @@ export default function SideBar() {
                                     Email
                                 </Label>
                                 <Input
-                                    placeholder="Email "
+                                    placeholder="Email"
                                     className="col-span-3"
                                 />
                             </div>
