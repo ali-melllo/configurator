@@ -8,7 +8,7 @@ export async function POST(req) {
       service: "gmail",
       auth: {
         user: "alimelllo32@gmail.com",
-        pass: "654123hgA",
+        pass: "",
       },
     });
 
