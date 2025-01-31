@@ -10,7 +10,9 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
+import { setDimensions } from "@/redux/globalSlice";
+import { useDispatch } from "react-redux";
 
 export default function SurfaceCard() {
   const { register, watch } = useForm({
@@ -19,6 +21,8 @@ export default function SurfaceCard() {
       depth: "",
     },
   });
+
+  const dispatch = useDispatch();
 
   const width = watch("width");
   const depth = watch("depth");
@@ -30,8 +34,12 @@ export default function SurfaceCard() {
     const depthNum = parseFloat(depth) || 0;
     setSurfaceArea((widthNum * depthNum) / 10000); // Convert cm² to m²
 
-    // set to redux here
-    
+    dispatch(setDimensions({
+      width: widthNum,
+      depth: depthNum,
+      surface: (widthNum * depthNum) / 10000
+    }))
+
   }, [width, depth]);
 
   return (

@@ -35,3 +35,7 @@ export function formatDate(date: string) {
     return `${fullDate} (${yearsAgo}y ago)`;
   }
 }
+
+export function formatEuroPrice(price : string) {
+  return price.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1.");
+}

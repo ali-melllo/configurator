@@ -7,6 +7,7 @@ export const MATERIALS = {
     { 
       key:"facade",
       name: "Facade Cladding",
+      description:"rhombus profile, teak, horizontal",
       items: [
         {
           name: "Composite",
@@ -27,21 +28,81 @@ export const MATERIALS = {
     { 
       key:"frames",
       name: "Frames",
+      description:"4-part sliding door, wood, anthracite, ventilation grille",
       items: [
         {
           name: "Layout",
           items: [
             { src : "/layout-selector-1.svg" , objectSrc:"/layout-1.png" , price : "400" , fullName : "classic layout"},
-            { src : "/layout-selector-2.svg" , objectSrc:"/layout-2.png" , price : "450" , fullName : "linear layout"}
+            { src : "/layout-selector-2.svg" , objectSrc:"/layout-2.png" , price : "850" , fullName : "linear layout"},
+            { src : "/layout-selector-3.svg" , objectSrc:"/layout-3.png" , price : "650" , fullName : "Railed Multi layout"}
+
+          ]
+        }
+      ]
+    },
+    { 
+      key:"dactrim",
+      name: "Dactrim",
+      description:"Customizable Dactrim",
+      items: [
+        {
+          name: "Color",
+          items: [
+            { src : "/dactrim-selector-1.svg" , objectSrc:"/dactrim-1.png" , price : "400" , fullName : "Aluminum"},
+            { src : "/dactrim-selector-2.svg" , objectSrc:"/dactrim-2.png" , price : "850" , fullName : "anthracite"},
+          ]
+        }
+      ]
+    },
+    { 
+      key:"daklicht",
+      name: "Daklicht",
+      description:"Customizable Daklicht",
+      items: [
+        {
+          name: "Color",
+          items: [
+            { src : "/daklicht-selector-1.svg" , objectSrc:"/daklicht-1.png" , price : "400" , fullName : "white daklicht"},
+            { src : "/daklicht-selector-2.svg" , objectSrc:"/daklicht-2.png" , price : "850" , fullName : "dark daklicht"},
+          ]
+        }
+      ]
+    },
+    { 
+      key:"outdoor-light",
+      name: "Out Door Lightning",
+      description:"Out Door Lightning links ",
+      items: [
+        {
+          name: "Align",
+          items: [
+            { src : "/outdoor-light-selector-1.svg" , objectSrc:"/outdoor-light-1.png" , price : "400" , fullName : "left outdoor light"},
+            { src : "/outdoor-light-selector-2.svg" , objectSrc:"/outdoor-light-2.png" , price : "550" , fullName : "right outdoor light"},
+            { src : "/outdoor-light-selector-3.svg" , objectSrc:"/outdoor-light-3.png" , price : "850" , fullName : "left & right outdoor light"},
+
           ]
         }
       ]
     }
   ],
   inside: [
-    {
+    { 
+      key:"heating",
+      name: "Heating",
+      description:"Links & double heating",
+      items: [
+        {
+          name: "Align",
+          items: [
+            { src : "/heating-inside-selector-1.svg" , objectSrc:"/heating-inside-1.png" , price : "400" , fullName : "Right side heating"},
+            { src : "/heating-inside-selector-2.svg" , objectSrc:"/heating-inside-2.png" , price : "560" , fullName : "Left Side Heating"},
+            { src : "/heating-inside-selector-3.svg" , objectSrc:"/heating-inside-3.png" , price : "770" , fullName : "Left & right Side Heating"},
 
-    }
+          ]
+        }
+      ]
+    },
   ]
 }
 

@@ -31,10 +31,11 @@ import {
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToExterior, changeExterior } from "@/redux/globalSlice";
+import { addToExterior, addToInside, changeExterior, changeInside, changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SurfaceCard from "./main/surface-card";
 import { MATERIALS } from "@/data/static";
+import { formatEuroPrice } from "@/lib/utils";
 
 
 export default function SideBar() {
@@ -48,6 +49,19 @@ export default function SideBar() {
         setConstructionOld(event)
     }, []);
 
+    const changeViewHandler = useCallback((view: string) => {
+        dispatch(changeView(view));
+    }, [])
+
+    const getExteriorPrice = useCallback(() => {
+        return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+    }, [finalQuote]);
+
+    const getInsidePrice = useCallback(() => {
+        console.log(finalQuote.interior)
+        return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+    }, [finalQuote]);
+
     return (
         <div className="relative overflow-y-scroll overflow-x-hidden w-full md:w-3/12 md:pt-20 pb-24 md:pb-72 md:h-screen p-5 shadow-2xl md:z-20 dark:border-r border-dashed dark:border-gray-700">
 
@@ -55,35 +69,102 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////// */}
 
-            <Tabs defaultValue="account" className="my-5">
-                <TabsList >
-                    <TabsTrigger value="account">
+            <Tabs defaultValue="exterior" className="my-5">
+                <TabsList>
+                    <TabsTrigger onClick={() => changeViewHandler('exterior')} value="exterior">
                         Exterior
                     </TabsTrigger>
-                    <TabsTrigger value="password">
+                    <TabsTrigger onClick={() => changeViewHandler('inside')} value="inside">
                         Inside
                     </TabsTrigger>
                 </TabsList>
-                <TabsContent value="account" className="rounded-2xl">
+                <TabsContent value="exterior" className="rounded-2xl">
                     {
                         MATERIALS.exterior.map((material) => (
                             <Accordion key={material.key} type="single" collapsible className="w-full rounded-xl mt-3 border shadow px-5 border-b bg-card text-card-foreground">
                                 <AccordionItem value={material.name}>
-                                    <AccordionTrigger className="text-base font-semibold">{material.name}</AccordionTrigger>
+                                    <AccordionTrigger className="text-base flex-wrap gap-y-1 font-semibold">
+                                        <p className="w-full">{material.name}</p>
+                                        <p className="w-full text-muted-foreground text-sm font-normal flex-1">{material.description}</p>
+                                    </AccordionTrigger>
                                     <AccordionContent>
                                         {material.items.map((subMaterial) => (
                                             <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
                                                 <p className="text-muted-foreground">{subMaterial.name}</p>
-                                                <div className="flex items-center overflow-scroll gap-x-4">
+                                                <div className="flex items-center overflow-x-scroll gap-x-4">
                                                     {subMaterial.items.map((image) => (
                                                         <div key={image.src} className="relative">
-                                                            {finalQuote.exterior.find((x:any) => x.key === material.key && x.objectSrc === image.objectSrc ) &&
+                                                            {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                 <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl size-5 flex justify-center items-center"><Check className="size-4" /></span>
                                                             }
                                                             <Image
                                                                 onClick={() => {
                                                                     dispatch(changeExterior(true));
                                                                     dispatch(addToExterior({
+                                                                        price: image.price,
+                                                                        key: material.key,
+                                                                        categoryName: material.name,
+                                                                        objectSrc: image.objectSrc,
+                                                                        objectName: image.fullName
+                                                                    }));
+                                                                }}
+                                                                className="size-16 my-1 rounded-xl shadow relative cursor-pointer"
+                                                                src={image.src}
+                                                                alt={image.fullName}
+                                                                width={150}
+                                                                height={150}
+                                                            />
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                {/* /////////// custom combination by key  //////////// */}
+                                                {material.key === 'daklicht' &&
+                                                    <form>
+                                                        <div className="grid px-1 grid-cols-2 w-full items-center gap-4">
+                                                            <div className="flex flex-col space-y-1.5">
+                                                                <Label className="text-sm" htmlFor="width">Width (cm)</Label>
+                                                                <Input id="width" placeholder="400 cm" type="number" />
+                                                            </div>
+                                                            <div className="flex flex-col space-y-1.5">
+                                                                <Label className="text-sm" htmlFor="depth">Height (cm)</Label>
+                                                                <Input id="depth" placeholder="200 cm" type="number" />
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                }
+                                            </div>
+                                        ))}
+
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        ))
+                    }
+                </TabsContent>
+                <TabsContent value="inside">
+                    {
+                        MATERIALS.inside.map((material) => (
+                            <Accordion key={material.key} type="single" collapsible className="w-full rounded-xl mt-3 border shadow px-5 border-b bg-card text-card-foreground">
+                                <AccordionItem value={material.name}>
+                                    <AccordionTrigger className="text-base flex-wrap gap-y-1 font-semibold">
+                                        <p className="w-full">{material.name}</p>
+                                        <p className="w-full text-muted-foreground text-sm font-normal flex-1">{material.description}</p>
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                        {material.items.map((subMaterial) => (
+                                            <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
+                                                <p className="text-muted-foreground">{subMaterial.name}</p>
+                                                <div className="flex items-center overflow-x-scroll gap-x-4">
+                                                    {subMaterial.items.map((image) => (
+                                                        <div key={image.src} className="relative">
+                                                            {finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl size-5 flex justify-center items-center"><Check className="size-4" /></span>
+                                                            }
+                                                            <Image
+                                                                onClick={() => {
+                                                                    dispatch(changeInside(true));
+                                                                    dispatch(addToInside({
+                                                                        price: image.price,
                                                                         key: material.key,
                                                                         categoryName: material.name,
                                                                         objectSrc: image.objectSrc,
@@ -124,23 +205,27 @@ export default function SideBar() {
                         <div className="grid w-full items-center gap-y-1 md:gap-y-2">
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Surface:</Label>
-                                <Label className="text-base text-muted-foreground -mr-2">8 m²</Label>
+                                <Label className="text-base text-muted-foreground -mr-2">{finalQuote.surface} m²</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Depth:</Label>
-                                <Label className="text-base text-muted-foreground">250 cm</Label>
+                                <Label className="text-base text-muted-foreground">{finalQuote.depth} cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Width:</Label>
-                                <Label className="text-base text-muted-foreground">200 cm</Label>
+                                <Label className="text-base text-muted-foreground">{finalQuote.width} cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Exterior:</Label>
-                                <Label className="text-base text-muted-foreground">€ 43.983</Label>
+                                <Label className="text-base text-muted-foreground">€ {getExteriorPrice()}</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Inside:</Label>
-                                <Label className="text-base text-muted-foreground">€ 1.179</Label>
+                                <Label className="text-base text-muted-foreground">€ {getInsidePrice()}</Label>
+                            </div>
+                            <div className="flex flex-row justify-between gap-x-3 items-center">
+                                <Label className="font-bold text-base">Total Estimated:</Label>
+                                <Label className="text-base text-muted-foreground">€ {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</Label>
                             </div>
                         </div>
                     </form>
@@ -163,73 +248,12 @@ export default function SideBar() {
             {/* //////////////////////////////////////////////////////////////// */}
 
             <div className="md:w-3/12 inset-x-0 fixed flex justify-center items-start pb-5 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
+                <Button
+                    onClick={() => dispatch(changeShowFinalQuoteModal(true))}
+                    className="py-6 w-11/12 !z-[999] shadow-xl text-lg mt-5 font-semibold">
+                    Request a Quote
+                </Button>
 
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button className="py-6 w-11/12 !z-[999] shadow-xl text-lg mt-5 font-semibold">
-                            Request a Quote
-                        </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px]">
-                        <DialogHeader>
-                            <DialogTitle>Submit Price Request</DialogTitle>
-                            <DialogDescription>
-                                Make a quote to get your selected services exact price in your email. please ensure that you enter the right email , our team will answer very soon.
-                            </DialogDescription>
-                        </DialogHeader>
-                        <div className="grid gap-4 py-4">
-                            <div className="flex flex-col items-start gap-y-2">
-                                <Label className="text-right">
-                                    Full Name
-                                </Label>
-                                <Input
-                                    placeholder="Full Name "
-                                    className="col-span-3"
-                                />
-                            </div>
-                            <div className="flex flex-col items-start gap-y-2">
-                                <Label className="text-right">
-                                    Email
-                                </Label>
-                                <Input
-                                    placeholder="Email"
-                                    className="col-span-3"
-                                />
-                            </div>
-                            <Card className="w-full mt-5">
-                                <CardContent>
-                                    <form>
-                                        <div className="grid w-full items-center gap-y-2 pt-5">
-                                            <div className="flex flex-row justify-between gap-x-3 items-center">
-                                                <Label className="font-semibold text-base">Surface:</Label>
-                                                <Label className="text-base text-muted-foreground -mr-2">8 m²</Label>
-                                            </div>
-                                            <div className="flex flex-row justify-between gap-x-3 items-center">
-                                                <Label className="font-semibold text-base">Depth:</Label>
-                                                <Label className="text-base text-muted-foreground">250 cm</Label>
-                                            </div>
-                                            <div className="flex flex-row justify-between gap-x-3 items-center">
-                                                <Label className="font-semibold text-base">Width:</Label>
-                                                <Label className="text-base text-muted-foreground">200 cm</Label>
-                                            </div>
-                                            <div className="flex flex-row justify-between gap-x-3 items-center">
-                                                <Label className="font-semibold text-base">Exterior:</Label>
-                                                <Label className="text-base text-muted-foreground">€ 43.983</Label>
-                                            </div>
-                                            <div className="flex flex-row justify-between gap-x-3 items-center">
-                                                <Label className="font-semibold text-base">Inside:</Label>
-                                                <Label className="text-base text-muted-foreground">€ 1.179</Label>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </CardContent>
-                            </Card>
-                        </div>
-                        <DialogFooter>
-                            <Button className="w-full font-semibold" type="submit">Submit Request</Button>
-                        </DialogFooter>
-                    </DialogContent>
-                </Dialog>
             </div>
 
 
