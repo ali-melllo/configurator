@@ -19,15 +19,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +34,8 @@ export default function SideBar() {
     const [constructionOld, setConstructionOld] = useState<boolean>(false);
 
     const dispatch = useDispatch();
-    const { finalQuote , showExterior , showInside } = useSelector((state: any) => state.global);
+    const { finalQuote, showExterior, showInside } = useSelector((state: any) => state.global);
+
 
     const handleConstructionOldChange = useCallback((event: any) => {
         setConstructionOld(event)
@@ -51,14 +43,13 @@ export default function SideBar() {
 
     const changeViewHandler = useCallback((view: string) => {
         dispatch(changeView(view));
-    }, [])
+    }, [dispatch])
 
     const getExteriorPrice = useCallback(() => {
         return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
     }, [finalQuote]);
 
     const getInsidePrice = useCallback(() => {
-        console.log(finalQuote.interior)
         return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
     }, [finalQuote]);
 
@@ -99,6 +90,7 @@ export default function SideBar() {
                                                             }
                                                             <Image
                                                                 onClick={() => {
+                                                                    !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     dispatch(changeExterior(!showExterior));
                                                                     dispatch(addToExterior({
                                                                         price: image.price,
@@ -162,6 +154,7 @@ export default function SideBar() {
                                                             }
                                                             <Image
                                                                 onClick={() => {
+                                                                    !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     dispatch(changeInside(!showInside));
                                                                     dispatch(addToInside({
                                                                         price: image.price,
@@ -205,23 +198,23 @@ export default function SideBar() {
                         <div className="grid w-full items-center gap-y-1 md:gap-y-2">
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Surface:</Label>
-                                <Label className="text-base text-muted-foreground -mr-2">{finalQuote.surface} m²</Label>
+                                <Label className="text-base text-muted-foreground -mr-2">{finalQuote.surface || "0"} m²</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Depth:</Label>
-                                <Label className="text-base text-muted-foreground">{finalQuote.depth} cm</Label>
+                                <Label className="text-base text-muted-foreground">{finalQuote.depth || "0"} cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Width:</Label>
-                                <Label className="text-base text-muted-foreground">{finalQuote.width} cm</Label>
+                                <Label className="text-base text-muted-foreground">{finalQuote.width || "0"} cm</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Exterior:</Label>
-                                <Label className="text-base text-muted-foreground">€ {getExteriorPrice()}</Label>
+                                <Label className="text-base text-muted-foreground">€ {getExteriorPrice() || "0"}</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Inside:</Label>
-                                <Label className="text-base text-muted-foreground">€ {getInsidePrice()}</Label>
+                                <Label className="text-base text-muted-foreground">€ {getInsidePrice() || "0"}</Label>
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Total Estimated:</Label>

@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect, use } from "react";
 import { setDimensions } from "@/redux/globalSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SurfaceCard() {
   const { register, watch } = useForm({
@@ -28,6 +28,7 @@ export default function SurfaceCard() {
   const depth = watch("depth");
 
   const [surfaceArea, setSurfaceArea] = useState<number | null>(null);
+  const { finalQuote } = useSelector((state: any) => state.global);
 
   useEffect(() => {
     const widthNum = parseFloat(width) || 0;
@@ -40,7 +41,7 @@ export default function SurfaceCard() {
       surface: (widthNum * depthNum) / 10000
     }))
 
-  }, [width, depth]);
+  }, [width, depth, dispatch]);
 
   return (
     <Card className="w-full md:mt-5">
@@ -65,11 +66,11 @@ export default function SurfaceCard() {
           <div className="grid grid-cols-2 w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label className="text-sm" htmlFor="width">Width (cm)</Label>
-              <Input {...register("width")} id="width" placeholder="400 cm" type="number" />
+              <Input value={finalQuote?.width} {...register("width")} id="width" placeholder="400 cm" type="number" />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label className="text-sm" htmlFor="depth">Depth (cm)</Label>
-              <Input {...register("depth")} id="depth" placeholder="200 cm" type="number" />
+              <Input value={finalQuote?.depth} {...register("depth")} id="depth" placeholder="200 cm" type="number" />
             </div>
           </div>
         </form>

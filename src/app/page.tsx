@@ -42,7 +42,7 @@ export default function Page() {
   }, [finalQuote]);
 
 
-  const sendEmail = async (data: any) => {
+  const sendEmail = useCallback(async (data: any) => {
     setEmailLoading(true);
     try {
       await fetch("/api/send-email", {
@@ -62,7 +62,7 @@ export default function Page() {
       console.error("Error sending email:", err);
     }
     setEmailLoading(false);
-  };
+  },[dispatch, finalQuote.exterior, finalQuote.interior]) 
 
 
   return (
@@ -157,10 +157,10 @@ export default function Page() {
       )}
 
       <Dialog open={showFinalQuoteModal} >
-        <DialogContent onCloseHandler={() => dispatch(changeShowFinalQuoteModal(false))} className="max-w-[95vw] md:w-6/12 rounded-2xl max-h-screen ">
+        <DialogContent onCloseHandler={() => dispatch(changeShowFinalQuoteModal(false))} className="max-w-[95vw] md:w-6/12 rounded-2xl max-h-[85vh] ">
           <DialogHeader>
-            <DialogTitle>Submit Price Request</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-left">Submit Price Request</DialogTitle>
+            <DialogDescription className="text-left text-xs md:text-sm">
               Make a quote to get your selected services exact price in your email. please ensure that you enter the right email , our team will answer very soon.
             </DialogDescription>
           </DialogHeader>
