@@ -140,7 +140,7 @@ export default function Page() {
           ))
         )}
 
-      {showInside && view === 'inside' && (
+      {view === 'inside' && (
         finalQuote.interior.map((item: any) => (
           <Image
             key={item.key}

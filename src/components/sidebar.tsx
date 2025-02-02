@@ -43,7 +43,7 @@ export default function SideBar() {
     const [constructionOld, setConstructionOld] = useState<boolean>(false);
 
     const dispatch = useDispatch();
-    const { finalQuote , showExterior} = useSelector((state: any) => state.global);
+    const { finalQuote , showExterior , showInside } = useSelector((state: any) => state.global);
 
     const handleConstructionOldChange = useCallback((event: any) => {
         setConstructionOld(event)
@@ -162,7 +162,7 @@ export default function SideBar() {
                                                             }
                                                             <Image
                                                                 onClick={() => {
-                                                                    dispatch(changeInside(true));
+                                                                    dispatch(changeInside(!showInside));
                                                                     dispatch(addToInside({
                                                                         price: image.price,
                                                                         key: material.key,
