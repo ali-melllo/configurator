@@ -121,12 +121,14 @@ export default function Page() {
       {/* Show second image only when preloaded */}
       {/* condition z-index to avoid image layer crash */}
 
-      {showExterior && view === 'exterior' &&
+      {view === 'exterior' &&
         (
           finalQuote.exterior.map((item: any) => (
             <Image
               key={item.key}
-              onLoad={() => setImageLoaded(true)}
+              onLoad={() => {
+                setImageLoaded(true);
+              }}
               className={`absolute mt-16 md:mt-0 inset-0 md:w-full md:h-full object-cover ${item.key === 'outdoor-light' ? 'z-30' : 'z-20'}`}
               src={item.objectSrc}
               alt={'exterior'}
