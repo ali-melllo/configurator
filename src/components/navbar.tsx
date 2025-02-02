@@ -2,7 +2,7 @@
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
@@ -11,10 +11,21 @@ import {
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
-import { changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
+import { changeShowFinalQuoteModal, changeView, resetAll } from "@/redux/globalSlice";
 import Link from "next/link";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 export default function Navbar() {
 
@@ -22,7 +33,7 @@ export default function Navbar() {
 
   const changeViewHandler = useCallback((view: string) => {
     dispatch(changeView(view));
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-1 md:top-[91%] md:!bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
@@ -70,7 +81,29 @@ export default function Navbar() {
                       "size-12"
                     )}
                   >
-                    <social.icon className="size-5" />
+                    {name === 'Reset' ?
+                      <AlertDialog>
+                        <AlertDialogTrigger>
+                          <social.icon className="size-5" />
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                              This action cannot be undone. This will reset all selected services.
+                            </AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction
+                              onClick={() => dispatch(resetAll())}
+                            >Continue
+                            </AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
+                      : <social.icon className="size-5" />}
+
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -91,6 +124,8 @@ export default function Navbar() {
           </Tooltip>
         </DockIcon>
       </Dock>
+
+
     </div>
   );
 }

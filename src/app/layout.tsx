@@ -12,6 +12,8 @@ import Header from "@/components/header";
 import SideBar from "@/components/sidebar";
 import { store } from '../redux/store';
 import { Provider } from 'react-redux'
+import { Toaster } from "@/components/ui/sonner";
+
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -33,18 +35,17 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-          <Provider store={store}>
-
-            <Header />
-            <div className="flex flex-col-reverse md:flex-row max-h-[80vh] md:max-h-screen md:h-screen overflow-hidden">
-              <SideBar />
-              <div className="w-full md:w-9/12 z-10">
-                {children}
+            <Toaster />
+            <Provider store={store}>
+              <Header />
+              <div className="flex flex-col-reverse md:flex-row max-h-[80vh] md:max-h-screen md:h-screen overflow-hidden">
+                <SideBar />
+                <div className="w-full md:w-9/12 z-10">
+                  {children}
+                </div>
               </div>
-            </div>
-            <Navbar />
+              <Navbar />
             </Provider>
-
           </TooltipProvider>
         </ThemeProvider>
       </body>

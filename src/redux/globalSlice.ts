@@ -3,15 +3,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
+import { toast } from "sonner";
 
 
 interface GlobalState {
   showExterior: boolean;
-  showInside:boolean,
-  showFinalQuoteModal:boolean,
-  view?: "exterior"| "inside" ;
+  showInside: boolean,
+  showFinalQuoteModal: boolean,
+  view?: "exterior" | "inside";
   finalQuote: {
-    surface:string,
+    surface: string,
     width: string,
     depth: string,
     exterior: any[],
@@ -21,11 +22,11 @@ interface GlobalState {
 
 const initialState: GlobalState = {
   showExterior: false,
-  showFinalQuoteModal:false,
-  showInside:false,
+  showFinalQuoteModal: false,
+  showInside: false,
   view: "exterior",
   finalQuote: {
-    surface:"",
+    surface: "",
     width: "",
     depth: "",
     exterior: [],
@@ -44,12 +45,29 @@ export const globalSlice: any = createSlice({
       state.showInside = action.payload;
     },
     changeShowFinalQuoteModal: (state, action: PayloadAction<boolean>) => {
-      state.showFinalQuoteModal = action.payload;
+      if (!state.finalQuote.depth || !state.finalQuote.width) {
+        toast("Please Define your surface area");
+      } else if (state.finalQuote.exterior.length === 0 && state.finalQuote.interior.length === 0) {
+        toast("You Haven't choose any obstacles yet");
+      } else {
+        state.showFinalQuoteModal = action.payload;
+      }
     },
-    changeView: (state, action: PayloadAction<"exterior"| "inside">) => {
+    changeView: (state, action: PayloadAction<"exterior" | "inside">) => {
       state.view = action.payload;
     },
-    setDimensions: (state, action: PayloadAction<{width:string , depth:string, surface:string}>) => {
+    resetAll: (state) => {
+      state.view = "exterior";
+      state.finalQuote = {
+        surface: "",
+        width: "",
+        depth: "",
+        exterior: [],
+        interior: []
+      };
+      state.showFinalQuoteModal = false;
+    },
+    setDimensions: (state, action: PayloadAction<{ width: string, depth: string, surface: string }>) => {
       state.finalQuote.depth = action.payload.depth;
       state.finalQuote.width = action.payload.width;
       state.finalQuote.surface = action.payload.surface;
@@ -74,7 +92,7 @@ export const globalSlice: any = createSlice({
   },
 });
 
-export const { changeExterior, addToExterior, changeView, setDimensions , changeInside , addToInside , changeShowFinalQuoteModal} = globalSlice.actions;
+export const { changeExterior, addToExterior, changeView, setDimensions, changeInside, addToInside, changeShowFinalQuoteModal, resetAll } = globalSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.global;

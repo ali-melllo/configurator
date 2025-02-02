@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
-import { changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
+import { changeShowFinalQuoteModal, changeView, resetAll } from "@/redux/globalSlice";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,12 +10,18 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Loader } from "lucide-react";
+import { toast } from "sonner";
+import { useForm } from "react-hook-form";
 
 
 export default function Page() {
 
   const { showExterior, finalQuote, view, showInside, showFinalQuoteModal } = useSelector((state: any) => state.global);
   const [imageLoaded, setImageLoaded] = useState<boolean>(true);
+  const [emailLoading, setEmailLoading] = useState<boolean>(false);
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const dispatch = useDispatch();
 
@@ -25,7 +31,7 @@ export default function Page() {
 
   const changeViewHandler = useCallback((view: string) => {
     dispatch(changeView(view));
-  }, [])
+  }, [dispatch])
 
   const getExteriorPrice = useCallback(() => {
     return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
@@ -35,24 +41,29 @@ export default function Page() {
     return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
   }, [finalQuote]);
 
-  const sendEmail = async () => {
-    const response = await fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "email": "alimelllo32@gmail.com",
-        "products": [
-         ...finalQuote.interior, ...finalQuote.exterior
-        ]
-      }),
-    });
-  
-    const data = await response.json();
-    console.log(data);
+
+  const sendEmail = async (data: any) => {
+    setEmailLoading(true);
+    try {
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "products": [...finalQuote.interior, ...finalQuote.exterior],
+          "email": data.email,
+          "fullName": data.fullName
+        }),
+      });
+      toast("Price Request successfully submitted. We will answer to your email shortly.");
+      dispatch(resetAll());
+    } catch (err) {
+      console.error("Error sending email:", err);
+    }
+    setEmailLoading(false);
   };
-  
+
 
   return (
     <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
@@ -82,13 +93,14 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="ESTIMATED_PRICE text-sm md:text-base hidden md:flex gap-x-5 items-center absolute top-[4.5em] px-5 py-4 rounded-xl z-50 right-3 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        <Button onClick={() => dispatch(changeShowFinalQuoteModal(true))} className="bg-primary h-6 rounded-2xl">
-          See Details
-        </Button>
-        <p className="font-semibold">Estimated Price : </p>
-        <p className="font-bold text-primary">€  {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</p>
-      </div>
+      {formatEuroPrice(getInsidePrice() + getExteriorPrice()) !== '0'
+        && <div className="ESTIMATED_PRICE text-sm md:text-base hidden md:flex gap-x-5 items-center absolute top-[4.5em] px-5 py-4 rounded-xl z-50 right-3 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
+          <Button onClick={() => dispatch(changeShowFinalQuoteModal(true))} className="bg-primary h-6 rounded-2xl">
+            See Details
+          </Button>
+          <p className="font-semibold">Estimated Price : </p>
+          <p className="font-bold text-primary">€  {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</p>
+        </div>}
 
 
 
@@ -150,60 +162,58 @@ export default function Page() {
               Make a quote to get your selected services exact price in your email. please ensure that you enter the right email , our team will answer very soon.
             </DialogDescription>
           </DialogHeader>
-          <div autoFocus={false} className="grid gap-4 py-4">
-            <div className="flex flex-col items-start gap-y-2">
-              <Label className="text-right">
-                Full Name
-              </Label>
-              <Input
-                placeholder="Full Name "
-                className="col-span-3"
-              />
-            </div>
-            <div className="flex flex-col items-start gap-y-2">
-              <Label className="text-right">
-                Email
-              </Label>
-              <Input
-                placeholder="Email"
-                className=" col-span-3"
-              />
-            </div>
-            <Card className="w-full mt-5">
-              <CardContent>
-                <div className="grid w-full items-center gap-y-2 pt-5">
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Surface:</Label>
-                    <Label className="text-base text-muted-foreground -mr-2">{finalQuote.surface} m²</Label>
-                  </div>
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Depth:</Label>
-                    <Label className="text-base text-muted-foreground">{finalQuote.depth} cm</Label>
-                  </div>
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Width:</Label>
-                    <Label className="text-base text-muted-foreground">{finalQuote.width} cm</Label>
-                  </div>
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Exterior:</Label>
-                    <Label className="text-base text-muted-foreground">€ {getExteriorPrice()}</Label>
-                  </div>
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Inside:</Label>
-                    <Label className="text-base text-muted-foreground">€ {getInsidePrice()}</Label>
-                  </div>
-                  <div className="flex flex-row justify-between gap-x-3 items-center">
-                    <Label className="font-semibold text-base">Total:</Label>
-                    <Label className="text-base text-muted-foreground">€ {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</Label>
-                  </div>
+          <Card className="w-full mt-5">
+            <CardContent>
+              <div className="grid w-full items-center gap-y-2 pt-5">
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Surface:</Label>
+                  <Label className="text-base text-muted-foreground -mr-2">{finalQuote.surface} m²</Label>
                 </div>
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Depth:</Label>
+                  <Label className="text-base text-muted-foreground">{finalQuote.depth} cm</Label>
+                </div>
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Width:</Label>
+                  <Label className="text-base text-muted-foreground">{finalQuote.width} cm</Label>
+                </div>
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Exterior:</Label>
+                  <Label className="text-base text-muted-foreground">€ {getExteriorPrice()}</Label>
+                </div>
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Inside:</Label>
+                  <Label className="text-base text-muted-foreground">€ {getInsidePrice()}</Label>
+                </div>
+                <div className="flex flex-row justify-between gap-x-3 items-center">
+                  <Label className="font-semibold text-base">Total:</Label>
+                  <Label className="text-base text-muted-foreground">€ {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</Label>
+                </div>
+              </div>
 
-              </CardContent>
-            </Card>
+            </CardContent>
+          </Card>
+          <div autoFocus={false} className="grid gap-4 py-4">
+            <form onSubmit={handleSubmit(sendEmail)} className="grid gap-4 py-4">
+              <div className="flex flex-col items-start gap-y-2">
+                <Label>Full Name</Label>
+                <Input {...register("fullName", { required: "Full name is required" })} placeholder="Full Name" />
+                {errors.fullName && <p className="text-red-500 text-sm">{"Full Name is required"}</p>}
+              </div>
+              <div className="flex flex-col items-start gap-y-2">
+                <Label>Email</Label>
+                <Input {...register("email", { required: "Email is required" })} placeholder="Email" />
+                {errors.email && <p className="text-red-500 text-sm">{"Email is required"}</p>}
+              </div>
+              <DialogFooter>
+                <Button disabled={emailLoading} className="w-full h-12 font-semibold" type="submit">
+                  {emailLoading ? <Loader className="animate-spin" /> : "Submit Request"}
+                </Button>
+              </DialogFooter>
+            </form>
+
           </div>
-          <DialogFooter>
-            <Button onClick={sendEmail} className="w-full font-semibold" type="submit">Submit Request</Button>
-          </DialogFooter>
+
         </DialogContent>
       </Dialog>
 
