@@ -103,6 +103,21 @@ export const MATERIALS = {
         }
       ]
     },
+    { 
+      key:"light-point",
+      name: "Light point",
+      description:"Wall lamps",
+      items: [
+        {
+          name: "Align",
+          items: [
+            { src : "/wall-lamp-selector-1.svg" , objectSrc:"/wall-lamp-1.png" , price : "400" , fullName : "Right side wall lamp"},
+            { src : "/wall-lamp-selector-2.svg" , objectSrc:"/wall-lamp-2.png" , price : "560" , fullName : "Left Side wall lamp"},
+            { src : "/wall-lamp-selector-3.svg" , objectSrc:"/wall-lamp-3.png" , price : "770" , fullName : "Left & right wall lamp"},
+          ]
+        }
+      ]
+    },
   ]
 }
 

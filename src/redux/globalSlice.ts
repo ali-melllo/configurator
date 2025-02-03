@@ -9,6 +9,7 @@ import { toast } from "sonner";
 interface GlobalState {
   showExterior: boolean;
   showInside: boolean,
+  showFrequentlyAskedModal: boolean;
   showFinalQuoteModal: boolean,
   view?: "exterior" | "inside";
   finalQuote: {
@@ -16,12 +17,14 @@ interface GlobalState {
     width: string,
     depth: string,
     exterior: any[],
-    interior: any[]
+    interior: any[],
+    constructionOld: boolean
   };
 }
 
 const initialState: GlobalState = {
   showExterior: false,
+  showFrequentlyAskedModal: false,
   showFinalQuoteModal: false,
   showInside: false,
   view: "exterior",
@@ -29,6 +32,7 @@ const initialState: GlobalState = {
     surface: "",
     width: "",
     depth: "",
+    constructionOld:false,
     exterior: [],
     interior: []
   }
@@ -44,6 +48,9 @@ export const globalSlice: any = createSlice({
     changeInside: (state, action: PayloadAction<boolean>) => {
       state.showInside = action.payload;
     },
+    changeFrequentlyAskedModal: (state, action: PayloadAction<boolean>) => {
+      state.showFrequentlyAskedModal = action.payload;
+    },
     changeShowFinalQuoteModal: (state, action: PayloadAction<boolean>) => {
       if (!state.finalQuote.depth || !state.finalQuote.width) {
         toast("Please Define your surface area");
@@ -56,6 +63,7 @@ export const globalSlice: any = createSlice({
     changeView: (state, action: PayloadAction<"exterior" | "inside">) => {
       state.view = action.payload;
     },
+
     resetAll: (state) => {
       state.view = "exterior";
       state.finalQuote = {
@@ -63,7 +71,8 @@ export const globalSlice: any = createSlice({
         width: "",
         depth: "",
         exterior: [],
-        interior: []
+        interior: [],
+        constructionOld: false
       };
       state.showFinalQuoteModal = false;
     },
@@ -89,10 +98,24 @@ export const globalSlice: any = createSlice({
         state.finalQuote.interior.push(action.payload);
       }
     },
+    changeConstructionOld: (state, action: PayloadAction<boolean>) => {
+      state.finalQuote.constructionOld = action.payload
+    },
   },
 });
 
-export const { changeExterior, addToExterior, changeView, setDimensions, changeInside, addToInside, changeShowFinalQuoteModal, resetAll } = globalSlice.actions;
+export const {
+  changeExterior,
+  addToExterior,
+  changeView,
+  setDimensions,
+  changeInside,
+  addToInside,
+  changeShowFinalQuoteModal,
+  resetAll,
+  changeFrequentlyAskedModal,
+  changeConstructionOld
+} = globalSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.global;

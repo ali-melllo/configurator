@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToExterior, addToInside, changeExterior, changeInside, changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
+import { addToExterior, addToInside, changeConstructionOld, changeExterior, changeInside, changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SurfaceCard from "./main/surface-card";
 import { MATERIALS } from "@/data/static";
@@ -31,15 +31,13 @@ import { formatEuroPrice } from "@/lib/utils";
 
 export default function SideBar() {
 
-    const [constructionOld, setConstructionOld] = useState<boolean>(false);
-
     const dispatch = useDispatch();
-    const { finalQuote, showExterior, showInside } = useSelector((state: any) => state.global);
+    const { finalQuote, showExterior, showInside , view } = useSelector((state: any) => state.global);
 
 
-    const handleConstructionOldChange = useCallback((event: any) => {
-        setConstructionOld(event)
-    }, []);
+    const handleConstructionOldChange = useCallback((event: boolean) => {
+        dispatch(changeConstructionOld(event))
+    }, [dispatch]);
 
     const changeViewHandler = useCallback((view: string) => {
         dispatch(changeView(view));
@@ -60,7 +58,7 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////// */}
 
-            <Tabs defaultValue="exterior" className="my-5">
+            <Tabs value={view} defaultValue="exterior" className="my-5">
                 <TabsList>
                     <TabsTrigger onClick={() => changeViewHandler('exterior')} value="exterior">
                         Exterior
@@ -228,7 +226,7 @@ export default function SideBar() {
             {/* //////////////////////////////////////////////////////////////// */}
 
             <div className="flex items-center space-x-2 mt-5">
-                <Checkbox onCheckedChange={(e) => handleConstructionOldChange(e)} id="construction" />
+                <Checkbox onCheckedChange={(e:boolean) => handleConstructionOldChange(e)} id="construction" />
                 <label
                     htmlFor="construction"
                     className="text-lg font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -236,7 +234,7 @@ export default function SideBar() {
                     House is built before 1980
                 </label>
             </div>
-            {constructionOld && <p className="text-destructive transition-all duration-200 pt-1 text-sm">For homes built before 1980, each situation must be assessed on a case-by-case basis and a price quote will follow later.</p>}
+            {finalQuote.constructionOld && <p className="text-destructive transition-all duration-200 pt-1 text-sm">For homes built before 1980, each situation must be assessed on a case-by-case basis and a price quote will follow later.</p>}
 
             {/* //////////////////////////////////////////////////////////////// */}
 
