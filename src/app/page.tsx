@@ -1,135 +1,212 @@
 'use client'
 
+import Footer from "@/components/footer";
+import BlurFade from "@/components/magicui/blur-fade";
+import { GridPattern } from "@/components/magicui/grid-pattern";
+import { TextAnimate } from "@/components/magicui/text-animate";
 import { Button } from "@/components/ui/button";
-import { changeShowFinalQuoteModal, changeView, resetAll } from "@/redux/globalSlice";
+import { GALLERY_DATA } from "@/data/static";
+import { cn } from "@/lib/utils";
+import { LayoutDashboard, Phone, Wrench } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { formatEuroPrice } from "@/lib/utils";
-import SubmitModal from "@/components/main/modals/submit-modal";
-import FrequentlyAskedModal from "@/components/main/modals/frequently-asked-modal";
-
 
 export default function Page() {
 
-  const { showExterior, finalQuote, view, showInside } = useSelector((state: any) => state.global);
-  const [imageLoaded, setImageLoaded] = useState<boolean>(true);
-
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    setImageLoaded(false);
-  }, [showExterior, view, showInside]);
-
-  const changeViewHandler = useCallback((view: string) => {
-    dispatch(changeView(view));
-  }, [dispatch])
-
-  const getExteriorPrice = useCallback(() => {
-    return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
-  }, [finalQuote]);
-
-  const getInsidePrice = useCallback(() => {
-    return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
-  }, [finalQuote]);
-
-
   return (
-    <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
+    <div>
+      <main className="h-screen flex items-center pt-10 relative">
+        <GridPattern
+          squares={[
+            [4, 4],
+            [5, 1],
+            [8, 2],
+            [5, 3],
+            [5, 5],
+            [10, 10],
+            [12, 15],
+            [15, 10],
+            [10, 15],
+            [15, 10],
+            [10, 15],
+            [15, 10],
+          ]}
+          className={cn(
+            "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
+            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+          )}
+        />
 
-      <div className="flex cursor-pointer gap-x-3 absolute z-50 left-3 top top-[4.5em]">
-        <div onClick={() => changeViewHandler('exterior')} className="size-[2.75em] md:size-20 flex flex-col transition-all duration-200 justify-between hover:scale-105 rounded-xl shadow-xl">
-          <Image
-            className={`w-full h-full object-cover rounded-t-lg`}
-            src={'/main.png'}
-            alt={'exterior'}
-            width={300}
-            height={100}
-            quality={100}
-          />
-          <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">Exterior</p>
+        <div className="pl-36 pr-24 flex w-6/12 flex-col">
+          <TextAnimate className="text-6xl font-bold" animation="blurInUp" by="character">
+            Home Extensions and Renovations
+          </TextAnimate>
+          <p className="text-muted-foreground mt-5">
+            Experience craftsmanship and quality since 1998 and read our reviews at:
+            <a
+              href="https://www.werkspot.nl/profiel/persian-top/reviews"
+              className="text-blue-600 ml-1 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.werkspot.nl/profiel/persian-top/reviews
+            </a>
+          </p>
+          <Button className="h-14 z-20 mt-10 w-11/12 font-bold text-2xl rounded-xl shadow-2xl">
+            Start Using Configurator
+          </Button>
         </div>
-        <div onClick={() => changeViewHandler('inside')} className="size-[2.75em] md:size-20 flex flex-col transition-all duration-200 justify-between hover:scale-105 rounded-xl shadow-xl">
+
+
+        <div className=" absolute bottom-0 right-0">
           <Image
-            className={`w-full h-full object-cover rounded-t-lg`}
-            src={'/main-inside.png'}
-            alt={'exterior'}
-            width={300}
-            height={100}
-            quality={100}
+            src={'/main-hero.webp'}
+            alt={'Persian Top'}
+            width={700}
+            height={500}
           />
-          <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">Inside</p>
+        </div>
+
+      </main>
+
+
+      <div className="mt-48 w-full flex flex-col items-center">
+        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+          How Does it Work ?
+        </TextAnimate>
+
+        <div className="w-8/12 flex gap-10 mt-36">
+          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+            <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
+              <LayoutDashboard className="size-14" color="#ffffff" />
+            </div>
+            <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">1#</span> Choose Your Preferred Services in Configurator Easy From Webapp</h2>
+            <p className="text-muted-foreground mt-5">Persian top offers an smooth and easy to use configurator for selecting specific home exterior and inside house services</p>
+            <Button className="rounded-xl w-full h-12 mt-5 font-bold text-lg">
+              Go To Configurator
+            </Button>
+          </div>
+          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+            <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
+              <Phone className="size-14" color="#ffffff" />
+            </div>
+            <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">2#</span> Professional craftsmen will contact you to finalize your requests and prices          </h2>
+            <p className="text-muted-foreground mt-5">Inside the configurator You'll see the estimated price real time and you can request a quote to get the exact price and finalize your order.</p>
+
+          </div>
+          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+            <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
+              <Wrench className="size-14" color="#ffffff" />
+            </div>
+            <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">3#</span> Let the experts bring your needs in real life in a very short time </h2>
+            <p className="text-muted-foreground mt-5">Your specialist in renovations and home extensions with more than 25 years of experience and craftsmanship will deliver your needs</p>
+
+          </div>
         </div>
       </div>
 
-      {formatEuroPrice(getInsidePrice() + getExteriorPrice()) !== '0'
-        && <div className="ESTIMATED_PRICE text-sm md:text-base hidden md:flex gap-x-5 items-center absolute top-[4.5em] px-5 py-4 rounded-xl z-50 right-3 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-          <Button onClick={() => dispatch(changeShowFinalQuoteModal(true))} className="bg-primary h-6 rounded-2xl">
-            See Details
-          </Button>
-          <p className="font-semibold">Estimated Price : </p>
-          <p className="font-bold text-primary">€  {formatEuroPrice((getInsidePrice() + getExteriorPrice() || '0'))}</p>
-        </div>}
+      <div className="my-48 w-full flex flex-col items-center">
+        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+          Our Services
+        </TextAnimate>
+        <p className="text-muted-foreground mt-5">Quality and craftsmanship for renovation and expansion.</p>
 
+        <div className="w-10/12 flex gap-10 mt-36">
 
-
-      {/* Main Image */}
-      <Image
-        className={`inset-0 mt-16 md:mt-0 ${imageLoaded ? 'animate-none' : 'animate-pulse'} w-full h-full object-cover z-10`}
-        onLoad={() => {
-          setImageLoaded(true);
-        }}
-        src={view === 'exterior' ? '/main.png' : view === 'inside' ? '/main-inside.png' : ''}
-        alt={'exterior'}
-        width={3000}
-        height={3000}
-        quality={100}
-        priority
-      />
-
-      {/* Show second image only when preloaded */}
-      {/* condition z-index to avoid image layer crash */}
-
-      {view === 'exterior' &&
-        (
-          finalQuote.exterior.map((item: any) => (
+          <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+            <h2 className="font-extrabold text-3xl">Complete Renovation</h2>
+            <p className="text-muted-foreground mt-5"> Transform your home with our expertise</p>
             <Image
-              key={item.key}
-              onLoad={() => {
-                setImageLoaded(true);
-              }}
-              className={`absolute mt-16 md:mt-0 inset-0 md:w-full md:h-full object-cover ${item.key === 'outdoor-light' ? 'z-30' : 'z-20'}`}
-              src={item.objectSrc}
-              alt={'exterior'}
-              width={3000}
-              height={3000}
-              quality={100}
-              priority
+              className="mt-5 min-h-96 rounded-2xl w-full"
+              src={'/renovation.webp'}
+              alt={'Renovation'}
+              width={300}
+              height={600}
             />
-          ))
-        )}
+          </div>
+          <div className="w-4/12 p-8 scale-110 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+            <h2 className="font-extrabold text-3xl">Home extensions</h2>
+            <p className="text-muted-foreground mt-5">Beautiful extensions for your living needs.</p>
+            <Image
+              className="mt-5 min-h-96 rounded-2xl w-full"
+              src={'/extension.webp'}
+              alt={'Extension'}
+              width={300}
+              height={600}
+            />
+          </div>
+          <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+            <h2 className="font-extrabold text-3xl">Craftsmanship</h2>
+            <p className="text-muted-foreground mt-5">Elegance and tradition in every project.</p>
+            <Image
+              className="mt-5 min-h-96 rounded-2xl w-full"
+              src={'/craft.webp'}
+              alt={'Craft'}
+              width={300}
+              height={600}
+            />
+          </div>
 
-      {view === 'inside' && (
-        finalQuote.interior.map((item: any) => (
-          <Image
-            key={item.key}
-            onLoad={() => setImageLoaded(true)}
-            className={`absolute mt-16 md:mt-0 inset-0 md:w-full md:h-full object-cover ${item.key === 'outdoor-light' ? 'z-30' : 'z-20'}`}
-            src={item.objectSrc}
-            alt={'exterior'}
-            width={3000}
-            height={3000}
-            quality={100}
-            priority
-          />
-        ))
-      )}
+        </div>
+      </div>
 
-      <SubmitModal />
 
-      <FrequentlyAskedModal />
 
-    </main>
+      <div className="w-9/12 mx-auto my-48">
+        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+          Gallery
+        </TextAnimate>
+        <p className="text-muted-foreground text-center mt-5">Discover our renovations and extensions with craftsmanship and detail.</p>
+
+        <section id="photos" className="mt-20">
+          <div className="columns-2 gap-4 sm:columns-3">
+            {GALLERY_DATA.map((imageUrl, idx) => (
+              <BlurFade key={idx + imageUrl.src} delay={0.25 + idx * 0.05} inView>
+                <img
+                  className="mb-4 size-full rounded-lg object-contain"
+                  src={imageUrl.src}
+                  alt={`Random stock image ${idx + 1}`}
+                />
+              </BlurFade>
+            ))}
+          </div>
+        </section>
+      </div>
+
+
+      <BlurFade delay={0.25} inView>
+        <div className="flex w-9/12 mx-auto h-96 my-72">
+          <div className="w-6/12">
+            <Image
+              className="w-full rounded-l-3xl max-h-96"
+              src={'/rate-hero.webp'}
+              alt={'Rating'}
+              width={500}
+              height={400}
+            />
+          </div>
+          <div className="w-6/12 z-20 h-full p-10 -ml-5 shadow-2xl scale-110 border rounded-l-sm rounded-r-3xl bg-background">
+            <h2 className="text-4xl font-bold text-primary">★★★★★</h2>
+            <p className="mt-5 text-lg">Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."</p>
+            <div className="flex flex-col items-start mt-5">
+              <Image
+                className="rounded-full size-10"
+                src={'/peter.avif'}
+                alt={'Rating'}
+                width={50}
+                height={50}
+              />
+              <p className="text-lg text-muted-foreground ">Peter G</p>
+
+            </div>
+          </div>
+        </div>
+      </BlurFade>
+
+      <Footer />
+
+
+      <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
+
+    </div>
   );
 }

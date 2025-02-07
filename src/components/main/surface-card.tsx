@@ -27,20 +27,17 @@ export default function SurfaceCard() {
   const width = watch("width");
   const depth = watch("depth");
 
-  const [surfaceArea, setSurfaceArea] = useState<number | null>(null);
   const { finalQuote } = useSelector((state: any) => state.global);
 
   useEffect(() => {
     const widthNum = parseFloat(width) || 0;
     const depthNum = parseFloat(depth) || 0;
-    setSurfaceArea((widthNum * depthNum) / 10000); // Convert cm² to m²
 
     dispatch(setDimensions({
       width: widthNum,
       depth: depthNum,
       surface: (widthNum * depthNum) / 10000
     }))
-
   }, [width, depth, dispatch]);
 
   return (
@@ -58,7 +55,7 @@ export default function SurfaceCard() {
           </Popover>
         </CardTitle>
         <CardTitle className="font-bold text-2xl text-primary -mr-2">
-          {surfaceArea !== null ? `${surfaceArea.toFixed(2)} m²` : "-- m²"}
+          {finalQuote.surface !== null ? `${Number(finalQuote.surface).toFixed(2) || 0} m²` : "-- m²"}
         </CardTitle>
       </CardHeader>
       <CardContent>

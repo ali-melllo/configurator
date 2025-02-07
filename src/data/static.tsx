@@ -121,6 +121,19 @@ export const MATERIALS = {
   ]
 }
 
+export const GALLERY_DATA = [
+  {src:'/gallery/item-1.avif'},
+  {src:'/gallery/item-2.avif'},
+  {src:'/gallery/item-3.avif'},
+  {src:'/gallery/item-4.avif'},
+  {src:'/gallery/item-5.avif'},
+  {src:'/gallery/item-6.avif'},
+  {src:'/gallery/item-7.avif'},
+  {src:'/gallery/item-8.avif'},
+  {src:'/gallery/item-9.avif'},
+  {src:'/gallery/item-10.avif'},
+]
+
 export const DATA = {
   name: "Configurator",
   initials: "DV",
@@ -129,12 +142,15 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
     "Home design tool",
-  summary:
-    "a new super fast home design tool for everyone",
-  avatarUrl: "/me.jpg",
-
-  navbar: [
+  logo: [
     { href: "/", icon: HomeIcon, label: "Home" },
+  ],
+  navbar: [
+    { href: "/", label: "Home" },
+    { href: "/configurator", label: "Configurator" },
+    { href: "/projects", label: "Projects" },
+    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
   ],
   contact: {
     email: "email@example.com",
