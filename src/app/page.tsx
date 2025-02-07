@@ -1,4 +1,6 @@
-'use client'
+"use client"
+
+/* eslint-disable react/no-unescaped-entities */
 
 import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -89,7 +91,7 @@ export default function Page() {
             <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
               <Phone className="size-14" color="#ffffff" />
             </div>
-            <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">2#</span> Professional craftsmen will contact you to finalize your requests and prices          </h2>
+            <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">2#</span> Professional craftsmen will contact you to finalize your requests and prices </h2>
             <p className="text-muted-foreground mt-5">Inside the configurator You'll see the estimated price real time and you can request a quote to get the exact price and finalize your order.</p>
 
           </div>
@@ -99,7 +101,6 @@ export default function Page() {
             </div>
             <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">3#</span> Let the experts bring your needs in real life in a very short time </h2>
             <p className="text-muted-foreground mt-5">Your specialist in renovations and home extensions with more than 25 years of experience and craftsmanship will deliver your needs</p>
-
           </div>
         </div>
       </div>
@@ -186,7 +187,9 @@ export default function Page() {
           </div>
           <div className="w-6/12 z-20 h-full p-10 -ml-5 shadow-2xl scale-110 border rounded-l-sm rounded-r-3xl bg-background">
             <h2 className="text-4xl font-bold text-primary">★★★★★</h2>
-            <p className="mt-5 text-lg">Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."</p>
+            <p className="mt-5 text-lg">
+              {"Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."}
+            </p>
             <div className="flex flex-col items-start mt-5">
               <Image
                 className="rounded-full size-10"
