@@ -134,6 +134,23 @@ export const GALLERY_DATA = [
   {src:'/gallery/item-10.avif'},
 ]
 
+export const PROJECTS_GALLERY_DATA = [
+  {src:'/projects/project-1.avif'},
+  {src:'/projects/project-2.avif'},
+  {src:'/projects/project-3.avif'},
+  {src:'/projects/project-4.avif'},
+  {src:'/projects/project-5.avif'},
+  {src:'/projects/project-6.avif'},
+  {src:'/projects/project-7.avif'},
+  {src:'/projects/project-8.avif'},
+  {src:'/projects/project-9.avif'},
+  {src:'/projects/project-11.avif'},
+  {src:'/projects/project-12.avif'},
+  {src:'/projects/project-13.avif'},
+  {src:'/projects/project-14.avif'},
+  {src:'/projects/project-15.avif'},
+]
+
 export const DATA = {
   name: "Configurator",
   initials: "DV",

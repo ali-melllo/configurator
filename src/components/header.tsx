@@ -74,7 +74,7 @@ export default function Header() {
           <Tooltip>
             <TooltipTrigger onClick={() => dispatch(changeFrequentlyAskedModal(true))} asChild>
               <div className="flex flex-nowrap gap-2 items-center">
-                <CircleHelp className="size-6" />
+                <CircleHelp color="#Facc14" className="size-6" />
                 <p className="text-nowrap text-base">To Ask</p>
               </div>
             </TooltipTrigger>

@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/footer";
 /* eslint-disable react/no-unescaped-entities */
 
 import BlurFade from "@/components/magicui/blur-fade";
@@ -58,12 +59,11 @@ export default function Page() {
         </div>
 
 
-        <div className=" absolute bottom-0 right-0">
-          <Image
-            src={'/main-hero.avif'}
+        <div className="w-6/12 z-20 flex justify-end  bottom-0 right-0">
+          <img
+            className="w-full"
+            src={'/main-hero.webp'}
             alt={'Persian Top'}
-            width={700}
-            height={500}
           />
         </div>
 
@@ -115,37 +115,30 @@ export default function Page() {
           <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Complete Renovation</h2>
             <p className="text-muted-foreground mt-5"> Transform your home with our expertise</p>
-            <Image
+            <img
               className="mt-5 min-h-96 rounded-2xl w-full"
               src={'/renovation.avif'}
               alt={'Renovation'}
-              width={300}
-              height={600}
             />
           </div>
           <div className="w-4/12 p-8 scale-110 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Home extensions</h2>
             <p className="text-muted-foreground mt-5">Beautiful extensions for your living needs.</p>
-            <Image
+            <img
               className="mt-5 min-h-96 rounded-2xl w-full"
               src={'/extension.avif'}
               alt={'Extension'}
-              width={300}
-              height={600}
             />
           </div>
           <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Craftsmanship</h2>
             <p className="text-muted-foreground mt-5">Elegance and tradition in every project.</p>
-            <Image
+            <img
               className="mt-5 min-h-96 rounded-2xl w-full"
               src={'/craft.avif'}
               alt={'Craft'}
-              width={300}
-              height={600}
             />
           </div>
-
         </div>
       </div>
 
@@ -176,12 +169,10 @@ export default function Page() {
       <BlurFade delay={0.25} inView>
         <div className="flex w-9/12 mx-auto h-96 my-72">
           <div className="w-6/12">
-            <Image
+            <img
               className="w-full rounded-l-3xl max-h-96"
               src={'/rate-hero.avif'}
               alt={'Rating'}
-              width={500}
-              height={400}
             />
           </div>
           <div className="w-6/12 z-20 h-full p-10 -ml-5 shadow-2xl scale-110 border rounded-l-sm rounded-r-3xl bg-background">
@@ -190,19 +181,18 @@ export default function Page() {
               {"Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."}
             </p>
             <div className="flex flex-col items-start mt-5">
-              <Image
+              <img
                 className="rounded-full size-10"
                 src={'/peter.avif'}
                 alt={'Rating'}
-                width={50}
-                height={50}
               />
               <p className="text-lg text-muted-foreground ">Peter G</p>
-
             </div>
           </div>
         </div>
       </BlurFade>
+
+      <Footer/>
 
       <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
 

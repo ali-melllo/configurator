@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import { TextAnimate } from "@/components/magicui/text-animate";
@@ -9,7 +10,7 @@ import Link from "next/link";
 
 export default function Page() {
     return (
-        <div className="pt-24 w-full flex flex-col items-center">
+        <div className="pt-28 w-full flex flex-col items-center">
             <GridPattern
                 width={30}
                 height={30}
@@ -17,7 +18,7 @@ export default function Page() {
                 y={-1}
                 strokeDasharray={"4 2"}
                 className={cn(
-                    "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
+                    "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
                 )}
             />
             <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
@@ -123,15 +124,13 @@ export default function Page() {
                     <Link
                         href={'https://www.google.com/maps/place/Dreef+10,+1431+WD+Aalsmeer,+Netherlands/@52.2555208,4.7631746,15.25z/data=!4m15!1m8!3m7!1s0x47c5de1983ba779b:0x653cdd2b018b0dcc!2sDreef+10,+1431+WD+Aalsmeer,+Netherlands!3b1!8m2!3d52.2572332!4d4.763412!16s%2Fg%2F11c18h8xnz!3m5!1s0x47c5de1983ba779b:0x653cdd2b018b0dcc!8m2!3d52.2572332!4d4.763412!16s%2Fg%2F11c18h8xnz!5m2!1e4!1e2?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D'}
                         className="w-6/12 scale-105 z-20 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-200">
-                        <Image
-                            className="w-full rounded-r-3xl rounded-l-lg -h-96 shadow-2xl"
+                        <img
+                            className="w-full rounded-r-3xl h-[22em] rounded-l-lg shadow-2xl"
                             src={'/location.png'}
                             alt={'Rating'}
-                            width={500}
-                            height={400}
                         />
                     </Link>
-                    <div className="w-6/12 h-full p-10 border rounded-r-sm rounded-l-3xl bg-background">
+                    <div className="w-6/12 h-[22em] p-10 border rounded-r-sm rounded-l-3xl bg-background">
                         <h2 className="text-5xl font-bold">Locations</h2>
                         <p className="mt-5 text-muted-foreground text-sm">
                             We offer our services in various regions. Please contact us for more information about your specific location
@@ -146,6 +145,7 @@ export default function Page() {
                 </div>
             </BlurFade>
 
+            <Footer/>
 
         </div>
     )
