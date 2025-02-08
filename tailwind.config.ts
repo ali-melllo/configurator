@@ -19,6 +19,9 @@ const config = {
   		}
   	},
   	extend: {
+			backgroundImage: {
+			  'body-img': "url('/services-main.avif')",
+			},
   		fontFamily: {
   			sans: [
   				'var(--font-sans)',

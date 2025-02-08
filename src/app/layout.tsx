@@ -8,6 +8,7 @@ import { store } from '../redux/store';
 import { Provider } from 'react-redux'
 import { Toaster } from "@/components/ui/sonner";
 import FrequentlyAskedModal from "@/components/main/modals/frequently-asked-modal";
+import Footer from "@/components/footer";
 
 export default function RootLayout({
   children,
@@ -25,6 +26,7 @@ export default function RootLayout({
               <Header />
               {children}
               <FrequentlyAskedModal />
+              <Footer/>
             </Provider>
           </TooltipProvider>
         </ThemeProvider>

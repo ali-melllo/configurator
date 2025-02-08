@@ -2,7 +2,6 @@
 
 /* eslint-disable react/no-unescaped-entities */
 
-import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import { TextAnimate } from "@/components/magicui/text-animate";
@@ -61,7 +60,7 @@ export default function Page() {
 
         <div className=" absolute bottom-0 right-0">
           <Image
-            src={'/main-hero.webp'}
+            src={'/main-hero.avif'}
             alt={'Persian Top'}
             width={700}
             height={500}
@@ -118,7 +117,7 @@ export default function Page() {
             <p className="text-muted-foreground mt-5"> Transform your home with our expertise</p>
             <Image
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/renovation.webp'}
+              src={'/renovation.avif'}
               alt={'Renovation'}
               width={300}
               height={600}
@@ -129,7 +128,7 @@ export default function Page() {
             <p className="text-muted-foreground mt-5">Beautiful extensions for your living needs.</p>
             <Image
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/extension.webp'}
+              src={'/extension.avif'}
               alt={'Extension'}
               width={300}
               height={600}
@@ -140,7 +139,7 @@ export default function Page() {
             <p className="text-muted-foreground mt-5">Elegance and tradition in every project.</p>
             <Image
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/craft.webp'}
+              src={'/craft.avif'}
               alt={'Craft'}
               width={300}
               height={600}
@@ -179,7 +178,7 @@ export default function Page() {
           <div className="w-6/12">
             <Image
               className="w-full rounded-l-3xl max-h-96"
-              src={'/rate-hero.webp'}
+              src={'/rate-hero.avif'}
               alt={'Rating'}
               width={500}
               height={400}
@@ -204,9 +203,6 @@ export default function Page() {
           </div>
         </div>
       </BlurFade>
-
-      <Footer />
-
 
       <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
 

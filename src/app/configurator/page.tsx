@@ -12,7 +12,7 @@ import SubmitModal from "@/components/main/modals/submit-modal";
 export default function Page() {
 
   const { showExterior, finalQuote, view, showInside } = useSelector((state: any) => state.global);
-  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const [imageLoaded, setImageLoaded] = useState<boolean>(true);
 
 
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export default function Page() {
   return (
     <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
 
-      <div className="flex cursor-pointer gap-x-3 absolute z-50 left-3 top top-[4.5em]">
+      <div className="flex cursor-pointer gap-x-3 absolute z-50 left-3 top top-[5.5em]">
         <div onClick={() => changeViewHandler('exterior')} className="size-[2.75em] md:size-20 flex flex-col transition-all duration-200 justify-between hover:scale-105 rounded-xl shadow-xl">
           <Image
             className={`w-full h-full object-cover rounded-t-lg`}
@@ -46,7 +46,7 @@ export default function Page() {
             width={300}
             height={100}
             quality={100}
-            unoptimized
+            // unoptimized
           />
           <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">Exterior</p>
         </div>
@@ -65,7 +65,7 @@ export default function Page() {
       </div>
 
       {formatEuroPrice(getInsidePrice() + getExteriorPrice()) !== '0'
-        && <div className="ESTIMATED_PRICE text-sm md:text-base hidden md:flex gap-x-5 items-center absolute top-[4.5em] px-5 py-4 rounded-xl z-50 right-3 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
+        && <div className="ESTIMATED_PRICE text-sm md:text-base hidden md:flex gap-x-5 items-center absolute top-[5.5em] px-5 py-4 rounded-xl z-50 right-3 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
           <Button onClick={() => dispatch(changeShowFinalQuoteModal(true))} className="bg-primary h-6 rounded-2xl">
             See Details
           </Button>
