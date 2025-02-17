@@ -11,13 +11,12 @@ import { Button } from "@/components/ui/button";
 import { GALLERY_DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, Phone, Wrench } from "lucide-react";
-import Image from "next/image";
 
 export default function Page() {
 
   return (
     <div>
-      <main className="h-screen flex flex-col md:flex-row items-center pt-10 relative">
+      <main className="md:h-screen w-full flex flex-col-reverse md:flex-row items-center pt-10 relative">
         <GridPattern
           squares={[
             [4, 4],
@@ -35,12 +34,12 @@ export default function Page() {
           ]}
           className={cn(
             "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+            "inset-x-0 inset-y-[-30%] h-full md:h-[200%] skew-y-12",
           )}
         />
 
-        <div className="md:pl-36 md:pr-24 flex w-full md:w-6/12 flex-col">
-          <TextAnimate className="text-3xl w-full text-center md:text-left md:text-6xl font-bold" animation="blurInUp" by="character">
+        <div className="md:pl-36 md:pr-24 flex w-full mt-10 md:mt-0 md:w-6/12 flex-col">
+          <TextAnimate className="text-3xl w-9/12 mx-auto md:w-full text-center md:text-left md:text-6xl font-bold" animation="blurInUp" by="character">
             Home Extensions and Renovations
           </TextAnimate>
           <p className="text-muted-foreground text-center md:text-left mt-5">
@@ -59,7 +58,7 @@ export default function Page() {
           </Button>
         </div>
 
-        <div className=" w-8/12 md:w-6/12 z-20 flex justify-end mt-20 md:mt-0">
+        <div className=" w-8/12 md:w-6/12 z-20 flex justify-end mt-0">
           <img
             className="w-full"
             src={'/main-hero.webp'}
@@ -71,12 +70,12 @@ export default function Page() {
 
 
       <div className="mt-48 w-full flex flex-col items-center">
-        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+        <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           How Does it Work ?
         </TextAnimate>
 
-        <div className="w-8/12 flex gap-10 mt-36">
-          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+        <div className="w-8/12 flex flex-col md:flex-row gap-y-16 md:gap-y-10 gap-10 mt-36">
+          <div className="w-full md:w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
             <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
               <LayoutDashboard className="size-14" color="#ffffff" />
             </div>
@@ -86,7 +85,7 @@ export default function Page() {
               Go To Configurator
             </Button>
           </div>
-          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+          <div className="w-full md:w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
             <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
               <Phone className="size-14" color="#ffffff" />
             </div>
@@ -94,7 +93,7 @@ export default function Page() {
             <p className="text-muted-foreground mt-5">Inside the configurator You'll see the estimated price real time and you can request a quote to get the exact price and finalize your order.</p>
 
           </div>
-          <div className="w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
+          <div className="w-full md:w-4/12 p-5 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col items-center relative">
             <div className="bg-primary absolute size-20 flex justify-center items-center -mt-10 rounded-3xl shadow-xl">
               <Wrench className="size-14" color="#ffffff" />
             </div>
@@ -105,37 +104,37 @@ export default function Page() {
       </div>
 
       <div className="my-48 w-full flex flex-col items-center">
-        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+        <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           Our Services
         </TextAnimate>
-        <p className="text-muted-foreground mt-5">Quality and craftsmanship for renovation and expansion.</p>
+        <p className="text-muted-foreground text-center mt-5">Quality and craftsmanship for renovation and expansion.</p>
 
-        <div className="w-10/12 flex gap-10 mt-36">
+        <div className="w-11/12 md:w-10/12 flex flex-col md:flex-row gap-y-20 md:gap-y-10 gap-10 mt-36">
 
-          <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+          <div className="md:w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Complete Renovation</h2>
             <p className="text-muted-foreground mt-5"> Transform your home with our expertise</p>
             <img
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/renovation.avif'}
+              src={'/renovation-project.avif'}
               alt={'Renovation'}
             />
           </div>
-          <div className="w-4/12 p-8 scale-110 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+          <div className="md:w-4/12 p-8 scale-110 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Home extensions</h2>
             <p className="text-muted-foreground mt-5">Beautiful extensions for your living needs.</p>
             <img
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/extension.avif'}
+              src={'/extension-project.avif'}
               alt={'Extension'}
             />
           </div>
-          <div className="w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
+          <div className="md:w-4/12 p-8 bg-background dark:bg-accent/30 shadow-xl rounded-2xl flex flex-col">
             <h2 className="font-extrabold text-3xl">Craftsmanship</h2>
             <p className="text-muted-foreground mt-5">Elegance and tradition in every project.</p>
             <img
               className="mt-5 min-h-96 rounded-2xl w-full"
-              src={'/craft.avif'}
+              src={'/services-main.avif'}
               alt={'Craft'}
             />
           </div>
@@ -144,8 +143,8 @@ export default function Page() {
 
 
 
-      <div className="w-9/12 mx-auto my-48">
-        <TextAnimate className="text-6xl text-center font-bold" animation="blurInUp" by="character">
+      <div className="w-11/12 md:w-9/12 mx-auto my-48">
+        <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           Gallery
         </TextAnimate>
         <p className="text-muted-foreground text-center mt-5">Discover our renovations and extensions with craftsmanship and detail.</p>
@@ -167,17 +166,17 @@ export default function Page() {
 
 
       <BlurFade delay={0.25} inView>
-        <div className="flex w-9/12 mx-auto h-96 my-72">
-          <div className="w-6/12">
+        <div className="flex flex-col md:flex-row w-9/12 mx-auto h-96 my-72">
+          <div className="w-full md:w-6/12">
             <img
-              className="w-full rounded-l-3xl max-h-96"
+              className="w-full rounded-xl md:rounded-l-3xl max-h-96"
               src={'/rate-hero.avif'}
               alt={'Rating'}
             />
           </div>
-          <div className="w-6/12 z-20 h-full p-10 -ml-5 shadow-2xl scale-110 border rounded-l-sm rounded-r-3xl bg-background">
-            <h2 className="text-4xl font-bold text-primary">★★★★★</h2>
-            <p className="mt-5 text-lg">
+          <div className="w-full md:w-6/12 z-20 h-full p-5 md:p-10 md:-ml-5 shadow-2xl scale-110 border md:rounded-l-sm rounded-lg md:rounded-r-3xl bg-background">
+            <h2 className="md:text-4xl font-bold text-primary">★★★★★</h2>
+            <p className="mt-5 md:text-lg">
               {"Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."}
             </p>
             <div className="flex flex-col items-start mt-5">
@@ -186,7 +185,7 @@ export default function Page() {
                 src={'/peter.avif'}
                 alt={'Rating'}
               />
-              <p className="text-lg text-muted-foreground ">Peter G</p>
+              <p className="md:text-lg text-muted-foreground ">Peter G</p>
             </div>
           </div>
         </div>
