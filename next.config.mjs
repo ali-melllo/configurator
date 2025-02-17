@@ -10,7 +10,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   distDir: "out",
-  output: "export",
+  // output: "export",
 };
 
 export default nextConfig;

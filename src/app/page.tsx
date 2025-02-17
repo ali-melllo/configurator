@@ -1,8 +1,9 @@
 "use client"
 
-import Footer from "@/components/footer";
 /* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-img-element */
 
+import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import { TextAnimate } from "@/components/magicui/text-animate";
@@ -16,7 +17,7 @@ export default function Page() {
 
   return (
     <div>
-      <main className="h-screen flex items-center pt-10 relative">
+      <main className="h-screen flex flex-col md:flex-row items-center pt-10 relative">
         <GridPattern
           squares={[
             [4, 4],
@@ -38,11 +39,11 @@ export default function Page() {
           )}
         />
 
-        <div className="pl-36 pr-24 flex w-6/12 flex-col">
-          <TextAnimate className="text-6xl font-bold" animation="blurInUp" by="character">
+        <div className="md:pl-36 md:pr-24 flex w-full md:w-6/12 flex-col">
+          <TextAnimate className="text-3xl w-full text-center md:text-left md:text-6xl font-bold" animation="blurInUp" by="character">
             Home Extensions and Renovations
           </TextAnimate>
-          <p className="text-muted-foreground mt-5">
+          <p className="text-muted-foreground text-center md:text-left mt-5">
             Experience craftsmanship and quality since 1998 and read our reviews at:
             <a
               href="https://www.werkspot.nl/profiel/persian-top/reviews"
@@ -53,13 +54,12 @@ export default function Page() {
               https://www.werkspot.nl/profiel/persian-top/reviews
             </a>
           </p>
-          <Button className="h-14 z-20 mt-10 w-11/12 font-bold text-2xl rounded-xl shadow-2xl">
+          <Button className="h-14 z-20 mt-10 w-11/12 mx-auto md:mr-auto md:ml-0 font-bold text-2xl rounded-xl shadow-2xl">
             Start Using Configurator
           </Button>
         </div>
 
-
-        <div className="w-6/12 z-20 flex justify-end  bottom-0 right-0">
+        <div className=" w-8/12 md:w-6/12 z-20 flex justify-end mt-20 md:mt-0">
           <img
             className="w-full"
             src={'/main-hero.webp'}

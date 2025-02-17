@@ -31,34 +31,28 @@ export default function Page() {
                 <div className="w-4/12 p-8 bg-background dark:bg-black shadow-xl rounded-2xl flex flex-col">
                     <h2 className="font-extrabold text-3xl">Complete Renovation</h2>
                     <p className="text-muted-foreground mt-5"> Transform your home with our expertise in complete renovations and high-quality finishes for every project.</p>
-                    <Image
+                    <img
                         className="mt-5 min-h-96 rounded-xl w-full"
                         src={'/renovation.avif'}
                         alt={'Renovation'}
-                        width={300}
-                        height={600}
                     />
                 </div>
                 <div className="w-4/12 p-8  bg-background dark:bg-black shadow-xl rounded-2xl flex flex-col">
                     <h2 className="font-extrabold text-3xl">Home extensions</h2>
                     <p className="text-muted-foreground mt-5">Create extra space with elegant home extensions that perfectly match your living needs and style</p>
-                    <Image
+                    <img
                         className="mt-5 min-h-96 rounded-xl w-full"
                         src={'/extension.avif'}
                         alt={'Extension'}
-                        width={300}
-                        height={600}
                     />
                 </div>
                 <div className="w-4/12 p-8 bg-background dark:bg-black shadow-xl rounded-2xl flex flex-col">
                     <h2 className="font-extrabold text-3xl">Craftsmanship</h2>
                     <p className="text-muted-foreground mt-5">Experience the highest quality and craftsmanship in all our renovation and expansion projects.</p>
-                    <Image
+                    <img
                         className="mt-5 min-h-96 rounded-xl w-full"
                         src={'/craft.avif'}
                         alt={'Craft'}
-                        width={300}
-                        height={600}
                     />
                 </div>
             </div>
