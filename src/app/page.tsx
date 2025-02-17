@@ -16,7 +16,7 @@ export default function Page() {
 
   return (
     <div>
-      <main className="md:h-screen w-full flex flex-col-reverse md:flex-row items-center pt-10 relative">
+      <main className="md:h-screen w-full flex flex-col-reverse md:flex-row items-center m pt-24 d:pt-10 relative">
         <GridPattern
           squares={[
             [4, 4],
@@ -38,11 +38,11 @@ export default function Page() {
           )}
         />
 
-        <div className="md:pl-36 md:pr-24 flex w-full mt-10 md:mt-0 md:w-6/12 flex-col">
+        <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col">
           <TextAnimate className="text-3xl w-9/12 mx-auto md:w-full text-center md:text-left md:text-6xl font-bold" animation="blurInUp" by="character">
             Home Extensions and Renovations
           </TextAnimate>
-          <p className="text-muted-foreground text-center md:text-left mt-5">
+          <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
             Experience craftsmanship and quality since 1998 and read our reviews at:
             <a
               href="https://www.werkspot.nl/profiel/persian-top/reviews"
@@ -53,7 +53,7 @@ export default function Page() {
               https://www.werkspot.nl/profiel/persian-top/reviews
             </a>
           </p>
-          <Button className="h-14 z-20 mt-10 w-11/12 mx-auto md:mr-auto md:ml-0 font-bold text-2xl rounded-xl shadow-2xl">
+          <Button className="h-14 z-20 mt-5 md:mt-10 w-11/12 mx-auto md:mr-auto md:ml-0 font-bold text-xl md:text-2xl rounded-xl shadow-2xl">
             Start Using Configurator
           </Button>
         </div>
