@@ -6,17 +6,20 @@
 import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
 import { GridPattern } from "@/components/magicui/grid-pattern";
+import Iphone15Pro from "@/components/magicui/iphone-15-pro";
+import { Safari } from "@/components/magicui/safari";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { Button } from "@/components/ui/button";
 import { GALLERY_DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, Phone, Wrench } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
 
   return (
     <div>
-      <main className="md:h-screen w-full flex flex-col-reverse md:flex-row items-center m pt-24 d:pt-10 relative">
+      <main className="md:h-screen overflow-hidden w-full flex flex-col-reverse md:flex-row gap-10 items-center pt-24 md:pt-10 relative">
         <GridPattern
           squares={[
             [4, 4],
@@ -38,8 +41,8 @@ export default function Page() {
           )}
         />
 
-        <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col">
-          <TextAnimate className="text-3xl w-9/12 mx-auto md:w-full text-center md:text-left md:text-6xl font-bold" animation="blurInUp" by="character">
+        <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col justify-center">
+          <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-6xl font-bold" duration={500} animation="blurInUp" by="word">
             Home Extensions and Renovations
           </TextAnimate>
           <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
@@ -53,18 +56,34 @@ export default function Page() {
               https://www.werkspot.nl/profiel/persian-top/reviews
             </a>
           </p>
-          <Button className="h-14 z-20 mt-5 md:mt-10 w-11/12 mx-auto md:mr-auto md:ml-0 font-bold text-xl md:text-2xl rounded-xl shadow-2xl">
-            Start Using Configurator
+
+          <Button className="h-12 lg:h-14 px-5 mt-5 mx-auto md:mt-10 z-20 w-11/12 md:w-full font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+            <Link href={'/configurator'}>
+              Request a Quote Using 3D Configurator
+            </Link>
+          </Button>
+          <Button className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+            Request a Quote Manually
+          </Button>
+          <Button className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+            Request a Quote direct phone Call
           </Button>
         </div>
 
-        <div className=" w-8/12 md:w-6/12 z-20 flex justify-end mt-0">
-          <img
-            className="w-full"
-            src={'/main-hero.webp'}
-            alt={'Persian Top'}
-          />
+        <div className="max-h-48 w-8/12 md:w-6/12 z-20 flex">
+          <div className="relative bg-gradient-to-l from-background via-background/50 to-transparent flex items-center w-full">
+            <Safari
+              url="https://b2-b-develop.vercel.app/configurator/"
+              className="lg:size-[40em] translate-x-8 lg:translate-x-20 scale-150 z-10"
+              imageSrc="/desktop-mock.png"
+            />
+            <Iphone15Pro
+              className="lg:size-96 scale-125 lg:scale-0 lg:animate-bounce cursor-pointer mt-20 lg:mt-96 z-20"
+              src="/mobile-mock.png"
+            />
+          </div>
         </div>
+
 
       </main>
 
@@ -100,6 +119,21 @@ export default function Page() {
             <h2 className="mt-16 font-medium text-xl"><span className="font-extrabold text-4xl mt-1 mr-1">3#</span> Let the experts bring your needs in real life in a very short time </h2>
             <p className="text-muted-foreground mt-5">Your specialist in renovations and home extensions with more than 25 years of experience and craftsmanship will deliver your needs</p>
           </div>
+        </div>
+      </div>
+
+      <div className="mt-48 w-full flex flex-col items-center">
+
+        <TextAnimate className="text-3xl w-full lg:w-6/12 md:text-6xl text-center font-bold" animation="blurInUp" by="word">
+          Super fast solution for your House extensions and services
+        </TextAnimate>
+
+        <div className="lg:w-5/12 z-20 flex mx-auto mt-10">
+          <img
+            className="w-full animate-pulse"
+            src={'/main-hero.webp'}
+            alt={'Persian Top'}
+          />
         </div>
       </div>
 
@@ -169,7 +203,7 @@ export default function Page() {
         <div className="flex flex-col md:flex-row w-9/12 mx-auto h-96 my-72">
           <div className="w-full md:w-6/12">
             <img
-              className="w-full rounded-xl md:rounded-l-3xl max-h-96"
+              className="w-full object-cover rounded-xl md:rounded-l-3xl max-h-96"
               src={'/rate-hero.avif'}
               alt={'Rating'}
             />
@@ -191,7 +225,7 @@ export default function Page() {
         </div>
       </BlurFade>
 
-      <Footer/>
+      <Footer />
 
       <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
 

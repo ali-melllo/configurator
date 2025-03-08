@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, Dot } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToExterior, addToInside, changeConstructionOld, changeExterior, changeInside, changeShowFinalQuoteModal, changeView } from "@/redux/globalSlice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -32,7 +32,7 @@ import { formatEuroPrice } from "@/lib/utils";
 export default function SideBar() {
 
     const dispatch = useDispatch();
-    const { finalQuote, showExterior, showInside , view } = useSelector((state: any) => state.global);
+    const { finalQuote, showExterior, showInside, view } = useSelector((state: any) => state.global);
 
 
     const handleConstructionOldChange = useCallback((event: boolean) => {
@@ -89,7 +89,7 @@ export default function SideBar() {
                                                             <Image
                                                                 onClick={() => {
                                                                     !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                    dispatch(changeExterior(!showExterior));
+                                                                        dispatch(changeExterior(!showExterior));
                                                                     dispatch(addToExterior({
                                                                         price: image.price,
                                                                         key: material.key,
@@ -153,7 +153,7 @@ export default function SideBar() {
                                                             <Image
                                                                 onClick={() => {
                                                                     !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                    dispatch(changeInside(!showInside));
+                                                                        dispatch(changeInside(!showInside));
                                                                     dispatch(addToInside({
                                                                         price: image.price,
                                                                         key: material.key,
@@ -206,13 +206,16 @@ export default function SideBar() {
                                 <Label className="font-bold text-base">Width:</Label>
                                 <Label className="text-base text-muted-foreground">{finalQuote.width || "0"} cm</Label>
                             </div>
-                            <div className="flex flex-row justify-between gap-x-3 items-center">
+                            <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">Exterior:</Label>
-                                <Label className="text-base text-muted-foreground">€ {getExteriorPrice() || "0"}</Label>
-                            </div>
-                            <div className="flex flex-row justify-between gap-x-3 items-center">
+                                {finalQuote.exterior.map((item:any) => (
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5}/>{item.objectName}</Label>
+                                ))}                            </div>
+                            <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">Inside:</Label>
-                                <Label className="text-base text-muted-foreground">€ {getInsidePrice() || "0"}</Label>
+                                {finalQuote.interior.map((item:any) => (
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5}/>{item.objectName}</Label>
+                                ))}
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
                                 <Label className="font-bold text-base">Total Estimated:</Label>
@@ -226,7 +229,7 @@ export default function SideBar() {
             {/* //////////////////////////////////////////////////////////////// */}
 
             <div className="flex items-center space-x-2 mt-5">
-                <Checkbox onCheckedChange={(e:boolean) => handleConstructionOldChange(e)} id="construction" />
+                <Checkbox onCheckedChange={(e: boolean) => handleConstructionOldChange(e)} id="construction" />
                 <label
                     htmlFor="construction"
                     className="text-lg font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"

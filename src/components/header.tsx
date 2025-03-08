@@ -141,8 +141,8 @@ export default function Header() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className="size-14" variant="outline">
-                <List className="size-10" />
+              <Button className="size-14 rounded-xl" variant="outline">
+                <List className="" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
