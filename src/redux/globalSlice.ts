@@ -20,12 +20,14 @@ interface GlobalState {
     interior: any[],
     constructionOld: boolean
   };
+  buildingStep:number | null;
 }
 
 const initialState: GlobalState = {
   showExterior: false,
   showFrequentlyAskedModal: false,
   showFinalQuoteModal: false,
+  buildingStep:null,
   showInside: false,
   view: "exterior",
   finalQuote: {
@@ -101,6 +103,9 @@ export const globalSlice: any = createSlice({
     changeConstructionOld: (state, action: PayloadAction<boolean>) => {
       state.finalQuote.constructionOld = action.payload
     },
+    setBuildingStep: (state, action: PayloadAction<number>) => {
+      state.buildingStep = action.payload;
+    },
   },
 });
 
@@ -114,6 +119,7 @@ export const {
   changeShowFinalQuoteModal,
   resetAll,
   changeFrequentlyAskedModal,
+  setBuildingStep,
   changeConstructionOld
 } = globalSlice.actions;
 

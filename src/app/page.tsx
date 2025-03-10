@@ -9,13 +9,19 @@ import { GridPattern } from "@/components/magicui/grid-pattern";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { Safari } from "@/components/magicui/safari";
 import { TextAnimate } from "@/components/magicui/text-animate";
+import StepperPage from "@/components/Stepper";
 import { Button } from "@/components/ui/button";
 import { GALLERY_DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
+import { setBuildingStep } from "@/redux/globalSlice";
 import { LayoutDashboard, Phone, Wrench } from "lucide-react";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
+
+  const { buildingStep } = useSelector((state: any) => state.global);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -41,49 +47,54 @@ export default function Page() {
           )}
         />
 
-        <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col justify-center">
-          <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-6xl font-bold" duration={500} animation="blurInUp" by="word">
-            Home Extensions and Renovations
-          </TextAnimate>
-          <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
-            Experience craftsmanship and quality since 1998 and read our reviews at:
-            <a
-              href="https://www.werkspot.nl/profiel/persian-top/reviews"
-              className="text-blue-600 ml-1 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.werkspot.nl/profiel/persian-top/reviews
-            </a>
-          </p>
+        {buildingStep === null &&
+          <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col justify-center">
+            <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
+              Home Extensions and Renovations
+            </TextAnimate>
+            <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
+              Experience craftsmanship and quality since 1998 and read our reviews at:
+              <a
+                href="https://www.werkspot.nl/profiel/persian-top/reviews"
+                className="text-blue-600 ml-1 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://www.werkspot.nl/profiel/persian-top/reviews
+              </a>
+            </p>
 
-          <Button className="h-12 lg:h-14 px-5 mt-5 mx-auto md:mt-10 z-20 w-11/12 md:w-full font-bold text-base md:text-2xl rounded-xl shadow-2xl">
-            <Link href={'/configurator'}>
-              Request a Quote Using 3D Configurator
-            </Link>
-          </Button>
-          <Button className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
-            Request a Quote Manually
-          </Button>
-          <Button className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
-            Request a Quote direct phone Call
-          </Button>
-        </div>
+            <Button className="h-12 lg:h-14 px-5 mt-5 mx-auto md:mt-10 z-20 w-11/12 md:w-full font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+              <Link href={'/configurator'}>
+                Request a Quote Using 3D Configurator
+              </Link>
+            </Button>
+            <Button onClick={() => dispatch(setBuildingStep(0))} className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+              Request a Quote Manually
+            </Button>
+            <Button className="h-12 lg:h-14 z-20 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+              Request a Quote direct phone Call
+            </Button>
+          </div>}
 
-        <div className="max-h-48 w-8/12 md:w-6/12 z-20 flex">
-          <div className="relative bg-gradient-to-l from-background via-background/50 to-transparent flex items-center w-full">
-            <Safari
-              url="https://b2-b-develop.vercel.app/configurator/"
-              className="lg:size-[40em] translate-x-8 lg:translate-x-20 scale-150 z-10"
-              imageSrc="/desktop-mock.png"
-            />
-            <Iphone15Pro
-              className="lg:size-96 scale-125 lg:scale-0 lg:animate-bounce cursor-pointer mt-20 lg:mt-96 z-20"
-              src="/mobile-mock.png"
-            />
-          </div>
-        </div>
+        {buildingStep === null &&
+          <div className="max-h-48 w-8/12 md:w-6/12 z-20 flex">
+            <div className="relative bg-gradient-to-l from-background via-background/50 to-transparent flex items-center w-full">
+              <Safari
+                url="https://b2-b-develop.vercel.app/configurator/"
+                className="lg:size-[40em] translate-x-8 lg:translate-x-20 scale-150 z-10"
+                imageSrc="/desktop-mock.png"
+              />
+              <Iphone15Pro
+                className="lg:size-96 scale-125 lg:scale-0 lg:animate-bounce cursor-pointer mt-20 lg:mt-96 z-20"
+                src="/mobile-mock.png"
+              />
+            </div>
+          </div>}
 
+        {buildingStep !== null &&
+          <StepperPage />
+        }
 
       </main>
 
