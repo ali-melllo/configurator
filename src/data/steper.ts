@@ -16,7 +16,7 @@ export const STEPS_DATA = [
                         "title": "Flooring Options",
                         "description": "Choose your preferred flooring material.",
                         "name": "flooring",
-                        "type": "multi",
+                        "type": "check",
                         "icon": "🪵",
                         "items": [
                             { "name": "Wood Flooring", "icon": "🪵" },
@@ -49,16 +49,7 @@ export const STEPS_DATA = [
                                         { "name": "Email Address" },
                                         { "name": "Project Address" }
                                     ],
-                                    "nextStep": {
-                                        "title": "Review & Submit",
-                                        "description": "Check your selections and confirm your request.",
-                                        "type": "check",
-                                        "name": "review",
-                                        "items": [
-                                            { "name": "Confirm all details before submission." }
-                                        ],
-                                        "nextStep": null
-                                    }
+                                    "lastStep":true,
                                 }
                             }
                         }
@@ -81,8 +72,9 @@ export const STEPS_DATA = [
                         "items": [
                             { "name": "Living Room Extension" },
                             { "name": "Kitchen Extension" },
-                            { "name": "Bathroom Addition" }
-                        ]
+                            { "name": "Bathroom Addition" },
+                        ],
+                        "lastStep":true,
                     },
                     {
                         "title": "Double-Story Extension",
@@ -94,7 +86,9 @@ export const STEPS_DATA = [
                             { "name": "Additional Bedrooms" },
                             { "name": "Office Space" },
                             { "name": "Extra Bathrooms" }
-                        ]
+                        ],
+                        "lastStep":true,
+
                     },
                     {
                         "title": "Garage Conversion",
@@ -106,7 +100,8 @@ export const STEPS_DATA = [
                             { "name": "Home Office" },
                             { "name": "Guest Room" },
                             { "name": "Entertainment Room" }
-                        ]
+                        ],
+                        "lastStep":true,
                     }
                 ]
             }
