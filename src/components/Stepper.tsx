@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Checkbox } from "./ui/checkbox";
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
 import { Separator } from "./ui/separator";
@@ -13,6 +13,8 @@ import BlurFade from "./magicui/blur-fade";
 import { STEPS_DATA } from "@/data/steper";
 import { cn } from "@/lib/utils";
 import Overview from "./overview";
+import { toast } from "sonner";
+import { Send } from "lucide-react";
 
 
 // titles are used to show main title of current step at top
@@ -44,6 +46,7 @@ export default function Stepper() {
     const [currentFormData, setCurrentFormData] = useState<any>([]);
     const [finalCheck, setFinalCheck] = useState<boolean>(false);
     const [history, setHistory] = useState<any>([]);
+    const [gatheredData, setGatheredData] = useState<any>([]);
 
     const [date, setDate] = useState<DateRange | undefined>({
         from: new Date(2022, 0, 20),
@@ -99,9 +102,10 @@ export default function Stepper() {
 
     const handleGatherData = (item: any) => {
         setHistory([...history, item]);
+        setGatheredData([...gatheredData, currentStep.type ==='select' ? item : currentFormData])
+        setCurrentFormData([]);
     };
 
-    console.log(history)
 
     return (
         <BlurFade inView className="w-11/12 min-h-[80vh] mt-28 mx-auto rounded-xl ">
@@ -125,8 +129,12 @@ export default function Stepper() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title ) : "Request Overview"}</h2>
-                    {finalCheck && <Button className="font-bold text-xl h-12">Request the Quote</Button>}
+                    <h2 className="text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
+                    {finalCheck &&
+                        <Button className="font-bold text-lg h-12">
+                            <Send/>
+                            Request Quote
+                        </Button>}
                 </div>
 
                 <h2 className="text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : "You can See Your Selected Services below for final quote"}</h2>
@@ -203,8 +211,8 @@ export default function Stepper() {
                                 mode="range"
                                 defaultMonth={date?.from}
                                 selected={date}
-                                onSelect={(e)=>{
-                                    currentFormHandler({ }, "date")
+                                onSelect={(e) => {
+                                    currentFormHandler({}, "date")
                                     setDate(e)
                                 }}
                                 numberOfMonths={2}
@@ -213,54 +221,76 @@ export default function Stepper() {
                 </div>
 
 
-                {finalCheck && <Overview selectedSteps={history} />}
+                {finalCheck && <Overview selectedSteps={gatheredData} />}
 
                 <div className="flex w-full  items-center mt-10 justify-between">
                     <Button
                         disabled={selectedSteps.length === 0}
                         onClick={() => {
                             setSelectedSteps((prevSteps: any) => prevSteps.slice(0, -1));
-                            setFinalCheck(false)
+                            setHistory((prevSteps: any) => prevSteps.slice(0, -1));
+                            setGatheredData((prevSteps: any) => prevSteps.slice(0, -1));
+                            setFinalCheck(false);
+                            setCurrentFormData([]);
                         }}
                     >
                         Prev
                     </Button>
                     {currentStep.type !== 'select' && !finalCheck &&
                         <Button onClick={() => {
+
+                            // validation is here cause handling global and in case of last step
+
+                            if (currentStep.type === "multi") {
+                                console.log(currentFormData)
+                                if (currentFormData.length === 0) {
+                                    return toast("Please At least select one item to Continue")
+                                }
+                            } else if (currentStep.type === "check") {
+                                if (currentFormData.length !== currentStep.items.length) {
+                                    return toast("Please Answer All of the questions")
+                                }
+                            } else if (currentStep.type === "text") {
+                                if (currentFormData.length !== currentStep.items.length || currentFormData.some((item: any) => !item.value?.trim())) {
+                                    return toast("Please fill in all of the questions");
+                                }
+                            }
+
+
                             if (!currentStep.lastStep) {
                                 if (currentStep.type === "multi") {
                                     handleGatherData({
-                                        title:  currentStep.title || currentStep.nextStep?.title ,
+                                        title: currentStep.title || currentStep.nextStep?.title,
                                         items: currentFormData,
                                         type: "multi"
                                     })
                                 } else if (currentStep.type === "text") {
                                     handleGatherData({
-                                        title:  currentStep.title || currentStep.nextStep?.title ,
+                                        title: currentStep.title || currentStep.nextStep?.title,
                                         items: currentFormData,
                                         type: "text"
                                     })
                                 } else if (currentStep.type === "check") {
                                     handleGatherData({
-                                        title:  currentStep.title || currentStep.nextStep?.title ,
+                                        title: currentStep.title || currentStep.nextStep?.title,
                                         items: currentFormData,
                                         type: "check"
                                     })
+
                                 } else if (currentStep.type === "date") {
                                     handleGatherData({
-                                        title:  currentStep.title || currentStep.nextStep?.title ,
+                                        title: currentStep.title || currentStep.nextStep?.title,
                                         date: date,
                                         type: "date"
                                     })
                                 }
                                 handleSelect(currentStep.nextStep);
-                                setCurrentFormData([]);
+
                             } else {
                                 setFinalCheck(true)
+                                setGatheredData([...gatheredData, currentFormData])
                             }
-                        }
-                        }
-                        >
+                        }}>
                             {currentStep.lastStep ? "Final Check" : "Next"}
                         </Button>
                     }
