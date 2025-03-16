@@ -1,13 +1,68 @@
 import { format } from "date-fns";
+import { useCallback, useState } from "react";
+import { toast } from "sonner";
+import { Button } from "./ui/button";
 
 export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
-    console.log(selectedSteps);
 
+    const [loading, setLoading] = useState<boolean>(false);
     // Flatten nested arrays while ensuring objects remain untouched
     const flattenSteps = (steps: any[]): any[] =>
         steps.flatMap((step) => (Array.isArray(step) ? flattenSteps(step) : step));
 
     const flattenedSteps = flattenSteps(selectedSteps);
+
+    // Flatten the selected steps and structure them as an object
+    const prepareDataForSubmission = useCallback(() => {
+        const flattenedSteps = selectedSteps.flat(Infinity); // Flatten all levels
+
+        const formattedData: Record<string, any> = {};
+
+        flattenedSteps.forEach((step, index) => {
+            if (typeof step === "object" && step !== null) {
+                formattedData[`step_${index + 1}`] = {
+                    title: step.title || step.question || "N/A",
+                    value: step.value || "N/A",
+                    description: step.description || "No description",
+                    ...(step.type === "date" && step.date
+                        ? {
+                            from: step.date?.from ? format(new Date(step.date.from), "PPP") : "N/A",
+                            to: step.date?.to ? format(new Date(step.date.to), "PPP") : "N/A",
+                        }
+                        : {}),
+                };
+            }
+        });
+
+        return formattedData;
+    }, [selectedSteps])
+
+    const sendEmail = useCallback(async () => {
+        setLoading(true);
+        const submissionData = prepareDataForSubmission();
+
+        try {
+            const response = await fetch("https://formspree.io/f/mvgzrnqn", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify(submissionData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                toast.success("Request submitted successfully! Check your email.");
+            } else {
+                toast.error(`Failed to send email: ${result.error || "Unknown error"}`);
+            }
+        } catch (error) {
+            toast.error("An error occurred. Please try again.");
+            console.error("Submission error:", error);
+        } finally {
+            setLoading(false);
+        }
+    }, [prepareDataForSubmission]);
+
 
     return (
         <div className="bg-background shadow-lg rounded-2xl pt-10 w-full mx-auto">
@@ -59,6 +114,9 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
                     })}
                 </div>
             )}
+            <Button onClick={sendEmail}>
+                send
+            </Button>
         </div>
     );
 }
