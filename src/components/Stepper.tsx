@@ -110,7 +110,7 @@ export default function Stepper() {
     return (
         <BlurFade inView className="w-11/12 min-h-[80vh] mt-28 mx-auto rounded-xl ">
 
-            <div className="p-10 size-full flex flex-col min-h-[80vh] rounded-xl overflow-y-scroll bg-background/25 border shadow-md">
+            <div className="p-5 md:p-10 size-full flex flex-col min-h-[75dvh] md:min-h-[80dvh] rounded-xl overflow-y-scroll bg-background/25 border shadow-md">
 
                 <div className="w-full hidden md:block mb-14">
                     <ol className="mx-auto flex w-full flex-nowrap gap-1">
@@ -129,13 +129,13 @@ export default function Stepper() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
+                    <h2 className="md:text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
                 </div>
 
-                <h2 className="text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : "You can See Your Selected Services below for final quote"}</h2>
+                <h2 className="text-sm md:text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid grid-cols-2 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-5"}  gap-4`}>
+                <div className={`grid grid-cols-1 md:grid-cols-2 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-5"}  gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -171,7 +171,7 @@ export default function Stepper() {
                             ) : currentStep.type === 'check' ? (
                                 <div key={item.name} className="flex gap-3 items-center">
                                     <Separator orientation="vertical" />
-                                    <span className="min-w-48">{item.name}</span>
+                                    <span className="min-w-32 line-clamp-1 md:min-w-48">{item.name}</span>
                                     <RadioGroup
                                         className="flex ml-10 items-center"
                                         onValueChange={(value) => currentFormHandler({ question: item.name, value }, "check")}
@@ -189,7 +189,7 @@ export default function Stepper() {
                             ) : currentStep.type === 'text' ? (
                                 <div key={item.name} className="flex gap-3 items-center">
                                     <Separator orientation="vertical" />
-                                    <div className="flex flex-col gap-3 w-6/12">
+                                    <div className="flex flex-col gap-3 md:w-6/12">
                                         <Label>{item.name}</Label>
                                         <Input
                                             onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value }, "text")}

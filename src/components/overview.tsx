@@ -116,7 +116,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
                     })}
                 </div>
             )}
-            <Button disabled={loading} className="absolute top-5 right-10 font-semibold text-base" onClick={sendEmail}>
+            <Button disabled={loading} className="absolute top-5 right-5 md:right-10 font-semibold text-base" onClick={sendEmail}>
                 <Send />
                 {loading ? <Loader className="animate-spin" /> : "send"}
             </Button>
