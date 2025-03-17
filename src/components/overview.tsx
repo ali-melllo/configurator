@@ -44,7 +44,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
         const submissionData = prepareDataForSubmission();
 
         try {
-            const response = await fetch("https://formspree.io/f/mvgzrnqn", {
+            const response = await fetch("https://formspree.io/f/xnnjyppv", {
                 method: "POST",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify(submissionData),

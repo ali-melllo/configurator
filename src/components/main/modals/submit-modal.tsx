@@ -35,9 +35,10 @@ export default function SubmitModal() {
     
     const sendEmail = useCallback(async (data:any) => {
         setEmailLoading(true);
-
+        
+        // mvgzrnqn : ali
         try {
-            const response = await fetch("https://formspree.io/f/mvgzrnqn", {
+            const response = await fetch("https://formspree.io/f/xnnjyppv", {
                 method: "POST",
                 headers: { "Accept": "application/json" },
                 body: JSON.stringify({
