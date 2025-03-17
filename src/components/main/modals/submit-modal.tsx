@@ -43,6 +43,9 @@ export default function SubmitModal() {
                 body: JSON.stringify({
                     fullName: data.fullName,
                     email: data.email,
+                    address:data.address,
+                    phone:data.phone,
+                    zipcode:data.zipcode,
                     surface: finalQuote.surface,
                     depth: finalQuote.depth,
                     width: finalQuote.width,
@@ -117,6 +120,21 @@ export default function SubmitModal() {
                             <Label>Email</Label>
                             <Input {...register("email", { required: "Email is required" })} placeholder="Email" />
                             {errors.email && <p className="text-red-500 text-sm">{"Email is required"}</p>}
+                        </div>
+                        <div className="flex flex-col items-start gap-y-2">
+                            <Label>Address</Label>
+                            <Input {...register("address", { required: "address is required" })} placeholder="Address" />
+                            {errors.address && <p className="text-red-500 text-sm">{"address is required"}</p>}
+                        </div>
+                        <div className="flex flex-col items-start gap-y-2">
+                            <Label>Zipcode</Label>
+                            <Input {...register("zipcode", { required: "zipcode is required" })} placeholder="Zipcode" />
+                            {errors.zipcode && <p className="text-red-500 text-sm">{"zipcode is required"}</p>}
+                        </div>
+                        <div className="flex flex-col items-start gap-y-2">
+                            <Label>Phone</Label>
+                            <Input {...register("phone", { required: "phone is required" })} placeholder="Phone" />
+                            {errors.phone && <p className="text-red-500 text-sm">{"phone is required"}</p>}
                         </div>
                         <DialogFooter>
                             <Button disabled={emailLoading} className="w-full h-12 font-semibold" type="submit">

@@ -130,11 +130,6 @@ export default function Stepper() {
 
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
-                    {finalCheck &&
-                        <Button className="font-bold text-lg h-12">
-                            <Send/>
-                            Request Quote
-                        </Button>}
                 </div>
 
                 <h2 className="text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : "You can See Your Selected Services below for final quote"}</h2>

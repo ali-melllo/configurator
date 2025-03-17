@@ -2,6 +2,9 @@ import { format } from "date-fns";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
+import { Loader, Send } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { setBuildingStep } from "@/redux/globalSlice";
 
 export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
@@ -11,6 +14,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
         steps.flatMap((step) => (Array.isArray(step) ? flattenSteps(step) : step));
 
     const flattenedSteps = flattenSteps(selectedSteps);
+    const dispatch = useDispatch();
 
     // Flatten the selected steps and structure them as an object
     const prepareDataForSubmission = useCallback(() => {
@@ -20,10 +24,8 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
         flattenedSteps.forEach((step, index) => {
             if (typeof step === "object" && step !== null) {
-                formattedData[`step_${index + 1}`] = {
-                    title: step.title || step.question || "N/A",
-                    value: step.value || "N/A",
-                    description: step.description || "No description",
+                formattedData[`${step.title || step.question}`] = {
+                    title: `${step.icon || "📌"}, ${step.title || (`${step.question} : ${step.value}`)}`,
                     ...(step.type === "date" && step.date
                         ? {
                             from: step.date?.from ? format(new Date(step.date.from), "PPP") : "N/A",
@@ -52,6 +54,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
             if (response.ok) {
                 toast.success("Request submitted successfully! Check your email.");
+                dispatch(setBuildingStep(null));
             } else {
                 toast.error(`Failed to send email: ${result.error || "Unknown error"}`);
             }
@@ -61,12 +64,11 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
         } finally {
             setLoading(false);
         }
-    }, [prepareDataForSubmission]);
+    }, [dispatch, prepareDataForSubmission]);
 
 
     return (
-        <div className="bg-background shadow-lg rounded-2xl pt-10 w-full mx-auto">
-            <h2 className="text-xl font-semibold mb-4">🏗️ Request Overview</h2>
+        <div className="bg-background rounded-2xl pt-10 w-full mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
@@ -114,8 +116,9 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
                     })}
                 </div>
             )}
-            <Button onClick={sendEmail}>
-                send
+            <Button disabled={loading} className="absolute top-5 right-10 font-semibold text-base" onClick={sendEmail}>
+                <Send />
+                {loading ? <Loader className="animate-spin" /> : "send"}
             </Button>
         </div>
     );
