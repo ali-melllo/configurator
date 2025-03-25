@@ -27,7 +27,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SurfaceCard from "./main/surface-card";
 import { MATERIALS } from "@/data/static";
 import { formatEuroPrice } from "@/lib/utils";
-
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export default function SideBar() {
 
@@ -80,33 +86,44 @@ export default function SideBar() {
                                         {material.items.map((subMaterial) => (
                                             <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
                                                 <p className="text-muted-foreground">{subMaterial.name}</p>
-                                                <div className="flex items-center overflow-x-scroll gap-x-4">
-                                                    {subMaterial.items.map((image) => (
-                                                        <div key={image.src} className="relative">
-                                                            {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl size-5 flex justify-center items-center"><Check className="size-4" /></span>
-                                                            }
-                                                            <Image
-                                                                onClick={() => {
-                                                                    !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                        dispatch(changeExterior(!showExterior));
-                                                                    dispatch(addToExterior({
-                                                                        price: image.price,
-                                                                        key: material.key,
-                                                                        categoryName: material.name,
-                                                                        objectSrc: image.objectSrc,
-                                                                        objectName: image.fullName
-                                                                    }));
-                                                                }}
-                                                                className="size-16 my-1 rounded-xl shadow relative cursor-pointer"
-                                                                src={image.src}
-                                                                alt={image.fullName}
-                                                                width={150}
-                                                                height={150}
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
+                                                <Carousel
+                                                    opts={{
+                                                        align: "start",
+                                                        direction: "ltr",
+                                                    }}
+                                                    className="w-full"
+                                                >
+                                                    <CarouselContent>
+                                                        {subMaterial.items.map((image) => (
+                                                            <CarouselItem key={image.src} className="relative basis-1/5 size-16 rounded-lg mb-3">
+                                                                {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                    <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
+                                                                }
+                                                               {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
+                                                                <Image
+                                                                    onClick={() => {
+                                                                        !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                            dispatch(changeExterior(!showExterior));
+                                                                        dispatch(addToExterior({
+                                                                            price: image.price,
+                                                                            key: material.key,
+                                                                            categoryName: material.name,
+                                                                            objectSrc: image.objectSrc,
+                                                                            objectName: image.fullName
+                                                                        }));
+                                                                    }}
+                                                                    className="size-full dark:bg-accent my-1 rounded-xl shadow relative cursor-pointer"
+                                                                    src={image.src}
+                                                                    alt={image.fullName}
+                                                                    width={150}
+                                                                    height={150}
+                                                                />
+                                                            </CarouselItem>
+                                                        ))}
+                                                    </CarouselContent>
+                                                    <CarouselPrevious/>
+                                                    <CarouselNext className="z-50 absolute right-0"/>
+                                                </Carousel>
                                                 {/* /////////// custom combination by key  //////////// */}
                                                 {material.key === 'daklicht' &&
                                                     <form>
@@ -208,13 +225,13 @@ export default function SideBar() {
                             </div>
                             <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">Exterior:</Label>
-                                {finalQuote.exterior.map((item:any) => (
-                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5}/>{item.objectName}</Label>
+                                {finalQuote.exterior.map((item: any) => (
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{item.objectName}</Label>
                                 ))}                            </div>
                             <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">Inside:</Label>
-                                {finalQuote.interior.map((item:any) => (
-                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5}/>{item.objectName}</Label>
+                                {finalQuote.interior.map((item: any) => (
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{item.objectName}</Label>
                                 ))}
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">

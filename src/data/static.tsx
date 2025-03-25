@@ -4,116 +4,190 @@ import { EyeIcon, HomeIcon, ListChecks, RefreshCcw, SquareArrowOutUpRight, Squar
 
 export const MATERIALS = {
   exterior: [
-    { 
-      key:"facade",
+    {
+      key: "facade",
       name: "Facade Cladding",
-      description:"rhombus profile, teak, horizontal",
+      description: "rhombus profile, teak, horizontal",
       items: [
+        {
+          name: "Plastic",
+          items: [
+            { src: "/plastic-selector-1.svg", objectSrc: "/facade-plastic-1.png", price: "400", fullName: "Brown Composite vertical line" },
+            { src: "/plastic-selector-2.svg", objectSrc: "/facade-plastic-2.png", price: "400", fullName: "Brown Composite vertical line" },
+            { src: "/plastic-selector-3.svg", objectSrc: "/facade-plastic-3.png", price: "400", fullName: "Brown Composite vertical line" },
+            { src: "/plastic-selector-4.svg", objectSrc: "/facade-plastic-4.png", price: "400", fullName: "Brown Composite vertical line" },
+          ]
+        },
         {
           name: "Composite",
           items: [
-            { src : "/composite-selector-1.svg" , objectSrc:"/facade-composite-1.png" , price : "400" , fullName : "Brown Composite vertical line"},
-            { src : "/composite-selector-2.svg" , objectSrc:"/facade-composite-2.png" , price : "450" , fullName : "Brown Composite Horizontal line"}
+            { src: "/composite-selector-1.svg", objectSrc: "/facade-composite-1.png", price: "400", fullName: "Brown Composite vertical line" },
+            { src: "/composite-selector-2.svg", objectSrc: "/facade-composite-2.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-3.svg", objectSrc: "/facade-composite-3.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-4.svg", objectSrc: "/facade-composite-4.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-5.svg", objectSrc: "/facade-composite-5.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-6.svg", objectSrc: "/facade-composite-6.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-7.svg", objectSrc: "/facade-composite-7.png", price: "450", fullName: "Brown Composite Horizontal line" },
+            { src: "/composite-selector-8.svg", objectSrc: "/facade-composite-8.png", price: "450", fullName: "Brown Composite Horizontal line" },
           ]
         },
         {
           name: "Bricks",
           items: [
-            { src : "/brick-selector-1.svg", objectSrc:"/brick-1.png" , price : "400" , fullName : "Brown classic brick"},
-            { src : "/brick-selector-2.svg", objectSrc:"/brick-2.png"  , price : "450" , fullName : "Light classic brick"}
+            { src: "/brick-selector-1.svg", objectSrc: "/brick-1.png", price: "400", fullName: "Brown classic brick" },
+            { src: "/brick-selector-2.svg", objectSrc: "/brick-2.png", price: "450", fullName: "Light classic brick" },
+            { src: "/brick-selector-3.svg", objectSrc: "/brick-3.png", price: "450", fullName: "Light classic brick" },
+            { src: "/brick-selector-4.svg", objectSrc: "/brick-4.png", price: "450", fullName: "Light classic brick" },
+            { src: "/brick-selector-5.svg", objectSrc: "/brick-5.png", price: "450", fullName: "Light classic brick" },
+            { src: "/brick-selector-6.svg", objectSrc: "/brick-6.png", price: "450", fullName: "Light classic brick" },
           ]
         }
       ]
     },
-    { 
-      key:"frames",
+    {
+      key: "frames",
       name: "Frames",
-      description:"4-part sliding door, wood, anthracite, ventilation grille",
+      description: "4-part sliding door, wood, anthracite, ventilation grille",
       items: [
         {
           name: "Layout",
           items: [
-            { src : "/layout-selector-1.svg" , objectSrc:"/layout-1.png" , price : "400" , fullName : "classic layout"},
-            { src : "/layout-selector-2.svg" , objectSrc:"/layout-2.png" , price : "850" , fullName : "linear layout"},
-            { src : "/layout-selector-3.svg" , objectSrc:"/layout-3.png" , price : "650" , fullName : "Railed Multi layout"}
-
+            { src: "/layout-selector-1.svg", objectSrc: "/layout-1.png", price: "400", fullName: "classic layout", badge: "dark" },
+            { src: "/layout-selector-2.svg", objectSrc: "/layout-2.png", price: "850", fullName: "linear layout", badge: "dark" },
+            { src: "/layout-selector-3.svg", objectSrc: "/layout-3.png", price: "650", fullName: "Railed Multi layout", badge: "dark" },
+            { src: "/layout-selector-4.svg", objectSrc: "/layout-4.png", price: "650", fullName: "Railed Multi layout", badge: "dark" }
+          ]
+        },
+        {
+          name: "color",
+          items: [
+            { src: "/layout-selector-1.svg", objectSrc: "/layout-white-1.png", price: "400", fullName: "classic layout", badge: "white" },
+            { src: "/layout-selector-2.svg", objectSrc: "/layout-white-2.png", price: "400", fullName: "classic layout", badge: "white" },
+            { src: "/layout-selector-3.svg", objectSrc: "/layout-white-3.png", price: "400", fullName: "classic layout", badge: "white" },
+            { src: "/layout-selector-4.svg", objectSrc: "/layout-white-4.png", price: "400", fullName: "classic layout", badge: "white" },
+          ]
+        },
+        {
+          name: "buoy part",
+          items: [
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/boeideel-white.png", price: "400", fullName: "classic layout", badge: "white" },
           ]
         }
       ]
     },
-    { 
-      key:"dactrim",
+    {
+      key: "dakoverstek",
+      name: "dakoverstek",
+      description: "Customizable dakoverstek",
+      items: [
+        {
+          name: "plastic",
+          items: [
+            { src: "/daklicht-selector-1.svg", objectSrc: "/plastic-dakoverstek-1.png", price: "400", fullName: "white plastic dakoverstek" },
+            { src: "/dactrim-selector-2.svg", objectSrc: "/plastic-dakoverstek-2.png", price: "850", fullName: "dark plastic dakoverstek" },
+          ]
+        },
+        {
+          name: "wood",
+          items: [
+            { src: "/daklicht-selector-1.svg", objectSrc: "/wood-dakoverstek-1.png", price: "400", fullName: "wood dakoverstek" },
+          ]
+        }
+      ]
+    },
+    {
+      key: "dactrim",
       name: "Dactrim",
-      description:"Customizable Dactrim",
+      description: "Customizable Dactrim",
       items: [
         {
           name: "Color",
           items: [
-            { src : "/dactrim-selector-1.svg" , objectSrc:"/dactrim-1.png" , price : "400" , fullName : "Aluminum"},
-            { src : "/dactrim-selector-2.svg" , objectSrc:"/dactrim-2.png" , price : "850" , fullName : "anthracite"},
+            { src: "/dactrim-selector-1.svg", objectSrc: "/dactrim-1.png", price: "400", fullName: "Aluminum" },
+            { src: "/dactrim-selector-2.svg", objectSrc: "/dactrim-2.png", price: "850", fullName: "anthracite" },
           ]
         }
       ]
     },
-    { 
-      key:"daklicht",
+    {
+      key: "daklicht",
       name: "Daklicht",
-      description:"Customizable Daklicht",
+      description: "Customizable Daklicht",
       items: [
         {
           name: "Color",
           items: [
-            { src : "/daklicht-selector-1.svg" , objectSrc:"/daklicht-1.png" , price : "400" , fullName : "white daklicht"},
-            { src : "/daklicht-selector-2.svg" , objectSrc:"/daklicht-2.png" , price : "850" , fullName : "dark daklicht"},
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/daklicht-1.png", price: "400", fullName: "white daklicht" },
+            { src: "/daklicht-selector-2.svg", objectSrc: "/daklicht-2.png", price: "850", fullName: "dark daklicht" },
           ]
         }
       ]
     },
-    { 
-      key:"outdoor-light",
+    {
+      key: "outdoor-light",
       name: "Out Door Lightning",
-      description:"Out Door Lightning links ",
+      description: "Out Door Lightning links ",
       items: [
         {
           name: "Align",
           items: [
-            { src : "/outdoor-light-selector-1.svg" , objectSrc:"/outdoor-light-1.png" , price : "400" , fullName : "left outdoor light"},
-            { src : "/outdoor-light-selector-2.svg" , objectSrc:"/outdoor-light-2.png" , price : "550" , fullName : "right outdoor light"},
-            { src : "/outdoor-light-selector-3.svg" , objectSrc:"/outdoor-light-3.png" , price : "850" , fullName : "left & right outdoor light"},
-
+            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-1.png", price: "400", fullName: "left outdoor light" , badge:"dark" },
+            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-2.png", price: "550", fullName: "right outdoor light", badge:"dark" },
+            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-3.png", price: "850", fullName: "left & right outdoor light", badge:"dark" },
+            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-white-1.png", price: "850", fullName: "left white outdoor light", badge:"white" },
+            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-white-2.png", price: "850", fullName: "right white outdoor light", badge:"white" },
+            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-white-3.png", price: "850", fullName: "left & right white outdoor light", badge:"white" },
           ]
+        }
+      ]
+    },
+    {
+      key: "outdoor-socket",
+      name: "Out Door Socket & Tap",
+      description: "Out Door Sockets or water taps ",
+      items: [
+        {
+          name: "items",
+          items: [
+            { src: "/socket-selector-1.svg", objectSrc: "/socket-dark-1.png", price: "400", fullName: "left outdoor light" , badge:"dark" },
+            { src: "/socket-selector-2.svg", objectSrc: "/socket-dark-2.png", price: "550", fullName: "right outdoor light", badge:"dark" },
+            { src: "/socket-selector-1.svg", objectSrc: "/socket-white-1.png", price: "850", fullName: "left & right outdoor light", badge:"white" },
+            { src: "/socket-selector-2.svg", objectSrc: "/socket-white-2.png", price: "850", fullName: "left white outdoor light", badge:"white" },
+]
         }
       ]
     }
   ],
   inside: [
-    { 
-      key:"heating",
+    {
+      key: "heating",
       name: "Heating",
-      description:"Links & double heating",
+      description: "Links & double heating",
       items: [
         {
           name: "Align",
           items: [
-            { src : "/heating-inside-selector-1.svg" , objectSrc:"/heating-inside-1.png" , price : "400" , fullName : "Right side heating"},
-            { src : "/heating-inside-selector-2.svg" , objectSrc:"/heating-inside-2.png" , price : "560" , fullName : "Left Side Heating"},
-            { src : "/heating-inside-selector-3.svg" , objectSrc:"/heating-inside-3.png" , price : "770" , fullName : "Left & right Side Heating"},
+            { src: "/heating-inside-selector-1.svg", objectSrc: "/heating-inside-1.png", price: "400", fullName: "Right side heating" },
+            { src: "/heating-inside-selector-2.svg", objectSrc: "/heating-inside-2.png", price: "560", fullName: "Left Side Heating" },
+            { src: "/heating-inside-selector-3.svg", objectSrc: "/heating-inside-3.png", price: "770", fullName: "Left & right Side Heating" },
 
           ]
         }
       ]
     },
-    { 
-      key:"light-point",
+    {
+      key: "light-point",
       name: "Light point",
-      description:"Wall lamps",
+      description: "Wall lamps",
       items: [
         {
           name: "Align",
           items: [
-            { src : "/wall-lamp-selector-1.svg" , objectSrc:"/wall-lamp-1.png" , price : "400" , fullName : "Right side wall lamp"},
-            { src : "/wall-lamp-selector-2.svg" , objectSrc:"/wall-lamp-2.png" , price : "560" , fullName : "Left Side wall lamp"},
-            { src : "/wall-lamp-selector-3.svg" , objectSrc:"/wall-lamp-3.png" , price : "770" , fullName : "Left & right wall lamp"},
+            { src: "/wall-lamp-selector-1.svg", objectSrc: "/wall-lamp-1.png", price: "400", fullName: "Right side wall lamp" },
+            { src: "/wall-lamp-selector-2.svg", objectSrc: "/wall-lamp-2.png", price: "560", fullName: "Left Side wall lamp" },
+            { src: "/wall-lamp-selector-3.svg", objectSrc: "/wall-lamp-3.png", price: "770", fullName: "Left & right wall lamp" },
           ]
         }
       ]
@@ -122,33 +196,33 @@ export const MATERIALS = {
 }
 
 export const GALLERY_DATA = [
-  {src:'/gallery/item-1.avif'},
-  {src:'/gallery/item-2.avif'},
-  {src:'/gallery/item-3.avif'},
-  {src:'/gallery/item-4.avif'},
-  {src:'/gallery/item-5.avif'},
-  {src:'/gallery/item-6.avif'},
-  {src:'/gallery/item-7.avif'},
-  {src:'/gallery/item-8.avif'},
-  {src:'/gallery/item-9.avif'},
-  {src:'/gallery/item-10.avif'},
+  { src: '/gallery/item-1.avif' },
+  { src: '/gallery/item-2.avif' },
+  { src: '/gallery/item-3.avif' },
+  { src: '/gallery/item-4.avif' },
+  { src: '/gallery/item-5.avif' },
+  { src: '/gallery/item-6.avif' },
+  { src: '/gallery/item-7.avif' },
+  { src: '/gallery/item-8.avif' },
+  { src: '/gallery/item-9.avif' },
+  { src: '/gallery/item-10.avif' },
 ]
 
 export const PROJECTS_GALLERY_DATA = [
-  {src:'/projects/project-1.avif'},
-  {src:'/projects/project-2.avif'},
-  {src:'/projects/project-3.avif'},
-  {src:'/projects/project-4.avif'},
-  {src:'/projects/project-5.avif'},
-  {src:'/projects/project-6.avif'},
-  {src:'/projects/project-7.avif'},
-  {src:'/projects/project-8.avif'},
-  {src:'/projects/project-9.avif'},
-  {src:'/projects/project-11.avif'},
-  {src:'/projects/project-12.avif'},
-  {src:'/projects/project-13.avif'},
-  {src:'/projects/project-14.avif'},
-  {src:'/projects/project-15.avif'},
+  { src: '/projects/project-1.avif' },
+  { src: '/projects/project-2.avif' },
+  { src: '/projects/project-3.avif' },
+  { src: '/projects/project-4.avif' },
+  { src: '/projects/project-5.avif' },
+  { src: '/projects/project-6.avif' },
+  { src: '/projects/project-7.avif' },
+  { src: '/projects/project-8.avif' },
+  { src: '/projects/project-9.avif' },
+  { src: '/projects/project-11.avif' },
+  { src: '/projects/project-12.avif' },
+  { src: '/projects/project-13.avif' },
+  { src: '/projects/project-14.avif' },
+  { src: '/projects/project-15.avif' },
 ]
 
 export const DATA = {
