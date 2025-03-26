@@ -99,7 +99,7 @@ export default function SideBar() {
                                                                 {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
                                                                 }
-                                                               {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
+                                                                {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
                                                                 <Image
                                                                     onClick={() => {
                                                                         !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
@@ -121,8 +121,8 @@ export default function SideBar() {
                                                             </CarouselItem>
                                                         ))}
                                                     </CarouselContent>
-                                                    <CarouselPrevious/>
-                                                    <CarouselNext className="z-50 absolute right-0"/>
+                                                    <CarouselPrevious />
+                                                    <CarouselNext className="z-50 absolute right-0" />
                                                 </Carousel>
                                                 {/* /////////// custom combination by key  //////////// */}
                                                 {material.key === 'daklicht' &&
@@ -161,33 +161,44 @@ export default function SideBar() {
                                         {material.items.map((subMaterial) => (
                                             <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
                                                 <p className="text-muted-foreground">{subMaterial.name}</p>
-                                                <div className="flex items-center overflow-x-scroll gap-x-4">
-                                                    {subMaterial.items.map((image) => (
-                                                        <div key={image.src} className="relative">
-                                                            {finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl size-5 flex justify-center items-center"><Check className="size-4" /></span>
-                                                            }
-                                                            <Image
-                                                                onClick={() => {
-                                                                    !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
-                                                                        dispatch(changeInside(!showInside));
-                                                                    dispatch(addToInside({
-                                                                        price: image.price,
-                                                                        key: material.key,
-                                                                        categoryName: material.name,
-                                                                        objectSrc: image.objectSrc,
-                                                                        objectName: image.fullName
-                                                                    }));
-                                                                }}
-                                                                className="size-16 my-1 rounded-xl shadow relative cursor-pointer"
-                                                                src={image.src}
-                                                                alt={image.fullName}
-                                                                width={150}
-                                                                height={150}
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
+                                                <Carousel
+                                                    opts={{
+                                                        align: "start",
+                                                        direction: "ltr",
+                                                    }}
+                                                    className="w-full"
+                                                >
+                                                    <CarouselContent>
+                                                        {subMaterial.items.map((image) => (
+                                                            <CarouselItem key={image.src} className="relative basis-1/5 size-16 rounded-lg mb-3">
+                                                                {finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                    <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
+                                                                }
+                                                                {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
+                                                                <Image
+                                                                    onClick={() => {
+                                                                        !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                            dispatch(changeInside(!showInside));
+                                                                        dispatch(addToInside({
+                                                                            price: image.price,
+                                                                            key: material.key,
+                                                                            categoryName: material.name,
+                                                                            objectSrc: image.objectSrc,
+                                                                            objectName: image.fullName
+                                                                        }));
+                                                                    }}
+                                                                    className="size-full dark:bg-accent my-1 rounded-xl shadow relative cursor-pointer"
+                                                                    src={image.src}
+                                                                    alt={image.fullName}
+                                                                    width={150}
+                                                                    height={150}
+                                                                />
+                                                            </CarouselItem>
+                                                        ))}
+                                                    </CarouselContent>
+                                                    <CarouselPrevious />
+                                                    <CarouselNext className="z-50 absolute right-0" />
+                                                </Carousel>
                                             </div>
                                         ))}
 

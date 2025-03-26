@@ -135,7 +135,7 @@ export default function Stepper() {
                 <h2 className="text-sm md:text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-5"}  gap-4`}>
+                <div className={`grid grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-4"} gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -147,8 +147,8 @@ export default function Stepper() {
                                         }}
                                         className="cursor-pointer p-4 border rounded-lg hover:border-primary hover:text-primary flex flex-col items-center"
                                     >
-                                        <span className="text-3xl">{item.icon}</span>
-                                        <span>{item.name}</span>
+                                        <span className="text-4xl">{item.icon}</span>
+                                        <span className="md:text-2xl font-medium">{item.name}</span>
                                     </div>
                                 </BlurFade>
                             ) : currentStep.type === 'multi' ? (
@@ -159,12 +159,12 @@ export default function Stepper() {
                                     type="single"
                                 >
                                     <ToggleGroupItem
-                                        className="cursor-pointer w-72 border rounded-lg hover:border-primary"
+                                        className="cursor-pointer w-72 h-20 border rounded-lg hover:border-primary"
                                         value={item.name}
                                         aria-label="Toggle bold"
                                     >
-                                        <span className="text-3xl">{item.icon}</span>
-                                        <span>{item.name}</span>
+                                        <span className="text-4xl">{item.icon}</span>
+                                        <span className="md:text-lg font-medium">{item.name}</span>
                                     </ToggleGroupItem>
                                 </ToggleGroup>
 
