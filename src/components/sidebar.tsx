@@ -169,7 +169,7 @@ export default function SideBar() {
                                                     className="w-full"
                                                 >
                                                     <CarouselContent>
-                                                        {subMaterial.items.map((image) => (
+                                                        {subMaterial.items.map((image: any) => (
                                                             <CarouselItem key={image.src} className="relative basis-1/5 size-16 rounded-lg mb-3">
                                                                 {finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
