@@ -76,14 +76,20 @@ export default function SideBar() {
                 <TabsContent value="exterior" className="rounded-2xl">
                     {
                         MATERIALS.exterior.map((material) => (
-                            <Accordion key={material.key} type="single" collapsible className="w-full rounded-xl mt-3 border shadow px-5 border-b bg-card text-card-foreground">
+                            <Accordion disabled={(material.key  === "rain-pipe" && (!finalQuote.exterior.find((x:any) => x.key === "dakoverstek" ) || finalQuote.exterior.find((x:any) => x.key === "dakoverstek")?.action === "remove") ) ||
+                                (material.key  === "dakoverstek" && (!finalQuote.exterior.find((x:any) => x.key === "facade" ) || finalQuote.exterior.find((x:any) => x.key === "facade")?.action === "remove"))
+                                ? true : false} key={material.key} type="single" collapsible className="w-full rounded-xl mt-3 border shadow px-5 border-b bg-card text-card-foreground">
                                 <AccordionItem value={material.name}>
-                                    <AccordionTrigger className="text-base flex-wrap gap-y-1 font-semibold">
+                                    <AccordionTrigger className={`
+                                        ${(material.key  === "rain-pipe" && (!finalQuote.exterior.find((x:any) => x.key === "dakoverstek" ) || finalQuote.exterior.find((x:any) => x.key === "dakoverstek")?.action === "remove") ) ||
+                                            (material.key  === "dakoverstek" && (!finalQuote.exterior.find((x:any) => x.key === "facade" ) || finalQuote.exterior.find((x:any) => x.key === "facade")?.action === "remove"))
+                                            ? "opacity-20" : "opacity-100"} 
+                                        text-base flex-wrap gap-y-1 font-semibold`}>
                                         <p className="w-full">{material.name}</p>
                                         <p className="w-full text-muted-foreground text-sm font-normal flex-1">{material.description}</p>
                                     </AccordionTrigger>
                                     <AccordionContent>
-                                        {material.items.map((subMaterial) => (
+                                        {material.items.map((subMaterial:any) => (
                                             <div key={subMaterial.name} className="flex flex-col mt-2 gap-3">
                                                 <p className="text-muted-foreground">{subMaterial.name}</p>
                                                 <Carousel
@@ -94,7 +100,7 @@ export default function SideBar() {
                                                     className="w-full"
                                                 >
                                                     <CarouselContent>
-                                                        {subMaterial.items.map((image) => (
+                                                        {subMaterial.items.map((image: any) => (
                                                             <CarouselItem key={image.src} className="relative basis-1/5 size-16 rounded-lg mb-3">
                                                                 {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
@@ -102,14 +108,15 @@ export default function SideBar() {
                                                                 {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
                                                                 <Image
                                                                     onClick={() => {
-                                                                        !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                        !finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc ) &&
                                                                             dispatch(changeExterior(!showExterior));
                                                                         dispatch(addToExterior({
                                                                             price: image.price,
                                                                             key: material.key,
                                                                             categoryName: material.name,
                                                                             objectSrc: image.objectSrc,
-                                                                            objectName: image.fullName
+                                                                            objectName: image.fullName,
+                                                                            action:image.src === "/remove.svg" ? "remove" : "" 
                                                                         }));
                                                                     }}
                                                                     className="size-full dark:bg-accent my-1 rounded-xl shadow relative cursor-pointer"
@@ -177,7 +184,7 @@ export default function SideBar() {
                                                                 {image.badge && <span className="bg-foreground z-20 absolute top-0 px-1 left-4 rounded-lg text-xs text-background">{image.badge}</span>}
                                                                 <Image
                                                                     onClick={() => {
-                                                                        !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
+                                                                        !finalQuote.interior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc )
                                                                             dispatch(changeInside(!showInside));
                                                                         dispatch(addToInside({
                                                                             price: image.price,
@@ -241,7 +248,7 @@ export default function SideBar() {
                                 ))}                            </div>
                             <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">Inside:</Label>
-                                {finalQuote.interior.map((item: any) => (
+                                {finalQuote.interior.map((item: any) => item.objectSrc && (
                                     <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{item.objectName}</Label>
                                 ))}
                             </div>
@@ -269,7 +276,7 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////////////////// */}
 
-            <div className="md:w-3/12 inset-x-0 fixed flex justify-center items-start pb-5 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
+            <div className="md:w-3/12 z-50 inset-x-0 fixed flex justify-center items-start pb-5 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
                 <Button
                     onClick={() => dispatch(changeShowFinalQuoteModal(true))}
                     className="py-6 w-11/12 !z-[999] shadow-xl text-lg mt-5 font-semibold">

@@ -59,7 +59,7 @@ export const MATERIALS = {
           ]
         },
         {
-          name: "color",
+          name: "White",
           items: [
             { src: "/layout-selector-1.svg", objectSrc: "/layout-white-1.png", price: "400", fullName: "classic layout", badge: "white" },
             { src: "/layout-selector-2.svg", objectSrc: "/layout-white-2.png", price: "400", fullName: "classic layout", badge: "white" },
@@ -67,13 +67,6 @@ export const MATERIALS = {
             { src: "/layout-selector-4.svg", objectSrc: "/layout-white-4.png", price: "400", fullName: "classic layout", badge: "white" },
           ]
         },
-        {
-          name: "buoy part",
-          items: [
-            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/daklicht-selector-1.svg", objectSrc: "/boeideel-white.png", price: "400", fullName: "classic layout", badge: "white" },
-          ]
-        }
       ]
     },
     {
@@ -92,6 +85,13 @@ export const MATERIALS = {
           name: "wood",
           items: [
             { src: "/daklicht-selector-1.svg", objectSrc: "/wood-dakoverstek-1.png", price: "400", fullName: "wood dakoverstek" },
+          ]
+        },
+        {
+          name: "buoy part",
+          items: [
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: ""},
+            { src: "/daklicht-selector-1.svg", objectSrc: "/boeideel-white.png", price: "400", fullName: "classic layout", badge: "white" },
           ]
         }
       ]
@@ -131,11 +131,16 @@ export const MATERIALS = {
       description: "Out Door Lightning links ",
       items: [
         {
-          name: "Align",
+          name: "dark",
           items: [
             { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-1.png", price: "400", fullName: "left outdoor light", badge: "dark" },
             { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-2.png", price: "550", fullName: "right outdoor light", badge: "dark" },
             { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-3.png", price: "850", fullName: "left & right outdoor light", badge: "dark" },
+         ]
+        },
+        {
+          name: "white",
+          items: [
             { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-white-1.png", price: "850", fullName: "left white outdoor light", badge: "white" },
             { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-white-2.png", price: "850", fullName: "right white outdoor light", badge: "white" },
             { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-white-3.png", price: "850", fullName: "left & right white outdoor light", badge: "white" },
@@ -149,12 +154,22 @@ export const MATERIALS = {
       description: "Out Door Sockets or water taps ",
       items: [
         {
-          name: "items",
+          name: "dark socket taps",
           items: [
             { src: "/socket-selector-1.svg", objectSrc: "/socket-dark-1.png", price: "400", fullName: "left outdoor light", badge: "dark" },
             { src: "/socket-selector-2.svg", objectSrc: "/socket-dark-2.png", price: "550", fullName: "right outdoor light", badge: "dark" },
+          ]
+        },
+        {
+          name: "white socket taps",
+          items: [
             { src: "/socket-selector-1.svg", objectSrc: "/socket-white-1.png", price: "850", fullName: "left & right outdoor light", badge: "white" },
             { src: "/socket-selector-2.svg", objectSrc: "/socket-white-2.png", price: "850", fullName: "left white outdoor light", badge: "white" },
+          ]
+        },
+        {
+          name: "water taps",
+          items: [
             { src: "/tap-selector-1.svg", objectSrc: "/tap-1.png", price: "850", fullName: "left white outdoor light" },
             { src: "/tap-selector-2.svg", objectSrc: "/tap-2.png", price: "850", fullName: "left white outdoor light" },
           ]
@@ -163,7 +178,7 @@ export const MATERIALS = {
     },
     {
       key: "rain-pipe",
-      name: "Rail pipes collection",
+      name: "Rain pipes collection",
       description: "select from rain pipes types",
       items: [
         {
@@ -211,6 +226,11 @@ export const MATERIALS = {
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
             { src: "/light-switch-selector-1.svg", objectSrc: "/light-switch-dark-1.png", price: "400", fullName: "Right side heating", badge: "dark" },
             { src: "/light-switch-selector-2.svg", objectSrc: "/light-switch-dark-2.png", price: "560", fullName: "Left Side Heating", badge: "dark" },
+          ]
+        },
+        {
+          name: "white",
+          items: [
             { src: "/light-switch-selector-1.svg", objectSrc: "/light-switch-white-1.png", price: "560", fullName: "Left Side Heating", badge: "white" },
             { src: "/light-switch-selector-2.svg", objectSrc: "/light-switch-white-2.png", price: "560", fullName: "Left Side Heating", badge: "white" },
           ]
@@ -228,49 +248,54 @@ export const MATERIALS = {
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
             { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-dark-1.png", price: "400", fullName: "Right side heating", badge: "dark" },
             { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-dark-2.png", price: "560", fullName: "Left Side Heating", badge: "dark" },
+          ]
+        },
+        {
+          name: "white",
+          items: [
             { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-white-1.png", price: "560", fullName: "Left Side Heating", badge: "white" },
             { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-white-2.png", price: "560", fullName: "Left Side Heating", badge: "white" },
           ]
         },
       ]
     },
-    {
-      key: "spotlights",
-      name: "Spotlights Inside",
-      description: "Inside Spotlights Selection",
-      items: [
-        {
-          name: "Row 1",
-          items: [
-            { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-1-1.png", price: "400", fullName: "Right side heating" },
-            { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-1-2.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-1-3.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-1-4.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-1-5.png", price: "560", fullName: "Left Side Heating" },
-          ]
-        },
-        {
-          name: "Row 2",
-          items: [
-            { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-2-1.png", price: "400", fullName: "Right side heating" },
-            { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-2-2.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-2-3.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-2-4.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-2-5.png", price: "560", fullName: "Left Side Heating" },
-          ]
-        },
-        {
-          name: "Row 3",
-          items: [
-            { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-3-1.png", price: "400", fullName: "Right side heating" },
-            { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-3-2.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-3-3.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-3-4.png", price: "560", fullName: "Left Side Heating" },
-            { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-3-5.png", price: "560", fullName: "Left Side Heating" },
-          ]
-        },
-      ]
-    },
+    // {
+    //   key: "spotlights",
+    //   name: "Spotlights Inside",
+    //   description: "Inside Spotlights Selection",
+    //   items: [
+    //     {
+    //       name: "Row 1",
+    //       items: [
+    //         { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-1-1.png", price: "400", fullName: "Right side heating" },
+    //         { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-1-2.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-1-3.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-1-4.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-1-5.png", price: "560", fullName: "Left Side Heating" },
+    //       ]
+    //     },
+    //     {
+    //       name: "Row 2",
+    //       items: [
+    //         { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-2-1.png", price: "400", fullName: "Right side heating" },
+    //         { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-2-2.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-2-3.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-2-4.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-2-5.png", price: "560", fullName: "Left Side Heating" },
+    //       ]
+    //     },
+    //     {
+    //       name: "Row 3",
+    //       items: [
+    //         { src: "/spotlight-selector-1.svg", objectSrc: "/spotlight-3-1.png", price: "400", fullName: "Right side heating" },
+    //         { src: "/spotlight-selector-2.svg", objectSrc: "/spotlight-3-2.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-3.svg", objectSrc: "/spotlight-3-3.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-4.svg", objectSrc: "/spotlight-3-4.png", price: "560", fullName: "Left Side Heating" },
+    //         { src: "/spotlight-selector-5.svg", objectSrc: "/spotlight-3-5.png", price: "560", fullName: "Left Side Heating" },
+    //       ]
+    //     },
+    //   ]
+    // },
     {
       key: "wall-lamps",
       name: "Wall Lamps",
@@ -279,10 +304,16 @@ export const MATERIALS = {
         {
           name: "Position",
           items: [
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
             { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-1.png", price: "400", fullName: "Right side wall lamp", badge: "dark" },
             { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-2.png", price: "560", fullName: "Left Side wall lamp", badge: "dark" },
             { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-3.png", price: "770", fullName: "Left & right wall lamp", badge: "dark" },
-            { src: "/light-point-selector-1.svg", objectSrc: "/wall-lamps-white-1.png", price: "770", fullName: "Left & right wall lamp", badge: "white" },
+          ]
+        },
+        {
+          name: "white",
+          items: [
+            { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-white-1.png", price: "770", fullName: "Left & right wall lamp", badge: "white" },
             { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-white-2.png", price: "770", fullName: "Left & right wall lamp", badge: "white" },
             { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-white-3.png", price: "770", fullName: "Left & right wall lamp", badge: "white" },
           ]
@@ -291,13 +322,13 @@ export const MATERIALS = {
     },
     {
       key: "light-point",
-      type: "multi",
       name: "Light point",
       description: "Light Point",
       items: [
         {
           name: "Align",
           items: [
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
             { src: "/light-point-selector-1.svg", objectSrc: "/light-point-1.png", price: "400", fullName: "Right side wall lamp" },
             { src: "/light-point-selector-2.svg", objectSrc: "/light-point-2.png", price: "560", fullName: "Left Side wall lamp" },
             { src: "/light-point-selector-3.svg", objectSrc: "/light-point-3.png", price: "770", fullName: "Left & right wall lamp" },
