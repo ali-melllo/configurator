@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatEuroPrice } from "@/lib/utils";
 import SubmitModal from "@/components/main/modals/submit-modal";
+import PreviewModal from "@/components/main/modals/preview-modal";
 
 
 export default function PageClient() {
@@ -102,6 +103,8 @@ export default function PageClient() {
       )}
 
       <SubmitModal />
+
+      <PreviewModal/>
 
     </main>
   );

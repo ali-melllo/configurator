@@ -11,6 +11,7 @@ interface GlobalState {
   showInside: boolean,
   showFrequentlyAskedModal: boolean;
   showFinalQuoteModal: boolean,
+  showPreview: boolean,
   view?: "exterior" | "inside";
   finalQuote: {
     surface: string,
@@ -29,6 +30,7 @@ const initialState: GlobalState = {
   showFinalQuoteModal: false,
   buildingStep:null,
   showInside: false,
+  showPreview:false,
   view: "exterior",
   finalQuote: {
     surface: "",
@@ -46,6 +48,9 @@ export const globalSlice: any = createSlice({
   reducers: {
     changeExterior: (state, action: PayloadAction<boolean>) => {
       state.showExterior = action.payload;
+    },
+    changePreview: (state, action: PayloadAction<boolean>) => {
+      state.showPreview = action.payload;
     },
     changeInside: (state, action: PayloadAction<boolean>) => {
       state.showInside = action.payload;
@@ -120,7 +125,8 @@ export const {
   resetAll,
   changeFrequentlyAskedModal,
   setBuildingStep,
-  changeConstructionOld
+  changeConstructionOld,
+  changePreview
 } = globalSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

@@ -79,6 +79,9 @@ export default function SubmitModal() {
                         Make a quote to get your selected services exact price in your email. please ensure that you enter the right email , our team will answer very soon.
                     </DialogDescription>
                 </DialogHeader>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                
                 <Card className="w-full mt-5">
                     <CardContent>
                         <div className="grid w-full items-center gap-y-2 pt-5">
@@ -143,9 +146,9 @@ export default function SubmitModal() {
                             </Button>
                         </DialogFooter>
                     </form>
-
                 </div>
 
+                </div>
             </DialogContent>
         </Dialog>
     )

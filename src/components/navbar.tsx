@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
-import { changeShowFinalQuoteModal, changeView, resetAll } from "@/redux/globalSlice";
+import { changePreview, changeShowFinalQuoteModal, changeView, resetAll } from "@/redux/globalSlice";
 import Link from "next/link";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
@@ -74,6 +74,8 @@ export default function Navbar() {
                           changeViewHandler('inside') :
                           name === 'Submit' ?
                             dispatch(changeShowFinalQuoteModal(true)) :
+                            name === 'Preview' ?
+                            dispatch(changePreview(true)) :
                             null
                     }}
                     className={cn(
@@ -81,6 +83,8 @@ export default function Navbar() {
                       "size-12"
                     )}
                   >
+                   
+
                     {name === 'Reset' ?
                       <AlertDialog>
                         <AlertDialogTrigger>
