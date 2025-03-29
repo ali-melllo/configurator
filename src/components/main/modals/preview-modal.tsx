@@ -80,7 +80,7 @@ export default function PreviewModal() {
                         (
                             <div className="absolute flex flex-col gap-3 z-50 right-5 top-5">
                                 {finalQuote.exterior.map((item: any) => (
-                                    <BlurFade delay={0.3}>
+                                    <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex rounded-2xl shadow-2xl items-center p-3 bg-background`}>
                                             <Dot /><TypingAnimation className="text-base">{item.objectName}</TypingAnimation>
                                         </div>
@@ -107,15 +107,16 @@ export default function PreviewModal() {
 
                     {view === 'inside' &&
                         (
-                            <BlurFade delay={0.3}>
-                                <div className="absolute flex flex-col gap-3 z-50 right-5 top-5">
-                                    {finalQuote.interior.map((item: any) => (
+                            <div className="absolute flex flex-col gap-3 z-50 right-5 top-5">
+                                {finalQuote.interior.map((item: any) => (
+                                    <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex  rounded-2xl shadow-2xl items-center p-3 bg-background`}>
                                             <Dot /><TypingAnimation className="text-base">{item.objectName}</TypingAnimation>
                                         </div>
-                                    ))}
-                                </div>
-                            </BlurFade>
+                                    </BlurFade>
+                                ))}
+                            </div>
+
                         )
                     }
 

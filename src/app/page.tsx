@@ -47,7 +47,6 @@ export default function Page() {
           )}
         />
 
-
         <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col justify-center">
           <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
             Home Extensions and Renovations
