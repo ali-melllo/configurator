@@ -33,7 +33,7 @@ export default function PageClient() {
     return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
   }, [finalQuote]);
 
-  console.log(finalQuote.exterior)
+  
   return (
     <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
 
