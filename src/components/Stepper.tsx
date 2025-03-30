@@ -69,7 +69,7 @@ export default function Stepper() {
                 if (existingIndex !== -1) {
                     return prevData.filter((data: any) => data.title !== item.name);
                 } else {
-                    return [...prevData, { title: item.name }];
+                    return [...prevData, { title: item.name, items: item.items || [] }];
                 }
             });
         } else if (type === "text") {
@@ -102,10 +102,34 @@ export default function Stepper() {
 
     const handleGatherData = (item: any) => {
         setHistory([...history, item]);
-        setGatheredData([...gatheredData, currentStep.type ==='select' ? item : currentFormData])
+        setGatheredData([...gatheredData, currentStep.type === 'select' ? item : currentFormData])
         setCurrentFormData([]);
     };
 
+    const handleCombineSteps = (selectedSteps: any) => {
+        const data = selectedSteps.map((item: any) => item.items);
+      
+        for (let i = 0; i < data.length - 1; i++) {
+          let current = data[i];
+      
+          while (current.nextStep) {
+            current = current.nextStep;
+          }
+      
+          current.nextStep = data[i + 1];
+        }
+      
+        let lastItem = data[data.length - 1];
+        while (lastItem.nextStep) {
+          lastItem = lastItem.nextStep;
+        }
+        lastItem.lastStep = true; 
+      
+        currentStep.nextStep = data[0];
+      };
+      
+      
+console.log(currentStep)
 
     return (
         <BlurFade inView className="w-11/12 min-h-[80vh] mt-28 mx-auto rounded-xl ">
@@ -227,6 +251,7 @@ export default function Stepper() {
                             setGatheredData((prevSteps: any) => prevSteps.slice(0, -1));
                             setFinalCheck(false);
                             setCurrentFormData([]);
+
                         }}
                     >
                         Prev
@@ -237,7 +262,6 @@ export default function Stepper() {
                             // validation is here cause handling global and in case of last step
 
                             if (currentStep.type === "multi") {
-                                console.log(currentFormData)
                                 if (currentFormData.length === 0) {
                                     return toast("Please At least select one item to Continue")
                                 }
@@ -259,6 +283,10 @@ export default function Stepper() {
                                         items: currentFormData,
                                         type: "multi"
                                     })
+                                    if (currentStep.key === "gather-steps") {
+                                        // combine selected steps
+                                        handleCombineSteps(currentFormData)
+                                    }
                                 } else if (currentStep.type === "text") {
                                     handleGatherData({
                                         title: currentStep.title || currentStep.nextStep?.title,
@@ -286,7 +314,7 @@ export default function Stepper() {
                                 setGatheredData([...gatheredData, currentFormData])
                             }
                         }}>
-                            {currentStep.lastStep ? "Final Check" : "Next"}
+                            {currentStep.lastStep ? "Final Check" : currentStep.key === "gather-steps" ? "Start" : "Next"}
                         </Button>
                     }
                 </div>

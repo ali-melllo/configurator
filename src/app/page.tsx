@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Page() {
 
   const { buildingStep } = useSelector((state: any) => state.global);
+  
   const dispatch = useDispatch();
 
   return (
@@ -93,6 +94,8 @@ export default function Page() {
           </div>
         </div>
       </main>}
+
+
 
       {buildingStep !== null &&
         <StepperPage />

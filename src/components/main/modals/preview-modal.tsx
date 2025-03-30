@@ -9,7 +9,6 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 import BlurFade from "@/components/magicui/blur-fade";
 
 
-
 export default function PreviewModal() {
 
     const [imageLoaded, setImageLoaded] = useState<boolean>(true);
