@@ -385,7 +385,7 @@ export const DATA = {
     { href: "/configurator", label: "Configurator" },
     { href: "/projects", label: "Projects" },
     { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    // { href: "/contact", label: "Contact" },
   ],
   contact: {
     email: "email@example.com",
