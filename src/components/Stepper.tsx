@@ -15,6 +15,9 @@ import { cn } from "@/lib/utils";
 import Overview from "./overview";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setBuildingStep } from "@/redux/globalSlice";
 
 
 // titles are used to show main title of current step at top
@@ -52,6 +55,9 @@ export default function Stepper() {
         from: new Date(2022, 0, 20),
         to: addDays(new Date(2022, 0, 20), 20),
     })
+
+    const router = useRouter();
+    const dispatch = useDispatch();
 
     const currentStep = selectedSteps.reduce((acc: any, step: any) => {
         return acc?.items?.find((item: any) => item.name === step) || acc?.nextStep;
@@ -108,28 +114,24 @@ export default function Stepper() {
 
     const handleCombineSteps = (selectedSteps: any) => {
         const data = selectedSteps.map((item: any) => item.items);
-      
         for (let i = 0; i < data.length - 1; i++) {
-          let current = data[i];
-      
-          while (current.nextStep) {
-            current = current.nextStep;
-          }
-      
-          current.nextStep = data[i + 1];
+            let current = data[i];
+
+            while (current.nextStep) {
+                current = current.nextStep;
+            }
+
+            current.nextStep = data[i + 1];
         }
-      
+
         let lastItem = data[data.length - 1];
         while (lastItem.nextStep) {
-          lastItem = lastItem.nextStep;
+            lastItem = lastItem.nextStep;
         }
-        lastItem.lastStep = true; 
-      
+        lastItem.lastStep = true;
+
         currentStep.nextStep = data[0];
-      };
-      
-      
-console.log(currentStep)
+    };
 
     return (
         <BlurFade inView className="w-11/12 min-h-[80vh] mt-28 mx-auto rounded-xl ">
@@ -153,13 +155,13 @@ console.log(currentStep)
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <h2 className="md:text-2xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
+                    <h2 className="md:text-3xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
                 </div>
 
-                <h2 className="text-sm md:text-lg font-medium text-muted-foreground">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
+                <h2 className="text-sm md:text-lg font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-4"} gap-4`}>
+                <div className={`grid grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -169,7 +171,7 @@ console.log(currentStep)
                                             handleSelect(item);
                                             handleGatherData(item);
                                         }}
-                                        className="cursor-pointer p-4 border rounded-lg hover:border-primary hover:text-primary flex flex-col items-center"
+                                        className="cursor-pointer p-4 py-5 border rounded-lg hover:border-primary hover:text-primary flex flex-col items-center"
                                     >
                                         <span className="text-4xl">{item.icon}</span>
                                         <span className="md:text-2xl font-medium">{item.name}</span>
@@ -183,7 +185,7 @@ console.log(currentStep)
                                     type="single"
                                 >
                                     <ToggleGroupItem
-                                        className="cursor-pointer w-72 h-20 border rounded-lg hover:border-primary"
+                                        className="cursor-pointer w-full !py-7 border rounded-lg hover:border-primary"
                                         value={item.name}
                                         aria-label="Toggle bold"
                                     >
@@ -193,20 +195,19 @@ console.log(currentStep)
                                 </ToggleGroup>
 
                             ) : currentStep.type === 'check' ? (
-                                <div key={item.name} className="flex gap-3 items-center">
-                                    <Separator orientation="vertical" />
-                                    <span className="min-w-32 line-clamp-1 md:min-w-48">{item.name}</span>
+                                <div key={item.name} className="flex flex-col md:flex-row gap-5 md:items-center">
+                                    <span className="min-w-32 md:text-2xl my-3 md:min-w-48">{item.name}</span>
                                     <RadioGroup
-                                        className="flex ml-10 items-center"
+                                        className="flex md:ml-10 items-center"
                                         onValueChange={(value) => currentFormHandler({ question: item.name, value }, "check")}
                                     >
                                         <div className="flex items-center space-x-2">
                                             <RadioGroupItem value="yes" id={`yes-${item.name}`} />
-                                            <Label htmlFor={`yes-${item.name}`}>Yes</Label>
+                                            <Label className="md:text-2xl" htmlFor={`yes-${item.name}`}>Yes</Label>
                                         </div>
-                                        <div className="flex items-center space-x-2">
+                                        <div className="flex items-center space-x-2 md:ml-10">
                                             <RadioGroupItem value="no" id={`no-${item.name}`} />
-                                            <Label htmlFor={`no-${item.name}`}>No</Label>
+                                            <Label className="md:text-2xl" htmlFor={`no-${item.name}`}>No</Label>
                                         </div>
                                     </RadioGroup>
                                 </div>
@@ -244,20 +245,26 @@ console.log(currentStep)
 
                 <div className="flex w-full  items-center mt-10 justify-between">
                     <Button
+                        className="md:text-xl py-5"
                         disabled={selectedSteps.length === 0}
                         onClick={() => {
+                            if (currentStep.isFirst) {
+                                window.location.href = "/";
+                                return
+                            }
+
                             setSelectedSteps((prevSteps: any) => prevSteps.slice(0, -1));
                             setHistory((prevSteps: any) => prevSteps.slice(0, -1));
                             setGatheredData((prevSteps: any) => prevSteps.slice(0, -1));
                             setFinalCheck(false);
                             setCurrentFormData([]);
-
+                            
                         }}
                     >
-                        Prev
+                        {currentStep.isFirst ? "Back To Home" : "Prev"}
                     </Button>
                     {currentStep.type !== 'select' && !finalCheck &&
-                        <Button onClick={() => {
+                        <Button className="md:text-xl py-5" onClick={() => {
 
                             // validation is here cause handling global and in case of last step
 

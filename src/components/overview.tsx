@@ -1,24 +1,30 @@
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
-import { Loader, Send } from "lucide-react";
+import { Dot, Loader, Send } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { setBuildingStep } from "@/redux/globalSlice";
+import { Calendar } from "./ui/calendar";
+import { DateRange } from "react-day-picker";
 
 export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
+    const [date, setDate] = useState<DateRange | undefined>({
+        from: new Date(2022, 0, 20),
+        to: addDays(new Date(2022, 0, 20), 20),
+    })
+
     const [loading, setLoading] = useState<boolean>(false);
-    // Flatten nested arrays while ensuring objects remain untouched
+
     const flattenSteps = (steps: any[]): any[] =>
         steps.flatMap((step) => (Array.isArray(step) ? flattenSteps(step) : step));
 
     const flattenedSteps = flattenSteps(selectedSteps);
     const dispatch = useDispatch();
 
-    // Flatten the selected steps and structure them as an object
     const prepareDataForSubmission = useCallback(() => {
-        const flattenedSteps = selectedSteps.flat(Infinity); // Flatten all levels
+        const flattenedSteps = selectedSteps.flat(Infinity); 
 
         const formattedData: Record<string, any> = {};
 
@@ -68,7 +74,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
 
     return (
-        <div className="bg-background rounded-2xl pt-10 w-full mx-auto">
+        <div className="bg-background rounded-2xl grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
@@ -94,9 +100,9 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
                         }
 
                         return (
-                            <div key={index} className="border p-4 rounded-lg">
-                                <h3 className="font-medium flex items-center gap-4">
-                                    {step.icon || "📌"} {step.title || (`${step.question} : ${step.value}`)}
+                            <div key={index} className=" rounded-lg">
+                                <h3 className="font-medium flex items-center gap-2">
+                                    {step.icon || <Dot />} {step.title || (`${step.question} : ${step.value}`)}
                                 </h3>
                                 {step.description && (
                                     <p className="text-muted-foreground text-sm">{step.description}</p>
@@ -116,9 +122,31 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
                     })}
                 </div>
             )}
-            <Button disabled={loading} className="absolute top-5 right-5 md:right-10 font-semibold text-base" onClick={sendEmail}>
+
+            <div className="flex flex-col items-center w-full">
+                <Calendar
+                    initialFocus
+                    mode="range"
+                    defaultMonth={date?.from}
+                    selected={date}
+                    onSelect={(e) => {
+                        setDate(e)
+                    }}
+                    numberOfMonths={2}
+                />
+                <div className="flex items-center mr-auto  gap-3 mt-5">
+                    <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
+                </div>
+                <div className="flex items-center mr-auto gap-3 mt-3">
+                    <p className="font-semibold ">Estimated Price : </p><p className="text-primary font-bold text-xl">23,000 $</p>
+                </div>
+
+
+            </div>
+
+            <Button disabled={loading} className="absolute top-5 md:top-20 right-3 md:right-10 font-semibold text-base" onClick={sendEmail}>
                 <Send />
-                {loading ? <Loader className="animate-spin" /> : "send"}
+                {loading ? <Loader className="animate-spin" /> : "Send"}
             </Button>
         </div>
     );
