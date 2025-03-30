@@ -81,7 +81,7 @@ export default function PreviewModal() {
                                 {finalQuote.exterior.map((item: any) => (
                                     <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex rounded-2xl shadow-2xl items-center p-3 bg-background`}>
-                                            <Dot /><TypingAnimation className="text-base">{item.objectName}</TypingAnimation>
+                                            <Dot /><p className="text-base">{item.objectName}</p>
                                         </div>
                                     </BlurFade>
                                 ))}
@@ -110,7 +110,7 @@ export default function PreviewModal() {
                                 {finalQuote.interior.map((item: any) => (
                                     <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex  rounded-2xl shadow-2xl items-center p-3 bg-background`}>
-                                            <Dot /><TypingAnimation className="text-base">{item.objectName}</TypingAnimation>
+                                            <Dot /><p className="text-base">{item.objectName}</p>
                                         </div>
                                     </BlurFade>
                                 ))}

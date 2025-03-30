@@ -101,7 +101,7 @@ export default function SideBar() {
                                                 >
                                                     <CarouselContent>
                                                         {subMaterial.items.map((image: any) => (
-                                                            <CarouselItem key={image.src} className="relative basis-1/5 size-16 rounded-lg mb-3">
+                                                            <CarouselItem key={image.src} className="relative basis-1/4 2xl:basis-1/5 size-16 rounded-lg mb-3">
                                                                 {finalQuote.exterior.find((x: any) => x.key === material.key && x.objectSrc === image.objectSrc) &&
                                                                     <span className="absolute top-0 right-0 z-20 bg-primary text-black rounded-xl transition-all duration-200 size-5 flex justify-center items-center"><Check className="size-4" /></span>
                                                                 }
@@ -119,7 +119,7 @@ export default function SideBar() {
                                                                             action:image.src === "/remove.svg" ? "remove" : "" 
                                                                         }));
                                                                     }}
-                                                                    className="size-full dark:bg-accent my-1 rounded-xl shadow relative cursor-pointer"
+                                                                    className="size-full dark:bg-accent my-1 object-cover rounded-xl shadow relative cursor-pointer"
                                                                     src={image.src}
                                                                     alt={image.fullName}
                                                                     width={150}
