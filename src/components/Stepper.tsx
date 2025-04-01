@@ -134,9 +134,9 @@ export default function Stepper() {
     };
 
     return (
-        <BlurFade inView className="w-11/12 min-h-[80vh] mt-28 mx-auto rounded-xl ">
+        <BlurFade inView className="md:w-11/12 h-[100dvh] md:h-auto md:min-h-[80vh] overflow-scroll  pt-24 md:pt-0 md:mt-28 mx-auto rounded-xl">
 
-            <div className="p-5 md:p-10 size-full flex flex-col min-h-[75dvh] md:min-h-[80dvh]  rounded-xl overflow-y-scroll bg-background/25 border shadow-md">
+            <div className="p md:p-10 size-full flex flex-col h-full md:min-h-[80vh]  rounded-xl bg-background/25 md:border shadow-md">
 
                 <div className="w-full hidden md:block mb-14">
                     <ol className="mx-auto flex w-full flex-nowrap gap-1">
@@ -155,13 +155,13 @@ export default function Stepper() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <h2 className="md:text-3xl font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
+                    <h2 className="md:text-3xl px-5 md:px-0 font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
                 </div>
 
-                <h2 className="text-sm md:text-lg font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
+                <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
+                <div className={`grid px-5 md:px-0 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -243,10 +243,9 @@ export default function Stepper() {
 
                 {finalCheck && <Overview selectedSteps={gatheredData} />}
 
-                <div className="flex w-full  items-center mt-10 justify-between">
+                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky md:relative items-center bottom-0 py-5 md:py-0 md:bottom-0 md:mt-10 justify-between">
                     <Button
-                        className="md:text-xl py-5"
-                        disabled={selectedSteps.length === 0}
+                        className="md:text-xl w-28 md:w-48 py-5"
                         onClick={() => {
                             if (currentStep.isFirst) {
                                 window.location.href = "/";
@@ -261,10 +260,10 @@ export default function Stepper() {
                             
                         }}
                     >
-                        {currentStep.isFirst ? "Back To Home" : "Prev"}
+                        {selectedSteps.length === 0 || currentStep.isFirst ? "Back To Home" : "Prev"}
                     </Button>
                     {currentStep.type !== 'select' && !finalCheck &&
-                        <Button className="md:text-xl py-5" onClick={() => {
+                        <Button className="md:text-xl w-28 md:w-48 py-5" onClick={() => {
 
                             // validation is here cause handling global and in case of last step
 

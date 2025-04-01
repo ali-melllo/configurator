@@ -74,7 +74,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
 
     return (
-        <div className="bg-background rounded-2xl grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
+        <div className="bg-background rounded-2xl px-2 md:px-0 grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
@@ -124,27 +124,31 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
             )}
 
             <div className="flex flex-col items-center w-full">
+                <div>
+
+               
                 <Calendar
                     initialFocus
                     mode="range"
                     defaultMonth={date?.from}
                     selected={date}
+                    className="ml-7 md:ml-0"
                     onSelect={(e) => {
                         setDate(e)
                     }}
                     numberOfMonths={2}
                 />
-                <div className="flex items-center mr-auto  gap-3 mt-5">
+                <div className="flex items-center gap-3 ml-3 mt-5">
                     <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
                 </div>
-                <div className="flex items-center mr-auto gap-3 mt-3">
+                <div className="flex items-center gap-3 ml-3 mt-3">
                     <p className="font-semibold ">Estimated Price : </p><p className="text-primary font-bold text-xl">23,000 $</p>
                 </div>
-
+ </div>
 
             </div>
 
-            <Button disabled={loading} className="absolute top-5 md:top-20 right-3 md:right-10 font-semibold text-base" onClick={sendEmail}>
+            <Button disabled={loading} className="absolute flex md:top-20 right-3 md:right-10 font-semibold text-base" onClick={sendEmail}>
                 <Send />
                 {loading ? <Loader className="animate-spin" /> : "Send"}
             </Button>

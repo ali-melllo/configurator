@@ -48,7 +48,7 @@ export default function Page() {
           )}
         />
 
-        <div className="md:pl-36 md:pr-24 flex w-full mt-5 md:mt-0 md:w-6/12 flex-col justify-center">
+        <div className="md:pl-36 md:pr-24 flex w-full mt- md:mt-0 md:w-6/12 flex-col justify-center">
           <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
             Home Extensions and Renovations
           </TextAnimate>
@@ -101,7 +101,7 @@ export default function Page() {
         <StepperPage />
       }
 
-      <div className="mt-48 w-full flex flex-col items-center">
+      {buildingStep === null && <div className="mt-48 w-full flex flex-col items-center">
         <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           How Does it Work ?
         </TextAnimate>
@@ -133,9 +133,9 @@ export default function Page() {
             <p className="text-muted-foreground mt-5">Your specialist in renovations and home extensions with more than 25 years of experience and craftsmanship will deliver your needs</p>
           </div>
         </div>
-      </div>
+      </div>}
 
-      <div className="mt-48 w-full flex flex-col items-center">
+      {buildingStep === null &&<div className="mt-48 w-full flex flex-col items-center">
 
         <TextAnimate className="text-3xl w-full lg:w-6/12 md:text-6xl text-center font-bold" animation="blurInUp" by="word">
           Super fast solution for your House extensions and services
@@ -148,9 +148,9 @@ export default function Page() {
             alt={'Persian Top'}
           />
         </div>
-      </div>
+      </div>}
 
-      <div className="my-48 w-full flex flex-col items-center">
+      {buildingStep === null && <div className="my-48 w-full flex flex-col items-center">
         <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           Our Services
         </TextAnimate>
@@ -186,11 +186,11 @@ export default function Page() {
             />
           </div>
         </div>
-      </div>
+      </div>}
 
 
 
-      <div className="w-11/12 md:w-9/12 mx-auto my-48">
+      {buildingStep === null && <div className="w-11/12 md:w-9/12 mx-auto my-48">
         <TextAnimate className="text-3xl md:text-6xl text-center font-bold" animation="blurInUp" by="character">
           Gallery
         </TextAnimate>
@@ -209,10 +209,10 @@ export default function Page() {
             ))}
           </div>
         </section>
-      </div>
+      </div>}
 
 
-      <BlurFade delay={0.25} inView>
+      {buildingStep === null && <BlurFade delay={0.25} inView>
         <div className="flex flex-col md:flex-row w-9/12 mx-auto h-96 my-72">
           <div className="w-full md:w-6/12">
             <img
@@ -236,12 +236,11 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </BlurFade>
+      </BlurFade>}
 
-      <Footer />
+      {buildingStep === null && <Footer />}
 
-      <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
-
+{ buildingStep === null &&     <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>}
     </div>
   );
 }
