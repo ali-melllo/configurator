@@ -64,17 +64,17 @@ export default function Page() {
             </a>
           </p>
 
-          <Button className="h-12 lg:h-14 z-30 px-5 mt-5 mx-auto md:mt-10 w-11/12 md:w-full font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+          <Button className="h-12 lg:h-14 z-30 px-5 mt-5 mx-auto md:mt-10 w-11/12 md:w-full font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
             <Link href={'/configurator'}>
               Request a Quote Using 3D Configurator
             </Link>
           </Button>
           <Button
             onClick={() => dispatch(setBuildingStep(0))}
-            className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+            className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
             Request a Quote Manually
           </Button>
-          <Button className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+          <Button className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
             Request a Quote direct phone Call
           </Button>
         </div>
