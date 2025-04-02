@@ -601,7 +601,35 @@ export const STEPS_DATA = [
                         },
 
                     },
-                    { "name": "Window", "icon": "🔲", "items": ["1"] },
+                    {
+                        "name": "Window",
+                        "icon": "🔲",
+                        "items": {
+                            "name": "windows info",
+                            "title": "windows info",
+                            "description": "please fill window information",
+                            "type": "text",
+                            "items": [
+                                { "name": "Which of the existing windows should be painted ?" },
+                                { "name": "How many windows need to be painted ?" },
+                                { "name": "Should the window sills also be replaced?" },
+                            ],
+                            "nextStep": {
+                                "name": "new windows",
+                                "title": "What material should your windows be made of?",
+                                "description": "please select new windows material",
+                                "type": "multi",
+                                "items": [
+                                    { "name": "Plastic" },
+                                    { "name": "Wood" },
+                                ],
+                                "nextStep": null,
+                                "lastStep": true
+                            },
+                            "isFirst": true
+                        },
+
+                    },
                     { "name": "Doors", "icon": "🚪", "items": ["1"] },
                     { "name": "Bathroom & rest toilets", "icon": "🛁", "items": ["1"] },
                     { "name": "Roof & insulation", "icon": "🧱", "items": ["1"] },
