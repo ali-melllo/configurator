@@ -852,8 +852,65 @@ export const STEPS_DATA = [
                             },
                         },
                     },
-                    { "name": "Stairs", "icon": "𓊍", "items": ["1"] },
-                    { "name": "Supply Lines", "icon": "🚰", "items": ["1"] },
+                    {
+                        "name": "Stairs",
+                        "icon": "𓊍",
+                        "items": {
+                            "name": "stairs info",
+                            "title": "Stairs Info",
+                            "description": "please answer basic info about stairs",
+                            "type": "check",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "Should a new staircase be installed?" },
+                                { "name": "Should an existing staircase be refurbished?" },
+                                { "name": "Should the stairs be painted?" },
+                                { "name": "Should a concrete staircase be covered with solid wooden steps?" },
+                            ],
+                            "nextStep": {
+                                "name": "stairs type",
+                                "title": "Which staircase do you want?",
+                                "description": "please select the stairs type",
+                                "type": "multi",
+                                "items": [
+                                    { "name": "Straight" },
+                                    { "name": "Quarter-turned" },
+                                    { "name": "Half-coiled" },
+                                    { "name": "Two quarter turns" },
+                                ],
+                                "nextStep": {
+                                    "name": "stairs quality",
+                                    "title": "What quality do you want the new staircase to be?",
+                                    "description": "please select the stairs quality",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "Budget" },
+                                        { "name": "Standard" },
+                                        { "name": "Premium" },
+                                    ],
+                                    "nextStep": null,
+                                    "lastStep": true,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        "name": "Supply Lines",
+                        "icon": "🚰",
+                        "items": {
+                            "name": "Supply Lines info",
+                            "title": "Supply Lines info",
+                            "description": "please answer the Supply Lines questions",
+                            "type": "text",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "How many risers do you have or need?" },
+                                { "name": "How many floors does your building have" },
+                            ],
+                            "nextStep": null,
+                            "lastStep": true,
+                        },
+                    },
                 ]
             },
         ]
