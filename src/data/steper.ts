@@ -724,7 +724,45 @@ export const STEPS_DATA = [
                             }
                         },
                     },
-                    { "name": "Roof & insulation", "icon": "🧱", "items": ["1"] },
+                    {
+                        "name": "Roof & insulation",
+                        "icon": "🧱",
+                        "items": {
+                            "name": "Roof & insulations",
+                            "title": "Should the roof be replaced or insulated?",
+                            "description": "please select the service for Roof & insulations ",
+                            "type": "multi",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "New roof including insulation" },
+                                { "name": "Insulation only" },
+                            ],
+                            "nextStep": {
+                                "name": "Roof shape",
+                                "title": "What shape of roof is it?",
+                                "description": "please select the Roof shape ",
+                                "type": "multi",
+                                "items": [
+                                    { "name": "gable roof" },
+                                    { "name": "flat roof" },
+                                ],
+                                "nextStep": {
+                                    "name": "Roof questions",
+                                    "title": "Roof questions",
+                                    "description": "please fill the Roof questions ",
+                                    "type": "text",
+                                    "items": [
+                                        { "name": "How big is your roof area?" },
+                                        { "name": "What type of roofing does your current roof have?" },
+                                        { "name": "What type of covering do you want on your roof?" },
+                                        { "name": "Should the downpipes and gutters also be replaced?" },
+                                    ],
+                                    "nextStep": null,
+                                    "lastStep": true,
+                                },
+                            },
+                        },
+                    },
                     { "name": "Facade & insulation", "icon": "🛠", "items": ["1"] },
                     { "name": "Floor Plan Change", "icon": "𓉩", "items": ["1"] },
                     { "name": "Stairs", "icon": "𓊍", "items": ["1"] },
