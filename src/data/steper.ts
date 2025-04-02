@@ -126,14 +126,14 @@ export const STEPS_DATA = [
                 "icon": "🏠",
                 "items": [
                     {
-                        "name": "Electricity", 
-                        "icon": "🔌", 
+                        "name": "Electricity",
+                        "icon": "🔌",
                         "items": {
                             "name": "Electronic",
                             "title": "Should a new fuse box be installed?",
                             "description": "Select your prefer services for electricity",
                             "type": "multi",
-                            "isFirst":true,
+                            "isFirst": true,
                             "icon": "🔌",
                             "items": [
                                 { "name": "Fuse Box" },
@@ -163,12 +163,12 @@ export const STEPS_DATA = [
                                         "title": "In which rooms should new cables be installed?",
                                         "description": "Define Your rooms selection",
                                         "items": [
-                                            { "name": "Living/dining room" , "icon": "🛋️" },
-                                            { "name": "Bedroom/children's room"  , "icon": "👶🏻" },
-                                            { "name": "Hallway" , "icon": "🏘" },
-                                            { "name": "Kitchen" , "icon": "🍳" },
-                                            { "name": "Bathroom / Toilet" , "icon": "🛁" },
-                                            { "name": "Utility room / basement" , "icon": "⬇🚪" },
+                                            { "name": "Living/dining room", "icon": "🛋️" },
+                                            { "name": "Bedroom/children's room", "icon": "👶🏻" },
+                                            { "name": "Hallway", "icon": "🏘" },
+                                            { "name": "Kitchen", "icon": "🍳" },
+                                            { "name": "Bathroom / Toilet", "icon": "🛁" },
+                                            { "name": "Utility room / basement", "icon": "⬇🚪" },
                                         ],
                                         "type": "multi",
                                         "icon": "🔌",
@@ -204,27 +204,27 @@ export const STEPS_DATA = [
                     },
                     {
                         "name": "Heating Technology",
-                        "icon": "🌡️", 
+                        "icon": "🌡️",
                         "items": {
                             "name": "Heating Tech",
                             "isFirst": true,
-                            "title":"Heating Technology",
+                            "title": "Heating Technology",
                             "description": "tell us about Heating Technology info",
                             "type": "check",
                             "nextStep": {
                                 "name": "Heating Radiators",
-                                "title":"Which radiators do you want?",
+                                "title": "Which radiators do you want?",
                                 "description": "tell us about Heating Radiators info",
                                 "type": "multi",
-                                "items":[
-                                    { "name": "Standard radiators (profiled)" , "icon":"♨️" },
-                                    { "name": "Panel radiators" , "icon":"♨️" },
-                                    { "name": "Towel radiator" , "icon":"♨️" },
-                                    { "name": "Vertical radiators (flat)" , "icon":"♨️" },
+                                "items": [
+                                    { "name": "Standard radiators (profiled)", "icon": "♨️" },
+                                    { "name": "Panel radiators", "icon": "♨️" },
+                                    { "name": "Towel radiator", "icon": "♨️" },
+                                    { "name": "Vertical radiators (flat)", "icon": "♨️" },
                                 ],
                                 "nextStep": {
                                     "name": "oven",
-                                    "title":"Oven",
+                                    "title": "Oven",
                                     "description": "tell us about Heating Ovens",
                                     "type": "check",
                                     "nextStep": {
@@ -248,12 +248,12 @@ export const STEPS_DATA = [
                                             "nextStep": null
                                         }
                                     },
-                                    "items":[
+                                    "items": [
                                         { "name": "Would you like to install an oven?" }
                                     ]
                                 },
                             },
-                            "items":[
+                            "items": [
                                 { "name": "Should a new gas central heating system be installed?" },
                                 { "name": "Do you need an instantaneous water heater?" },
                                 { "name": "Would you like to install new radiators?" },
@@ -272,6 +272,7 @@ export const STEPS_DATA = [
                     { "name": "Supply Lines", "icon": "🚰", "items": ["1"] },
                 ]
             },
+            //////////////////////////////////////
             {
                 "title": "Select services",
                 "description": "Services Select",
@@ -281,14 +282,14 @@ export const STEPS_DATA = [
                 "key": "gather-steps",
                 "items": [
                     {
-                        "name": "Electricity", 
-                        "icon": "🔌", 
+                        "name": "Electricity",
+                        "icon": "🔌",
                         "items": {
                             "name": "Electronic",
                             "title": "Should a new fuse box be installed?",
                             "description": "Select your prefer services for electricity",
                             "type": "multi",
-                            "isFirst":true,
+                            "isFirst": true,
                             "icon": "🔌",
                             "items": [
                                 { "name": "Fuse Box" },
@@ -318,12 +319,12 @@ export const STEPS_DATA = [
                                         "title": "In which rooms should new cables be installed?",
                                         "description": "Define Your rooms selection",
                                         "items": [
-                                            { "name": "Living/dining room" , "icon": "🛋️" },
-                                            { "name": "Bedroom/children's room"  , "icon": "👶🏻" },
-                                            { "name": "Hallway" , "icon": "🏘" },
-                                            { "name": "Kitchen" , "icon": "🍳" },
-                                            { "name": "Bathroom / Toilet" , "icon": "🛁" },
-                                            { "name": "Utility room / basement" , "icon": "⬇🚪" },
+                                            { "name": "Living/dining room", "icon": "🛋️" },
+                                            { "name": "Bedroom/children's room", "icon": "👶🏻" },
+                                            { "name": "Hallway", "icon": "🏘" },
+                                            { "name": "Kitchen", "icon": "🍳" },
+                                            { "name": "Bathroom / Toilet", "icon": "🛁" },
+                                            { "name": "Utility room / basement", "icon": "⬇🚪" },
                                         ],
                                         "type": "multi",
                                         "icon": "🔌",
@@ -359,27 +360,27 @@ export const STEPS_DATA = [
                     },
                     {
                         "name": "Heating Technology",
-                        "icon": "🌡️", 
+                        "icon": "🌡️",
                         "items": {
                             "name": "Heating Tech",
                             "isFirst": true,
-                            "title":"Heating Technology",
+                            "title": "Heating Technology",
                             "description": "tell us about Heating Technology info",
                             "type": "check",
                             "nextStep": {
                                 "name": "Heating Radiators",
-                                "title":"Which radiators do you want?",
+                                "title": "Which radiators do you want?",
                                 "description": "tell us about Heating Radiators info",
                                 "type": "multi",
-                                "items":[
-                                    { "name": "Standard radiators (profiled)" , "icon":"♨️" },
-                                    { "name": "Panel radiators" , "icon":"♨️" },
-                                    { "name": "Towel radiator" , "icon":"♨️" },
-                                    { "name": "Vertical radiators (flat)" , "icon":"♨️" },
+                                "items": [
+                                    { "name": "Standard radiators (profiled)", "icon": "♨️" },
+                                    { "name": "Panel radiators", "icon": "♨️" },
+                                    { "name": "Towel radiator", "icon": "♨️" },
+                                    { "name": "Vertical radiators (flat)", "icon": "♨️" },
                                 ],
                                 "nextStep": {
                                     "name": "oven",
-                                    "title":"Oven",
+                                    "title": "Oven",
                                     "description": "tell us about Heating Ovens",
                                     "type": "check",
                                     "nextStep": {
@@ -403,19 +404,106 @@ export const STEPS_DATA = [
                                             "nextStep": null
                                         }
                                     },
-                                    "items":[
+                                    "items": [
                                         { "name": "Would you like to install an oven?" }
                                     ]
                                 },
                             },
-                            "items":[
+                            "items": [
                                 { "name": "Should a new gas central heating system be installed?" },
                                 { "name": "Do you need an instantaneous water heater?" },
                                 { "name": "Would you like to install new radiators?" },
                             ]
                         },
                     },
-                    { "name": "Walls & Ceilings", "icon": "🚿", "items": ["1"] },
+                    {
+                        "name": "Walls & Ceilings",
+                        "icon": "🏼",
+                        "items": {
+                            "name": "Room Selection",
+                            "title": "Which rooms should be worked on?",
+                            "description": "please select the parts of house you want to work on",
+                            "type": "multi",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "Living/dining room", "icon": "🛋️" },
+                                { "name": "Bedroom/children's room", "icon": "👶🏻" },
+                                { "name": "Hallway", "icon": "🏘" },
+                                { "name": "Kitchen", "icon": "🍳" },
+                                { "name": "Bathroom / Toilet", "icon": "🛁" },
+                                { "name": "Utility room / basement", "icon": "⬇🚪" },
+                            ],
+                            "nextStep": {
+                                "name": "rooms size",
+                                "title": "fill room Sizes",
+                                "description": "please fill the rooms sizes in square meters",
+                                "type": "text",
+                                "items": [
+                                    { "name": "How big is the Bedroom ?"},
+                                    { "name": "How big is the Hallway?"},
+                                    { "name": "How big is the Kitchen?"},
+                                    { "name": "How big is the Bathroom / Toilet?"},
+                                    { "name": "How big is the Utility room / basement?"},
+                                ],
+                                "nextStep": {
+                                    "name": "Rooms edit",
+                                    "title": "Select Rooms to edit",
+                                    "description": "please select the rooms for editing",
+                                    "type": "check",
+                                    "items": [
+                                        { "name": "Would you like to edit your walls in Utility room / basement?"},
+                                        { "name": "Would you like to edit your walls in Hallway?"},
+                                        { "name": "Would you like to edit your walls in Kitchen?"},
+                                        { "name": "Would you like to edit your walls in Bathroom / Toilet??"},
+                                        { "name": "Would you like to edit your walls in Bedroom?"},
+                                    ],
+                                    "nextStep": {
+                                        "name": "rooms wall",
+                                        "title": "How should the walls be treated:Utility room / basement?",
+                                        "description": "please select How should the walls be treated:Utility room / basement for editing",
+                                        "type": "multi",
+                                        "items": [
+                                            { "name": "Filling, sanding and painting walls"},
+                                            { "name": "Just paint the walls"},
+                                            { "name": "Wallpapering walls"},
+                                            { "name": "Tiling walls"},
+                                        ],
+                                        "nextStep": {
+                                            "name": "rooms quality",
+                                            "title": "What quality do you want for the new paint/tiles:Utility room / basement?",
+                                            "description": "please select the Utility room / basement quality",
+                                            "type": "multi",
+                                            "items": [
+                                                { "name": "Budget Quality" },
+                                                { "name": "Standard quality" },
+                                                { "name": "Premium quality" },
+                                            ],
+                                            "nextStep":  {
+                                                "name": "rooms ceiling",
+                                                "title": "Rooms Ceiling",
+                                                "description": "please select the rooms ceilings",
+                                                "type": "check",
+                                                "items": [
+                                                    { "name": "Should the ceilings be treated:Utility room / basement?" },
+                                                    { "name": "Does old wallpaper needs to be removed:Utility room / basement?" },
+                                                    { "name": "Should the ceilings be treated in Living/dining room?" },
+                                                    { "name":  "Does old wallpaper needs to be removed in Living/dining room?" },
+                                                    { "name": "Should the ceilings be treated:Bedroom/children's room?" },
+                                                    { "name": "Does old wallpaper needs to be removed:Bedroom/children's room?" },
+                                                    { "name": "Should the ceilings be treated:Hallway?" },
+                                                    { "name": "Does old wallpaper needs to be removed:Hallway?" },
+                                                    { "name": "Should the ceilings be treated:Kitchen?" },
+                                                    { "name": "If old wallpaper needs to be removed:Kitchen?" },
+                                                ],
+                                                "nextStep": null,
+                                                "lastStep":true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                    },
                     { "name": "Flooring & skirting boards", "icon": "👣", "items": ["1"] },
                     { "name": "Window", "icon": "🔲", "items": ["1"] },
                     { "name": "Doors", "icon": "🚪", "items": ["1"] },

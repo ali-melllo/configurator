@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Page() {
 
   const { buildingStep } = useSelector((state: any) => state.global);
-  
+
   const dispatch = useDispatch();
 
   return (
@@ -69,9 +69,9 @@ export default function Page() {
               Request a Quote Using 3D Configurator
             </Link>
           </Button>
-          <Button 
-          onClick={() => dispatch(setBuildingStep(0))}
-           className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
+          <Button
+            onClick={() => dispatch(setBuildingStep(0))}
+            className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
             Request a Quote Manually
           </Button>
           <Button className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-bold text-base md:text-2xl rounded-xl shadow-2xl">
@@ -135,7 +135,7 @@ export default function Page() {
         </div>
       </div>}
 
-      {buildingStep === null &&<div className="mt-48 w-full flex flex-col items-center">
+      {buildingStep === null && <div className="mt-48 w-full flex flex-col items-center">
 
         <TextAnimate className="text-3xl w-full lg:w-6/12 md:text-6xl text-center font-bold" animation="blurInUp" by="word">
           Super fast solution for your House extensions and services
@@ -240,7 +240,7 @@ export default function Page() {
 
       {buildingStep === null && <Footer />}
 
-{ buildingStep === null &&     <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>}
+      {buildingStep === null && <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>}
     </div>
   );
 }
