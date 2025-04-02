@@ -439,11 +439,11 @@ export const STEPS_DATA = [
                                 "description": "please fill the rooms sizes in square meters",
                                 "type": "text",
                                 "items": [
-                                    { "name": "How big is the Bedroom ?"},
-                                    { "name": "How big is the Hallway?"},
-                                    { "name": "How big is the Kitchen?"},
-                                    { "name": "How big is the Bathroom / Toilet?"},
-                                    { "name": "How big is the Utility room / basement?"},
+                                    { "name": "How big is the Bedroom ?" },
+                                    { "name": "How big is the Hallway?" },
+                                    { "name": "How big is the Kitchen?" },
+                                    { "name": "How big is the Bathroom / Toilet?" },
+                                    { "name": "How big is the Utility room / basement?" },
                                 ],
                                 "nextStep": {
                                     "name": "Rooms edit",
@@ -451,11 +451,11 @@ export const STEPS_DATA = [
                                     "description": "please select the rooms for editing",
                                     "type": "check",
                                     "items": [
-                                        { "name": "Would you like to edit your walls in Utility room / basement?"},
-                                        { "name": "Would you like to edit your walls in Hallway?"},
-                                        { "name": "Would you like to edit your walls in Kitchen?"},
-                                        { "name": "Would you like to edit your walls in Bathroom / Toilet??"},
-                                        { "name": "Would you like to edit your walls in Bedroom?"},
+                                        { "name": "Would you like to edit your walls in Utility room / basement?" },
+                                        { "name": "Would you like to edit your walls in Hallway?" },
+                                        { "name": "Would you like to edit your walls in Kitchen?" },
+                                        { "name": "Would you like to edit your walls in Bathroom / Toilet??" },
+                                        { "name": "Would you like to edit your walls in Bedroom?" },
                                     ],
                                     "nextStep": {
                                         "name": "rooms wall",
@@ -463,10 +463,10 @@ export const STEPS_DATA = [
                                         "description": "please select How should the walls be treated:Utility room / basement for editing",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "Filling, sanding and painting walls"},
-                                            { "name": "Just paint the walls"},
-                                            { "name": "Wallpapering walls"},
-                                            { "name": "Tiling walls"},
+                                            { "name": "Filling, sanding and painting walls" },
+                                            { "name": "Just paint the walls" },
+                                            { "name": "Wallpapering walls" },
+                                            { "name": "Tiling walls" },
                                         ],
                                         "nextStep": {
                                             "name": "rooms quality",
@@ -478,7 +478,7 @@ export const STEPS_DATA = [
                                                 { "name": "Standard quality" },
                                                 { "name": "Premium quality" },
                                             ],
-                                            "nextStep":  {
+                                            "nextStep": {
                                                 "name": "rooms ceiling",
                                                 "title": "Rooms Ceiling",
                                                 "description": "please select the rooms ceilings",
@@ -487,7 +487,7 @@ export const STEPS_DATA = [
                                                     { "name": "Should the ceilings be treated:Utility room / basement?" },
                                                     { "name": "Does old wallpaper needs to be removed:Utility room / basement?" },
                                                     { "name": "Should the ceilings be treated in Living/dining room?" },
-                                                    { "name":  "Does old wallpaper needs to be removed in Living/dining room?" },
+                                                    { "name": "Does old wallpaper needs to be removed in Living/dining room?" },
                                                     { "name": "Should the ceilings be treated:Bedroom/children's room?" },
                                                     { "name": "Does old wallpaper needs to be removed:Bedroom/children's room?" },
                                                     { "name": "Should the ceilings be treated:Hallway?" },
@@ -496,7 +496,7 @@ export const STEPS_DATA = [
                                                     { "name": "If old wallpaper needs to be removed:Kitchen?" },
                                                 ],
                                                 "nextStep": null,
-                                                "lastStep":true
+                                                "lastStep": true
                                             }
                                         }
                                     }
@@ -504,7 +504,103 @@ export const STEPS_DATA = [
                             }
                         },
                     },
-                    { "name": "Flooring & skirting boards", "icon": "👣", "items": ["1"] },
+                    {
+                        "name": "Flooring & skirting boards",
+                        "icon": "👣",
+                        "items": {
+                            "name": "Room Selection",
+                            "title": "In which rooms should new flooring be laid or refurbished?",
+                            "description": "please select the parts of house you want to work on flooring",
+                            "type": "multi",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "Living/dining room", "icon": "🛋️" },
+                                { "name": "Bedroom/children's room", "icon": "👶🏻" },
+                                { "name": "Hallway", "icon": "🏘" },
+                                { "name": "Kitchen", "icon": "🍳" },
+                                { "name": "Bathroom / Toilet", "icon": "🛁" },
+                                { "name": "Utility room / basement", "icon": "⬇🚪" },
+                            ],
+                            "nextStep": {
+                                "name": "rooms floor size",
+                                "title": "Fill Rooms floor Sizes",
+                                "description": "please fill the rooms sizes in square meters",
+                                "type": "text",
+                                "items": [
+                                    { "name": "How big is the Bedroom  floor ?" },
+                                    { "name": "How big is the Hallway floor ?" },
+                                    { "name": "How big is the Kitchen floor ?" },
+                                    { "name": "How big is the Bathroom / Toilet floor ?" },
+                                    { "name": "How big is the Utility room / basement floor ?" },
+                                ],
+                                "nextStep": {
+                                    "name": "rooms floor service",
+                                    "title": "What should be done ?",
+                                    "description": "please select the rooms flooring service",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "Laying new flooring" },
+                                        { "name": "Reconditioning wooden floors" },
+                                    ],
+                                    "nextStep": {
+                                        "name": "floor type",
+                                        "title": "What kind of floor do you want?",
+                                        "description": "please select the rooms flooring options",
+                                        "type": "multi",
+                                        "items": [
+                                            { "name": "Parquet" },
+                                            { "name": "Works" },
+                                            { "name": "Vinyl" },
+                                            { "name": "Laminate" },
+                                            { "name": "Carpet" },
+                                            { "name": "tiles" },
+                                        ],
+                                        "nextStep": {
+                                            "name": "Skirting Boards ",
+                                            "title": "skirting boards",
+                                            "description": "please answer the questions about skirting boards",
+                                            "type": "check",
+                                            "items": [
+                                                { "name": "Should the skirting boards also be replaced in Living/dining room?" },
+                                                { "name": "Should the skirting boards also be replaced in the kitchen?" },
+                                                { "name": "Should the skirting boards also be replaced in bed room?" },
+                                                { "name": "Should the skirting boards also be replaced in the basement?" },
+                                                { "name": "Should the skirting boards also be replaced in the hallway" },
+                                            ],
+                                            "nextStep": {
+                                                "name": "old flooring remove",
+                                                "title": "old flooring remove",
+                                                "description": "please answer the questions about old flooring remove",
+                                                "type": "check",
+                                                "items": [
+                                                    { "name": "old flooring is to be removed in Living/dining room?" },
+                                                    { "name": "old flooring is to be removed in the kitchen?" },
+                                                    { "name": "old flooring is to be removed in bed room?" },
+                                                    { "name": "old flooring is to be removed in the basement?" },
+                                                    { "name": "old flooring is to be removed in the hallway" },
+                                                ],
+                                                "nextStep": {
+                                                    "name": "flooring quality",
+                                                    "title": "flooring quality",
+                                                    "description": "please select from flooring quality",
+                                                    "type": "multi",
+                                                    "items": [
+                                                        { "name": "Budget Quality" },
+                                                        { "name": "Standard quality" },
+                                                        { "name": "Premium quality" },
+                                                    ],
+                                                    "nextStep": null,
+                                                    "lastStep": true
+                                                },
+                                            },
+                                        },
+                                    },
+
+                                }
+                            }
+                        },
+
+                    },
                     { "name": "Window", "icon": "🔲", "items": ["1"] },
                     { "name": "Doors", "icon": "🚪", "items": ["1"] },
                     { "name": "Bathroom & rest toilets", "icon": "🛁", "items": ["1"] },
