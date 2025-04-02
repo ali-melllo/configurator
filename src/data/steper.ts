@@ -609,6 +609,7 @@ export const STEPS_DATA = [
                             "title": "windows info",
                             "description": "please fill window information",
                             "type": "text",
+                            "isFirst": true,
                             "items": [
                                 { "name": "Which of the existing windows should be painted ?" },
                                 { "name": "How many windows need to be painted ?" },
@@ -626,11 +627,48 @@ export const STEPS_DATA = [
                                 "nextStep": null,
                                 "lastStep": true
                             },
-                            "isFirst": true
                         },
 
                     },
-                    { "name": "Doors", "icon": "🚪", "items": ["1"] },
+                    {
+                        "name": "Doors",
+                        "icon": "🚪",
+                        "items": {
+                            "name": "doors info",
+                            "title": "Doors Information",
+                            "description": "please select doors info",
+                            "type": "check",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "Do you want new interior doors?" },
+                                { "name": "Should existing doors be painted and refurbished?" },
+                                { "name": "Would you like a new front door?" },
+                            ],
+                            "nextStep": {
+                                "name": "new doors",
+                                "title": "New Doors",
+                                "description": "please answer new doors questions",
+                                "type": "text",
+                                "items": [
+                                    { "name": "How many doors need to be replaced?" },
+                                    { "name": "How many doors need to be painted?" },
+                                ],
+                                "nextStep": {
+                                    "name": "doors quality",
+                                    "title": "What quality do you want the new doors to be?",
+                                    "description": "please select from doors quality",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "Budget Quality" },
+                                        { "name": "Standard quality" },
+                                        { "name": "Premium quality" },
+                                    ],
+                                    "nextStep": null,
+                                    "lastStep": true
+                                },
+                            },
+                        },
+                    },
                     { "name": "Bathroom & rest toilets", "icon": "🛁", "items": ["1"] },
                     { "name": "Roof & insulation", "icon": "🧱", "items": ["1"] },
                     { "name": "Facade & insulation", "icon": "🛠", "items": ["1"] },
