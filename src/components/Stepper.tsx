@@ -215,8 +215,9 @@ export default function Stepper() {
                                 <div key={item.name} className="flex gap-3 items-center">
                                     <Separator orientation="vertical" />
                                     <div className="flex flex-col gap-3 md:w-6/12">
-                                        <Label>{item.name}</Label>
+                                        <Label className="md:text-2xl">{item.name}</Label>
                                         <Input
+                                            className="md:text-2xl md:h-14"
                                             onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value }, "text")}
                                             placeholder="Required ..."
                                         />
@@ -257,7 +258,7 @@ export default function Stepper() {
                             setGatheredData((prevSteps: any) => prevSteps.slice(0, -1));
                             setFinalCheck(false);
                             setCurrentFormData([]);
-                            
+
                         }}
                     >
                         {selectedSteps.length === 0 || currentStep.isFirst ? "Back To Home" : "Prev"}
