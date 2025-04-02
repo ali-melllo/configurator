@@ -804,7 +804,54 @@ export const STEPS_DATA = [
                             },
                         },
                     },
-                    { "name": "Floor Plan Change", "icon": "𓉩", "items": ["1"] },
+                    {
+                        "name": "Floor Plan Change",
+                        "icon": "𓉩",
+                        "items": {
+                            "name": "Floor plan info",
+                            "title": "basic details of floor plan",
+                            "description": "please fill the basic details of your floor plan",
+                            "type": "check",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "Should walls be opened?" },
+                                { "name": "Should walls be closed?" },
+                                { "name": "Should the openings or closings be reworked?" },
+                            ],
+                            "nextStep": {
+                                "name": "Floor plan details",
+                                "title": "basic details of floor plan",
+                                "description": "please fill the basic details of your floor plan",
+                                "type": "text",
+                                "items": [
+                                    { "name": "How many square meters of wall should be opened ?" },
+                                    { "name": "How many square meters of wall should be sealed?" },
+                                ],
+                                "nextStep": {
+                                    "name": "Floor plan type",
+                                    "title": "What kind of wall should be opened?",
+                                    "description": "please select the wall type to be opened with",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "Massivwand" },
+                                        { "name": "Lightweight wall" },
+                                    ],
+                                    "nextStep": {
+                                        "name": "Floor plan close",
+                                        "title": "What kind of wall should be closed?",
+                                        "description": "please select the wall type to be closed with",
+                                        "type": "multi",
+                                        "items": [
+                                            { "name": "Massivwand" },
+                                            { "name": "Lightweight wall" },
+                                        ],
+                                        "nextStep": null,
+                                        "lastStep": true,
+                                    },
+                                },
+                            },
+                        },
+                    },
                     { "name": "Stairs", "icon": "𓊍", "items": ["1"] },
                     { "name": "Supply Lines", "icon": "🚰", "items": ["1"] },
                 ]
