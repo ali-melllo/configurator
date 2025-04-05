@@ -292,8 +292,8 @@ export const STEPS_DATA = [
                             "isFirst": true,
                             "icon": "🔌",
                             "items": [
-                                { "name": "Fuse Box" },
-                                { "name": "Fuse Box With data cabinet" },
+                                { "name": "Fuse Box", "minPrice": 5622 },
+                                { "name": "Fuse Box With data cabinet", "minPrice": 6522 },
                                 { "name": "No / don't Know" }
                             ],
                             "nextStep": {
@@ -301,7 +301,9 @@ export const STEPS_DATA = [
                                 "title": "heat pump",
                                 "description": "Define Your heat pump presence",
                                 "items": [
-                                    { "name": "Is a heat pump present or should one be installed?" },
+                                    { "name": "Is a heat pump present or should one be installed?" , "minPrice": 2000 },
+                                    { "name": "Is a heat pump hhpresent or should one be installed?" , "minPrice": 1000 },
+
                                 ],
                                 "type": "check",
                                 "icon": "🔌",
@@ -310,7 +312,7 @@ export const STEPS_DATA = [
                                     "title": "electrical wiring",
                                     "description": "Define Your electrical wiring",
                                     "items": [
-                                        { "name": "Should the electrical wiring be replaced ?" },
+                                        { "name": "Should the electrical wiring be replaced ?" , "minPrice": 0  },
                                     ],
                                     "type": "check",
                                     "icon": "🔌",
@@ -319,12 +321,12 @@ export const STEPS_DATA = [
                                         "title": "In which rooms should new cables be installed?",
                                         "description": "Define Your rooms selection",
                                         "items": [
-                                            { "name": "Living/dining room", "icon": "🛋️" },
-                                            { "name": "Bedroom/children's room", "icon": "👶🏻" },
-                                            { "name": "Hallway", "icon": "🏘" },
-                                            { "name": "Kitchen", "icon": "🍳" },
-                                            { "name": "Bathroom / Toilet", "icon": "🛁" },
-                                            { "name": "Utility room / basement", "icon": "⬇🚪" },
+                                            { "name": "Living/dining room", "icon": "🛋️" , "minPrice": 5622},
+                                            { "name": "Bedroom/children's room", "icon": "👶🏻" , "minPrice": 5622 },
+                                            { "name": "Hallway", "icon": "🏘", "minPrice": 5622 },
+                                            { "name": "Kitchen", "icon": "🍳", "minPrice": 5622 },
+                                            { "name": "Bathroom / Toilet", "icon": "🛁", "minPrice": 5622 },
+                                            { "name": "Utility room / basement", "icon": "⬇🚪", "minPrice": 5622 },
                                         ],
                                         "type": "multi",
                                         "icon": "🔌",

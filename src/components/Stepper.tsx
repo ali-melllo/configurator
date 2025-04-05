@@ -17,7 +17,7 @@ import { toast } from "sonner";
 import { Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { setBuildingStep } from "@/redux/globalSlice";
+import { NumberTicker } from "./magicui/number-trick";
 
 
 // titles are used to show main title of current step at top
@@ -43,21 +43,19 @@ type dataType = {
 // select type of save data is :
 
 
-
 export default function Stepper() {
     const [selectedSteps, setSelectedSteps] = useState<any>([]);
     const [currentFormData, setCurrentFormData] = useState<any>([]);
     const [finalCheck, setFinalCheck] = useState<boolean>(false);
     const [history, setHistory] = useState<any>([]);
     const [gatheredData, setGatheredData] = useState<any>([]);
+    const [price, setPrice] = useState<number>(0);
+    const [stepPrice, setStepPrice] = useState<any>([]);
 
     const [date, setDate] = useState<DateRange | undefined>({
         from: new Date(2022, 0, 20),
         to: addDays(new Date(2022, 0, 20), 20),
     })
-
-    const router = useRouter();
-    const dispatch = useDispatch();
 
     const currentStep = selectedSteps.reduce((acc: any, step: any) => {
         return acc?.items?.find((item: any) => item.name === step) || acc?.nextStep;
@@ -73,11 +71,26 @@ export default function Stepper() {
                 const existingIndex = prevData.findIndex((data: any) => data.title === item.name);
 
                 if (existingIndex !== -1) {
-                    return prevData.filter((data: any) => data.title !== item.name);
+                    const returnData = prevData.filter((data: any) => data.title !== item.name);
+                    const prices = returnData.map((obj: any) => obj.price);
+                    const maxPrice = Math.max(...prices);
+
+                    setPrice(maxPrice);
+
+                    return returnData
                 } else {
-                    return [...prevData, { title: item.name, items: item.items || [] }];
+                    const returnData = [...prevData, { title: item.name, items: item.items || [], price: item.minPrice || 0 }]
+
+                    const prices = returnData.map(obj => obj.price)
+
+                    let price = Math.max(...prices);
+
+                    setPrice(price);
+
+                    return returnData;
                 }
             });
+
         } else if (type === "text") {
             setCurrentFormData((prevData: any) => {
                 const existingIndex = prevData.findIndex((data: any) => data.question === item.question);
@@ -91,16 +104,28 @@ export default function Stepper() {
                 }
             });
         } else if (type === 'check') {
+
             setCurrentFormData((prevData: any) => {
                 const existingIndex = prevData.findIndex((data: any) => data.question === item.question);
                 if (existingIndex !== -1) {
                     const updatedData = [...prevData];
                     updatedData[existingIndex].value = item.value;
+                    updatedData[existingIndex].price = item.minPrice || 0;
+
+                    if (item.value === 'no') {
+                        setPrice((prev) => prev - item.price);
+                    }
+
                     return updatedData;
                 } else {
                     return [...prevData, item];
                 }
             });
+
+            if (item.value === 'yes') {
+                setPrice((prev) => prev + item.price);
+            }
+
         } else if (type === 'date') {
             setCurrentFormData(date)
         }
@@ -134,9 +159,8 @@ export default function Stepper() {
     };
 
     return (
-        <BlurFade inView className="md:w-11/12 h-[100dvh] md:h-auto md:min-h-[80vh] overflow-scroll  pt-24 md:pt-0 md:mt-28 mx-auto rounded-xl">
-
-            <div className="p md:p-10 size-full flex flex-col h-full md:min-h-[80vh]  rounded-xl bg-background/25 md:border shadow-md">
+        <BlurFade inView className="md:w-11/12 h-[85dvh] overflow-hidden pt-24 md:pt-0 md:mt-28 mx-auto rounded-xl">
+            <div className="md:p-10 size-full flex flex-col rounded-xl overflow-scroll bg-background/25 md:border shadow-md">
 
                 <div className="w-full hidden md:block mb-14">
                     <ol className="mx-auto flex w-full flex-nowrap gap-1">
@@ -161,7 +185,7 @@ export default function Stepper() {
                 <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid px-5 md:px-0 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'text' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
+                <div className={`grid px-5 md:px-0 grid-cols-1 my-auto ${(currentStep.type === 'check'  || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -178,51 +202,55 @@ export default function Stepper() {
                                     </div>
                                 </BlurFade>
                             ) : currentStep.type === 'multi' ? (
-
-                                <ToggleGroup
-                                    onValueChange={() => currentFormHandler(item, 'multi')}
-                                    key={item.name}
-                                    type="single"
-                                >
-                                    <ToggleGroupItem
-                                        className="cursor-pointer w-full !py-7 border rounded-lg hover:border-primary"
-                                        value={item.name}
-                                        aria-label="Toggle bold"
+                                <BlurFade>
+                                    <ToggleGroup
+                                        onValueChange={() => currentFormHandler(item, 'multi')}
+                                        key={item.name}
+                                        type="single"
                                     >
-                                        <span className="text-4xl">{item.icon}</span>
-                                        <span className="md:text-lg font-medium">{item.name}</span>
-                                    </ToggleGroupItem>
-                                </ToggleGroup>
-
+                                        <ToggleGroupItem
+                                            className="cursor-pointer w-full !py-7 border rounded-lg hover:border-primary"
+                                            value={item.name}
+                                            aria-label="Toggle bold"
+                                        >
+                                            <span className="text-4xl">{item.icon}</span>
+                                            <span className="md:text-lg font-medium">{item.name}</span>
+                                        </ToggleGroupItem>
+                                    </ToggleGroup>
+                                </BlurFade>
                             ) : currentStep.type === 'check' ? (
-                                <div key={item.name} className="flex flex-col md:flex-row gap-5 md:items-center">
-                                    <span className="min-w-32 md:text-2xl my-3 md:min-w-48">{item.name}</span>
-                                    <RadioGroup
-                                        className="flex md:ml-10 items-center"
-                                        onValueChange={(value) => currentFormHandler({ question: item.name, value }, "check")}
-                                    >
-                                        <div className="flex items-center space-x-2">
-                                            <RadioGroupItem value="yes" id={`yes-${item.name}`} />
-                                            <Label className="md:text-2xl" htmlFor={`yes-${item.name}`}>Yes</Label>
-                                        </div>
-                                        <div className="flex items-center space-x-2 md:ml-10">
-                                            <RadioGroupItem value="no" id={`no-${item.name}`} />
-                                            <Label className="md:text-2xl" htmlFor={`no-${item.name}`}>No</Label>
-                                        </div>
-                                    </RadioGroup>
-                                </div>
-                            ) : currentStep.type === 'text' ? (
-                                <div key={item.name} className="flex gap-3 items-center">
-                                    <Separator orientation="vertical" />
-                                    <div className="flex flex-col gap-3 md:w-6/12">
-                                        <Label className="md:text-2xl">{item.name}</Label>
-                                        <Input
-                                            className="md:text-2xl md:h-14"
-                                            onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value }, "text")}
-                                            placeholder="Required ..."
-                                        />
+                                <BlurFade>
+                                    <div key={item.name} className="flex flex-col md:flex-row gap-5 md:items-center">
+                                        <span className="min-w-32 md:text-2xl my-3 md:min-w-48">{item.name}</span>
+                                        <RadioGroup
+                                            className="flex md:ml-10 items-center"
+                                            onValueChange={(value) => currentFormHandler({ question: item.name, value, price: item.minPrice || 0 }, "check")}
+                                        >
+                                            <div className="flex items-center space-x-2">
+                                                <RadioGroupItem value="yes" id={`yes-${item.name}`} />
+                                                <Label className="md:text-2xl" htmlFor={`yes-${item.name}`}>Yes</Label>
+                                            </div>
+                                            <div className="flex items-center space-x-2 md:ml-10">
+                                                <RadioGroupItem value="no" id={`no-${item.name}`} />
+                                                <Label className="md:text-2xl" htmlFor={`no-${item.name}`}>No</Label>
+                                            </div>
+                                        </RadioGroup>
                                     </div>
-                                </div>
+                                </BlurFade>
+                            ) : currentStep.type === 'text' ? (
+                                <BlurFade>
+                                    <div key={item.name} className="flex gap-3 items-center">
+                                        <Separator orientation="vertical" />
+                                        <div className="flex flex-col gap-3 w-full">
+                                            <Label className="md:text-lg line-clamp-1">{item.name}</Label>
+                                            <Input
+                                                className="md:text-lg md:h-12"
+                                                onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value }, "text")}
+                                                placeholder="Required ..."
+                                            />
+                                        </div>
+                                    </div>
+                                </BlurFade>
                             ) : null)}
 
                     {currentStep.type === 'date' &&
@@ -244,7 +272,7 @@ export default function Stepper() {
 
                 {finalCheck && <Overview selectedSteps={gatheredData} />}
 
-                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky md:relative items-center bottom-0 py-5 md:py-0 md:bottom-0 md:mt-10 justify-between">
+                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center translate-y-10 py-5  md:bottom-0 md:mt-10 justify-between">
                     <Button
                         className="md:text-xl w-28 md:w-48 py-5"
                         onClick={() => {
@@ -259,10 +287,26 @@ export default function Stepper() {
                             setFinalCheck(false);
                             setCurrentFormData([]);
 
+                            stepPrice.pop();
+                            setPrice(0);
                         }}
                     >
                         {selectedSteps.length === 0 || currentStep.isFirst ? "Back To Home" : "Prev"}
                     </Button>
+
+
+                    {currentStep.type !== 'select' &&
+                        <BlurFade>
+                            <div className="text-lg font-bold flex items-center justify-between px-5 py-6 min-w-96 rounded-2xl h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                                <p >Total Cost Estimate :</p>
+                                <div className="flex items-center gap-2 text-primary">
+                                    <span className="text-muted-foreground !font-normal text-sm">From</span>
+                                    <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{price}</NumberTicker>
+                                    €
+                                </div>
+                            </div>
+                        </BlurFade>}
+
                     {currentStep.type !== 'select' && !finalCheck &&
                         <Button className="md:text-xl w-28 md:w-48 py-5" onClick={() => {
 
@@ -315,7 +359,8 @@ export default function Stepper() {
                                     })
                                 }
                                 handleSelect(currentStep.nextStep);
-
+                                setStepPrice([...stepPrice, price]);
+                                setPrice(0);
                             } else {
                                 setFinalCheck(true)
                                 setGatheredData([...gatheredData, currentFormData])

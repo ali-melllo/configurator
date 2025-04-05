@@ -24,7 +24,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
     const dispatch = useDispatch();
 
     const prepareDataForSubmission = useCallback(() => {
-        const flattenedSteps = selectedSteps.flat(Infinity); 
+        const flattenedSteps = selectedSteps.flat(Infinity);
 
         const formattedData: Record<string, any> = {};
 
@@ -125,26 +125,24 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
             <div className="flex flex-col items-center w-full">
                 <div>
-
-               
-                <Calendar
-                    initialFocus
-                    mode="range"
-                    defaultMonth={date?.from}
-                    selected={date}
-                    className="ml-7 md:ml-0"
-                    onSelect={(e) => {
-                        setDate(e)
-                    }}
-                    numberOfMonths={2}
-                />
-                <div className="flex items-center gap-3 ml-3 mt-5">
-                    <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
+                    <Calendar
+                        initialFocus
+                        mode="range"
+                        defaultMonth={date?.from}
+                        selected={date}
+                        className="ml-7 md:ml-0"
+                        onSelect={(e) => {
+                            setDate(e)
+                        }}
+                        numberOfMonths={2}
+                    />
+                    <div className="flex items-center gap-3 ml-3 mt-5">
+                        <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
+                    </div>
+                    <div className="flex items-center gap-3 ml-3 mt-3">
+                        <p className="font-semibold ">Estimated Price : </p><p className="text-primary font-bold text-xl">23,000 $</p>
+                    </div>
                 </div>
-                <div className="flex items-center gap-3 ml-3 mt-3">
-                    <p className="font-semibold ">Estimated Price : </p><p className="text-primary font-bold text-xl">23,000 $</p>
-                </div>
- </div>
 
             </div>
 
