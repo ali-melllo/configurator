@@ -7,8 +7,24 @@ import { useDispatch } from "react-redux";
 import { setBuildingStep } from "@/redux/globalSlice";
 import { Calendar } from "./ui/calendar";
 import { DateRange } from "react-day-picker";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { useForm } from "react-hook-form";
 
-export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
+export default function Overview({ selectedSteps, estimate }: { selectedSteps: any[], estimate: number }) {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [date, setDate] = useState<DateRange | undefined>({
         from: new Date(2022, 0, 20),
@@ -45,7 +61,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
         return formattedData;
     }, [selectedSteps])
 
-    const sendEmail = useCallback(async () => {
+    const sendEmail = useCallback(async (data: any) => {
         setLoading(true);
         const submissionData = prepareDataForSubmission();
 
@@ -53,7 +69,7 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
             const response = await fetch("https://formspree.io/f/xnnjyppv", {
                 method: "POST",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify(submissionData),
+                body: JSON.stringify({ ...submissionData, ...data , estimate : `${estimate} €`}),
             });
 
             const result = await response.json();
@@ -146,10 +162,60 @@ export default function Overview({ selectedSteps }: { selectedSteps: any[] }) {
 
             </div>
 
-            <Button disabled={loading} className="absolute flex md:top-20 right-3 md:right-10 font-semibold text-base" onClick={sendEmail}>
-                <Send />
-                {loading ? <Loader className="animate-spin" /> : "Send"}
-            </Button>
+            <AlertDialog>
+                <AlertDialogTrigger>
+
+                    <Button className="absolute flex md:top-20 right-3 md:right-10 font-semibold text-base" >
+                        <Send />
+                        {loading ? <Loader className="animate-spin" /> : "Send"}
+                    </Button>
+
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>Submit Information</AlertDialogTitle>
+                        <AlertDialogDescription>
+                            Please fill out the address and other information before finalizing your request
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <div autoFocus={false} className="grid gap-4 py-4">
+                        <form onSubmit={handleSubmit(sendEmail)} className="grid gap-4 py-4">
+                            <div className="flex flex-col items-start gap-y-2">
+                                <Label>Full Name</Label>
+                                <Input {...register("fullName", { required: "Full name is required" })} placeholder="Full Name" />
+                                {errors.fullName && <p className="text-red-500 text-sm">{"Full Name is required"}</p>}
+                            </div>
+                            <div className="flex flex-col items-start gap-y-2">
+                                <Label>Email</Label>
+                                <Input {...register("email", { required: "Email is required" })} placeholder="Email" />
+                                {errors.email && <p className="text-red-500 text-sm">{"Email is required"}</p>}
+                            </div>
+                            <div className="flex flex-col items-start gap-y-2">
+                                <Label>Address</Label>
+                                <Input {...register("address", { required: "address is required" })} placeholder="Address" />
+                                {errors.address && <p className="text-red-500 text-sm">{"address is required"}</p>}
+                            </div>
+                            <div className="flex flex-col items-start gap-y-2">
+                                <Label>Zipcode</Label>
+                                <Input {...register("zipcode", { required: "zipcode is required" })} placeholder="Zipcode" />
+                                {errors.zipcode && <p className="text-red-500 text-sm">{"zipcode is required"}</p>}
+                            </div>
+                            <div className="flex flex-col items-start gap-y-2">
+                                <Label>Phone</Label>
+                                <Input {...register("phone", { required: "phone is required" })} placeholder="Phone" />
+                                {errors.phone && <p className="text-red-500 text-sm">{"phone is required"}</p>}
+                            </div>
+                            <div>
+                                <Button disabled={loading} className="w-full h-12 font-semibold" type="submit">
+                                    <Send />
+                                    {loading ? <Loader className="animate-spin" /> : "Submit Request"}
+                                </Button>
+                            </div>
+                        </form>
+                    </div>
+                </AlertDialogContent>
+            </AlertDialog>
+
         </div>
     );
 }

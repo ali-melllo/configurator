@@ -270,7 +270,7 @@ export default function Stepper() {
                 </div>
 
 
-                {finalCheck && <Overview selectedSteps={gatheredData} />}
+                {finalCheck && <Overview estimate={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} selectedSteps={gatheredData} />}
 
                 <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center translate-y-10 py-5  md:bottom-0 md:mt-10 justify-between">
                     <Button
