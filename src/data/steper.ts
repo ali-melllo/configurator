@@ -292,7 +292,7 @@ export const STEPS_DATA = [
                             "isFirst": true,
                             "icon": "🔌",
                             "items": [
-                                { "name": "Fuse Box", "minPrice": 5622 },
+                                { "name": "Fuse Box", "minPrice": 2720 },
                                 { "name": "Fuse Box With data cabinet", "minPrice": 6522 },
                                 { "name": "No / don't Know" }
                             ],
@@ -301,9 +301,7 @@ export const STEPS_DATA = [
                                 "title": "heat pump",
                                 "description": "Define Your heat pump presence",
                                 "items": [
-                                    { "name": "Is a heat pump present or should one be installed?" , "minPrice": 2000 },
-                                    { "name": "Is a heat pump hhpresent or should one be installed?" , "minPrice": 1000 },
-
+                                    { "name": "Is a heat pump present or should one be installed?" },
                                 ],
                                 "type": "check",
                                 "icon": "🔌",
@@ -312,7 +310,7 @@ export const STEPS_DATA = [
                                     "title": "electrical wiring",
                                     "description": "Define Your electrical wiring",
                                     "items": [
-                                        { "name": "Should the electrical wiring be replaced ?" , "minPrice": 0  },
+                                        { "name": "Should the electrical wiring be replaced ?" },
                                     ],
                                     "type": "check",
                                     "icon": "🔌",
@@ -321,12 +319,12 @@ export const STEPS_DATA = [
                                         "title": "In which rooms should new cables be installed?",
                                         "description": "Define Your rooms selection",
                                         "items": [
-                                            { "name": "Living/dining room", "icon": "🛋️" , "minPrice": 5622},
-                                            { "name": "Bedroom/children's room", "icon": "👶🏻" , "minPrice": 5622 },
-                                            { "name": "Hallway", "icon": "🏘", "minPrice": 5622 },
-                                            { "name": "Kitchen", "icon": "🍳", "minPrice": 5622 },
-                                            { "name": "Bathroom / Toilet", "icon": "🛁", "minPrice": 5622 },
-                                            { "name": "Utility room / basement", "icon": "⬇🚪", "minPrice": 5622 },
+                                            { "name": "Living/dining room", "icon": "🛋️", "minPrice": 8022 },
+                                            { "name": "Bedroom/children's room", "icon": "👶🏻", "minPrice": 8022 },
+                                            { "name": "Hallway", "icon": "🏘", "minPrice": 8022 },
+                                            { "name": "Kitchen", "icon": "🍳", "minPrice": 8022 },
+                                            { "name": "Bathroom / Toilet", "icon": "🛁", "minPrice": 8022 },
+                                            { "name": "Utility room / basement", "icon": "⬇🚪", "minPrice": 8022 },
                                         ],
                                         "type": "multi",
                                         "icon": "🔌",
@@ -335,11 +333,11 @@ export const STEPS_DATA = [
                                             "title": "please answer the questions about room sizes",
                                             "description": "Define Your rooms size",
                                             "items": [
-                                                { "name": "How big is the Bedroom/children's room?" },
-                                                { "name": "How big is the Living/dining room?" },
-                                                { "name": "How big is the Kitchen?" },
-                                                { "name": "How big is the Bathroom / Toilet?" },
-                                                { "name": "How big is the following room:Utility room / basement?" },
+                                                { "name": "How big is the Bedroom/children's room?", "minPrice": 50, "type": "number" },
+                                                { "name": "How big is the Living/dining room?", "minPrice": 50, "type": "number" },
+                                                { "name": "How big is the Kitchen?", "minPrice": 50, "type": "number" },
+                                                { "name": "How big is the Bathroom / Toilet?", "minPrice": 50, "type": "number" },
+                                                { "name": "How big is the following room:Utility room / basement?", "minPrice": 50, "type": "number" },
                                             ],
                                             "type": "text",
                                             "nextStep": {
@@ -347,9 +345,9 @@ export const STEPS_DATA = [
                                                 "title": "new switches and sockets quality",
                                                 "description": "please select new switches and sockets quality",
                                                 "items": [
-                                                    { "name": "Budget Quality" },
-                                                    { "name": "Standard quality" },
-                                                    { "name": "Premium quality" },
+                                                    { "name": "Budget Quality", "minPrice": 2000 },
+                                                    { "name": "Standard quality", "minPrice": 2200 },
+                                                    { "name": "Premium quality", "minPrice": 2800 },
                                                 ],
                                                 "type": "multi",
                                                 "nextStep": null

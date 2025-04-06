@@ -69,7 +69,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
             const response = await fetch("https://formspree.io/f/xnnjyppv", {
                 method: "POST",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify({ ...submissionData, ...data , estimate : `${estimate} €`}),
+                body: JSON.stringify({ ...submissionData, ...data, estimate: `${estimate} €` }),
             });
 
             const result = await response.json();
@@ -86,11 +86,11 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
         } finally {
             setLoading(false);
         }
-    }, [dispatch, prepareDataForSubmission]);
+    }, [dispatch, estimate, prepareDataForSubmission]);
 
 
     return (
-        <div className="bg-background rounded-2xl px-2 md:px-0 grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
+        <div className="bg-background overflow-scroll rounded-2xl px-2 md:px-0 grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
@@ -178,7 +178,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                             Please fill out the address and other information before finalizing your request
                         </AlertDialogDescription>
                     </AlertDialogHeader>
-                    <div autoFocus={false} className="grid gap-4 py-4">
+                    <div autoFocus={false} className="grid gap-4 ">
                         <form onSubmit={handleSubmit(sendEmail)} className="grid gap-4 py-4">
                             <div className="flex flex-col items-start gap-y-2">
                                 <Label>Full Name</Label>
@@ -205,12 +205,14 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                                 <Input {...register("phone", { required: "phone is required" })} placeholder="Phone" />
                                 {errors.phone && <p className="text-red-500 text-sm">{"phone is required"}</p>}
                             </div>
-                            <div>
-                                <Button disabled={loading} className="w-full h-12 font-semibold" type="submit">
-                                    <Send />
-                                    {loading ? <Loader className="animate-spin" /> : "Submit Request"}
-                                </Button>
-                            </div>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel className="w-6/12 h-12">Cancel</AlertDialogCancel>
+                                <AlertDialogAction  className="w-6/12 h-12 font-semibold" disabled={loading} type="submit">
+                                        <Send />
+                                        {loading ? <Loader className="animate-spin" /> : "Submit Request"}
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+
                         </form>
                     </div>
                 </AlertDialogContent>

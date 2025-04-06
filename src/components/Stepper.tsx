@@ -98,8 +98,12 @@ export default function Stepper() {
                 if (existingIndex !== -1) {
                     const updatedData = [...prevData];
                     updatedData[existingIndex].value = item.value;
+                    const totalCost = updatedData.reduce((sum, room) => sum + (room.value * room.price), 0);
+                    setPrice(totalCost);
                     return updatedData;
                 } else {
+                    const totalCost = [...prevData, item].reduce((sum, room) => sum + (room.value * room.price), 0);
+                    setPrice(totalCost);
                     return [...prevData, item];
                 }
             });
@@ -160,7 +164,7 @@ export default function Stepper() {
 
     return (
         <BlurFade inView className="md:w-11/12 h-[85dvh] overflow-hidden pt-24 md:pt-0 md:mt-28 mx-auto rounded-xl">
-            <div className="md:p-10 size-full flex flex-col rounded-xl overflow-scroll bg-background/25 md:border shadow-md">
+            <div className="md:p-10 size-full flex flex-col rounded-xl overflow-hidden bg-background/25 md:border shadow-md">
 
                 <div className="w-full hidden md:block mb-14">
                     <ol className="mx-auto flex w-full flex-nowrap gap-1">
@@ -180,12 +184,13 @@ export default function Stepper() {
 
                 <div className="flex justify-between items-center">
                     <h2 className="md:text-3xl px-5 md:px-0 font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
+
                 </div>
 
                 <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
 
 
-                <div className={`grid px-5 md:px-0 grid-cols-1 my-auto ${(currentStep.type === 'check'  || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
+                <div className={`grid px-5 md:px-0 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -244,8 +249,9 @@ export default function Stepper() {
                                         <div className="flex flex-col gap-3 w-full">
                                             <Label className="md:text-lg line-clamp-1">{item.name}</Label>
                                             <Input
+                                                type={item.type || "text"}
                                                 className="md:text-lg md:h-12"
-                                                onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value }, "text")}
+                                                onChange={(e) => currentFormHandler({ question: item.name, value: e.target.value, price: item.minPrice || 0 }, "text")}
                                                 placeholder="Required ..."
                                             />
                                         </div>
@@ -272,7 +278,7 @@ export default function Stepper() {
 
                 {finalCheck && <Overview estimate={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} selectedSteps={gatheredData} />}
 
-                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center translate-y-10 py-5  md:bottom-0 md:mt-10 justify-between">
+                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center translate-y-10 py-5 md:pb-10 md:bottom-0 md:mt-10 justify-between">
                     <Button
                         className="md:text-xl w-28 md:w-48 py-5"
                         onClick={() => {
@@ -294,10 +300,9 @@ export default function Stepper() {
                         {selectedSteps.length === 0 || currentStep.isFirst ? "Back To Home" : "Prev"}
                     </Button>
 
-
                     {currentStep.type !== 'select' &&
                         <BlurFade>
-                            <div className="text-lg font-bold flex items-center justify-between px-5 py-6 min-w-96 rounded-2xl h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                            <div className="text-lg font-bold flex items-center justify-between m-0 px-5 py-6 min-w-96 rounded-2xl h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                                 <p >Total Cost Estimate :</p>
                                 <div className="flex items-center gap-2 text-primary">
                                     <span className="text-muted-foreground !font-normal text-sm">From</span>
