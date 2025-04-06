@@ -90,7 +90,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
 
 
     return (
-        <div className="bg-background overflow-scroll rounded-2xl px-2 md:px-0 grid grid-cols-1 md:grid-cols-2 w-full mx-auto">
+        <div className="bg-background size-full overflow-scroll px-2 md:px-0 flex flex-col md:flex-row mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
@@ -165,7 +165,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
             <AlertDialog>
                 <AlertDialogTrigger>
 
-                    <Button className="absolute flex md:top-20 right-3 md:right-10 font-semibold text-base" >
+                    <Button className="absolute flex top-32 md:top-20 right-3 md:right-10 font-semibold text-base" >
                         <Send />
                         {loading ? <Loader className="animate-spin" /> : "Send"}
                     </Button>
@@ -206,8 +206,8 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                                 {errors.phone && <p className="text-red-500 text-sm">{"phone is required"}</p>}
                             </div>
                             <AlertDialogFooter>
-                                <AlertDialogCancel className="w-6/12 h-12">Cancel</AlertDialogCancel>
-                                <AlertDialogAction  className="w-6/12 h-12 font-semibold" disabled={loading} type="submit">
+                                <AlertDialogCancel className="md:w-6/12 h-12">Cancel</AlertDialogCancel>
+                                <AlertDialogAction  className="md:w-6/12 h-12 font-semibold" disabled={loading} type="submit">
                                         <Send />
                                         {loading ? <Loader className="animate-spin" /> : "Submit Request"}
                                 </AlertDialogAction>

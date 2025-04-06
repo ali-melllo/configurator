@@ -65,7 +65,7 @@ export default function Header() {
   const path = usePathname();
 
   return (
-    <div className="pointer-events-none bg-background h-20 fixed inset-x-0 top-0 z-30 mx-auto mb-4 flex origin-top ">
+    <div className="pointer-events-none bg-background h-20 fixed inset-x-0 top-0 z-50 mx-auto mb-4 flex origin-top ">
       <Dock className="z-50 pointer-events-auto hidden md:flex !rounded-none relative w-full mx-auto min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
         {DATA.logo.map((item) => (
           <DockIcon key={item.href}>
