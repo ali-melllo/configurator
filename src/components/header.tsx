@@ -163,6 +163,30 @@ export default function Header() {
           <Home />
           <p className="font-bold mr-auto ml-3 text-xl dark:text-primary border-none">Persian Top</p>
 
+          <div className="ml-5 mr-2">
+
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="h-14 rounded-xl w-20 flex !items-center !justify-between font-medium !px-4" variant="outline" size="sm" >
+                  {pathname.split("/").filter(Boolean)[0] === "en" ? " 🇺🇸 " : "🇳🇱 "}
+                  <span className="text-sm">{pathname.split("/").filter(Boolean)[0] === "en" ? " En" : "Dut"}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 mr-14">
+                <DropdownMenuLabel className="font-medium">Select Language</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem onClick={() => toggleLanguage("/en")}>
+                    🇺🇸 English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => toggleLanguage("/nl")}>
+                    🇳🇱 Dutch
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="size-14 rounded-xl" variant="outline">
