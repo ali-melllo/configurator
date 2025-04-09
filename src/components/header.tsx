@@ -2,8 +2,6 @@
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
-import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
@@ -38,7 +36,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/drop-down-menu"
 import { useTheme } from "next-themes";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 
 
@@ -47,25 +45,29 @@ export default function Header() {
   const dispatch = useDispatch();
   const { setTheme } = useTheme()
   const path = usePathname();
+  const params = useParams();
   const router = useRouter();
+  console.log(params)
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   const toggleLanguage = (defaultLang?: string) => {
 
-    if (!defaultLang) {
-      const segments = pathname.split("/").filter(Boolean);
-      const currentLocale = segments[0];
-      const newLocale = currentLocale === "en" ? "nl" : "en";
-      const restOfPath = segments.length > 1 ? "/" + segments.slice(1).join("/") : "";
-      const newPath = `/${newLocale}${restOfPath}`;
+    const segments = pathname.split("/").filter(Boolean);
+    const currentLocale = segments[0];
+    const newLocale = currentLocale === "en" ? "nl" : "en";
+    const restOfPath = segments.length > 1 ? "/" + segments.slice(1).join("/") : "";
+    const newPath = `/${newLocale}${restOfPath}`;
 
+    if (!defaultLang) {
       startTransition(() => {
         router.push(newPath || "/nl");
       });
     } else {
+      const redirectPath = `${defaultLang}${restOfPath}`;
+
       startTransition(() => {
-        router.push(defaultLang);
+        router.push(redirectPath);
       });
     }
 
@@ -75,17 +77,22 @@ export default function Header() {
   return (
     <div className="pointer-events-none bg-background h-20 fixed inset-x-0 top-0 z-50 mx-auto mb-4 flex origin-top ">
       <Dock className="z-50 pointer-events-auto hidden md:flex !rounded-none relative w-full mx-auto min-h-full h-full items-center justify-between px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        <HomeIcon className="mx-5"/>
 
-        <Separator orientation="vertical" className="h-full py-2" />
-        <p className="font-bold text-xl px-3">Persian Top</p>
+        <Button variant={"ghost"} className="ml-2 px-2 py-5">
+
+          <Link href={`/${params.locale}/`} className="flex gap-3 items-center ">
+            <HomeIcon />
+            <p className="font-bold text-xl">Persian Top</p>
+          </Link>
+        </Button>
+
 
         <div className="ml-10">
           <NavigationMenu>
             <NavigationMenuList>
               {DATA.navbar.map((navItem) => (
                 <NavigationMenuItem key={navItem.href}>
-                  <Link href={navItem.href} legacyBehavior passHref>
+                  <Link href={`/${params.locale}/${navItem.href}`} legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                       {navItem.label}
                     </NavigationMenuLink>
@@ -135,10 +142,10 @@ export default function Header() {
               <DropdownMenuLabel className="font-medium">Select Language</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
-                <DropdownMenuItem onClick={()=>toggleLanguage("/en")}>
+                <DropdownMenuItem onClick={() => toggleLanguage("/en")}>
                   🇺🇸 English
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={()=>toggleLanguage("/nl")}>
+                <DropdownMenuItem onClick={() => toggleLanguage("/nl")}>
                   🇳🇱 Dutch
                 </DropdownMenuItem>
               </DropdownMenuGroup>
