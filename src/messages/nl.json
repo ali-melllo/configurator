@@ -1,6 +1,37 @@
 {
-    "HomePage": {
-      "title": "Aanbouwen en renovaties aan huis"
-    }
+  "HomePage": {
+    "title": "Aanbouwen en Renovaties",
+    "description": "Ervaar vakmanschap en kwaliteit sinds 1998 en lees onze beoordelingen op",
+    "3dButton": "Vraag een offerte aan met de 3D-configurator",
+    "manualButton": "Vraag handmatig een offerte aan",
+    "phoneButton": "Vraag een offerte aan via een telefoontje",
+    "roadMapTitle": "Hoe werkt het?",
+    "roadMapOneTitle": "Kies eenvoudig je gewenste diensten in de configurator op de webapp",
+    "roadMapTwoTitle": "Professionele vakmensen nemen contact met je op om je aanvraag en prijs af te ronden",
+    "roadMapThreeTitle": "Laat de experts je wensen in korte tijd tot leven brengen",
+    "roadMapOneDescription": "Persian Top biedt een soepele en gebruiksvriendelijke configurator voor het kiezen van specifieke diensten voor binnen en buiten je huis",
+    "roadMapTwoDescription": "In de configurator zie je de geschatte prijs in realtime en kun je een offerte aanvragen om de exacte prijs te ontvangen en je bestelling af te ronden",
+    "roadMapThreeDescription": "Jouw specialist in renovaties en aanbouwen met meer dan 25 jaar ervaring en vakmanschap levert precies wat jij nodig hebt",
+    "services": {
+      "servicesTitle": "Onze Diensten",
+      "servicesDescription": "Kwaliteit en vakmanschap voor renovatie en uitbreiding.",
+      "completeRenovation": {
+        "title": "Volledige Renovatie",
+        "description": "Transformeer je huis met onze expertise"
+      },
+      "homeExtensions": {
+        "title": "Aanbouwen",
+        "description": "Prachtige uitbreidingen voor jouw woonbehoeften."
+      },
+      "craftsmanship": {
+        "title": "Vakmanschap",
+        "description": "Elegant en traditioneel in elk project."
+      }
+    },
+    "gallery": {
+      "title": "Galerij",
+      "description": "Ontdek onze renovaties en aanbouwen met vakmanschap en oog voor detail."
+    },
+    "feedback": "Abbas komt zijn beloftes na en de coördinatie tijdens de renovatie verliep soepel. Kortom, we zijn zeer tevreden over het werk van Persian Top en zouden hem zeker aanraden voor een klus."
   }
-  
+}

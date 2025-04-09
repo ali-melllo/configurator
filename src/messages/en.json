@@ -1,5 +1,37 @@
 {
   "HomePage": {
-    "title": "Home Extensions and Renovations"
+    "title": "Home Extensions and Renovations",
+    "description": "Experience craftsmanship and quality since 1998 and read our reviews at",
+    "3dButton": "Request a Quote Using 3D Configurator",
+    "manualButton": "Request a Quote Manually",
+    "phoneButton": " Request a Quote direct phone Call",
+    "roadMapTitle": " How Does it Work ?",
+    "roadMapOneTitle": " Choose Your Preferred Services in Configurator Easy From Webapp",
+    "roadMapTwoTitle": " Professional craftsmen will contact you to finalize your requests and prices",
+    "roadMapThreeTitle": " Let the experts bring your needs in real life in a very short time ",
+    "roadMapOneDescription": " Persian top offers an smooth and easy to use configurator for selecting specific home exterior and inside house services",
+    "roadMapTwoDescription": " Inside the configurator You'll see the estimated price real time and you can request a quote to get the exact price and finalize your order.",
+    "roadMapThreeDescription": "Your specialist in renovations and home extensions with more than 25 years of experience and craftsmanship will deliver your needs ",
+    "services": {
+      "servicesTitle": "Our Services",
+      "servicesDescription": "Quality and craftsmanship for renovation and expansion.",
+      "completeRenovation": {
+        "title": "Complete Renovation",
+        "description": "Transform your home with our expertise"
+      },
+      "homeExtensions": {
+        "title": "Home extensions",
+        "description": "Beautiful extensions for your living needs."
+      },
+      "craftsmanship": {
+        "title": "Craftsmanship",
+        "description": "Elegance and tradition in every project."
+      }
+    },
+    "gallery": {
+      "title": "Gallery",
+      "description": "Discover our renovations and extensions with craftsmanship and detail."
+    },
+    "feedback": "Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."
   }
 }
