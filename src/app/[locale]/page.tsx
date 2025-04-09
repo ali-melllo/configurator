@@ -15,12 +15,14 @@ import { GALLERY_DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
 import { setBuildingStep } from "@/redux/globalSlice";
 import { LayoutDashboard, Phone, Wrench } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
 
   const { buildingStep } = useSelector((state: any) => state.global);
+  const t = useTranslations('HomePage');
 
   const dispatch = useDispatch();
 
@@ -50,7 +52,7 @@ export default function Page() {
 
         <div className="md:pl-36 md:pr-24 flex w-full mt- md:mt-0 md:w-6/12 flex-col justify-center">
           <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
-            Home Extensions and Renovations
+            {t('title')}
           </TextAnimate>
           <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
             Experience craftsmanship and quality since 1998 and read our reviews at:

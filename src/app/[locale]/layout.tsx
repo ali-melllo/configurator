@@ -1,12 +1,22 @@
 import "./styles/globals.css";
 import ClientProviders from "./ClientProviders"; 
-import Head from "next/head";
-
-export default function RootLayout({
+import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing';
+ 
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{locale: string}>;
+}) {
+
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
        <head>
@@ -28,9 +38,11 @@ export default function RootLayout({
         <title>Persian Top | Home Extensions & Construction</title>
       </head>
       <body className="overflow-x-hidden bg-background antialiased">
+      <NextIntlClientProvider>
         <ClientProviders>
           {children}
         </ClientProviders>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

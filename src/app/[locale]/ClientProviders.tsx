@@ -3,7 +3,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
-import { store } from "../redux/store";
+import { store } from "../../redux/store";
 import { Provider } from "react-redux";
 import Header from "@/components/header";
 import FrequentlyAskedModal from "@/components/main/modals/frequently-asked-modal";

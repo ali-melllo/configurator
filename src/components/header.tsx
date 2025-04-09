@@ -22,22 +22,6 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User,
-  UserPlus,
-  Users,
-} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -48,14 +32,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/drop-down-menu"
 import { useTheme } from "next-themes";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 
 export default function Header() {
@@ -63,29 +47,35 @@ export default function Header() {
   const dispatch = useDispatch();
   const { setTheme } = useTheme()
   const path = usePathname();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
+
+  const toggleLanguage = (defaultLang?: string) => {
+
+    if (!defaultLang) {
+      const segments = pathname.split("/").filter(Boolean);
+      const currentLocale = segments[0];
+      const newLocale = currentLocale === "en" ? "nl" : "en";
+      const restOfPath = segments.length > 1 ? "/" + segments.slice(1).join("/") : "";
+      const newPath = `/${newLocale}${restOfPath}`;
+
+      startTransition(() => {
+        router.push(newPath || "/nl");
+      });
+    } else {
+      startTransition(() => {
+        router.push(defaultLang);
+      });
+    }
+
+
+  };
 
   return (
     <div className="pointer-events-none bg-background h-20 fixed inset-x-0 top-0 z-50 mx-auto mb-4 flex origin-top ">
-      <Dock className="z-50 pointer-events-auto hidden md:flex !rounded-none relative w-full mx-auto min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        {DATA.logo.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
-                  )}>
-                  <item.icon className="size-6" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
+      <Dock className="z-50 pointer-events-auto hidden md:flex !rounded-none relative w-full mx-auto min-h-full h-full items-center justify-between px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
+        <HomeIcon className="mx-5"/>
 
         <Separator orientation="vertical" className="h-full py-2" />
         <p className="font-bold text-xl px-3">Persian Top</p>
@@ -106,11 +96,11 @@ export default function Header() {
           </NavigationMenu>
         </div>
 
-        <DockIcon className="ml-auto">
+        <div className="ml-auto cursor-pointer mr-10">
           <Tooltip>
             <TooltipTrigger onClick={() => dispatch(changeFrequentlyAskedModal(true))} asChild>
               <div className="flex flex-nowrap gap-2 items-center">
-                <CircleHelp color="#Facc14" className="size-6" />
+                <CircleHelp color="#f97316" className="size-6" />
                 <p className="text-nowrap text-base">To Ask</p>
               </div>
             </TooltipTrigger>
@@ -118,8 +108,9 @@ export default function Header() {
               <p>Frequently Asked</p>
             </TooltipContent>
           </Tooltip>
-        </DockIcon>
-        <DockIcon className="mr-5 ml-10">
+        </div>
+
+        <div className="">
           <Tooltip>
             <TooltipTrigger asChild>
               <ModeToggle />
@@ -128,7 +119,32 @@ export default function Header() {
               <p>Theme</p>
             </TooltipContent>
           </Tooltip>
-        </DockIcon>
+        </div>
+
+        <div className="ml-5 mr-10">
+
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="h-9 w-28 flex !items-center !justify-between font-medium !px-3" variant="outline" size="sm" >
+                {pathname.split("/").filter(Boolean)[0] === "en" ? " 🇺🇸 " : "🇳🇱 "}
+                <span className="text-base">{pathname.split("/").filter(Boolean)[0] === "en" ? " English" : "Dutch"}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56 mr-14">
+              <DropdownMenuLabel className="font-medium">Select Language</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem onClick={()=>toggleLanguage("/en")}>
+                  🇺🇸 English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={()=>toggleLanguage("/nl")}>
+                  🇳🇱 Dutch
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
 
       </Dock>
 
@@ -137,13 +153,13 @@ export default function Header() {
 
       {path !== '/configurator/' &&
         <div className="z-50 px-3 pointer-events-auto flex md:hidden justify-between !rounded-none relative w-full min-h-full h-full items-center bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-          <Home/>
+          <Home />
           <p className="font-bold mr-auto ml-3 text-xl dark:text-primary border-none">Persian Top</p>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="size-14 rounded-xl" variant="outline">
-                <List className="!size-6"/>
+                <List className="!size-6" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
