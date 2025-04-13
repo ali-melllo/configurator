@@ -47,7 +47,6 @@ export default function Header() {
   const path = usePathname();
   const params = useParams();
   const router = useRouter();
-  console.log(params)
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
@@ -61,13 +60,13 @@ export default function Header() {
 
     if (!defaultLang) {
       startTransition(() => {
-        router.push(newPath || "/nl");
+        router.replace(newPath || "/nl");
       });
     } else {
       const redirectPath = `${defaultLang}${restOfPath}`;
 
       startTransition(() => {
-        router.push(redirectPath);
+        router.replace(redirectPath);
       });
     }
 
@@ -193,7 +192,7 @@ export default function Header() {
                 <List className="!size-6" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent className="w-56 mr-5">
               <DropdownMenuGroup>
                 {DATA.navbar.map((navItem) => (
                   <DropdownMenuItem className="text-lg" key={navItem.href}>

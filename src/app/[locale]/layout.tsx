@@ -1,26 +1,23 @@
 import "./styles/globals.css";
-import ClientProviders from "./ClientProviders"; 
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
- 
+import ClientProviders from "./ClientProviders";
+import { notFound } from 'next/navigation';
+import LangProvider from "@/contexts/LangContext";
+
 export default async function RootLayout({
   children,
   params
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
 
-  const {locale} = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  const { locale } = await params;
+
+  const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return (
-    <html lang="en" suppressHydrationWarning>
-       <head>
-
+    <html lang={locale} suppressHydrationWarning>
+      <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google-site-verification" content="1rYXQQIab6jH7wphu_dULqaSjKdOHwx95E24IuoRW0s" />
@@ -28,7 +25,6 @@ export default async function RootLayout({
         <meta name="keywords" content="home extensions, construction services, remodeling, building contractor, renovation, house expansion, custom homes" />
         <meta name="author" content="Persian Top" />
         <meta name="robots" content="index, follow" />
-
         <meta property="og:title" content="Home Extensions & Construction Services" />
         <meta property="og:description" content="Transform your home with expert construction and extension services tailored to your needs." />
         <meta property="og:type" content="website" />
@@ -38,11 +34,11 @@ export default async function RootLayout({
         <title>Persian Top | Home Extensions & Construction</title>
       </head>
       <body className="overflow-x-hidden bg-background antialiased">
-      <NextIntlClientProvider>
-        <ClientProviders>
-          {children}
-        </ClientProviders>
-        </NextIntlClientProvider>
+        <LangProvider locale={locale} messages={messages}>
+          <ClientProviders>
+            {children}
+          </ClientProviders>
+        </LangProvider>
       </body>
     </html>
   );

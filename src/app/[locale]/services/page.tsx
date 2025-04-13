@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
 
 import Footer from "@/components/footer";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -144,3 +143,10 @@ export default function Page() {
         </div>
     )
 }
+
+export function generateStaticParams() {
+    return [
+      { locale: 'en' },
+      { locale: 'nl' },
+    ];
+  }
