@@ -12,6 +12,15 @@ const nextConfig = {
   // trailingSlash: true,
   // distDir: "out",
   // output: "export",
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en', 
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

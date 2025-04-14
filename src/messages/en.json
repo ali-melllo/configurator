@@ -33,5 +33,79 @@
       "description": "Discover our renovations and extensions with craftsmanship and detail."
     },
     "feedback": "Abbas keeps his promises and the coordination during the renovation went smoothly. In short, we are very satisfied with the work of Persian top and would definitely recommend him for a job."
+  },
+  "ProjectPage": {
+    "title": "Extensions",
+    "subtitle": "These are our example extensions",
+    "overviewTitle": "Projects Overview",
+    "overviewDescription": "Discover our unique renovation and extension projects since 1997. You can also read more about us on Werkspot.",
+    "extensionTitle": "Extension Project",
+    "extensionDescription": "Discover how we can enhance your home with craftsmanship and attention to detail, so that you really feel at home.",
+    "renovationTitle": "Renovation Project",
+    "renovationDescription": "View our recent renovation projects that combine elegance and tradition for a perfect home experience.",
+    "projects": "Projects",
+    "projectsSubtitle": "Discover our renovations and extensions for your dream home",
+    "reviewsTitle": "Customer reviews of Werkspot",
+    "reviewsSubtitle": "Read here the experiences of our satisfied customers about our projects",
+    "review1": {
+      "title": "Home Renovation: Kitchen, Living Room/Dining Room, Bedroom(s)",
+      "body": "Persian Top helped me tremendously with the construction and painting of my new apartment. Not only did they do a very good job, Abbas also gave me very good advice regarding the best solutions for certain problems in the apartment. I am very happy with the result!",
+      "author": "The Farmer"
+    },
+    "review2": {
+      "title": "Add-on: 30 m²; Yes; Flat roof",
+      "body": "Persian Top helped me tremendously with the construction and painting of my new apartment. Not only did they do a very good job, Abbas also gave me very good advice regarding the best solutions for certain problems in the apartment. I am very happy with the result!",
+      "author": "Fahrhad Sarabi"
+    },
+    "review3": {
+      "title": "Complete renovation including extension and new dormer window",
+      "body": "Abbas and his men made our renovation a great success. We simply have a new house! ... ",
+      "author": "Remmert family"
+    },
+    "review4": {
+      "title": "Renovation of kitchen and hallway",
+      "body": "Persian Top has carried out the assignment fantastically. The work delivered is of high quality. ... ",
+      "author": "Remmert family"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Quality and craftsmanship for renovation and expansion.",
+    "cards": {
+      "renovation": {
+        "title": "Complete Renovation",
+        "description": "Transform your home with our expertise in complete renovations and high-quality finishes for every project."
+      },
+      "extension": {
+        "title": "Home extensions",
+        "description": "Create extra space with elegant home extensions that perfectly match your living needs and style"
+      },
+      "craftsmanship": {
+        "title": "Craftsmanship",
+        "description": "Experience the highest quality and craftsmanship in all our renovation and expansion projects."
+      }
+    },
+    "reviews": {
+      "1": {
+        "quote": "we are very satisfied with the work of Persian top and would definitely recommend him for a job.",
+        "name": "Peter G"
+      },
+      "2": {
+        "quote": "Great experience with renovation, craftsmanship and attention to detail. My house now feels like new!",
+        "name": "Sophie K"
+      },
+      "3": {
+        "quote": "Personal approach and great results. Our expansion is perfect and exceeds all our expectations!",
+        "name": "Mark J"
+      }
+    },
+    "locations": {
+      "title": "Locations",
+      "description": "We offer our services in various regions. Please contact us for more information about your specific location",
+      "address": "Address",
+      "address_detail": "Dreef 10, 1431WD Aalsmeer",
+      "hours": "Opening hours",
+      "hours_detail": "Mon-Fri 9am-5pm"
+    }
   }
 }

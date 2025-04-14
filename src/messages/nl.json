@@ -33,5 +33,79 @@
       "description": "Ontdek onze renovaties en aanbouwen met vakmanschap en oog voor detail."
     },
     "feedback": "Abbas komt zijn beloftes na en de coördinatie tijdens de renovatie verliep soepel. Kortom, we zijn zeer tevreden over het werk van Persian Top en zouden hem zeker aanraden voor een klus."
+  },
+  "ProjectPage": {
+    "title": "Onze Projecten",
+    "subtitle": "Dit zijn onze voorbeelduitbreidingen",
+    "overviewTitle": "Projectoverzicht",
+    "overviewDescription": "Ontdek onze unieke renovatie- en uitbreidingsprojecten sinds 1997. U kunt ook meer over ons lezen op Werkspot.",
+    "extensionTitle": "Uitbreidingsproject",
+    "extensionDescription": "Ontdek hoe wij uw woning kunnen verrijken met vakmanschap en oog voor detail, zodat u zich echt thuis voelt.",
+    "renovationTitle": "Renovatieproject",
+    "renovationDescription": "Bekijk onze recente renovatieprojecten die elegantie en traditie combineren voor een perfecte woonervaring.",
+    "projects": "Projecten",
+    "projectsSubtitle": "Ontdek onze renovaties en uitbreidingen voor uw droomwoning",
+    "reviewsTitle": "Klantbeoordelingen van Werkspot",
+    "reviewsSubtitle": "Lees hier de ervaringen van onze tevreden klanten over onze projecten",
+    "review1": {
+      "title": "Woningrenovatie: Keuken, Woon-/Eetkamer, Slaapkamer(s)",
+      "body": "Persian Top heeft mij enorm geholpen met de verbouwing en schilderwerk van mijn nieuwe appartement. Niet alleen hebben ze uitstekend werk geleverd, Abbas gaf me ook zeer goed advies over de beste oplossingen voor bepaalde problemen in het appartement. Ik ben erg blij met het resultaat!",
+      "author": "De Boer"
+    },
+    "review2": {
+      "title": "Aanbouw: 30 m²; Ja; Plat dak",
+      "body": "Persian Top heeft mij enorm geholpen met de verbouwing en schilderwerk van mijn nieuwe appartement. Niet alleen hebben ze uitstekend werk geleverd, Abbas gaf me ook zeer goed advies over de beste oplossingen voor bepaalde problemen in het appartement. Ik ben erg blij met het resultaat!",
+      "author": "Fahrhad Sarabi"
+    },
+    "review3": {
+      "title": "Complete renovatie inclusief aanbouw en nieuwe dakkapel",
+      "body": "Abbas en zijn team hebben onze renovatie tot een groot succes gemaakt. We hebben gewoon een nieuw huis! ... ",
+      "author": "Familie Remmert"
+    },
+    "review4": {
+      "title": "Renovatie van keuken en hal",
+      "body": "Persian Top heeft de opdracht fantastisch uitgevoerd. Het geleverde werk is van hoge kwaliteit. ... ",
+      "author": "Familie Remmert"
+    }
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "subtitle": "Kwaliteit en vakmanschap voor renovatie en uitbreiding.",
+    "cards": {
+      "renovation": {
+        "title": "Complete Renovatie",
+        "description": "Transformeer je woning met onze expertise in volledige renovaties en hoogwaardige afwerking voor elk project."
+      },
+      "extension": {
+        "title": "Uitbouw van Woning",
+        "description": "Creëer extra ruimte met elegante woninguitbreidingen die perfect passen bij jouw woonwensen en stijl."
+      },
+      "craftsmanship": {
+        "title": "Vakmanschap",
+        "description": "Ervaar de hoogste kwaliteit en vakmanschap in al onze renovatie- en uitbreidingsprojecten."
+      }
+    },
+    "reviews": {
+      "1": {
+        "quote": "Wij zijn zeer tevreden over het werk van Persian Top en zouden hem zeker aanbevelen voor een klus.",
+        "name": "Peter G"
+      },
+      "2": {
+        "quote": "Geweldige ervaring met renovatie, vakmanschap en oog voor detail. Mijn huis voelt nu als nieuw!",
+        "name": "Sophie K"
+      },
+      "3": {
+        "quote": "Persoonlijke aanpak en geweldig resultaat. Onze uitbouw is perfect en overtreft al onze verwachtingen!",
+        "name": "Mark J"
+      }
+    },
+    "locations": {
+      "title": "Locaties",
+      "description": "Wij bieden onze diensten aan in verschillende regio’s. Neem contact met ons op voor meer informatie over jouw specifieke locatie.",
+      "address": "Adres",
+      "address_detail": "Dreef 10, 1431WD Aalsmeer",
+      "hours": "Openingstijden",
+      "hours_detail": "Ma-Vr 9:00-17:00"
+    }
   }
 }
