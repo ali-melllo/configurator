@@ -107,5 +107,170 @@
       "hours": "Openingstijden",
       "hours_detail": "Ma-Vr 9:00-17:00"
     }
+  },
+  "configurator": {
+    "surface": {
+      "title": "Oppervlakte",
+      "width": "Breedte",
+      "depth": "Diepte",
+      "guide": "Voer de oppervlakte van uw huis of appartement in om een geschatte prijs voor uw offerteaanvraag te krijgen."
+    },
+    "inside": "Binnenkant",
+    "exterior": "Buitenkant",
+    "totalEstimate": "Totale Schatting",
+    "details": "bekijkDetails",
+    "houseBefore1980": "Huis is gebouwd vóór 1980",
+    "checkoutTitle": "Bekijk Bestelprijs",
+    "checkoutNote": "U ziet hieronder een geschatte prijs, de exacte prijs wordt gegeven nadat de vakman contact met u opneemt",
+    "badge": {
+      "white": "Wit",
+      "dark": "Donker"
+    },
+    "facade": {
+      "title": "Gevelbekleding",
+      "description": "Kies uw geveltype",
+      "plastic": {
+        "title": "Plastic",
+        "dark": "Donkere plastic gevelbekleding",
+        "white": "Witte plastic gevelbekleding",
+        "green": "Groene plastic gevelbekleding",
+        "brown": "Bruine plastic gevelbekleding"
+      },
+      "composite": {
+        "title": "Composiet",
+        "horizontalBrown": "Horizontale bruine composiet gevelbekleding",
+        "verticalBrown": "Verticale bruine composiet gevelbekleding",
+        "horizontalDarkBrown": "Horizontale donkerbruine composiet gevelbekleding",
+        "verticalDarkBrown": "Verticale donkerbruine composiet gevelbekleding",
+        "horizontalGray": "Horizontale grijze composiet gevelbekleding",
+        "verticalGray": "Verticale grijze composiet gevelbekleding",
+        "horizontalDark": "Horizontale donkere composiet gevelbekleding",
+        "verticalDark": "Verticale donkere composiet gevelbekleding"
+      },
+      "brick": {
+        "title": "Bakstenen",
+        "horizontalBrown": "Horizontale bruine composiet gevelbekleding",
+        "verticalBrown": "Verticale bruine composiet gevelbekleding",
+        "horizontalDarkBrown": "Horizontale donkerbruine composiet gevelbekleding",
+        "verticalDarkBrown": "Verticale donkerbruine composiet gevelbekleding",
+        "horizontalGray": "Horizontale grijze composiet gevelbekleding",
+        "verticalGray": "Verticale grijze composiet gevelbekleding"
+      }
+    },
+    "frames": {
+      "title": "Kozijnen",
+      "description": "Vierdelige schuifdeur, hout, antraciet, ventilatierooster",
+      "manualDark": "Donker handmatig kozijn",
+      "slidingDarkLined": "Donker schuifkozijn met lijnen",
+      "glassRailedDark": "Donker glazen relingkozijn",
+      "slidingDark": "Donker schuifkozijn",
+      "manualLight": "Licht handmatig kozijn",
+      "slidingLightLined": "Licht schuifkozijn met lijnen",
+      "glassRailedLight": "Licht glazen relingkozijn",
+      "slidingLight": "Licht schuifkozijn"
+    },
+    "dakoverstek": {
+      "title": "Dakoverstek",
+      "description": "Aanpasbare dakoverstek",
+      "plastic": {
+        "title": "Plastic",
+        "white": "Witte plastic dakoverstek",
+        "dark": "Donkere plastic dakoverstek",
+        "wood": "Houten dakoverstek",
+        "woodTitle": "Hout",
+        "bouTitle": "Boegdeel"
+      }
+    },
+    "dactrim": {
+      "title": "Daktrim",
+      "description": "Aanpasbare daktrim",
+      "aluminum": "Aluminium",
+      "anthracite": "Antraciet"
+    },
+    "daklicht": {
+      "title": "Daklicht",
+      "description": "Aanpasbaar daklicht",
+      "white": "Wit daklicht",
+      "dark": "Donker daklicht"
+    },
+    "outDoorLight": {
+      "title": "Buitenverlichting",
+      "description": "Buitenverlichting links",
+      "left": "Donkere linker buitenlamp",
+      "right": "Donkere rechter buitenlamp",
+      "leftAndRight": "Donkere linker & rechter buitenlamp",
+      "whiteLeft": "Witte linker buitenlamp",
+      "whiteRight": "Witte rechter buitenlamp",
+      "whiteLeftAndRight": "Witte linker & rechter buitenlamp"
+    },
+    "outDoorSocket": {
+      "title": "Buitenstopcontacten & kranen",
+      "description": "Buitenstopcontacten of waterkranen",
+      "darkTitle": "Donker stopcontact",
+      "whiteTitle": "Wit stopcontact",
+      "leftDark": "Links donker stopcontact",
+      "rightDark": "Rechts donker stopcontact",
+      "tapTitle": "Waterkranen",
+      "rightWhite": "Rechts wit stopcontact",
+      "leftWhite": "Links wit stopcontact",
+      "leftTap": "Linker waterkraan",
+      "rightTap": "Rechter waterkraan"
+    },
+    "rainPipes": {
+      "title": "Regenpijpen collectie",
+      "description": "Kies uit verschillende soorten regenpijpen",
+      "pvc": {
+        "title": "Pvc",
+        "gray": "Grijze PVC regenpijpen",
+        "dark": "Donkere PVC regenpijpen"
+      },
+      "zinc": {
+        "title": "Zink",
+        "light": "Lichte zinken regenpijpen",
+        "dark": "Donkere zinken regenpijpen"
+      }
+    },
+    "heating": {
+      "title": "Verwarming",
+      "description": "Links & dubbele verwarming",
+      "align": "Uitlijnen",
+      "right": "Verwarming rechts",
+      "left": "Verwarming links",
+      "leftAndRight": "Verwarming links & rechts"
+    },
+    "lightSwitch": {
+      "title": "Lichtschakelaars binnen",
+      "description": "Selectie lichtschakelaars binnen",
+      "leftDark": "Linker donkere lichtschakelaar",
+      "rightDark": "Rechter donkere lichtschakelaar",
+      "leftWhite": "Linker witte lichtschakelaar",
+      "rightWhite": "Rechter witte lichtschakelaar"
+    },
+    "outDoorLightSwitch": {
+      "title": "Buiten lichtschakelaars binnen",
+      "description": "Selectie buiten lichtschakelaars binnen",
+      "leftDark": "Linker donkere buiten lichtschakelaar",
+      "rightDark": "Rechter donkere buiten lichtschakelaar",
+      "leftWhite": "Linker witte buiten lichtschakelaar",
+      "rightWhite": "Rechter witte buiten lichtschakelaar"
+    },
+    "wallLamps": {
+      "title": "Wandlampen",
+      "description": "Uitlijning wandlampen",
+      "leftDark": "Linker donkere wandlamp",
+      "rightDark": "Rechter donkere wandlamp",
+      "leftAndRightDark": "Linker & rechter donkere wandlamp",
+      "leftWhite": "Linker witte wandlamp",
+      "rightWhite": "Rechter witte wandlamp",
+      "leftAndRightWhite": "Linker & rechter witte wandlamp"
+    },
+    "lightPoint": {
+      "title": "Lichtpunten",
+      "description": "Selectie lichtpunten",
+      "align": "Uitlijnen",
+      "left": "Linker lichtpunt",
+      "right": "Rechter lichtpunt",
+      "leftAndRight": "Linker & rechter lichtpunt"
+    }
   }
 }

@@ -107,5 +107,170 @@
       "hours": "Opening hours",
       "hours_detail": "Mon-Fri 9am-5pm"
     }
+  },
+  "configurator": {
+    "surface": {
+      "title": "Surface Area",
+      "width": "Width",
+      "depth": "Depth",
+      "guide": "Please Enter Your house or apartment Surface area to get an estimated price for your quote request."
+    },
+    "inside": "Inside",
+    "exterior": "Exterior",
+    "totalEstimate":"Total Estimate",
+    "details":"seeDetails",
+    "houseBefore1980":"House Is Built Before 1980",
+    "checkoutTitle": "Check Out Order Price",
+    "checkoutNote": "You'll see an estimated price below , you'll the exact price after craftsman called you",
+    "badge": {
+      "white": "White",
+      "dark": "Dark"
+    },
+    "facade": {
+      "title": "Facade Cladding",
+      "description": "Choose Your Facade Type",
+      "plastic": {
+        "title": "Plastic",
+        "dark": "Dark Plastic Facade Cladding",
+        "white": "White Plastic Facade Cladding",
+        "green": "Green Plastic Facade Cladding",
+        "brown": "Brown Plastic Facade Cladding"
+      },
+      "composite": {
+        "title": "Composite",
+        "horizontalBrown": "Horizontal Brown composite Facade Cladding",
+        "verticalBrown": "Vertical Brown composite Facade Cladding",
+        "horizontalDarkBrown": "Horizontal Dark Brown composite Facade Cladding",
+        "verticalDarkBrown": "Vertical Dark Brown composite Facade Cladding",
+        "horizontalGray": "Horizontal gray composite Facade Cladding",
+        "verticalGray": "Vertical gray composite Facade Cladding",
+        "horizontalDark": "Horizontal dark composite Facade Cladding",
+        "verticalDark": "Vertical dark composite Facade Cladding"
+      },
+      "brick": {
+        "title": "Bricks",
+        "horizontalBrown": "Horizontal Brown composite Facade Cladding",
+        "verticalBrown": "Vertical Brown composite Facade Cladding",
+        "horizontalDarkBrown": "Horizontal Dark Brown composite Facade Cladding",
+        "verticalDarkBrown": "Vertical Dark Brown composite Facade Cladding",
+        "horizontalGray": "Horizontal gray composite Facade Cladding",
+        "verticalGray": "Vertical gray composite Facade Cladding"
+      }
+    },
+    "frames": {
+      "title": "Frames",
+      "description": "4-part sliding door, wood, anthracite, ventilation grille",
+      "manualDark": "Dark Manual Frame",
+      "slidingDarkLined": "Dark Sliding Lined Frame",
+      "glassRailedDark": "Dark Glass Railed Frame",
+      "slidingDark": "Dark Sliding Frame",
+      "manualLight": "Light Manual Frame",
+      "slidingLightLined": "Light Sliding Lined Frame",
+      "glassRailedLight": "Light Glass Railed Frame",
+      "slidingLight": "Light Sliding Frame"
+    },
+    "dakoverstek": {
+      "title": "Dakoverstek",
+      "description": "Customizable dakoverstek",
+      "plastic": {
+        "title": "Plastic",
+        "white": "White plastic dakoverstek",
+        "dark": "Dark plastic dakoverstek",
+        "wood": "wood dakoverstek",
+        "woodTitle": "Wood",
+        "bouTitle": "Buoy Part"
+      }
+    },
+    "dactrim": {
+      "title": "Dactrim",
+      "description": "Customizable Dactrim",
+      "aluminum": "Aluminum",
+      "anthracite": "Anthracite"
+    },
+    "daklicht": {
+      "title": "Daklicht",
+      "description": "Customizable Daklicht",
+      "white": "White daklicht",
+      "dark": "Dark daklicht"
+    },
+    "outDoorLight": {
+      "title": "Out Door Lightning",
+      "description": "Out Door Lightning links ",
+      "left": "Dark Left Outdoor Light",
+      "right": "Dark Right Outdoor Light",
+      "leftAndRight": "Dark Left & Right Outdoor Light",
+      "whiteLeft": "White Left Outdoor Light",
+      "whiteRight": "White Right Outdoor Light",
+      "whiteLeftAndRight": "White Left & Right Outdoor Light"
+    },
+    "outDoorSocket": {
+      "title": "Out Door Socket & Taps",
+      "description": "Out Door Sockets or water taps",
+      "darkTitle": "Dark Socket",
+      "whiteTitle": "White Socket",
+      "leftDark": "Left Dark Socket",
+      "rightDark": "Right Dark Socket",
+      "tapTitle": "Water Taps",
+      "rightWhite": "Right White Socket",
+      "leftWhite": "Left White Socket",
+      "leftTap": "Left Water Tap",
+      "rightTap": "Right Water Tap"
+    },
+    "rainPipes": {
+      "title": "Rain pipes collection",
+      "description": "select from rain pipes types",
+      "pvc": {
+        "title": "Pvc",
+        "gray": "Gray Pvc Rain Pipes",
+        "dark": "Dark Pvc Rain Pipes"
+      },
+      "zinc": {
+        "title": "Zinc",
+        "light": "Light Zinc Rain Pipes",
+        "dark": "Dark Zinc Rain Pipes"
+      }
+    },
+    "heating": {
+      "title": "Heating",
+      "description": "Links & double heating",
+      "align": "Align",
+      "right": "Right side heating",
+      "left": "Left side heating",
+      "leftAndRight": "Left & Right side heating"
+    },
+    "lightSwitch": {
+      "title":"Light Switches inside",
+      "description": "Light Switches inside Selection",
+      "leftDark":"Left Dark light Switch",
+      "rightDark":"Right Dark light Switch",
+      "leftWhite":"Left Dark light Switch",
+      "rightWhite":"Right Dark light Switch"
+    },
+    "outDoorLightSwitch": {
+      "title":"Out Door Light Switches inside",
+      "description": "Out Door Light Switches inside Selection",
+      "leftDark":"Left Dark Out Door light Switch",
+      "rightDark":"Right Dark Out Door light Switch",
+      "leftWhite":"Left Dark Out Door light Switch",
+      "rightWhite":"Right Dark Out Door light Switch"
+    },
+    "wallLamps":{
+      "title":"Wall Lamps",
+      "description": "Wall Lamps align",
+      "leftDark":"Left side dark wall lamp",
+      "rightDark":"Right side dark wall lamp",
+      "leftAndRightDark":"Left & Right side dark wall lamp",
+      "leftWhite":"Left side white wall lamp",
+      "rightWhite":"Right side white wall lamp",
+      "leftAndRightWhite":"Left & Right side white wall lamp"
+    },
+    "lightPoint":{
+      "title":"Light Points",
+      "description": "Light Points Selection",
+      "align":"Align",
+      "left":"Left side Light Point",
+      "right":"Right side Light Point",
+      "leftAndRight":"Left & right side Light Point"
+    }
   }
 }
