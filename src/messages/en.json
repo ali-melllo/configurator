@@ -512,6 +512,7 @@
     "budgetQuality": "Budget Quality",
     "standardQuality": "Standard Quality",
     "premiumQuality": "Premium Quality",
+    "apartment":"apartment",
     "heatingName": "Heating Technology",
     "heatingTechName": "Heating Tech",
     "heatingDescription": "tell us about Heating Technology info",
