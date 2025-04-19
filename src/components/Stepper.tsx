@@ -18,6 +18,7 @@ import { Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { NumberTicker } from "./magicui/number-trick";
+import { useLang } from "@/contexts/LangContext";
 
 
 // titles are used to show main title of current step at top
@@ -44,6 +45,9 @@ type dataType = {
 
 
 export default function Stepper() {
+
+    const { t } = useLang();
+
     const [selectedSteps, setSelectedSteps] = useState<any>([]);
     const [currentFormData, setCurrentFormData] = useState<any>([]);
     const [finalCheck, setFinalCheck] = useState<boolean>(false);
@@ -164,8 +168,8 @@ export default function Stepper() {
 
     return (
         <BlurFade inView className={`md:w-11/12 h-[100dvh] md:h-[85dvh] relative overflow-hidden ${finalCheck ? "pt-0" : "pt-28"} md:pt-0 md:mt-28 mx-auto rounded-xl`}>
-            
-            
+
+
             <div className="md:p-10 size-full flex flex-col rounded-xl overflow-scroll md:overflow-hidden bg-background/25 md:border shadow-md">
 
                 <div className="w-full hidden md:block mb-14">
@@ -177,7 +181,7 @@ export default function Stepper() {
                                     "h-1 w-36 rounded-full bg-blue-500"
                                 )}>
                                 <span className="line-clamp-1 text-center text-muted-foreground w-full mt-2">
-                                    {step || ""}{" "}
+                                    {t(step) || ""}{" "}
                                 </span>
                             </li>
                         ))}
@@ -185,11 +189,11 @@ export default function Stepper() {
                 </div>
 
                 <div className="flex justify-between w-full px-5 md:px-0 items-center">
-                    <h2 className="md:text-3xl md:px-0 font-bold">{!finalCheck ? (currentStep.title || currentStep.nextStep?.title) : "Request Overview"}</h2>
-                    
+                    <h2 className="md:text-3xl md:px-0 font-bold">{!finalCheck ? (t(currentStep.title) || t(currentStep.nextStep?.title)) : t("stepper.requestOverview")}</h2>
+
                 </div>
 
-                <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ? (currentStep.nextStep?.description || currentStep.description) : ""}</h2>
+                <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ?  t(currentStep.description || currentStep.nextStep?.description) : ""}</h2>
 
 
                 <div className={`grid px-5 md:px-0 pb-20 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'date') ? "md:grid-cols-1" : "md:grid-cols-2"} gap-4`}>
@@ -205,7 +209,7 @@ export default function Stepper() {
                                         className="cursor-pointer p-4 py-5 border rounded-lg hover:border-primary hover:text-primary flex flex-col items-center"
                                     >
                                         <span className="text-4xl">{item.icon}</span>
-                                        <span className="md:text-2xl font-medium">{item.name}</span>
+                                        <span className="md:text-2xl font-medium">{t(item.name)}</span>
                                     </div>
                                 </BlurFade>
                             ) : currentStep.type === 'multi' ? (
@@ -221,14 +225,14 @@ export default function Stepper() {
                                             aria-label="Toggle bold"
                                         >
                                             <span className="text-4xl">{item.icon}</span>
-                                            <span className="md:text-lg font-medium">{item.name}</span>
+                                            <span className="md:text-lg font-medium">{t(item.name)}</span>
                                         </ToggleGroupItem>
                                     </ToggleGroup>
                                 </BlurFade>
                             ) : currentStep.type === 'check' ? (
                                 <BlurFade>
                                     <div key={item.name} className="flex flex-col md:flex-row gap-5 md:items-center">
-                                        <span className="min-w-32 md:text-2xl my-3 md:min-w-48">{item.name}</span>
+                                        <Label className="min-w-32 md:text-2xl my-3 md:min-w-48">{t(item.name)}</Label>
                                         <RadioGroup
                                             className="flex md:ml-10 items-center"
                                             onValueChange={(value) => currentFormHandler({ question: item.name, value, price: item.minPrice || 0 }, "check")}
@@ -249,7 +253,7 @@ export default function Stepper() {
                                     <div key={item.name} className="flex gap-3 items-center">
                                         <Separator orientation="vertical" />
                                         <div className="flex flex-col gap-3 w-full">
-                                            <Label className="md:text-lg line-clamp-1">{item.name}</Label>
+                                            <Label className="md:text-lg line-clamp-1">{t(item.name)}</Label>
                                             <Input
                                                 type={item.type || "text"}
                                                 className="md:text-lg md:h-12"
@@ -282,16 +286,16 @@ export default function Stepper() {
 
 
                 {currentStep.type !== 'select' &&
-                        <BlurFade>
-                            <div className="md:text-lg w-full bottom-0 font-bold z-[999] md:hidden sticky flex items-center gap-3 justify-between px-5 py-7 mt-3 md:min-w-96 rounded-t-2xl h-12 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                                <p>Estimate :</p>
-                                <div className="flex items-center gap-2 text-primary">
-                                    <span className="text-muted-foreground !font-normal text-xs">From</span>
-                                    <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{price}</NumberTicker>
-                                    €
-                                </div>
+                    <BlurFade>
+                        <div className="md:text-lg w-full bottom-0 font-bold z-[999] md:hidden sticky flex items-center gap-3 justify-between px-5 py-7 mt-3 md:min-w-96 rounded-t-2xl h-12 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                            <p>Estimate :</p>
+                            <div className="flex items-center gap-2 text-primary">
+                                <span className="text-muted-foreground !font-normal text-xs">From</span>
+                                <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{price}</NumberTicker>
+                                €
                             </div>
-                        </BlurFade>}
+                        </div>
+                    </BlurFade>}
 
                 <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center md:translate-y-10 py-5 md:pb-10 bottom-0 md:mt-10 justify-between">
                     <Button
