@@ -283,7 +283,7 @@ export default function SideBar() {
                 <Button
                     onClick={() => dispatch(changeShowFinalQuoteModal(true))}
                     className="py-6 w-11/12 !z-[999] shadow-xl text-lg mt-5 font-semibold">
-                    Request a Quote
+                    {t('configurator.quoteRequest')}
                 </Button>
 
             </div>

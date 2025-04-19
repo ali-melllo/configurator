@@ -381,10 +381,10 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
   ],
   navbar: [
-    { href: "/", label: "Home" },
-    { href: "/configurator", label: "Configurator" },
-    { href: "/projects", label: "Projects" },
-    { href: "/services", label: "Services" },
+    { href: "/", label: "header.home" },
+    { href: "/configurator", label: "header.configurator" },
+    { href: "/projects", label: "header.projects" },
+    { href: "/services", label: "header.services" },
     // { href: "/contact", label: "Contact" },
   ],
   contact: {

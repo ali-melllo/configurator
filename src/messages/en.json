@@ -117,9 +117,9 @@
     },
     "inside": "Inside",
     "exterior": "Exterior",
-    "totalEstimate":"Total Estimate",
-    "details":"seeDetails",
-    "houseBefore1980":"House Is Built Before 1980",
+    "totalEstimate": "Total Estimate",
+    "details": "seeDetails",
+    "houseBefore1980": "House Is Built Before 1980",
     "checkoutTitle": "Check Out Order Price",
     "checkoutNote": "You'll see an estimated price below , you'll the exact price after craftsman called you",
     "badge": {
@@ -239,38 +239,47 @@
       "leftAndRight": "Left & Right side heating"
     },
     "lightSwitch": {
-      "title":"Light Switches inside",
+      "title": "Light Switches inside",
       "description": "Light Switches inside Selection",
-      "leftDark":"Left Dark light Switch",
-      "rightDark":"Right Dark light Switch",
-      "leftWhite":"Left Dark light Switch",
-      "rightWhite":"Right Dark light Switch"
+      "leftDark": "Left Dark light Switch",
+      "rightDark": "Right Dark light Switch",
+      "leftWhite": "Left Dark light Switch",
+      "rightWhite": "Right Dark light Switch"
     },
     "outDoorLightSwitch": {
-      "title":"Out Door Light Switches inside",
+      "title": "Out Door Light Switches inside",
       "description": "Out Door Light Switches inside Selection",
-      "leftDark":"Left Dark Out Door light Switch",
-      "rightDark":"Right Dark Out Door light Switch",
-      "leftWhite":"Left Dark Out Door light Switch",
-      "rightWhite":"Right Dark Out Door light Switch"
+      "leftDark": "Left Dark Out Door light Switch",
+      "rightDark": "Right Dark Out Door light Switch",
+      "leftWhite": "Left Dark Out Door light Switch",
+      "rightWhite": "Right Dark Out Door light Switch"
     },
-    "wallLamps":{
-      "title":"Wall Lamps",
+    "wallLamps": {
+      "title": "Wall Lamps",
       "description": "Wall Lamps align",
-      "leftDark":"Left side dark wall lamp",
-      "rightDark":"Right side dark wall lamp",
-      "leftAndRightDark":"Left & Right side dark wall lamp",
-      "leftWhite":"Left side white wall lamp",
-      "rightWhite":"Right side white wall lamp",
-      "leftAndRightWhite":"Left & Right side white wall lamp"
+      "leftDark": "Left side dark wall lamp",
+      "rightDark": "Right side dark wall lamp",
+      "leftAndRightDark": "Left & Right side dark wall lamp",
+      "leftWhite": "Left side white wall lamp",
+      "rightWhite": "Right side white wall lamp",
+      "leftAndRightWhite": "Left & Right side white wall lamp"
     },
-    "lightPoint":{
-      "title":"Light Points",
+    "lightPoint": {
+      "title": "Light Points",
       "description": "Light Points Selection",
-      "align":"Align",
-      "left":"Left side Light Point",
-      "right":"Right side Light Point",
-      "leftAndRight":"Left & right side Light Point"
-    }
+      "align": "Align",
+      "left": "Left side Light Point",
+      "right": "Right side Light Point",
+      "leftAndRight": "Left & right side Light Point"
+    },
+    "quoteRequest": "Request a Quote"
+  },
+  "header": {
+    "logo": "Persian Top",
+    "home": "Home",
+    "services": "Services",
+    "configurator": "Configurator",
+    "projects": "Projects",
+    "toAsk": "To Ask ?"
   }
 }

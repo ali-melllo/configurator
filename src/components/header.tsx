@@ -38,9 +38,12 @@ import {
 import { useTheme } from "next-themes";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
+import { useLang } from "@/contexts/LangContext";
 
 
 export default function Header() {
+
+  const { t } = useLang();
 
   const dispatch = useDispatch();
   const { setTheme } = useTheme()
@@ -93,7 +96,7 @@ export default function Header() {
                 <NavigationMenuItem key={navItem.href}>
                   <Link href={`/${params.locale}/${navItem.href}`} legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      {navItem.label}
+                      {t(navItem.label)}
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -107,7 +110,7 @@ export default function Header() {
             <TooltipTrigger onClick={() => dispatch(changeFrequentlyAskedModal(true))} asChild>
               <div className="flex flex-nowrap gap-2 items-center">
                 <CircleHelp color="#f97316" className="size-6" />
-                <p className="text-nowrap text-base">To Ask</p>
+                <p className="text-nowrap text-base">{t('header.toAsk')}</p>
               </div>
             </TooltipTrigger>
             <TooltipContent>

@@ -271,6 +271,15 @@
       "left": "Linker lichtpunt",
       "right": "Rechter lichtpunt",
       "leftAndRight": "Linker & rechter lichtpunt"
-    }
-  }
+    },
+    "quoteRequest": "Offerte Aanvragen"
+  },
+  "header": {
+    "logo": "Persian Top",
+    "home": "Home",
+    "services": "Diensten",
+    "configurator": "Configurator",
+    "projects": "Projecten",
+    "toAsk": "Vragen?"
+}
 }
