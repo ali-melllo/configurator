@@ -167,7 +167,6 @@ export default function Header() {
 
           <div className="ml-5 mr-2">
 
-
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="h-14 rounded-xl w-20 flex !items-center !justify-between font-medium !px-4" variant="outline" size="sm" >
@@ -199,7 +198,7 @@ export default function Header() {
               <DropdownMenuGroup>
                 {DATA.navbar.map((navItem) => (
                   <DropdownMenuItem className="text-lg" key={navItem.href}>
-                    <Link href={navItem.href}>{navItem.label}</Link>
+                    <Link href={navItem.href}>{t(navItem.label)}</Link>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSub >

@@ -301,7 +301,7 @@ export default function Stepper() {
                     <Button
                         className="md:text-xl w-28 md:w-48 py-5"
                         onClick={() => {
-                            if (currentStep.isFirst) {
+                            if (selectedSteps.length === 0 || currentStep.isFirst) {
                                 window.location.href = "/";
                                 return
                             }

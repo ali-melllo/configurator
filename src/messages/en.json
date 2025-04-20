@@ -584,9 +584,36 @@
     "footer": "If your question is not listed here, please contact us."
   },
   "alert": {
-  "title": "Are you absolutely sure?",
-  "description": "This action cannot be undone. This will reset all selected services.",
-  "cancel": "Cancel",
-  "continue": "Continue"
-}
+    "title": "Are you absolutely sure?",
+    "description": "This action cannot be undone. This will reset all selected services.",
+    "cancel": "Cancel",
+    "continue": "Continue"
+  },
+  "finalQuote": {
+    "title": "Submit Price Request",
+    "description": "Make a quote to get your selected services exact price in your email. Please ensure that you enter the right email, our team will answer very soon.",
+    "surface": "Surface",
+    "depth": "Depth",
+    "width": "Width",
+    "exterior": "Exterior",
+    "inside": "Inside",
+    "total": "Total",
+    "hours": "Hours",
+    "preview": "3D Preview",
+    "submit": "Submit Request"
+  },
+  "form": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "address": "Address",
+    "zipcode": "Zipcode",
+    "phone": "Phone",
+    "errors": {
+      "fullName": "Full Name is required",
+      "email": "Email is required",
+      "address": "Address is required",
+      "zipcode": "Zipcode is required",
+      "phone": "Phone is required"
+    }
+  }
 }

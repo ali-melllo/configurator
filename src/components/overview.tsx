@@ -176,49 +176,67 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
-                        <AlertDialogTitle>Submit Information</AlertDialogTitle>
-                        <AlertDialogDescription>
-                            Please fill out the address and other information before finalizing your request
-                        </AlertDialogDescription>
+                        <AlertDialogTitle>{t("finalQuote.title")}</AlertDialogTitle>
+                        <AlertDialogDescription>{t("finalQuote.description")}</AlertDialogDescription>
                     </AlertDialogHeader>
-                    <div autoFocus={false} className="grid gap-4 ">
+                    <div autoFocus={false} className="grid gap-4">
                         <form onSubmit={handleSubmit(sendEmail)} className="grid gap-4 py-4">
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label>Full Name</Label>
-                                <Input {...register("fullName", { required: "Full name is required" })} placeholder="Full Name" />
-                                {errors.fullName && <p className="text-red-500 text-sm">{"Full Name is required"}</p>}
+                                <Label>{t("form.fullName")}</Label>
+                                <Input
+                                    {...register("fullName", { required: t("form.errors.fullName") })}
+                                    placeholder={t("form.fullName")}
+                                />
+                                {errors.fullName && <p className="text-red-500 text-sm">{t("form.errors.fullName")}</p>}
                             </div>
+
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label>Email</Label>
-                                <Input {...register("email", { required: "Email is required" })} placeholder="Email" />
-                                {errors.email && <p className="text-red-500 text-sm">{"Email is required"}</p>}
+                                <Label>{t("form.email")}</Label>
+                                <Input
+                                    {...register("email", { required: t("form.errors.email") })}
+                                    placeholder={t("form.email")}
+                                />
+                                {errors.email && <p className="text-red-500 text-sm">{t("form.errors.email")}</p>}
                             </div>
+
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label>Address</Label>
-                                <Input {...register("address", { required: "address is required" })} placeholder="Address" />
-                                {errors.address && <p className="text-red-500 text-sm">{"address is required"}</p>}
+                                <Label>{t("form.address")}</Label>
+                                <Input
+                                    {...register("address", { required: t("form.errors.address") })}
+                                    placeholder={t("form.address")}
+                                />
+                                {errors.address && <p className="text-red-500 text-sm">{t("form.errors.address")}</p>}
                             </div>
+
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label>Zipcode</Label>
-                                <Input {...register("zipcode", { required: "zipcode is required" })} placeholder="Zipcode" />
-                                {errors.zipcode && <p className="text-red-500 text-sm">{"zipcode is required"}</p>}
+                                <Label>{t("form.zipcode")}</Label>
+                                <Input
+                                    {...register("zipcode", { required: t("form.errors.zipcode") })}
+                                    placeholder={t("form.zipcode")}
+                                />
+                                {errors.zipcode && <p className="text-red-500 text-sm">{t("form.errors.zipcode")}</p>}
                             </div>
+
                             <div className="flex flex-col items-start gap-y-2">
-                                <Label>Phone</Label>
-                                <Input {...register("phone", { required: "phone is required" })} placeholder="Phone" />
-                                {errors.phone && <p className="text-red-500 text-sm">{"phone is required"}</p>}
+                                <Label>{t("form.phone")}</Label>
+                                <Input
+                                    {...register("phone", { required: t("form.errors.phone") })}
+                                    placeholder={t("form.phone")}
+                                />
+                                {errors.phone && <p className="text-red-500 text-sm">{t("form.errors.phone")}</p>}
                             </div>
+
                             <AlertDialogFooter>
-                                <AlertDialogCancel className="md:w-6/12 h-12">Cancel</AlertDialogCancel>
-                                <AlertDialogAction  className="md:w-6/12 h-12 font-semibold" disabled={loading} type="submit">
-                                        <Send />
-                                        {loading ? <Loader className="animate-spin" /> : "Submit Request"}
+                                <AlertDialogCancel className="md:w-6/12 h-12">{t("common.cancel")}</AlertDialogCancel>
+                                <AlertDialogAction className="md:w-6/12 h-12 font-semibold" disabled={loading} type="submit">
+                                    <Send />
+                                    {loading ? <Loader className="animate-spin" /> : t("finalQuote.submit")}
                                 </AlertDialogAction>
                             </AlertDialogFooter>
-
                         </form>
                     </div>
                 </AlertDialogContent>
+
             </AlertDialog>
 
         </div>

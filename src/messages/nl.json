@@ -588,5 +588,32 @@
     "description": "Deze actie kan niet ongedaan worden gemaakt. Dit zal alle geselecteerde diensten resetten.",
     "cancel": "Annuleren",
     "continue": "Doorgaan"
+  },
+  "finalQuote": {
+    "title": "Prijsaanvraag indienen",
+    "description": "Maak een offerte om de exacte prijs van uw geselecteerde diensten per e-mail te ontvangen. Zorg ervoor dat u het juiste e-mailadres invoert, ons team zal zeer binnenkort reageren.",
+    "surface": "Oppervlakte",
+    "depth": "Diepte",
+    "width": "Breedte",
+    "exterior": "Buitenzijde",
+    "inside": "Binnenkant",
+    "total": "Totaal",
+    "hours": "Uren",
+    "preview": "3D Voorbeeld",
+    "submit": "Aanvraag indienen"
+  },
+  "form": {
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "address": "Adres",
+    "zipcode": "Postcode",
+    "phone": "Telefoonnummer",
+    "errors": {
+      "fullName": "Volledige naam is verplicht",
+      "email": "E-mailadres is verplicht",
+      "address": "Adres is verplicht",
+      "zipcode": "Postcode is verplicht",
+      "phone": "Telefoonnummer is verplicht"
+    }
   }
 }

@@ -279,7 +279,7 @@ export default function SideBar() {
 
             {/* //////////////////////////////////////////////////////////////// */}
 
-            <div className="md:w-3/12 z-50 inset-x-0 fixed flex justify-center items-start pb-5 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
+            <div className="md:w-3/12 z-50 inset-x-0 fixed flex justify-center items-start pb-4 md:pb-8  bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bottom-0">
                 <Button
                     onClick={() => dispatch(changeShowFinalQuoteModal(true))}
                     className="py-6 w-11/12 !z-[999] shadow-xl text-lg mt-5 font-semibold">
