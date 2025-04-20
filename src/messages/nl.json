@@ -559,5 +559,34 @@
     "locationTitle": "Locatie-informatie",
     "locationDesc": "Bezoek ons voor al je renovatie- en uitbreidingsprojecten. Wij helpen je graag om je wensen te realiseren met vakmanschap en kwaliteit.",
     "copyright": "© 2024. Persian Top Alle rechten voorbehouden"
+  },
+  "faq": {
+    "q1": {
+      "title": "Wat is de levensduur van de uitbouw?",
+      "answer": "Wij gebruiken uitsluitend hoogwaardige materialen. Onze technisch innovatieve manier van bouwen op een solide fundering zorgt ervoor dat we veelvoorkomende fouten kunnen uitsluiten. We garanderen dat onze uitbouwen net zo lang meegaan als uw woning en dat problemen zoals houtrot, waterinfiltratie en aansluitproblemen bij ons uitgesloten zijn."
+    },
+    "q2": {
+      "title": "Hoe lang duurt het om een exacte prijs te krijgen na het indienen van de offerte?",
+      "answer": "Het duurt meestal slechts een paar minuten om uw exacte prijs te berekenen."
+    },
+    "q3": {
+      "title": "Waarom installeren jullie alleen op woningen gebouwd vanaf 1980?",
+      "answer": "Onze prefab-uitbouw kan technisch gezien alleen worden geplaatst op woningen gebouwd na 1980. Dit heeft te maken met de constructieve opbouw van de woning. Helaas kunnen wij de ingrepen die nodig zijn voor oudere woningen niet leveren."
+    },
+    "q4": {
+      "title": "Heb ik een vergunning nodig voor een uitbouw?",
+      "answer": "Ik ben niet in staat om de uitbouw te configureren zoals ik zou willen."
+    },
+    "q5": {
+      "title": "Neem in dat geval contact met ons op en wij helpen u graag verder.",
+      "answer": "Neem in dat geval contact met ons op en wij helpen u graag verder."
+    },
+    "footer": "Staat uw vraag er niet bij? Neem dan gerust contact met ons op."
+  },
+  "alert": {
+    "title": "Weet u het zeker?",
+    "description": "Deze actie kan niet ongedaan worden gemaakt. Dit zal alle geselecteerde diensten resetten.",
+    "cancel": "Annuleren",
+    "continue": "Doorgaan"
   }
 }

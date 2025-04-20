@@ -26,11 +26,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { useLang } from "@/contexts/LangContext";
 
 export default function Navbar() {
 
   const dispatch = useDispatch();
-
+  const { t } = useLang();
+  
   const changeViewHandler = useCallback((view: string) => {
     dispatch(changeView(view));
   }, [dispatch])
@@ -75,15 +77,15 @@ export default function Navbar() {
                           name === 'Submit' ?
                             dispatch(changeShowFinalQuoteModal(true)) :
                             name === 'Preview' ?
-                            dispatch(changePreview(true)) :
-                            null
+                              dispatch(changePreview(true)) :
+                              null
                     }}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12"
                     )}
                   >
-                   
+
 
                     {name === 'Reset' ?
                       <AlertDialog>
@@ -92,16 +94,15 @@ export default function Navbar() {
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogTitle>{t("alert.title")}</AlertDialogTitle>
                             <AlertDialogDescription>
-                              This action cannot be undone. This will reset all selected services.
+                              {t("alert.description")}
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction
-                              onClick={() => dispatch(resetAll())}
-                            >Continue
+                            <AlertDialogCancel>{t("alert.cancel")}</AlertDialogCancel>
+                            <AlertDialogAction onClick={() => dispatch(resetAll())}>
+                              {t("alert.continue")}
                             </AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>

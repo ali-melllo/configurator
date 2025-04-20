@@ -537,15 +537,15 @@
     "heatingQuestionThree": "Would you like to install new radiators?",
     "wallTitle": "Walls & Ceilings",
     "flooringTitle": "Flooring & skirting boards",
-    "next":"Next",
-    "prev":"Previous",
-    "backToHome":"Back To Home",
-    "start":"Start",
-    "finalCheck":"Final Check",
-    "reqOverview":"Request Overview",
-    "estimate":"Estimate Price",
-    "from":"From",
-    "send":"Send"
+    "next": "Next",
+    "prev": "Previous",
+    "backToHome": "Back To Home",
+    "start": "Start",
+    "finalCheck": "Final Check",
+    "reqOverview": "Request Overview",
+    "estimate": "Estimate Price",
+    "from": "From",
+    "send": "Send"
   },
   "footer": {
     "title": "Persian Top",
@@ -559,5 +559,34 @@
     "locationTitle": "Location Information",
     "locationDesc": "Visit us for all your renovation and extension projects. We are happy to help you realize your wishes with craftsmanship and quality.",
     "copyright": "© 2024. Persian Top All rights reserved"
-  }
+  },
+  "faq": {
+    "q1": {
+      "title": "What is the lifespan of the extension?",
+      "answer": "We only use high-quality materials. Our technically innovative way of building on a solid foundation ensures that we can exclude the common mistakes. We can guarantee that our extensions will last as long as your home and that rot, water and connection problems are excluded with us."
+    },
+    "q2": {
+      "title": "How long does it take to get exact price after quote submit?",
+      "answer": "It usually takes around a few minutes to calculate your exact price."
+    },
+    "q3": {
+      "title": "Why do you only install on homes built from 1980 onwards?",
+      "answer": "Our prefab extension can technically only be placed on homes built after 1980. This has to do with the structural design of the home. Unfortunately, we cannot supply the interventions required to place an extension on older homes."
+    },
+    "q4": {
+      "title": "Do I need a permit for an extension?",
+      "answer": "I am unable to configure the extension as I would like."
+    },
+    "q5": {
+      "title": "In this case, please contact us and we will help you further.",
+      "answer": "In this case, please contact us and we will help you further."
+    },
+    "footer": "If your question is not listed here, please contact us."
+  },
+  "alert": {
+  "title": "Are you absolutely sure?",
+  "description": "This action cannot be undone. This will reset all selected services.",
+  "cancel": "Cancel",
+  "continue": "Continue"
+}
 }

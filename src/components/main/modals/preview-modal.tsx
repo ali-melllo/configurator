@@ -7,9 +7,12 @@ import { changePreview, changeView } from "@/redux/globalSlice";
 import { useCallback, useState } from "react";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import BlurFade from "@/components/magicui/blur-fade";
+import { useLang } from "@/contexts/LangContext";
 
 
 export default function PreviewModal() {
+
+    const { t } = useLang();
 
     const [imageLoaded, setImageLoaded] = useState<boolean>(true);
 
@@ -36,7 +39,7 @@ export default function PreviewModal() {
                                 src={'/main.png'}
                                 alt={'exterior'}
                             />
-                            <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">Exterior</p>
+                            <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">{t("configurator.exterior")}</p>
                         </div>
                         <div onClick={() => changeViewHandler('inside')} className="size-[2.75em] md:size-20 flex flex-col transition-all duration-200 justify-between hover:scale-105 rounded-xl shadow-xl">
                             <img
@@ -44,7 +47,7 @@ export default function PreviewModal() {
                                 src={'/main-inside.png'}
                                 alt={'exterior'}
                             />
-                            <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">Inside</p>
+                            <p className="pointer-events-none text-[0.6em] md:text-base w-full flex justify-center items-center font-bold rounded-b-lg bg-white text-black">{t("configurator.inside")}</p>
                         </div>
                     </div>
 
@@ -81,7 +84,7 @@ export default function PreviewModal() {
                                 {finalQuote.exterior.map((item: any) => (
                                     <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex rounded-2xl shadow-2xl items-center p-3 bg-background`}>
-                                            <Dot /><p className="text-base">{item.objectName}</p>
+                                            <Dot /><p className="text-base">{t(item.objectName)}</p>
                                         </div>
                                     </BlurFade>
                                 ))}
@@ -110,7 +113,7 @@ export default function PreviewModal() {
                                 {finalQuote.interior.map((item: any) => (
                                     <BlurFade key={item.objectName} delay={0.3}>
                                         <div className={`flex  rounded-2xl shadow-2xl items-center p-3 bg-background`}>
-                                            <Dot /><p className="text-base">{item.objectName}</p>
+                                            <Dot /><p className="text-base">{t(item.objectName)}</p>
                                         </div>
                                     </BlurFade>
                                 ))}

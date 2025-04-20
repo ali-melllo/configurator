@@ -17,12 +17,15 @@ import { cn } from "@/lib/utils";
 import { setBuildingStep } from "@/redux/globalSlice";
 import { LayoutDashboard, Phone, Wrench } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function ClientPage() {
 
   const { buildingStep } = useSelector((state: any) => state.global);
   const {t, locale} = useLang();
+
+  const params = useParams();
 
   const dispatch = useDispatch();
 
@@ -67,7 +70,7 @@ export default function ClientPage() {
           </p>
 
           <Button className="h-12 lg:h-14 z-30 px-5 mt-5 mx-auto md:mt-10 w-11/12 md:w-full font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
-            <Link href={'/configurator'}>
+            <Link href={`/${params.locale}/configurator`}>
               {t("HomePage.3dButton")}
             </Link>
           </Button>
