@@ -536,7 +536,16 @@
     "heatingQuestionTwo": "Heb je een doorstroomwaterverwarmer nodig?",
     "heatingQuestionThree": "Wil je nieuwe radiatoren installeren?",
     "wallTitle": "Muren & Plafonds",
-    "flooringTitle": "Vloeren & Plinten"
+    "flooringTitle": "Vloeren & Plinten",
+    "next": "Volgende",
+    "prev": "Vorige",
+    "backToHome": "Terug naar Home",
+    "start": "Start",
+    "finalCheck": "Laatste Controle",
+    "reqOverview": "Overzicht van Aanvraag",
+    "estimate": "Geschatte Prijs",
+    "from": "Van",
+    "send": "Verzenden"
   },
   "footer": {
     "title": "Persian Top",

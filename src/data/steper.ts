@@ -748,8 +748,8 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "How many risers do you have or need?" },
-                                { "name": "How many floors does your building have" },
+                                { "name": "stepper.supplyLinesQuestionOne" },
+                                { "name": "stepper.supplyLinesQuestionTwo" },
                             ],
                             "nextStep": null,
                             "lastStep": true,
@@ -1394,8 +1394,8 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "How many risers do you have or need?" },
-                                { "name": "How many floors does your building have" },
+                                { "name": "stepper.supplyLinesQuestionOne" },
+                                { "name": "stepper.supplyLinesQuestionTwo" },
                             ],
                             "nextStep": null,
                             "lastStep": true,

@@ -21,10 +21,13 @@ import {
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { useForm } from "react-hook-form";
+import { useLang } from "@/contexts/LangContext";
 
 export default function Overview({ selectedSteps, estimate }: { selectedSteps: any[], estimate: number }) {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const { t } = useLang();
 
     const [date, setDate] = useState<DateRange | undefined>({
         from: new Date(2022, 0, 20),
@@ -118,10 +121,10 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                         return (
                             <div key={index} className=" rounded-lg">
                                 <h3 className="font-medium flex items-center gap-2">
-                                    {step.icon || <Dot />} {step.title || (`${step.question} : ${step.value}`)}
+                                    {step.icon || <Dot />} {t(step.title || (`${t(step.question)} : ${step.value}`))}
                                 </h3>
                                 {step.description && (
-                                    <p className="text-muted-foreground text-sm">{step.description}</p>
+                                    <p className="text-muted-foreground text-sm">{t(step.description)}</p>
                                 )}
 
                                 {(step.type === "date" && !step.date) &&
@@ -152,11 +155,11 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                         }}
                         numberOfMonths={2}
                     />
-                    <div className="flex items-center gap-3 ml-3 mt-5">
+                    {/* <div className="flex items-center gap-3 ml-3 mt-5">
                         <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
-                    </div>
+                    </div> */}
                     <div className="flex items-center gap-3 ml-3 mt-3">
-                        <p className="font-semibold ">Estimated Price : </p><p className="text-primary font-bold text-xl">23,000 $</p>
+                        <p className="font-semibold ">{t("stepper.estimate")} : </p><p className="text-primary font-bold text-xl">23,000 $</p>
                     </div>
                 </div>
 
@@ -167,7 +170,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
 
                     <Button className="absolute flex top-32 md:top-20 right-3 md:right-10 font-semibold text-base" >
                         <Send />
-                        {loading ? <Loader className="animate-spin" /> : "Send"}
+                        {loading ? <Loader className="animate-spin" /> : t("stepper.send")}
                     </Button>
 
                 </AlertDialogTrigger>

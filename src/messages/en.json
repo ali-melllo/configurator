@@ -540,8 +540,12 @@
     "next":"Next",
     "prev":"Previous",
     "backToHome":"Back To Home",
+    "start":"Start",
     "finalCheck":"Final Check",
-    "reqOverview":"Request Overview"
+    "reqOverview":"Request Overview",
+    "estimate":"Estimate Price",
+    "from":"From",
+    "send":"Send"
   },
   "footer": {
     "title": "Persian Top",
