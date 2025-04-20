@@ -464,10 +464,10 @@
     "stairsQualityTitle": "What quality do you want the new staircase to be?",
     "stairsQualityDescription": "please select the stairs quality",
     "supplyLines": "Supply Lines",
-    "supplyLinesInfo":"Supply Lines info",
+    "supplyLinesInfo": "Supply Lines info",
     "supplyLinesInfoDescription": "please answer the Supply Lines questions",
-    "supplyLinesQuestionOne":"How many risers do you have or need?",
-    "supplyLinesQuestionTwo":"How many floors does your building have",
+    "supplyLinesQuestionOne": "How many risers do you have or need?",
+    "supplyLinesQuestionTwo": "How many floors does your building have",
     "stairsTypeDescription": "please select the stairs type",
     "floorPlanTypeDescription": "please select the wall type to be opened with",
     "floorPlanDetailsDescription": "please fill the basic details of your floor plan",
@@ -512,7 +512,7 @@
     "budgetQuality": "Budget Quality",
     "standardQuality": "Standard Quality",
     "premiumQuality": "Premium Quality",
-    "apartment":"apartment",
+    "apartment": "apartment",
     "heatingName": "Heating Technology",
     "heatingTechName": "Heating Tech",
     "heatingDescription": "tell us about Heating Technology info",
@@ -536,6 +536,24 @@
     "heatingQuestionTwo": "Do you need an instantaneous water heater?",
     "heatingQuestionThree": "Would you like to install new radiators?",
     "wallTitle": "Walls & Ceilings",
-    "flooringTitle": "Flooring & skirting boards"
+    "flooringTitle": "Flooring & skirting boards",
+    "next":"Next",
+    "prev":"Previous",
+    "backToHome":"Back To Home",
+    "finalCheck":"Final Check",
+    "reqOverview":"Request Overview"
+  },
+  "footer": {
+    "title": "Persian Top",
+    "about": "You can also read more about us on Werkspot",
+    "linkText": "https://www.werkspot.nl/profiel/persian-top/reviews",
+    "slogan": "Your dream home with craftsmanship and quality.",
+    "expansionTitle": "Expansion",
+    "phone": "+31 6 53446385",
+    "email": "info@persiantop.nl",
+    "address": "Main Street 123, Amsterdam",
+    "locationTitle": "Location Information",
+    "locationDesc": "Visit us for all your renovation and extension projects. We are happy to help you realize your wishes with craftsmanship and quality.",
+    "copyright": "© 2024. Persian Top All rights reserved"
   }
 }

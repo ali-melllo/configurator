@@ -464,10 +464,10 @@
     "stairsQualityTitle": "Wat voor kwaliteit wil je voor de nieuwe trap?",
     "stairsQualityDescription": "Selecteer de trapkwaliteit",
     "supplyLines": "Aansluitingen",
-    "supplyLinesInfo":"Aansluitingsinformatie",
+    "supplyLinesInfo": "Aansluitingsinformatie",
     "supplyLinesInfoDescription": "Beantwoord de vragen over de aansluitingen",
-    "supplyLinesQuestionOne":"Hoeveel risers heb je of nodig?",
-    "supplyLinesQuestionTwo":"Hoeveel verdiepingen heeft je gebouw?",
+    "supplyLinesQuestionOne": "Hoeveel risers heb je of nodig?",
+    "supplyLinesQuestionTwo": "Hoeveel verdiepingen heeft je gebouw?",
     "stairsTypeDescription": "Selecteer het type trap",
     "floorPlanTypeDescription": "Selecteer het type muur die geopend moet worden",
     "floorPlanDetailsDescription": "Vul de basisgegevens van je vloerplan in",
@@ -512,7 +512,7 @@
     "budgetQuality": "Budgetkwaliteit",
     "standardQuality": "Standaardkwaliteit",
     "premiumQuality": "Premiumkwaliteit",
-    "apartment":"Appartement",
+    "apartment": "Appartement",
     "heatingName": "Verwarmingstechnologie",
     "heatingTechName": "Verwarmingstechniek",
     "heatingDescription": "Vertel ons over verwarmingstechnologie",
@@ -537,5 +537,18 @@
     "heatingQuestionThree": "Wil je nieuwe radiatoren installeren?",
     "wallTitle": "Muren & Plafonds",
     "flooringTitle": "Vloeren & Plinten"
+  },
+  "footer": {
+    "title": "Persian Top",
+    "about": "Je kunt ook meer over ons lezen op Werkspot",
+    "linkText": "https://www.werkspot.nl/profiel/persian-top/reviews",
+    "slogan": "Jouw droomhuis met vakmanschap en kwaliteit.",
+    "expansionTitle": "Uitbreiding",
+    "phone": "+31 6 53446385",
+    "email": "info@persiantop.nl",
+    "address": "Hoofdstraat 123, Amsterdam",
+    "locationTitle": "Locatie-informatie",
+    "locationDesc": "Bezoek ons voor al je renovatie- en uitbreidingsprojecten. Wij helpen je graag om je wensen te realiseren met vakmanschap en kwaliteit.",
+    "copyright": "© 2024. Persian Top Alle rechten voorbehouden"
   }
 }
