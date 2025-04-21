@@ -135,7 +135,7 @@ export default function SubmitModal() {
                 "UnRKLwsh1brqQCDWV"
             );
 
-            toast.success("Request submitted and confirmation sent!");
+            toast.success(t("notifications.requestSuccess"));
             dispatch(changeShowFinalQuoteModal(false));
             dispatch(resetAll());
         } catch (err) {

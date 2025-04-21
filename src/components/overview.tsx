@@ -78,7 +78,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
             const result = await response.json();
 
             if (response.ok) {
-                toast.success("Request submitted successfully! Check your email.");
+                toast.success(t("notifications.requestSuccess"));
                 dispatch(setBuildingStep(null));
             } else {
                 toast.error(`Failed to send email: ${result.error || "Unknown error"}`);
@@ -89,7 +89,7 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
         } finally {
             setLoading(false);
         }
-    }, [dispatch, estimate, prepareDataForSubmission]);
+    }, [dispatch, estimate, prepareDataForSubmission, t]);
 
 
     return (

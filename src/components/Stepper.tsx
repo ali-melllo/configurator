@@ -338,15 +338,18 @@ export default function Stepper() {
 
                             if (currentStep.type === "multi") {
                                 if (currentFormData.length === 0) {
-                                    return toast("Please At least select one item to Continue")
+                                    return toast(t("notifications.selectAtLeastOneItem"));
                                 }
                             } else if (currentStep.type === "check") {
                                 if (currentFormData.length !== currentStep.items.length) {
-                                    return toast("Please Answer All of the questions")
+                                    return toast(t("notifications.answerAllQuestions"));
                                 }
                             } else if (currentStep.type === "text") {
-                                if (currentFormData.length !== currentStep.items.length || currentFormData.some((item: any) => !item.value?.trim())) {
-                                    return toast("Please fill in all of the questions");
+                                if (
+                                    currentFormData.length !== currentStep.items.length ||
+                                    currentFormData.some((item: any) => !item.value?.trim())
+                                ) {
+                                    return toast(t("notifications.fillAllFields"));
                                 }
                             }
 

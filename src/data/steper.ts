@@ -217,10 +217,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.heatingRadiatorsDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.standardRadiators", "icon": "♨️" },
-                                    { "name": "stepper.panelRadiators", "icon": "♨️" },
-                                    { "name": "stepper.towelRadiators", "icon": "♨️" },
-                                    { "name": "stepper.verticalRadiators", "icon": "♨️" },
+                                    { "name": "stepper.standardRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.panelRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.towelRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.verticalRadiators", "icon": "♨️", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.ovenName",
@@ -232,9 +232,9 @@ export const STEPS_DATA = [
                                         "title": "stepper.ovenQualityTitle",
                                         "description": "stepper.ovenQualityDescription",
                                         "items": [
-                                            { "name": "stepper.budgetQuality" },
-                                            { "name": "stepper.standardQuality" },
-                                            { "name": "stepper.premiumQuality" },
+                                            { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                            { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                            { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                         ],
                                         "type": "multi",
                                         "nextStep": {
@@ -242,21 +242,21 @@ export const STEPS_DATA = [
                                             "title": "stepper.firePlaceName",
                                             "description": "stepper.firePlaceDescription",
                                             "items": [
-                                                { "name": "stepper.firePlaceQuestionOne" },
+                                                { "name": "stepper.firePlaceQuestionOne", "minPrice": 2720 },
                                             ],
                                             "type": "check",
                                             "nextStep": null
                                         }
                                     },
                                     "items": [
-                                        { "name": "stepper.ovenQuestionOne" }
+                                        { "name": "stepper.ovenQuestionOne", "minPrice": 2720 }
                                     ]
                                 },
                             },
                             "items": [
-                                { "name": "stepper.heatingQuestionOne" },
-                                { "name": "stepper.heatingQuestionTwo" },
-                                { "name": "stepper.heatingQuestionThree" },
+                                { "name": "stepper.heatingQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.heatingQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.heatingQuestionThree", "minPrice": 2720 },
                             ]
                         },
                     },
@@ -270,12 +270,12 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.livingRoom", "icon": "🛋️" },
-                                { "name": "stepper.bedRoom", "icon": "👶🏻" },
-                                { "name": "stepper.hallway", "icon": "🏘" },
-                                { "name": "stepper.kitchen", "icon": "🍳" },
-                                { "name": "stepper.bathroom", "icon": "🛁" },
-                                { "name": "stepper.basement", "icon": "⬇🚪" },
+                                { "name": "stepper.livingRoom", "icon": "🛋️", "minPrice": 2720 },
+                                { "name": "stepper.bedRoom", "icon": "👶🏻", "minPrice": 2720 },
+                                { "name": "stepper.hallway", "icon": "🏘", "minPrice": 2720 },
+                                { "name": "stepper.kitchen", "icon": "🍳", "minPrice": 2720 },
+                                { "name": "stepper.bathroom", "icon": "🛁", "minPrice": 2720 },
+                                { "name": "stepper.basement", "icon": "⬇🚪", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roomSizeName",
@@ -283,11 +283,11 @@ export const STEPS_DATA = [
                                 "description": "stepper.roomSizeDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.roomQuestionOne" },
-                                    { "name": "stepper.roomQuestionTwo" },
-                                    { "name": "stepper.roomQuestionThree" },
-                                    { "name": "stepper.roomQuestionFour" },
-                                    { "name": "stepper.roomQuestionFive" },
+                                    { "name": "stepper.roomQuestionOne", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionTwo", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionThree", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFour", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFive", "minPrice": 27, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roomsEditName",
@@ -295,11 +295,11 @@ export const STEPS_DATA = [
                                     "description": "stepper.roomsEditDescription",
                                     "type": "check",
                                     "items": [
-                                        { "name": "stepper.roomEditQuestionOne" },
-                                        { "name": "stepper.roomEditQuestionTwo" },
-                                        { "name": "stepper.roomEditQuestionThree" },
-                                        { "name": "stepper.roomEditQuestionFour" },
-                                        { "name": "stepper.roomEditQuestionFive" },
+                                        { "name": "stepper.roomEditQuestionOne", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionTwo", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionThree", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionFour", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionFive", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.roomsWallName",
@@ -307,10 +307,10 @@ export const STEPS_DATA = [
                                         "description": "roomsWallsDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.fillingWalls" },
-                                            { "name": "stepper.paintWalls" },
-                                            { "name": "stepper.wallpaperWalls" },
-                                            { "name": "stepper.trillingWalls" },
+                                            { "name": "stepper.fillingWalls", "minPrice": 2720 },
+                                            { "name": "stepper.paintWalls", "minPrice": 2720 },
+                                            { "name": "stepper.wallpaperWalls", "minPrice": 2720 },
+                                            { "name": "stepper.trillingWalls", "minPrice": 2720 },
                                         ],
                                         "nextStep": {
                                             "name": "stepper.paintsQuality",
@@ -318,9 +318,9 @@ export const STEPS_DATA = [
                                             "description": "stepper.paintsDescription",
                                             "type": "multi",
                                             "items": [
-                                                { "name": "stepper.budgetQuality" },
-                                                { "name": "stepper.standardQuality" },
-                                                { "name": "stepper.budgetQuality" },
+                                                { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                                { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                                { "name": "stepper.budgetQuality", "minPrice": 5720 },
                                             ],
                                             "nextStep": {
                                                 "name": "stepper.roomsCeilingTitle",
@@ -328,16 +328,16 @@ export const STEPS_DATA = [
                                                 "description": "stepper.roomsCeilingDescription",
                                                 "type": "check",
                                                 "items": [
-                                                    { "name": "stepper.roomCeilingQuestionOne" },
-                                                    { "name": "stepper.roomCeilingQuestionTwo" },
-                                                    { "name": "stepper.roomCeilingQuestionThree" },
-                                                    { "name": "stepper.roomCeilingQuestionFour" },
-                                                    { "name": "stepper.roomCeilingQuestionFive" },
-                                                    { "name": "stepper.roomCeilingQuestionSix" },
-                                                    { "name": "stepper.roomCeilingQuestionSeven" },
-                                                    { "name": "stepper.roomCeilingQuestionEight" },
-                                                    { "name": "stepper.roomCeilingQuestionNine" },
-                                                    { "name": "stepper.roomCeilingQuestionTen" },
+                                                    { "name": "stepper.roomCeilingQuestionOne", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionTwo", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionThree", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionFour", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionFive", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionSix", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionSeven", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionEight", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionNine", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionTen", "minPrice": 2720 },
                                                 ],
                                                 "nextStep": null,
                                                 "lastStep": true
@@ -358,12 +358,12 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.livingRoom", "icon": "🛋️" },
-                                { "name": "stepper.bedRoom", "icon": "👶🏻" },
-                                { "name": "stepper.hallway", "icon": "🏘" },
-                                { "name": "stepper.kitchen", "icon": "🍳" },
-                                { "name": "stepper.bathroom", "icon": "🛁" },
-                                { "name": "stepper.basement", "icon": "⬇🚪" },
+                                { "name": "stepper.livingRoom", "icon": "🛋️", "minPrice": 2720 },
+                                { "name": "stepper.bedRoom", "icon": "👶🏻", "minPrice": 2720 },
+                                { "name": "stepper.hallway", "icon": "🏘", "minPrice": 2720 },
+                                { "name": "stepper.kitchen", "icon": "🍳", "minPrice": 2720 },
+                                { "name": "stepper.bathroom", "icon": "🛁", "minPrice": 2720 },
+                                { "name": "stepper.basement", "icon": "⬇🚪", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roomSizeName",
@@ -371,11 +371,11 @@ export const STEPS_DATA = [
                                 "description": "stepper.roomSizeDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.roomQuestionOne" },
-                                    { "name": "stepper.roomQuestionTwo" },
-                                    { "name": "stepper.roomQuestionThree" },
-                                    { "name": "stepper.roomQuestionFour" },
-                                    { "name": "stepper.roomQuestionFive" },
+                                    { "name": "stepper.roomQuestionOne", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionTwo", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionThree", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFour", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFive", "minPrice": 27, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roomFloorService",
@@ -383,8 +383,8 @@ export const STEPS_DATA = [
                                     "description": "stepper.roomFloorServiceDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.newFlooring" },
-                                        { "name": "stepper.reconditionFlooring" },
+                                        { "name": "stepper.newFlooring", "minPrice": 2720 },
+                                        { "name": "stepper.reconditionFlooring", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.floorTypeName",
@@ -392,12 +392,12 @@ export const STEPS_DATA = [
                                         "description": "stepper.floorTypeDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.parquet" },
-                                            { "name": "stepper.works" },
-                                            { "name": "stepper.vinyl" },
-                                            { "name": "stepper.laminate" },
-                                            { "name": "stepper.carpet" },
-                                            { "name": "stepper.tiles" },
+                                            { "name": "stepper.parquet", "minPrice": 2720 },
+                                            { "name": "stepper.works", "minPrice": 2720 },
+                                            { "name": "stepper.vinyl", "minPrice": 2720 },
+                                            { "name": "stepper.laminate", "minPrice": 2720 },
+                                            { "name": "stepper.carpet", "minPrice": 2720 },
+                                            { "name": "stepper.tiles", "minPrice": 2720 },
                                         ],
                                         "nextStep": {
                                             "name": "stepper.skirtingBoardsTitle",
@@ -405,11 +405,11 @@ export const STEPS_DATA = [
                                             "description": "stepper.skirtingBoardsDescription",
                                             "type": "check",
                                             "items": [
-                                                { "name": "stepper.skirtingBoardsQuestionOne" },
-                                                { "name": "stepper.skirtingBoardsQuestionTwo" },
-                                                { "name": "stepper.skirtingBoardsQuestionThree" },
-                                                { "name": "stepper.skirtingBoardsQuestionFour" },
-                                                { "name": "stepper.skirtingBoardsQuestionFive" },
+                                                { "name": "stepper.skirtingBoardsQuestionOne", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionTwo", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionThree", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionFour", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionFive", "minPrice": 2720 },
                                             ],
                                             "nextStep": {
                                                 "name": "stepper.oldFlooring",
@@ -417,11 +417,11 @@ export const STEPS_DATA = [
                                                 "description": "stepper.oldFlooringDescription",
                                                 "type": "check",
                                                 "items": [
-                                                    { "name": "stepper.oldFlooringQuestionOne" },
-                                                    { "name": "stepper.oldFlooringQuestionTwo" },
-                                                    { "name": "stepper.oldFlooringQuestionThree" },
-                                                    { "name": "stepper.oldFlooringQuestionFour" },
-                                                    { "name": "stepper.oldFlooringQuestionFive" },
+                                                    { "name": "stepper.oldFlooringQuestionOne", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionTwo", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionThree", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionFour", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionFive", "minPrice": 2720 },
                                                 ],
                                                 "nextStep": {
                                                     "name": "stepper.flooringQuality",
@@ -429,9 +429,9 @@ export const STEPS_DATA = [
                                                     "description": "stepper.flooringQualityDescription",
                                                     "type": "multi",
                                                     "items": [
-                                                        { "name": "stepper.budgetQuality" },
-                                                        { "name": "stepper.standardQuality" },
-                                                        { "name": "stepper.premiumQuality" },
+                                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                                        { "name": "stepper.standardQuality", "minPrice": 4720 },
+                                                        { "name": "stepper.premiumQuality", "minPrice": 6720 },
                                                     ],
                                                     "nextStep": null,
                                                     "lastStep": true
@@ -456,7 +456,7 @@ export const STEPS_DATA = [
                             "isFirst": true,
                             "items": [
                                 { "name": "stepper.windowsInfoQuestionOne" },
-                                { "name": "stepper.windowsInfoQuestionTwo" },
+                                { "name": "stepper.windowsInfoQuestionTwo", "minPrice": 27, "type": "number" },
                                 { "name": "stepper.windowsInfoQuestionThree" },
                             ],
                             "nextStep": {
@@ -465,8 +465,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.newWindowsDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.plastic" },
-                                    { "name": "stepper.wood" },
+                                    { "name": "stepper.plastic", "minPrice": 2720 },
+                                    { "name": "stepper.wood", "minPrice": 2720 },
                                 ],
                                 "nextStep": null,
                                 "lastStep": true
@@ -484,9 +484,9 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.doorQuestionOne" },
-                                { "name": "stepper.doorQuestionTwo" },
-                                { "name": "stepper.doorQuestionThree" },
+                                { "name": "stepper.doorQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.doorQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.doorQuestionThree", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.newDoors",
@@ -494,8 +494,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.newDoorsDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.newDoorsQuestionOne" },
-                                    { "name": "stepper.newDoorsQuestionTwo" },
+                                    { "name": "stepper.newDoorsQuestionOne", "minPrice": 272, "type": "number" },
+                                    { "name": "stepper.newDoorsQuestionTwo", "minPrice": 272, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "doorsQuality",
@@ -503,9 +503,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.doorsQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": null,
                                     "lastStep": true
@@ -523,9 +523,9 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.bathroomQuestionOne" },
-                                { "name": "stepper.bathroomQuestionTwo" },
-                                { "name": "stepper.bathroomQuestionThree" },
+                                { "name": "stepper.bathroomQuestionOne", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.bathroomQuestionTwo", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.bathroomQuestionThree", "minPrice": 272, "type": "number" },
                             ],
                             "nextStep": {
                                 "name": "stepper.bathroomQuestions",
@@ -533,9 +533,9 @@ export const STEPS_DATA = [
                                 "description": "stepper.bathroomQuestionsDescription",
                                 "type": "check",
                                 "items": [
-                                    { "name": "stepper.bathroomCheckOutQuestionOne" },
-                                    { "name": "stepper.bathroomCheckOutQuestionTwo" },
-                                    { "name": "stepper.bathroomCheckOutQuestionThree" },
+                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 2720 },
+                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 2720 },
+                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.tilesQuality",
@@ -543,9 +543,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.tilesQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.bathroomFeatures",
@@ -553,13 +553,13 @@ export const STEPS_DATA = [
                                         "description": "stepper.bathroomFeaturesDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.shower" },
-                                            { "name": "stepper.bath Hub" },
-                                            { "name": "stepper.toilet" },
-                                            { "name": "stepper.washBasing" },
-                                            { "name": "stepper.doubleWashBasing" },
-                                            { "name": "stepper.towelRadiator" },
-                                            { "name": "stepper.ceiling" },
+                                            { "name": "stepper.shower", "minPrice": 2720 },
+                                            { "name": "stepper.bath Hub", "minPrice": 2720 },
+                                            { "name": "stepper.toilet", "minPrice": 2720 },
+                                            { "name": "stepper.washBasing", "minPrice": 2720 },
+                                            { "name": "stepper.doubleWashBasing", "minPrice": 2720 },
+                                            { "name": "stepper.towelRadiator", "minPrice": 2720 },
+                                            { "name": "stepper.ceiling", "minPrice": 2720 },
                                         ],
                                         "nextStep": null,
                                         "lastStep": true,
@@ -578,8 +578,8 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.roofAndInsulationQuestionOne" },
-                                { "name": "stepper.roofAndInsulationQuestionTwo" },
+                                { "name": "stepper.roofAndInsulationQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.roofAndInsulationQuestionTwo", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roofShape",
@@ -587,8 +587,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.roofShapeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.gableRoof" },
-                                    { "name": "stepper.flatRoof" },
+                                    { "name": "stepper.gableRoof", "minPrice": 2720 },
+                                    { "name": "stepper.flatRoof", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roofQuestions",
@@ -596,7 +596,7 @@ export const STEPS_DATA = [
                                     "description": "stepper.roofQuestionsDescription",
                                     "type": "text",
                                     "items": [
-                                        { "name": "stepper.roofQuestionOne" },
+                                        { "name": "stepper.roofQuestionOne", "minPrice": 2720, "type": "number" },
                                         { "name": "stepper.roofQuestionTwo" },
                                         { "name": "stepper.roofQuestionThree" },
                                         { "name": "stepper.roofQuestionFour" },
@@ -617,10 +617,10 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.singleHouse" },
-                                { "name": "stepper.semiHouse" },
-                                { "name": "stepper.terracedHouse" },
-                                { "name": "stepper.endHouse" },
+                                { "name": "stepper.singleHouse", "minPrice": 2720 },
+                                { "name": "stepper.semiHouse", "minPrice": 2720 },
+                                { "name": "stepper.terracedHouse", "minPrice": 2720 },
+                                { "name": "stepper.endHouse", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.facade",
@@ -628,10 +628,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.facadeTypeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.facadeStone" },
-                                    { "name": "stepper.facadePlaster" },
-                                    { "name": "stepper.facadePainting" },
-                                    { "name": "stepper.facadeBlown" },
+                                    { "name": "stepper.facadeStone", "minPrice": 2720 },
+                                    { "name": "stepper.facadePlaster", "minPrice": 2720 },
+                                    { "name": "stepper.facadePainting", "minPrice": 2720 },
+                                    { "name": "stepper.facadeBlown", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.houseInfo",
@@ -639,7 +639,7 @@ export const STEPS_DATA = [
                                     "description": "stepper.houseInfoDescription",
                                     "type": "text",
                                     "items": [
-                                        { "name": "stepper.houseInfoQuestionOne" },
+                                        { "name": "stepper.houseInfoQuestionOne", "minPrice": 2720, "type": "number" },
                                         { "name": "stepper.houseInfoQuestionTwo" },
                                     ],
                                     "nextStep": null,
@@ -658,9 +658,9 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.floorPlanQuestionOne" },
-                                { "name": "stepper.floorPlanQuestionTwo" },
-                                { "name": "stepper.floorPlanQuestionThree" },
+                                { "name": "stepper.floorPlanQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.floorPlanQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.floorPlanQuestionThree", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.floorPlanDetails",
@@ -668,8 +668,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.floorPlanDetailsDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.floorPlanDetailsQuestionOne" },
-                                    { "name": "stepper.floorPlanDetailsQuestionTwo" },
+                                    { "name": "stepper.floorPlanDetailsQuestionOne", "minPrice": 2720, "type": "number" },
+                                    { "name": "stepper.floorPlanDetailsQuestionTwo", "minPrice": 2720, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.floorPlanType",
@@ -677,8 +677,8 @@ export const STEPS_DATA = [
                                     "description": "stepper.floorPlanTypeDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.massivwand" },
-                                        { "name": "stepper.lightWeightWall" },
+                                        { "name": "stepper.massivwand", "minPrice": 2720 },
+                                        { "name": "stepper.lightWeightWall", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.floorPlanClose",
@@ -686,8 +686,8 @@ export const STEPS_DATA = [
                                         "description": "stepper.floorPlanCloseDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.massivwand" },
-                                            { "name": "stepper.lightWeightWall" },
+                                            { "name": "stepper.massivwand", "minPrice": 2720 },
+                                            { "name": "stepper.lightWeightWall", "minPrice": 2720 },
                                         ],
                                         "nextStep": null,
                                         "lastStep": true,
@@ -706,10 +706,10 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.stairInfoQuestionOne" },
-                                { "name": "stepper.stairInfoQuestionTwo" },
-                                { "name": "stepper.stairInfoQuestionThree" },
-                                { "name": "stepper.stairInfoQuestionFour" },
+                                { "name": "stepper.stairInfoQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionThree", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionFour", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.stairsType",
@@ -717,10 +717,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.stairsTypeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.straight" },
-                                    { "name": "stepper.quarter" },
-                                    { "name": "stepper.stairsHalf" },
-                                    { "name": "stepper.stepperTwoQuarter" },
+                                    { "name": "stepper.straight", "minPrice": 2720 },
+                                    { "name": "stepper.quarter", "minPrice": 2720 },
+                                    { "name": "stepper.stairsHalf", "minPrice": 2720 },
+                                    { "name": "stepper.stepperTwoQuarter", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.stairsQuality",
@@ -728,9 +728,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.stairsQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": null,
                                     "lastStep": true,
@@ -748,8 +748,8 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.supplyLinesQuestionOne" },
-                                { "name": "stepper.supplyLinesQuestionTwo" },
+                                { "name": "stepper.supplyLinesQuestionOne", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.supplyLinesQuestionTwo", "minPrice": 272, "type": "number" },
                             ],
                             "nextStep": null,
                             "lastStep": true,
@@ -863,10 +863,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.heatingRadiatorsDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.standardRadiators", "icon": "♨️" },
-                                    { "name": "stepper.panelRadiators", "icon": "♨️" },
-                                    { "name": "stepper.towelRadiators", "icon": "♨️" },
-                                    { "name": "stepper.verticalRadiators", "icon": "♨️" },
+                                    { "name": "stepper.standardRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.panelRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.towelRadiators", "icon": "♨️", "minPrice": 2720 },
+                                    { "name": "stepper.verticalRadiators", "icon": "♨️", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.ovenName",
@@ -878,9 +878,9 @@ export const STEPS_DATA = [
                                         "title": "stepper.ovenQualityTitle",
                                         "description": "stepper.ovenQualityDescription",
                                         "items": [
-                                            { "name": "stepper.budgetQuality" },
-                                            { "name": "stepper.standardQuality" },
-                                            { "name": "stepper.premiumQuality" },
+                                            { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                            { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                            { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                         ],
                                         "type": "multi",
                                         "nextStep": {
@@ -888,21 +888,21 @@ export const STEPS_DATA = [
                                             "title": "stepper.firePlaceName",
                                             "description": "stepper.firePlaceDescription",
                                             "items": [
-                                                { "name": "stepper.firePlaceQuestionOne" },
+                                                { "name": "stepper.firePlaceQuestionOne", "minPrice": 2720 },
                                             ],
                                             "type": "check",
                                             "nextStep": null
                                         }
                                     },
                                     "items": [
-                                        { "name": "stepper.ovenQuestionOne" }
+                                        { "name": "stepper.ovenQuestionOne", "minPrice": 2720 }
                                     ]
                                 },
                             },
                             "items": [
-                                { "name": "stepper.heatingQuestionOne" },
-                                { "name": "stepper.heatingQuestionTwo" },
-                                { "name": "stepper.heatingQuestionThree" },
+                                { "name": "stepper.heatingQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.heatingQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.heatingQuestionThree", "minPrice": 2720 },
                             ]
                         },
                     },
@@ -916,12 +916,12 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.livingRoom", "icon": "🛋️" },
-                                { "name": "stepper.bedRoom", "icon": "👶🏻" },
-                                { "name": "stepper.hallway", "icon": "🏘" },
-                                { "name": "stepper.kitchen", "icon": "🍳" },
-                                { "name": "stepper.bathroom", "icon": "🛁" },
-                                { "name": "stepper.basement", "icon": "⬇🚪" },
+                                { "name": "stepper.livingRoom", "icon": "🛋️", "minPrice": 2720 },
+                                { "name": "stepper.bedRoom", "icon": "👶🏻", "minPrice": 2720 },
+                                { "name": "stepper.hallway", "icon": "🏘", "minPrice": 2720 },
+                                { "name": "stepper.kitchen", "icon": "🍳", "minPrice": 2720 },
+                                { "name": "stepper.bathroom", "icon": "🛁", "minPrice": 2720 },
+                                { "name": "stepper.basement", "icon": "⬇🚪", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roomSizeName",
@@ -929,11 +929,11 @@ export const STEPS_DATA = [
                                 "description": "stepper.roomSizeDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.roomQuestionOne" },
-                                    { "name": "stepper.roomQuestionTwo" },
-                                    { "name": "stepper.roomQuestionThree" },
-                                    { "name": "stepper.roomQuestionFour" },
-                                    { "name": "stepper.roomQuestionFive" },
+                                    { "name": "stepper.roomQuestionOne", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionTwo", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionThree", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFour", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFive", "minPrice": 27, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roomsEditName",
@@ -941,11 +941,11 @@ export const STEPS_DATA = [
                                     "description": "stepper.roomsEditDescription",
                                     "type": "check",
                                     "items": [
-                                        { "name": "stepper.roomEditQuestionOne" },
-                                        { "name": "stepper.roomEditQuestionTwo" },
-                                        { "name": "stepper.roomEditQuestionThree" },
-                                        { "name": "stepper.roomEditQuestionFour" },
-                                        { "name": "stepper.roomEditQuestionFive" },
+                                        { "name": "stepper.roomEditQuestionOne", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionTwo", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionThree", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionFour", "minPrice": 2720 },
+                                        { "name": "stepper.roomEditQuestionFive", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.roomsWallName",
@@ -953,10 +953,10 @@ export const STEPS_DATA = [
                                         "description": "roomsWallsDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.fillingWalls" },
-                                            { "name": "stepper.paintWalls" },
-                                            { "name": "stepper.wallpaperWalls" },
-                                            { "name": "stepper.trillingWalls" },
+                                            { "name": "stepper.fillingWalls", "minPrice": 2720 },
+                                            { "name": "stepper.paintWalls", "minPrice": 2720 },
+                                            { "name": "stepper.wallpaperWalls", "minPrice": 2720 },
+                                            { "name": "stepper.trillingWalls", "minPrice": 2720 },
                                         ],
                                         "nextStep": {
                                             "name": "stepper.paintsQuality",
@@ -964,9 +964,9 @@ export const STEPS_DATA = [
                                             "description": "stepper.paintsDescription",
                                             "type": "multi",
                                             "items": [
-                                                { "name": "stepper.budgetQuality" },
-                                                { "name": "stepper.standardQuality" },
-                                                { "name": "stepper.budgetQuality" },
+                                                { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                                { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                                { "name": "stepper.budgetQuality", "minPrice": 5720 },
                                             ],
                                             "nextStep": {
                                                 "name": "stepper.roomsCeilingTitle",
@@ -974,16 +974,16 @@ export const STEPS_DATA = [
                                                 "description": "stepper.roomsCeilingDescription",
                                                 "type": "check",
                                                 "items": [
-                                                    { "name": "stepper.roomCeilingQuestionOne" },
-                                                    { "name": "stepper.roomCeilingQuestionTwo" },
-                                                    { "name": "stepper.roomCeilingQuestionThree" },
-                                                    { "name": "stepper.roomCeilingQuestionFour" },
-                                                    { "name": "stepper.roomCeilingQuestionFive" },
-                                                    { "name": "stepper.roomCeilingQuestionSix" },
-                                                    { "name": "stepper.roomCeilingQuestionSeven" },
-                                                    { "name": "stepper.roomCeilingQuestionEight" },
-                                                    { "name": "stepper.roomCeilingQuestionNine" },
-                                                    { "name": "stepper.roomCeilingQuestionTen" },
+                                                    { "name": "stepper.roomCeilingQuestionOne", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionTwo", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionThree", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionFour", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionFive", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionSix", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionSeven", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionEight", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionNine", "minPrice": 2720 },
+                                                    { "name": "stepper.roomCeilingQuestionTen", "minPrice": 2720 },
                                                 ],
                                                 "nextStep": null,
                                                 "lastStep": true
@@ -1004,12 +1004,12 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.livingRoom", "icon": "🛋️" },
-                                { "name": "stepper.bedRoom", "icon": "👶🏻" },
-                                { "name": "stepper.hallway", "icon": "🏘" },
-                                { "name": "stepper.kitchen", "icon": "🍳" },
-                                { "name": "stepper.bathroom", "icon": "🛁" },
-                                { "name": "stepper.basement", "icon": "⬇🚪" },
+                                { "name": "stepper.livingRoom", "icon": "🛋️", "minPrice": 2720 },
+                                { "name": "stepper.bedRoom", "icon": "👶🏻", "minPrice": 2720 },
+                                { "name": "stepper.hallway", "icon": "🏘", "minPrice": 2720 },
+                                { "name": "stepper.kitchen", "icon": "🍳", "minPrice": 2720 },
+                                { "name": "stepper.bathroom", "icon": "🛁", "minPrice": 2720 },
+                                { "name": "stepper.basement", "icon": "⬇🚪", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roomSizeName",
@@ -1017,11 +1017,11 @@ export const STEPS_DATA = [
                                 "description": "stepper.roomSizeDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.roomQuestionOne" },
-                                    { "name": "stepper.roomQuestionTwo" },
-                                    { "name": "stepper.roomQuestionThree" },
-                                    { "name": "stepper.roomQuestionFour" },
-                                    { "name": "stepper.roomQuestionFive" },
+                                    { "name": "stepper.roomQuestionOne", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionTwo", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionThree", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFour", "minPrice": 27, "type": "number" },
+                                    { "name": "stepper.roomQuestionFive", "minPrice": 27, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roomFloorService",
@@ -1029,8 +1029,8 @@ export const STEPS_DATA = [
                                     "description": "stepper.roomFloorServiceDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.newFlooring" },
-                                        { "name": "stepper.reconditionFlooring" },
+                                        { "name": "stepper.newFlooring", "minPrice": 2720 },
+                                        { "name": "stepper.reconditionFlooring", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.floorTypeName",
@@ -1038,12 +1038,12 @@ export const STEPS_DATA = [
                                         "description": "stepper.floorTypeDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.parquet" },
-                                            { "name": "stepper.works" },
-                                            { "name": "stepper.vinyl" },
-                                            { "name": "stepper.laminate" },
-                                            { "name": "stepper.carpet" },
-                                            { "name": "stepper.tiles" },
+                                            { "name": "stepper.parquet", "minPrice": 2720 },
+                                            { "name": "stepper.works", "minPrice": 2720 },
+                                            { "name": "stepper.vinyl", "minPrice": 2720 },
+                                            { "name": "stepper.laminate", "minPrice": 2720 },
+                                            { "name": "stepper.carpet", "minPrice": 2720 },
+                                            { "name": "stepper.tiles", "minPrice": 2720 },
                                         ],
                                         "nextStep": {
                                             "name": "stepper.skirtingBoardsTitle",
@@ -1051,11 +1051,11 @@ export const STEPS_DATA = [
                                             "description": "stepper.skirtingBoardsDescription",
                                             "type": "check",
                                             "items": [
-                                                { "name": "stepper.skirtingBoardsQuestionOne" },
-                                                { "name": "stepper.skirtingBoardsQuestionTwo" },
-                                                { "name": "stepper.skirtingBoardsQuestionThree" },
-                                                { "name": "stepper.skirtingBoardsQuestionFour" },
-                                                { "name": "stepper.skirtingBoardsQuestionFive" },
+                                                { "name": "stepper.skirtingBoardsQuestionOne", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionTwo", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionThree", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionFour", "minPrice": 2720 },
+                                                { "name": "stepper.skirtingBoardsQuestionFive", "minPrice": 2720 },
                                             ],
                                             "nextStep": {
                                                 "name": "stepper.oldFlooring",
@@ -1063,11 +1063,11 @@ export const STEPS_DATA = [
                                                 "description": "stepper.oldFlooringDescription",
                                                 "type": "check",
                                                 "items": [
-                                                    { "name": "stepper.oldFlooringQuestionOne" },
-                                                    { "name": "stepper.oldFlooringQuestionTwo" },
-                                                    { "name": "stepper.oldFlooringQuestionThree" },
-                                                    { "name": "stepper.oldFlooringQuestionFour" },
-                                                    { "name": "stepper.oldFlooringQuestionFive" },
+                                                    { "name": "stepper.oldFlooringQuestionOne", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionTwo", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionThree", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionFour", "minPrice": 2720 },
+                                                    { "name": "stepper.oldFlooringQuestionFive", "minPrice": 2720 },
                                                 ],
                                                 "nextStep": {
                                                     "name": "stepper.flooringQuality",
@@ -1075,9 +1075,9 @@ export const STEPS_DATA = [
                                                     "description": "stepper.flooringQualityDescription",
                                                     "type": "multi",
                                                     "items": [
-                                                        { "name": "stepper.budgetQuality" },
-                                                        { "name": "stepper.standardQuality" },
-                                                        { "name": "stepper.premiumQuality" },
+                                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                                        { "name": "stepper.standardQuality", "minPrice": 4720 },
+                                                        { "name": "stepper.premiumQuality", "minPrice": 6720 },
                                                     ],
                                                     "nextStep": null,
                                                     "lastStep": true
@@ -1102,7 +1102,7 @@ export const STEPS_DATA = [
                             "isFirst": true,
                             "items": [
                                 { "name": "stepper.windowsInfoQuestionOne" },
-                                { "name": "stepper.windowsInfoQuestionTwo" },
+                                { "name": "stepper.windowsInfoQuestionTwo", "minPrice": 27, "type": "number" },
                                 { "name": "stepper.windowsInfoQuestionThree" },
                             ],
                             "nextStep": {
@@ -1111,8 +1111,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.newWindowsDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.plastic" },
-                                    { "name": "stepper.wood" },
+                                    { "name": "stepper.plastic", "minPrice": 2720 },
+                                    { "name": "stepper.wood", "minPrice": 2720 },
                                 ],
                                 "nextStep": null,
                                 "lastStep": true
@@ -1130,9 +1130,9 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.doorQuestionOne" },
-                                { "name": "stepper.doorQuestionTwo" },
-                                { "name": "stepper.doorQuestionThree" },
+                                { "name": "stepper.doorQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.doorQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.doorQuestionThree", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.newDoors",
@@ -1140,8 +1140,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.newDoorsDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.newDoorsQuestionOne" },
-                                    { "name": "stepper.newDoorsQuestionTwo" },
+                                    { "name": "stepper.newDoorsQuestionOne", "minPrice": 272, "type": "number" },
+                                    { "name": "stepper.newDoorsQuestionTwo", "minPrice": 272, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "doorsQuality",
@@ -1149,9 +1149,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.doorsQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": null,
                                     "lastStep": true
@@ -1169,9 +1169,9 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.bathroomQuestionOne" },
-                                { "name": "stepper.bathroomQuestionTwo" },
-                                { "name": "stepper.bathroomQuestionThree" },
+                                { "name": "stepper.bathroomQuestionOne", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.bathroomQuestionTwo", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.bathroomQuestionThree", "minPrice": 272, "type": "number" },
                             ],
                             "nextStep": {
                                 "name": "stepper.bathroomQuestions",
@@ -1179,9 +1179,9 @@ export const STEPS_DATA = [
                                 "description": "stepper.bathroomQuestionsDescription",
                                 "type": "check",
                                 "items": [
-                                    { "name": "stepper.bathroomCheckOutQuestionOne" },
-                                    { "name": "stepper.bathroomCheckOutQuestionTwo" },
-                                    { "name": "stepper.bathroomCheckOutQuestionThree" },
+                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 2720 },
+                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 2720 },
+                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.tilesQuality",
@@ -1189,9 +1189,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.tilesQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.bathroomFeatures",
@@ -1199,13 +1199,13 @@ export const STEPS_DATA = [
                                         "description": "stepper.bathroomFeaturesDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.shower" },
-                                            { "name": "stepper.bath Hub" },
-                                            { "name": "stepper.toilet" },
-                                            { "name": "stepper.washBasing" },
-                                            { "name": "stepper.doubleWashBasing" },
-                                            { "name": "stepper.towelRadiator" },
-                                            { "name": "stepper.ceiling" },
+                                            { "name": "stepper.shower", "minPrice": 2720 },
+                                            { "name": "stepper.bath Hub", "minPrice": 2720 },
+                                            { "name": "stepper.toilet", "minPrice": 2720 },
+                                            { "name": "stepper.washBasing", "minPrice": 2720 },
+                                            { "name": "stepper.doubleWashBasing", "minPrice": 2720 },
+                                            { "name": "stepper.towelRadiator", "minPrice": 2720 },
+                                            { "name": "stepper.ceiling", "minPrice": 2720 },
                                         ],
                                         "nextStep": null,
                                         "lastStep": true,
@@ -1224,8 +1224,8 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.roofAndInsulationQuestionOne" },
-                                { "name": "stepper.roofAndInsulationQuestionTwo" },
+                                { "name": "stepper.roofAndInsulationQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.roofAndInsulationQuestionTwo", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.roofShape",
@@ -1233,8 +1233,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.roofShapeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.gableRoof" },
-                                    { "name": "stepper.flatRoof" },
+                                    { "name": "stepper.gableRoof", "minPrice": 2720 },
+                                    { "name": "stepper.flatRoof", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.roofQuestions",
@@ -1242,7 +1242,7 @@ export const STEPS_DATA = [
                                     "description": "stepper.roofQuestionsDescription",
                                     "type": "text",
                                     "items": [
-                                        { "name": "stepper.roofQuestionOne" },
+                                        { "name": "stepper.roofQuestionOne", "minPrice": 2720, "type": "number" },
                                         { "name": "stepper.roofQuestionTwo" },
                                         { "name": "stepper.roofQuestionThree" },
                                         { "name": "stepper.roofQuestionFour" },
@@ -1263,10 +1263,10 @@ export const STEPS_DATA = [
                             "type": "multi",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.singleHouse" },
-                                { "name": "stepper.semiHouse" },
-                                { "name": "stepper.terracedHouse" },
-                                { "name": "stepper.endHouse" },
+                                { "name": "stepper.singleHouse", "minPrice": 2720 },
+                                { "name": "stepper.semiHouse", "minPrice": 2720 },
+                                { "name": "stepper.terracedHouse", "minPrice": 2720 },
+                                { "name": "stepper.endHouse", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.facade",
@@ -1274,10 +1274,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.facadeTypeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.facadeStone" },
-                                    { "name": "stepper.facadePlaster" },
-                                    { "name": "stepper.facadePainting" },
-                                    { "name": "stepper.facadeBlown" },
+                                    { "name": "stepper.facadeStone", "minPrice": 2720 },
+                                    { "name": "stepper.facadePlaster", "minPrice": 2720 },
+                                    { "name": "stepper.facadePainting", "minPrice": 2720 },
+                                    { "name": "stepper.facadeBlown", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.houseInfo",
@@ -1285,7 +1285,7 @@ export const STEPS_DATA = [
                                     "description": "stepper.houseInfoDescription",
                                     "type": "text",
                                     "items": [
-                                        { "name": "stepper.houseInfoQuestionOne" },
+                                        { "name": "stepper.houseInfoQuestionOne", "minPrice": 2720, "type": "number" },
                                         { "name": "stepper.houseInfoQuestionTwo" },
                                     ],
                                     "nextStep": null,
@@ -1304,9 +1304,9 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.floorPlanQuestionOne" },
-                                { "name": "stepper.floorPlanQuestionTwo" },
-                                { "name": "stepper.floorPlanQuestionThree" },
+                                { "name": "stepper.floorPlanQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.floorPlanQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.floorPlanQuestionThree", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.floorPlanDetails",
@@ -1314,8 +1314,8 @@ export const STEPS_DATA = [
                                 "description": "stepper.floorPlanDetailsDescription",
                                 "type": "text",
                                 "items": [
-                                    { "name": "stepper.floorPlanDetailsQuestionOne" },
-                                    { "name": "stepper.floorPlanDetailsQuestionTwo" },
+                                    { "name": "stepper.floorPlanDetailsQuestionOne", "minPrice": 2720, "type": "number" },
+                                    { "name": "stepper.floorPlanDetailsQuestionTwo", "minPrice": 2720, "type": "number" },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.floorPlanType",
@@ -1323,8 +1323,8 @@ export const STEPS_DATA = [
                                     "description": "stepper.floorPlanTypeDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.massivwand" },
-                                        { "name": "stepper.lightWeightWall" },
+                                        { "name": "stepper.massivwand", "minPrice": 2720 },
+                                        { "name": "stepper.lightWeightWall", "minPrice": 2720 },
                                     ],
                                     "nextStep": {
                                         "name": "stepper.floorPlanClose",
@@ -1332,8 +1332,8 @@ export const STEPS_DATA = [
                                         "description": "stepper.floorPlanCloseDescription",
                                         "type": "multi",
                                         "items": [
-                                            { "name": "stepper.massivwand" },
-                                            { "name": "stepper.lightWeightWall" },
+                                            { "name": "stepper.massivwand", "minPrice": 2720 },
+                                            { "name": "stepper.lightWeightWall", "minPrice": 2720 },
                                         ],
                                         "nextStep": null,
                                         "lastStep": true,
@@ -1352,10 +1352,10 @@ export const STEPS_DATA = [
                             "type": "check",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.stairInfoQuestionOne" },
-                                { "name": "stepper.stairInfoQuestionTwo" },
-                                { "name": "stepper.stairInfoQuestionThree" },
-                                { "name": "stepper.stairInfoQuestionFour" },
+                                { "name": "stepper.stairInfoQuestionOne", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionTwo", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionThree", "minPrice": 2720 },
+                                { "name": "stepper.stairInfoQuestionFour", "minPrice": 2720 },
                             ],
                             "nextStep": {
                                 "name": "stepper.stairsType",
@@ -1363,10 +1363,10 @@ export const STEPS_DATA = [
                                 "description": "stepper.stairsTypeDescription",
                                 "type": "multi",
                                 "items": [
-                                    { "name": "stepper.straight" },
-                                    { "name": "stepper.quarter" },
-                                    { "name": "stepper.stairsHalf" },
-                                    { "name": "stepper.stepperTwoQuarter" },
+                                    { "name": "stepper.straight", "minPrice": 2720 },
+                                    { "name": "stepper.quarter", "minPrice": 2720 },
+                                    { "name": "stepper.stairsHalf", "minPrice": 2720 },
+                                    { "name": "stepper.stepperTwoQuarter", "minPrice": 2720 },
                                 ],
                                 "nextStep": {
                                     "name": "stepper.stairsQuality",
@@ -1374,9 +1374,9 @@ export const STEPS_DATA = [
                                     "description": "stepper.stairsQualityDescription",
                                     "type": "multi",
                                     "items": [
-                                        { "name": "stepper.budgetQuality" },
-                                        { "name": "stepper.standardQuality" },
-                                        { "name": "stepper.premiumQuality" },
+                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
+                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
                                     ],
                                     "nextStep": null,
                                     "lastStep": true,
@@ -1394,8 +1394,8 @@ export const STEPS_DATA = [
                             "type": "text",
                             "isFirst": true,
                             "items": [
-                                { "name": "stepper.supplyLinesQuestionOne" },
-                                { "name": "stepper.supplyLinesQuestionTwo" },
+                                { "name": "stepper.supplyLinesQuestionOne", "minPrice": 272, "type": "number" },
+                                { "name": "stepper.supplyLinesQuestionTwo", "minPrice": 272, "type": "number" },
                             ],
                             "nextStep": null,
                             "lastStep": true,

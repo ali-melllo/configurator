@@ -615,5 +615,11 @@
       "zipcode": "Postcode is verplicht",
       "phone": "Telefoonnummer is verplicht"
     }
+  },
+  "notifications": {
+    "selectAtLeastOneItem": "Selecteer ten minste één item om door te gaan.",
+    "answerAllQuestions": "Beantwoord alle vragen.",
+    "fillAllFields": "Vul alle vragen in.",
+    "requestSuccess": "Aanvraag verzonden en bevestiging verstuurd!"
   }
 }

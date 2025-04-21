@@ -615,5 +615,11 @@
       "zipcode": "Zipcode is required",
       "phone": "Phone is required"
     }
+  },
+  "notifications": {
+    "selectAtLeastOneItem": "Please select at least one item to continue.",
+    "answerAllQuestions": "Please answer all of the questions.",
+    "fillAllFields": "Please fill in all of the questions.",
+    "requestSuccess":"Request submitted and confirmation sent!"
   }
 }
