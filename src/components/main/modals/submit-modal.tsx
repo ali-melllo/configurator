@@ -16,13 +16,14 @@ import { Calendar } from "@/components/ui/calendar";
 import { DateRange } from "react-day-picker";
 import { addDays } from "date-fns";
 import { useLang } from "@/contexts/LangContext";
+import emailjs from "@emailjs/browser";
 
 
 
 export default function SubmitModal() {
 
     const { t } = useLang();
-    
+
     const [emailLoading, setEmailLoading] = useState<boolean>(false);
     const [date, setDate] = useState<DateRange | undefined>({
         from: new Date(2022, 0, 20),
@@ -43,43 +44,106 @@ export default function SubmitModal() {
     }, [finalQuote]);
 
 
-    const sendEmail = useCallback(async (data: any) => {
-        setEmailLoading(true);
+    // const sendEmail = useCallback(async (data: any) => {
+    //     setEmailLoading(true);
 
-        // mvgzrnqn : ali
+    //     // mvgzrnqn : ali
+    //     try {
+    //         const response = await fetch("https://formspree.io/f/mvgzrnqn", {
+    //             method: "POST",
+    //             headers: { "Accept": "application/json" },
+    //             body: JSON.stringify({
+    //                 fullName: data.fullName,
+    //                 email: data.email,
+    //                 address: data.address,
+    //                 phone: data.phone,
+    //                 zipcode: data.zipcode,
+    //                 surface: finalQuote.surface,
+    //                 depth: finalQuote.depth,
+    //                 width: finalQuote.width,
+    //                 date: `from : ${date?.from} , to : ${date?.to}`,
+    //                 exteriorPrice: getExteriorPrice(),
+    //                 insidePrice: getInsidePrice(),
+    //                 totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
+    //             }),
+    //         });
+
+    //         if (response.ok) {
+    //             toast.success("Request submitted successfully! Check your email.");
+    //             dispatch(changeShowFinalQuoteModal(false));
+    //             dispatch(resetAll());
+
+
+    //             emailjs.send("service_qgdd31g", "template_etjfih4", {
+    //                 user_name: data.fullName,
+    //                 user_email: data.email,
+    //             }, "YOUR_USER_ID");
+
+    //         } else {
+    //             toast.error("Failed to send email. Try again later.");
+    //         }
+    //     } catch (error) {
+    //         toast.error("An error occurred. Please try again.");
+    //     } finally {
+    //         setEmailLoading(false);
+    //     }
+    // }, [dispatch, finalQuote, getExteriorPrice, getInsidePrice]);
+
+
+    const sendEmail = async (data: any) => {
+        setEmailLoading(true);
         try {
-            const response = await fetch("https://formspree.io/f/xnnjyppv", {
-                method: "POST",
-                headers: { "Accept": "application/json" },
-                body: JSON.stringify({
-                    fullName: data.fullName,
-                    email: data.email,
+            await emailjs.send(
+                "service_qgdd31g",
+                "template_dbbw77f",
+                {
+                    from_name: data.fullName,
+                    to_name: "Persian Top Owner",
+                    to_email: "alimelllo32@gmail.com",
                     address: data.address,
                     phone: data.phone,
                     zipcode: data.zipcode,
                     surface: finalQuote.surface,
                     depth: finalQuote.depth,
                     width: finalQuote.width,
-                    date: `from : ${date?.from} , to : ${date?.to}`,
+                    date: `from ${date?.from} to ${date?.to}`,
                     exteriorPrice: getExteriorPrice(),
                     insidePrice: getInsidePrice(),
                     totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
-                }),
-            });
+                },
+                "UnRKLwsh1brqQCDWV"
+            );
 
-            if (response.ok) {
-                toast.success("Request submitted successfully! Check your email.");
-                dispatch(changeShowFinalQuoteModal(false));
-                dispatch(resetAll());
-            } else {
-                toast.error("Failed to send email. Try again later.");
-            }
-        } catch (error) {
-            toast.error("An error occurred. Please try again.");
+            await emailjs.send(
+                "service_qgdd31g",
+                "template_etjfih4",
+                {
+                    from_name: "Persian top Manager",
+                    to_name: data.fullName,
+                    to_email: "ali.melllo@yahoo.com",
+                    address: data.address,
+                    phone: data.phone,
+                    zipcode: data.zipcode,
+                    surface: finalQuote.surface,
+                    depth: finalQuote.depth,
+                    width: finalQuote.width,
+                    date: `from ${date?.from} to ${date?.to}`,
+                    exteriorPrice: getExteriorPrice(),
+                    insidePrice: getInsidePrice(),
+                    totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
+                },
+                "UnRKLwsh1brqQCDWV"
+            );
+
+            toast.success("Request submitted and confirmation sent!");
+            dispatch(changeShowFinalQuoteModal(false));
+            dispatch(resetAll());
+        } catch (err) {
+            toast.error("Failed to send one or both emails. Please try sending again");
         } finally {
             setEmailLoading(false);
         }
-    }, [dispatch, finalQuote, getExteriorPrice, getInsidePrice]);
+    };
 
     return (
         <Dialog open={showFinalQuoteModal}>

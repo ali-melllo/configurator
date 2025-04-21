@@ -248,12 +248,12 @@ export default function SideBar() {
                             <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">{t('configurator.exterior')}:</Label>
                                 {finalQuote.exterior.map((item: any) => (
-                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{item.objectName}</Label>
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{t(item.objectName)}</Label>
                                 ))}                            </div>
                             <div className="flex flex-col gap-3">
                                 <Label className="font-bold text-base">{t('configurator.inside')}:</Label>
                                 {finalQuote.interior.map((item: any) => item.objectSrc && (
-                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{item.objectName}</Label>
+                                    <Label key={item} className="text-base text-muted-foreground flex items-center gap-1"><Dot strokeWidth={5} />{t(item.objectName)}</Label>
                                 ))}
                             </div>
                             <div className="flex flex-row justify-between gap-x-3 items-center">
