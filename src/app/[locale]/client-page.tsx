@@ -38,9 +38,9 @@ export default function ClientPage() {
           <img
             alt={'Persian Top'}
             src={'/test-hero.jpg'}
-            className="object-cover size-full "
+            className="object-cover size-full [mask-image:radial-gradient(1300px_circle_at_right,white,transparent)]"
           />
-
+              <div className="bg-gradient-to-t from-background via-background/25 to-transparent size-full absolute inset-0"></div>
         </div>
 
 
@@ -65,7 +65,8 @@ export default function ClientPage() {
           )}
         /> */}
 
-        <div className="flex z-20 items-center w-full">
+        <div className="flex z-20 items-center w-full px-20">
+
           <div className="flex md:mt-0 flex-col w-6/12 justify-center">
             <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
               {t('HomePage.title')}

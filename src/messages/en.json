@@ -112,7 +112,7 @@
     "surface": {
       "title": "Surface Area",
       "width": "Width",
-      "meter":"Meter",
+      "meter": "Meter",
       "depth": "Depth",
       "guide": "Please Enter Your house or apartment Surface area to get an estimated price for your quote request."
     },
@@ -284,6 +284,9 @@
     "toAsk": "To Ask ?"
   },
   "stepper": {
+    "houseExtension": "House Extension",
+    "comingSoon": "Coming Soon",
+    "estimateHours":"Estimate Hours",
     "mainQuestion": "where Do You Live ?",
     "mainDescription": "Find suitable specialist companies in your region free of charge and without obligation",
     "house": "House",
@@ -384,20 +387,23 @@
     "bathroomName": "Bathroom & rest toilets",
     "bathRoomTitle": "bathroom information",
     "bathRoomTitleDescription": "please fill bathroom information",
-    "bathroomQuestionOne": "How many bathrooms/guest toilets do you have?",
+    "bathroomQuestionOne": "How many bathrooms do you have?",
     "bathroomQuestionTwo": "How big is the bathroom?",
     "bathroomQuestionThree": "How many square meters of wall should be tiled in the bathroom?",
+    "bathroomQuestionFour": "How many WCs Do You have ?",
     "bathroomQuestions": "Bathroom Questions",
-    "bathroomCheckOutQuestionOne": "If the floor is to be tiled in the bathroom?",
-    "bathroomCheckOutQuestionTwo": "Should the walls be tiled in the bathroom?",
-    "bathroomCheckOutQuestionThree": "How many square meters of wall should be tiled in the bathroom?",
+    "bathroomCheckOutQuestionOne": "Does floor need to be removed ? if yes please enter How big the floor is in SQM?",
+    "bathroomCheckOutQuestionTwo": "Does new floor need tob poured ? if yes please enter How big the floor should be poured in SQM?",
+    "bathroomCheckOutQuestionThree": "Do do you need new tiles ? if yes please enter How big the new tiles should be in SQM?",
+    "bathroomCheckOutQuestionFour": "Do do you want Ceiling with integrated spotlights in your bath ? if yes please enter How big the new Ceiling should be in SQM?",
+    "bathroomCheckOutQuestionFive": "Do do you want to Add Floor Heating? if yes please enter How big the Floor Heating should be in SQM?",
     "tilesQuality": "Tiles Quality",
     "tilesQualityTitle": "What quality do you want for your new tiles in the bathroom?",
     "bathroomFeatures": "Bathroom Features",
     "bathroomFeaturesTitle": "What features do you want for the bathroom?",
-    "shower": "shower",
+    "shower": "Built in Shower",
     "bathHub": "Bath Hub",
-    "toilet": "Toilet",
+    "toilet": "Built-in WC",
     "washBasing": "Wash basing",
     "doubleWashBasing": "Double Wash basing",
     "towelRadiator": "Towel Radiator",
@@ -621,6 +627,6 @@
     "selectAtLeastOneItem": "Please select at least one item to continue.",
     "answerAllQuestions": "Please answer all of the questions.",
     "fillAllFields": "Please fill in all of the questions.",
-    "requestSuccess":"Request submitted and confirmation sent!"
+    "requestSuccess": "Request submitted and confirmation sent!"
   }
 }

@@ -1,113 +1,3 @@
-// export const STEPS_DATA = [
-//     {
-//         "title": "Select Construction Area",
-//         "description": "Choose which part of your building needs construction work.",
-//         "type": "select",
-//         "name": "construction_area",
-//         "items": [
-//             {
-//                 "title": "Foundation & Groundwork",
-//                 "description": "Select the groundwork services required.",
-//                 "name": "renovation",
-//                 "type": "select",
-//                 "icon": "🏗️",
-//                 "items": [
-//                     {
-//                         "title": "Flooring Options",
-//                         "description": "Choose your preferred flooring material.",
-//                         "name": "flooring",
-//                         "type": "check",
-//                         "icon": "🪵",
-//                         "items": [
-//                             { "name": "Wood Flooring", "icon": "🪵" },
-//                             { "name": "Concrete Flooring", "icon": "🧱" },
-//                             { "name": "Tiles", "icon": "🪨" },
-//                             { "name": "Plumbing Work", "icon": "🚰" }
-//                         ],
-//                         "nextStep": {
-//                             "title": "Enter Flooring Details",
-//                             "description": "Provide additional information about your flooring needs.",
-//                             "type": "text",
-//                             "name": "flooring_details",
-//                             "items": [
-//                                 { "name": "What is the current flooring made of?" },
-//                                 { "name": "How old is the flooring?" }
-//                             ],
-//                             "nextStep": {
-//                                 "title": "Choose Preferred Construction Date",
-//                                 "description": "Select a date for the work to begin.",
-//                                 "type": "date",
-//                                 "name": "construction_date",
-//                                 "nextStep": {
-//                                     "title": "Enter Your Contact Information",
-//                                     "description": "Provide your details to receive an estimated quote.",
-//                                     "type": "text",
-//                                     "name": "contact_info",
-//                                     "items": [
-//                                         { "name": "Full Name" },
-//                                         { "name": "Phone Number" },
-//                                         { "name": "Email Address" },
-//                                         { "name": "Project Address" }
-//                                     ],
-//                                     "lastStep":true,
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 ]
-//             },
-//             {
-//                 "title": "House Extension",
-//                 "description": "Select the type of house extension needed.",
-//                 "name": "house_extension",
-//                 "type": "select",
-//                 "icon": "🏠",
-//                 "items": [
-//                     {
-//                         "title": "Single-Story Extension",
-//                         "description": "Expand your home with a ground-floor extension.",
-//                         "name": "single_story_extension",
-//                         "type": "multi",
-//                         "icon": "📏",
-//                         "items": [
-//                             { "name": "Living Room Extension" },
-//                             { "name": "Kitchen Extension" },
-//                             { "name": "Bathroom Addition" },
-//                         ],
-//                         "lastStep":true,
-//                     },
-//                     {
-//                         "title": "Double-Story Extension",
-//                         "description": "Add more space with a two-level extension.",
-//                         "name": "double_story_extension",
-//                         "type": "multi",
-//                         "icon": "🏢",
-//                         "items": [
-//                             { "name": "Additional Bedrooms" },
-//                             { "name": "Office Space" },
-//                             { "name": "Extra Bathrooms" }
-//                         ],
-//                         "lastStep":true,
-
-//                     },
-//                     {
-//                         "title": "Garage Conversion",
-//                         "description": "Turn your garage into a functional space.",
-//                         "name": "garage_conversion",
-//                         "type": "multi",
-//                         "icon": "🚗",
-//                         "items": [
-//                             { "name": "Home Office" },
-//                             { "name": "Guest Room" },
-//                             { "name": "Entertainment Room" }
-//                         ],
-//                         "lastStep":true,
-//                     }
-//                 ]
-//             }
-//         ]
-//     }
-// ]
 
 
 export const STEPS_DATA = [
@@ -126,7 +16,70 @@ export const STEPS_DATA = [
                 "key": "gather-steps",
                 "items": [
                     {
+                        "name": "stepper.bathroomName",
+                        "icon": "🛁",
+                        "items": {
+                            "name": "stepper.bathRoomTitle",
+                            "title": "stepper.bathRoomTitle",
+                            "description": "stepper.bathRoomTitleDescription",
+                            "type": "text",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "stepper.bathroomQuestionOne" },
+                                { "name": "stepper.bathroomQuestionTwo" },
+                                { "name": "stepper.bathroomQuestionThree", "minPrice": 180 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                { "name": "stepper.bathroomQuestionFour"},
+                            ],
+                            "nextStep": {
+                                "name": "stepper.bathroomQuestions",
+                                "title": "stepper.bathroomQuestions",
+                                "description": "stepper.bathroomQuestionsDescription",
+                                "type": "text",
+                                "items": [
+                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 120 , "hours": "3" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 160 , "hours": "3" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 220 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionFour", "minPrice": 50 , "hours": "2.5" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionFive", "minPrice": 180 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                ],
+                                "nextStep": {
+                                    "name": "stepper.tilesQuality",
+                                    "title": "stepper.tilesQualityTitle",
+                                    "description": "stepper.tilesQualityDescription",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "stepper.budgetQuality", "minPrice": 0 },
+                                        { "name": "stepper.standardQuality", "minPrice": 0 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 0 },
+                                    ],
+                                    "nextStep": {
+                                        "name": "stepper.bathroomFeatures",
+                                        "title": "stepper.bathroomFeaturesTitle",
+                                        "description": "stepper.bathroomFeaturesDescription",
+                                        "type": "multi",
+                                        "items": [
+                                            { "name": "stepper.shower", "minPrice": 1199 , "hours": "28" , calculation : "per-p"  },
+                                            { "name": "Surface Mounted shower", "minPrice": 700  , "hours": "13" , calculation : "per-p" },
+                                            { "name": "stepper.toilet", "minPrice": 800  , "hours": "13" , calculation : "per-p" },
+                                            { "name": "Surface Mounted Wc", "minPrice": 400  , "hours": "7" , calculation : "per-p" },
+                                            { "name": "Single Bathroom Zinc", "minPrice": 400  , "hours": "10" , calculation : "per-p" },
+                                            { "name": "Double Bathroom Zinc", "minPrice": 600  , "hours": "12" , calculation : "per-p" },
+                                            { "name": "Built-in tub", "minPrice": 1800  , "hours": "37" , calculation : "per-p" },
+                                            { "name": "Free standing tub", "minPrice": 800  , "hours": "16" , calculation : "per-p" },
+                                            { "name": "Whirlpool or Jacuzzi", "minPrice": 2800  , "hours": "55" , calculation : "per-p" },
+                                            { "name": "Towel Radiator", "minPrice": 300  , "hours": "7" , calculation : "per-p" },
+
+                                        ],
+                                        "nextStep": null,
+                                        "lastStep": true,
+                                    },
+                                },
+                            }
+                        },
+                    },
+                    {
                         "name": "stepper.ElectricityTitle",
+                        "disabled": true,
                         "icon": "🔌",
                         "items": {
                             "name": "stepper.fuseBoxTitle",
@@ -204,6 +157,7 @@ export const STEPS_DATA = [
                     },
                     {
                         "name": "stepper.heatingName",
+                        "disabled": true,
                         "icon": "🌡️",
                         "items": {
                             "name": "stepper.heatingTechName",
@@ -263,6 +217,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.wallTitle",
                         "icon": "🏼",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roomSelectionName",
                             "title": "stepper.roomSelectionMainQuestion",
@@ -351,6 +306,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.flooringTitle",
                         "icon": "👣",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roomSelectionName",
                             "title": "stepper.roomSelectionMainQuestion",
@@ -448,6 +404,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.window",
                         "icon": "🔲",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.windowsInfo",
                             "title": "stepper.windowsInfo",
@@ -477,6 +434,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.doors",
                         "icon": "🚪",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.doorsTitle",
                             "title": "stepper.doorsTitle",
@@ -514,63 +472,9 @@ export const STEPS_DATA = [
                         },
                     },
                     {
-                        "name": "stepper.bathroomName",
-                        "icon": "🛁",
-                        "items": {
-                            "name": "stepper.bathRoomTitle",
-                            "title": "stepper.bathRoomTitle",
-                            "description": "stepper.bathRoomTitleDescription",
-                            "type": "text",
-                            "isFirst": true,
-                            "items": [
-                                { "name": "stepper.bathroomQuestionOne", "minPrice": 272, "type": "number" },
-                                { "name": "stepper.bathroomQuestionTwo", "minPrice": 272, "type": "number" },
-                                { "name": "stepper.bathroomQuestionThree", "minPrice": 272, "type": "number" },
-                            ],
-                            "nextStep": {
-                                "name": "stepper.bathroomQuestions",
-                                "title": "stepper.bathroomQuestions",
-                                "description": "stepper.bathroomQuestionsDescription",
-                                "type": "check",
-                                "items": [
-                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 2720 },
-                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 2720 },
-                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 2720 },
-                                ],
-                                "nextStep": {
-                                    "name": "stepper.tilesQuality",
-                                    "title": "stepper.tilesQualityTitle",
-                                    "description": "stepper.tilesQualityDescription",
-                                    "type": "multi",
-                                    "items": [
-                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
-                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
-                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
-                                    ],
-                                    "nextStep": {
-                                        "name": "stepper.bathroomFeatures",
-                                        "title": "stepper.bathroomFeaturesTitle",
-                                        "description": "stepper.bathroomFeaturesDescription",
-                                        "type": "multi",
-                                        "items": [
-                                            { "name": "stepper.shower", "minPrice": 2720 },
-                                            { "name": "stepper.bath Hub", "minPrice": 2720 },
-                                            { "name": "stepper.toilet", "minPrice": 2720 },
-                                            { "name": "stepper.washBasing", "minPrice": 2720 },
-                                            { "name": "stepper.doubleWashBasing", "minPrice": 2720 },
-                                            { "name": "stepper.towelRadiator", "minPrice": 2720 },
-                                            { "name": "stepper.ceiling", "minPrice": 2720 },
-                                        ],
-                                        "nextStep": null,
-                                        "lastStep": true,
-                                    },
-                                },
-                            }
-                        },
-                    },
-                    {
                         "name": "stepper.roofAndInsulation",
                         "icon": "🧱",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roofAndInsulationInfo",
                             "title": "stepper.roofAndInsulationTitle",
@@ -610,6 +514,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.facade",
                         "icon": "🛠",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.facadeName",
                             "title": "stepper.facadeTitle",
@@ -651,6 +556,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.floorPlan",
                         "icon": "𓉩",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.floorPlanName",
                             "title": "stepper.floorPlanTitle",
@@ -699,6 +605,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.stairs",
                         "icon": "𓊍",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.stairsInfo",
                             "title": "stepper.stairsInfo",
@@ -741,6 +648,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.supplyLines",
                         "icon": "🚰",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.supplyLinesInfo",
                             "title": "stepper.supplyLinesInfo",
@@ -765,14 +673,77 @@ export const STEPS_DATA = [
             //////////////////////////////////////
             {
                 "title": "stepper.servicesSelectTitle",
-                "description": "stepper.servicesSelectTitle",
+                "description": "stepper.servicesSelectDescription",
                 "type": "multi",
                 "name": "stepper.apartment",
                 "icon": "🏬",
                 "key": "gather-steps",
                 "items": [
                     {
+                        "name": "stepper.bathroomName",
+                        "icon": "🛁",
+                        "items": {
+                            "name": "stepper.bathRoomTitle",
+                            "title": "stepper.bathRoomTitle",
+                            "description": "stepper.bathRoomTitleDescription",
+                            "type": "text",
+                            "isFirst": true,
+                            "items": [
+                                { "name": "stepper.bathroomQuestionOne" },
+                                { "name": "stepper.bathroomQuestionTwo" },
+                                { "name": "stepper.bathroomQuestionThree", "minPrice": 180 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                { "name": "stepper.bathroomQuestionFour"},
+                            ],
+                            "nextStep": {
+                                "name": "stepper.bathroomQuestions",
+                                "title": "stepper.bathroomQuestions",
+                                "description": "stepper.bathroomQuestionsDescription",
+                                "type": "text",
+                                "items": [
+                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 120 , "hours": "3" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 160 , "hours": "3" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 220 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionFour", "minPrice": 50 , "hours": "2.5" , calculation : "per-sq" , "type": "number" },
+                                    { "name": "stepper.bathroomCheckOutQuestionFive", "minPrice": 180 , "hours": "4" , calculation : "per-sq" , "type": "number" },
+                                ],
+                                "nextStep": {
+                                    "name": "stepper.tilesQuality",
+                                    "title": "stepper.tilesQualityTitle",
+                                    "description": "stepper.tilesQualityDescription",
+                                    "type": "multi",
+                                    "items": [
+                                        { "name": "stepper.budgetQuality", "minPrice": 0 },
+                                        { "name": "stepper.standardQuality", "minPrice": 0 },
+                                        { "name": "stepper.premiumQuality", "minPrice": 0 },
+                                    ],
+                                    "nextStep": {
+                                        "name": "stepper.bathroomFeatures",
+                                        "title": "stepper.bathroomFeaturesTitle",
+                                        "description": "stepper.bathroomFeaturesDescription",
+                                        "type": "multi",
+                                        "items": [
+                                            { "name": "stepper.shower", "minPrice": 1199 , "hours": "28" , calculation : "per-p"  },
+                                            { "name": "Surface Mounted shower", "minPrice": 700  , "hours": "13" , calculation : "per-p" },
+                                            { "name": "stepper.toilet", "minPrice": 800  , "hours": "13" , calculation : "per-p" },
+                                            { "name": "Surface Mounted Wc", "minPrice": 400  , "hours": "7" , calculation : "per-p" },
+                                            { "name": "Single Bathroom Zinc", "minPrice": 400  , "hours": "10" , calculation : "per-p" },
+                                            { "name": "Double Bathroom Zinc", "minPrice": 600  , "hours": "12" , calculation : "per-p" },
+                                            { "name": "Built-in tub", "minPrice": 1800  , "hours": "37" , calculation : "per-p" },
+                                            { "name": "Free standing tub", "minPrice": 800  , "hours": "16" , calculation : "per-p" },
+                                            { "name": "Whirlpool or Jacuzzi", "minPrice": 2800  , "hours": "55" , calculation : "per-p" },
+                                            { "name": "Towel Radiator", "minPrice": 300  , "hours": "7" , calculation : "per-p" },
+
+                                        ],
+                                        "nextStep": null,
+                                        "lastStep": true,
+                                    },
+                                },
+                            }
+                        },
+                    },
+                    {
                         "name": "stepper.ElectricityTitle",
+                        "disabled": true,
                         "icon": "🔌",
                         "items": {
                             "name": "stepper.fuseBoxTitle",
@@ -850,6 +821,7 @@ export const STEPS_DATA = [
                     },
                     {
                         "name": "stepper.heatingName",
+                        "disabled": true,
                         "icon": "🌡️",
                         "items": {
                             "name": "stepper.heatingTechName",
@@ -909,6 +881,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.wallTitle",
                         "icon": "🏼",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roomSelectionName",
                             "title": "stepper.roomSelectionMainQuestion",
@@ -997,6 +970,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.flooringTitle",
                         "icon": "👣",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roomSelectionName",
                             "title": "stepper.roomSelectionMainQuestion",
@@ -1094,6 +1068,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.window",
                         "icon": "🔲",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.windowsInfo",
                             "title": "stepper.windowsInfo",
@@ -1123,6 +1098,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.doors",
                         "icon": "🚪",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.doorsTitle",
                             "title": "stepper.doorsTitle",
@@ -1160,63 +1136,9 @@ export const STEPS_DATA = [
                         },
                     },
                     {
-                        "name": "stepper.bathroomName",
-                        "icon": "🛁",
-                        "items": {
-                            "name": "stepper.bathRoomTitle",
-                            "title": "stepper.bathRoomTitle",
-                            "description": "stepper.bathRoomTitleDescription",
-                            "type": "text",
-                            "isFirst": true,
-                            "items": [
-                                { "name": "stepper.bathroomQuestionOne", "minPrice": 272, "type": "number" },
-                                { "name": "stepper.bathroomQuestionTwo", "minPrice": 272, "type": "number" },
-                                { "name": "stepper.bathroomQuestionThree", "minPrice": 272, "type": "number" },
-                            ],
-                            "nextStep": {
-                                "name": "stepper.bathroomQuestions",
-                                "title": "stepper.bathroomQuestions",
-                                "description": "stepper.bathroomQuestionsDescription",
-                                "type": "check",
-                                "items": [
-                                    { "name": "stepper.bathroomCheckOutQuestionOne", "minPrice": 2720 },
-                                    { "name": "stepper.bathroomCheckOutQuestionTwo", "minPrice": 2720 },
-                                    { "name": "stepper.bathroomCheckOutQuestionThree", "minPrice": 2720 },
-                                ],
-                                "nextStep": {
-                                    "name": "stepper.tilesQuality",
-                                    "title": "stepper.tilesQualityTitle",
-                                    "description": "stepper.tilesQualityDescription",
-                                    "type": "multi",
-                                    "items": [
-                                        { "name": "stepper.budgetQuality", "minPrice": 2720 },
-                                        { "name": "stepper.standardQuality", "minPrice": 3720 },
-                                        { "name": "stepper.premiumQuality", "minPrice": 5720 },
-                                    ],
-                                    "nextStep": {
-                                        "name": "stepper.bathroomFeatures",
-                                        "title": "stepper.bathroomFeaturesTitle",
-                                        "description": "stepper.bathroomFeaturesDescription",
-                                        "type": "multi",
-                                        "items": [
-                                            { "name": "stepper.shower", "minPrice": 2720 },
-                                            { "name": "stepper.bath Hub", "minPrice": 2720 },
-                                            { "name": "stepper.toilet", "minPrice": 2720 },
-                                            { "name": "stepper.washBasing", "minPrice": 2720 },
-                                            { "name": "stepper.doubleWashBasing", "minPrice": 2720 },
-                                            { "name": "stepper.towelRadiator", "minPrice": 2720 },
-                                            { "name": "stepper.ceiling", "minPrice": 2720 },
-                                        ],
-                                        "nextStep": null,
-                                        "lastStep": true,
-                                    },
-                                },
-                            }
-                        },
-                    },
-                    {
                         "name": "stepper.roofAndInsulation",
                         "icon": "🧱",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.roofAndInsulationInfo",
                             "title": "stepper.roofAndInsulationTitle",
@@ -1256,6 +1178,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.facade",
                         "icon": "🛠",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.facadeName",
                             "title": "stepper.facadeTitle",
@@ -1297,6 +1220,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.floorPlan",
                         "icon": "𓉩",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.floorPlanName",
                             "title": "stepper.floorPlanTitle",
@@ -1345,6 +1269,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.stairs",
                         "icon": "𓊍",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.stairsInfo",
                             "title": "stepper.stairsInfo",
@@ -1387,6 +1312,7 @@ export const STEPS_DATA = [
                     {
                         "name": "stepper.supplyLines",
                         "icon": "🚰",
+                        "disabled": true,
                         "items": {
                             "name": "stepper.supplyLinesInfo",
                             "title": "stepper.supplyLinesInfo",
@@ -1403,6 +1329,12 @@ export const STEPS_DATA = [
                     },
                 ]
             },
+            {
+                "type": "select",
+                "icon": "🧩",
+                "name": "stepper.houseExtension",
+                "href": '/configurator'
+            }
         ]
-    },
+    }
 ]
