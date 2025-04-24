@@ -4,7 +4,7 @@
 
 
 body {
-  font-family: "Ubuntu" !important;
+  font-family: "Poppins" !important;
 }
 
 
@@ -68,10 +68,10 @@ body {
 
   @layer base {
     @font-face {
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-weight: 400;
-      src: url('/Ubuntu-M.ttf');
+      font-family: 'Poppins';
+      font-style: bold;
+      font-weight: 600;
+      src: url('/poppins.ttf');
     }
     * {
       @apply border-border;

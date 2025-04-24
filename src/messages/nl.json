@@ -112,6 +112,7 @@
     "surface": {
       "title": "Oppervlakte",
       "width": "Breedte",
+      "meter":"Meter",
       "depth": "Diepte",
       "guide": "Voer de oppervlakte van uw huis of appartement in om een geschatte prijs voor uw offerteaanvraag te krijgen."
     },
@@ -130,7 +131,7 @@
       "title": "Gevelbekleding",
       "description": "Kies uw geveltype",
       "plastic": {
-        "title": "Plastic",
+        "title": "Trespa",
         "dark": "Donkere plastic gevelbekleding",
         "white": "Witte plastic gevelbekleding",
         "green": "Groene plastic gevelbekleding",

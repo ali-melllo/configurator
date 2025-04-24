@@ -6,112 +6,118 @@ export const MATERIALS = {
   exterior: [
     {
       key: "facade",
+      calculation:"per-sq",
       name: "configurator.facade.title",
       description: "configurator.facade.description",
       items: [
         {
           name: "configurator.facade.plastic.title",
           items: [
-            { src: "/plastic-selector-1.svg", objectSrc: "/facade-plastic-1.png", price: "400", fullName: "configurator.facade.plastic.dark" },
-            { src: "/plastic-selector-2.svg", objectSrc: "/facade-plastic-2.png", price: "400", fullName: "configurator.facade.plastic.white" },
-            { src: "/plastic-selector-3.svg", objectSrc: "/facade-plastic-3.png", price: "400", fullName: "configurator.facade.plastic.green" },
-            { src: "/plastic-selector-4.svg", objectSrc: "/facade-plastic-4.png", price: "400", fullName: "configurator.facade.plastic.brown" },
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/plastic-selector-1.svg", objectSrc: "/facade-plastic-1.png", price: "160", hours: "3", fullName: "configurator.facade.plastic.dark" },
+            { src: "/plastic-selector-2.svg", objectSrc: "/facade-plastic-2.png", price: "160", hours: "3", fullName: "configurator.facade.plastic.white" },
+            { src: "/plastic-selector-3.svg", objectSrc: "/facade-plastic-3.png", price: "160", hours: "3", fullName: "configurator.facade.plastic.green" },
+            { src: "/plastic-selector-4.svg", objectSrc: "/facade-plastic-4.png", price: "160", hours: "3", fullName: "configurator.facade.plastic.brown" },
           ]
         },
         {
           name: "configurator.facade.composite.title",
           items: [
-            { src: "/composite-selector-1.svg", objectSrc: "/facade-composite-1.png", price: "400", fullName: "configurator.facade.composite.horizontalBrown" },
-            { src: "/composite-selector-2.svg", objectSrc: "/facade-composite-2.png", price: "450", fullName: "configurator.facade.composite.verticalBrown" },
-            { src: "/composite-selector-3.svg", objectSrc: "/facade-composite-3.png", price: "450", fullName: "configurator.facade.composite.horizontalDarkBrown" },
-            { src: "/composite-selector-4.svg", objectSrc: "/facade-composite-4.png", price: "450", fullName: "configurator.facade.composite.verticalDarkBrown" },
-            { src: "/composite-selector-5.svg", objectSrc: "/facade-composite-5.png", price: "450", fullName: "configurator.facade.composite.horizontalGray" },
-            { src: "/composite-selector-6.svg", objectSrc: "/facade-composite-6.png", price: "450", fullName: "configurator.facade.composite.verticalGray" },
-            { src: "/composite-selector-7.svg", objectSrc: "/facade-composite-7.png", price: "450", fullName: "configurator.facade.composite.horizontalDark" },
-            { src: "/composite-selector-8.svg", objectSrc: "/facade-composite-8.png", price: "450", fullName: "configurator.facade.composite.verticalDark" },
+            { src: "/composite-selector-1.svg", objectSrc: "/facade-composite-1.png", price: "180", hours: "4", fullName: "configurator.facade.composite.horizontalBrown" },
+            { src: "/composite-selector-2.svg", objectSrc: "/facade-composite-2.png", price: "180", hours: "4", fullName: "configurator.facade.composite.verticalBrown" },
+            { src: "/composite-selector-3.svg", objectSrc: "/facade-composite-3.png", price: "180", hours: "4", fullName: "configurator.facade.composite.horizontalDarkBrown" },
+            { src: "/composite-selector-4.svg", objectSrc: "/facade-composite-4.png", price: "180", hours: "4", fullName: "configurator.facade.composite.verticalDarkBrown" },
+            { src: "/composite-selector-5.svg", objectSrc: "/facade-composite-5.png", price: "180", hours: "4", fullName: "configurator.facade.composite.horizontalGray" },
+            { src: "/composite-selector-6.svg", objectSrc: "/facade-composite-6.png", price: "180", hours: "4", fullName: "configurator.facade.composite.verticalGray" },
+            { src: "/composite-selector-7.svg", objectSrc: "/facade-composite-7.png", price: "180", hours: "4", fullName: "configurator.facade.composite.horizontalDark" },
+            { src: "/composite-selector-8.svg", objectSrc: "/facade-composite-8.png", price: "180", hours: "4", fullName: "configurator.facade.composite.verticalDark" },
           ]
         },
         {
           name: "configurator.facade.brick.title",
           items: [
-            { src: "/brick-selector-1.svg", objectSrc: "/brick-1.png", price: "400", fullName: "configurator.facade.brick.horizontalBrown" },
-            { src: "/brick-selector-2.svg", objectSrc: "/brick-2.png", price: "450", fullName: "configurator.facade.brick.verticalBrown" },
-            { src: "/brick-selector-3.svg", objectSrc: "/brick-3.png", price: "450", fullName: "configurator.facade.brick.horizontalDarkBrown" },
-            { src: "/brick-selector-4.svg", objectSrc: "/brick-4.png", price: "450", fullName: "configurator.facade.brick.verticalDarkBrown" },
-            { src: "/brick-selector-5.svg", objectSrc: "/brick-5.png", price: "450", fullName: "configurator.facade.brick.horizontalGray" },
-            { src: "/brick-selector-6.svg", objectSrc: "/brick-6.png", price: "450", fullName: "configurator.facade.brick.verticalGray" },
+            { src: "/brick-selector-1.svg", objectSrc: "/brick-1.png", price: "220", hours: "4", fullName: "configurator.facade.brick.horizontalBrown" },
+            { src: "/brick-selector-2.svg", objectSrc: "/brick-2.png", price: "220", hours: "4", fullName: "configurator.facade.brick.verticalBrown" },
+            { src: "/brick-selector-3.svg", objectSrc: "/brick-3.png", price: "220", hours: "4", fullName: "configurator.facade.brick.horizontalDarkBrown" },
+            { src: "/brick-selector-4.svg", objectSrc: "/brick-4.png", price: "220", hours: "4", fullName: "configurator.facade.brick.verticalDarkBrown" },
+            { src: "/brick-selector-5.svg", objectSrc: "/brick-5.png", price: "220", hours: "4", fullName: "configurator.facade.brick.horizontalGray" },
+            { src: "/brick-selector-6.svg", objectSrc: "/brick-6.png", price: "220", hours: "4", fullName: "configurator.facade.brick.verticalGray" },
           ]
         }
       ]
     },
     {
       key: "frames",
+      calculation:"per-m",
       name: "configurator.frames.title",
       description: "configurator.frames.description",
       items: [
         {
           name: "configurator.badge.dark",
           items: [
-            { src: "/layout-selector-1.svg", objectSrc: "/layout-1.png", price: "400", fullName: "configurator.frames.manualDark", badge: "configurator.badge.dark" },
-            { src: "/layout-selector-2.svg", objectSrc: "/layout-2.png", price: "850", fullName: "configurator.frames.slidingDarkLined", badge: "configurator.badge.dark" },
-            { src: "/layout-selector-3.svg", objectSrc: "/layout-3.png", price: "650", fullName: "configurator.frames.glassRailedDark", badge: "configurator.badge.dark" },
-            { src: "/layout-selector-4.svg", objectSrc: "/layout-4.png", price: "650", fullName: "configurator.frames.slidingDark", badge: "configurator.badge.dark" }
+            { src: "/layout-selector-1.svg", objectSrc: "/layout-1.png", price: "1200", hours: "5", fullName: "configurator.frames.manualDark", badge: "configurator.badge.dark" },
+            { src: "/layout-selector-2.svg", objectSrc: "/layout-2.png", price: "1200", hours: "5", fullName: "configurator.frames.slidingDarkLined", badge: "configurator.badge.dark" },
+            { src: "/layout-selector-3.svg", objectSrc: "/layout-3.png", price: "1200", hours: "5", fullName: "configurator.frames.glassRailedDark", badge: "configurator.badge.dark" },
+            { src: "/layout-selector-4.svg", objectSrc: "/layout-4.png", price: "1200", hours: "5", fullName: "configurator.frames.slidingDark", badge: "configurator.badge.dark" }
           ]
         },
         {
           name: "configurator.badge.white",
           items: [
-            { src: "/layout-selector-1.svg", objectSrc: "/layout-white-1.png", price: "400", fullName: "configurator.frames.manualLight", badge: "configurator.badge.white" },
-            { src: "/layout-selector-2.svg", objectSrc: "/layout-white-2.png", price: "400", fullName: "configurator.frames.slidingLight", badge: "configurator.badge.white" },
-            { src: "/layout-selector-3.svg", objectSrc: "/layout-white-3.png", price: "400", fullName: "configurator.frames.glassRailedLight", badge: "configurator.badge.white" },
-            { src: "/layout-selector-4.svg", objectSrc: "/layout-white-4.png", price: "400", fullName: "configurator.frames.slidingLight", badge: "configurator.badge.white" },
+            { src: "/layout-selector-1.svg", objectSrc: "/layout-white-1.png", price: "1200", hours: "5", fullName: "configurator.frames.manualLight", badge: "configurator.badge.white" },
+            { src: "/layout-selector-2.svg", objectSrc: "/layout-white-2.png", price: "1200", hours: "5", fullName: "configurator.frames.slidingLight", badge: "configurator.badge.white" },
+            { src: "/layout-selector-3.svg", objectSrc: "/layout-white-3.png", price: "1200", hours: "5", fullName: "configurator.frames.glassRailedLight", badge: "configurator.badge.white" },
+            { src: "/layout-selector-4.svg", objectSrc: "/layout-white-4.png", price: "1200", hours: "5", fullName: "configurator.frames.slidingLight", badge: "configurator.badge.white" },
           ]
         },
       ]
     },
     {
       key: "dakoverstek",
+      calculation:"per-m",
       name: "configurator.dakoverstek.title",
       description: "configurator.dakoverstek.description",
       items: [
         {
           name: "configurator.dakoverstek.plastic.title",
           items: [
-            { src: "/daklicht-selector-1.svg", objectSrc: "/plastic-dakoverstek-1.png", price: "400", fullName: "configurator.dakoverstek.plastic.white" },
-            { src: "/dactrim-selector-2.svg", objectSrc: "/plastic-dakoverstek-2.png", price: "850", fullName: "configurator.dakoverstek.plastic.dark" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/plastic-dakoverstek-1.png", price: "280", hours: "2", fullName: "configurator.dakoverstek.plastic.white" },
+            { src: "/dactrim-selector-2.svg", objectSrc: "/plastic-dakoverstek-2.png", price: "280", hours: "2", fullName: "configurator.dakoverstek.plastic.dark" },
           ]
         },
         {
           name: "configurator.dakoverstek.plastic.woodTitle",
           items: [
-            { src: "/daklicht-selector-1.svg", objectSrc: "/wood-dakoverstek-1.png", price: "400", fullName: "configurator.dakoverstek.plastic.wood" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/wood-dakoverstek-1.png", price: "280", hours: "2", fullName: "configurator.dakoverstek.plastic.wood" },
           ]
         },
         {
           name: "configurator.dakoverstek.plastic.bouTitle",
           items: [
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/daklicht-selector-1.svg", objectSrc: "/boeideel-white.png", price: "400", fullName: "classic layout", badge: "configurator.badge.white" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/boeideel-white.png", price: "280", hours: "2", fullName: "configurator.dakoverstek.plastic.bouTitle", badge: "configurator.badge.white" },
           ]
         }
       ]
     },
     {
       key: "dactrim",
+      calculation:"per-m",
       name: "configurator.dactrim.title",
       description: "configurator.dactrim.description",
       items: [
         {
           name: "Color",
           items: [
-            { src: "/dactrim-selector-1.svg", objectSrc: "/dactrim-1.png", price: "400", fullName: "configurator.dactrim.aluminum" },
-            { src: "/dactrim-selector-2.svg", objectSrc: "/dactrim-2.png", price: "850", fullName: "configurator.dactrim.anthracite" },
+            { src: "/dactrim-selector-1.svg", objectSrc: "/dactrim-1.png", price: "180", hours: "2", fullName: "configurator.dactrim.aluminum" },
+            { src: "/dactrim-selector-2.svg", objectSrc: "/dactrim-2.png", price: "120", hours: "1", fullName: "configurator.dactrim.anthracite" },
           ]
         }
       ]
     },
     {
       key: "daklicht",
+      calculation:"per-sq",
       name: "configurator.daklicht.title",
       description: "configurator.daklicht.description",
       items: [
@@ -119,80 +125,86 @@ export const MATERIALS = {
           name: "Color",
           items: [
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/daklicht-selector-1.svg", objectSrc: "/daklicht-1.png", price: "400", fullName: "configurator.daklicht.white" },
-            { src: "/daklicht-selector-2.svg", objectSrc: "/daklicht-2.png", price: "850", fullName: "configurator.daklicht.dark" },
+            { src: "/daklicht-selector-1.svg", objectSrc: "/daklicht-1.png", price: "2500", hours: "30", fullName: "configurator.daklicht.white" },
+            { src: "/daklicht-selector-2.svg", objectSrc: "/daklicht-2.png", price: "2500", hours: "30", fullName: "configurator.daklicht.dark" },
           ]
         }
       ]
     },
     {
       key: "outdoor-light",
+      calculation:"per-p",
       name: "configurator.outDoorLight.title",
       description: "configurator.outDoorLight.description",
       items: [
         {
           name: "configurator.badge.dark",
           items: [
-            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-1.png", price: "400", fullName: "configurator.outDoorLight.left", badge: "configurator.badge.dark" },
-            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-2.png", price: "550", fullName: "configurator.outDoorLight.right", badge: "configurator.badge.dark" },
-            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-3.png", price: "850", fullName: "configurator.outDoorLight.leftAndRight", badge: "configurator.badge.dark" },
+            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-1.png", price: "160", hours: "7", fullName: "configurator.outDoorLight.left", badge: "configurator.badge.dark" },
+            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-2.png", price: "160", hours: "7", fullName: "configurator.outDoorLight.right", badge: "configurator.badge.dark" },
+            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-3.png", price: "160", piece : 2 , hours: "7", fullName: "configurator.outDoorLight.leftAndRight", badge: "configurator.badge.dark" },
           ]
         },
         {
           name: "configurator.badge.white",
           items: [
-            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-white-1.png", price: "850", fullName: "configurator.outDoorLight.whiteLeft", badge: "configurator.badge.white" },
-            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-white-2.png", price: "850", fullName: "configurator.outDoorLight.whiteRight", badge: "configurator.badge.white" },
-            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-white-3.png", price: "850", fullName: "configurator.outDoorLight.whiteLeftAndRight", badge: "configurator.badge.white" },
+            { src: "/outdoor-light-selector-1.svg", objectSrc: "/outdoor-light-white-1.png", price: "160", hours: "7", fullName: "configurator.outDoorLight.whiteLeft", badge: "configurator.badge.white" },
+            { src: "/outdoor-light-selector-2.svg", objectSrc: "/outdoor-light-white-2.png", price: "160", hours: "7", fullName: "configurator.outDoorLight.whiteRight", badge: "configurator.badge.white" },
+            { src: "/outdoor-light-selector-3.svg", objectSrc: "/outdoor-light-white-3.png", price: "160", piece : 2 , hours: "7", fullName: "configurator.outDoorLight.whiteLeftAndRight", badge: "configurator.badge.white" },
           ]
         }
       ]
     },
     {
       key: "outdoor-socket",
+      calculation:"per-p",
       name: "configurator.outDoorSocket.title",
       description: "configurator.outDoorSocket.description",
       items: [
         {
           name: "configurator.outDoorSocket.darkTitle",
           items: [
-            { src: "/socket-selector-1.svg", objectSrc: "/socket-dark-1.png", price: "400", fullName: "configurator.outDoorSocket.leftDark", badge: "configurator.badge.dark" },
-            { src: "/socket-selector-2.svg", objectSrc: "/socket-dark-2.png", price: "550", fullName: "configurator.outDoorSocket.rightDark", badge: "configurator.badge.dark" },
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/socket-selector-1.svg", objectSrc: "/socket-dark-1.png", price: "170", hours: "7", fullName: "configurator.outDoorSocket.leftDark", badge: "configurator.badge.dark" },
+            { src: "/socket-selector-2.svg", objectSrc: "/socket-dark-2.png", price: "170", hours: "7", fullName: "configurator.outDoorSocket.rightDark", badge: "configurator.badge.dark" },
           ]
         },
         {
           name: "configurator.outDoorSocket.whiteTitle",
           items: [
-            { src: "/socket-selector-1.svg", objectSrc: "/socket-white-1.png", price: "850", fullName: "configurator.outDoorSocket.leftWhite", badge: "configurator.badge.white" },
-            { src: "/socket-selector-2.svg", objectSrc: "/socket-white-2.png", price: "850", fullName: "configurator.outDoorSocket.rightWhite", badge: "configurator.badge.white" },
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/socket-selector-1.svg", objectSrc: "/socket-white-1.png", price: "170", hours: "7", fullName: "configurator.outDoorSocket.leftWhite", badge: "configurator.badge.white" },
+            { src: "/socket-selector-2.svg", objectSrc: "/socket-white-2.png", price: "170", hours: "7", fullName: "configurator.outDoorSocket.rightWhite", badge: "configurator.badge.white" },
           ]
         },
         {
           name: "configurator.outDoorSocket.tapTitle",
           items: [
-            { src: "/tap-selector-1.svg", objectSrc: "/tap-1.png", price: "850", fullName: "configurator.outDoorSocket.rightTap" },
-            { src: "/tap-selector-2.svg", objectSrc: "/tap-2.png", price: "850", fullName: "configurator.outDoorSocket.leftTap" },
+            { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
+            { src: "/tap-selector-1.svg", objectSrc: "/tap-1.png", price: "280", hours: "7", fullName: "configurator.outDoorSocket.rightTap" },
+            { src: "/tap-selector-2.svg", objectSrc: "/tap-2.png", price: "280", hours: "7", fullName: "configurator.outDoorSocket.leftTap" },
           ]
         }
       ]
     },
     {
       key: "rain-pipe",
+      calculation:"per-p",
       name: "configurator.rainPipes.title",
       description: "configurator.rainPipes.description",
       items: [
         {
           name: "configurator.rainPipes.pvc.title",
           items: [
-            { src: "/rain-pipe-pvc-selector-1.svg", objectSrc: "/rain-pipe-pvc-1.png", price: "400", fullName: "configurator.rainPipes.pvc.gray" },
-            { src: "/rain-pipe-pvc-selector-2.svg", objectSrc: "/rain-pipe-pvc-2.png", price: "550", fullName: "configurator.rainPipes.pvc.dark" },
+            { src: "/rain-pipe-pvc-selector-1.svg", objectSrc: "/rain-pipe-pvc-1.png", price: "300", piece : 2 , hours: "10", fullName: "configurator.rainPipes.pvc.gray" },
+            { src: "/rain-pipe-pvc-selector-2.svg", objectSrc: "/rain-pipe-pvc-2.png", price: "300", piece : 2 , hours: "10", fullName: "configurator.rainPipes.pvc.dark" },
           ]
         },
         {
           name: "configurator.rainPipes.zinc.title",
           items: [
-            { src: "/rain-pipe-zinc-selector-1.svg", objectSrc: "/rain-pipe-zinc-1.png", price: "400", fullName: "configurator.rainPipes.zinc.light" },
-            { src: "/rain-pipe-zinc-selector-2.svg", objectSrc: "/rain-pipe-zinc-2.png", price: "550", fullName: "configurator.rainPipes.zinc.dark" },
+            { src: "/rain-pipe-zinc-selector-1.svg", objectSrc: "/rain-pipe-zinc-1.png", price: "400", piece : 2,  hours: "12", fullName: "configurator.rainPipes.zinc.light" },
+            { src: "/rain-pipe-zinc-selector-2.svg", objectSrc: "/rain-pipe-zinc-2.png", price: "400", piece : 2 , hours: "12", fullName: "configurator.rainPipes.zinc.dark" },
           ]
         }
       ]
@@ -201,15 +213,16 @@ export const MATERIALS = {
   inside: [
     {
       key: "heating",
+      calculation:"per-p",
       name: "configurator.heating.title",
       description: "configurator.heating.description",
       items: [
         {
           name: "configurator.heating.align",
           items: [
-            { src: "/heating-inside-selector-1.svg", objectSrc: "/heating-inside-1.png", price: "400", fullName: "configurator.heating.left" },
-            { src: "/heating-inside-selector-2.svg", objectSrc: "/heating-inside-2.png", price: "560", fullName: "configurator.heating.right" },
-            { src: "/heating-inside-selector-3.svg", objectSrc: "/heating-inside-3.png", price: "770", fullName: "configurator.heating.leftAndRight" },
+            { src: "/heating-inside-selector-1.svg", objectSrc: "/heating-inside-1.png", price: "180", hours: "2.5", fullName: "configurator.heating.left" },
+            { src: "/heating-inside-selector-2.svg", objectSrc: "/heating-inside-2.png", price: "180", hours: "2.5", fullName: "configurator.heating.right" },
+            { src: "/heating-inside-selector-3.svg", objectSrc: "/heating-inside-3.png", price: "180" , piece : 2 , hours: "2.5", fullName: "configurator.heating.leftAndRight" },
 
           ]
         }
@@ -217,6 +230,7 @@ export const MATERIALS = {
     },
     {
       key: "light-switch",
+      calculation:"per-p",
       name: "configurator.lightSwitch.title",
       description: "configurator.lightSwitch.title",
       items: [
@@ -239,6 +253,7 @@ export const MATERIALS = {
     },
     {
       key: "outdoor-light-switch",
+      calculation:"per-p",
       name: "configurator.outDoorLightSwitch.title",
       description: "configurator.outDoorLightSwitch.description",
       items: [
@@ -246,15 +261,15 @@ export const MATERIALS = {
           name: "configurator.badge.dark",
           items: [
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-dark-1.png", price: "400", fullName: "configurator.outDoorLightSwitch.leftDark", badge: "dark" },
-            { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-dark-2.png", price: "560", fullName: "configurator.outDoorLightSwitch.rightDark", badge: "dark" },
+            { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-dark-1.png", price: "180", hours: "4", fullName: "configurator.outDoorLightSwitch.leftDark", badge: "dark" },
+            { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-dark-2.png", price: "180", hours: "4", fullName: "configurator.outDoorLightSwitch.rightDark", badge: "dark" },
           ]
         },
         {
           name: "configurator.badge.white",
           items: [
-            { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-white-1.png", price: "560", fullName: "configurator.outDoorLightSwitch.leftWhite", badge: "white" },
-            { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-white-2.png", price: "560", fullName: "configurator.outDoorLightSwitch.rightWhite", badge: "white" },
+            { src: "/outdoor-light-switch-selector-1.svg", objectSrc: "/outdoor-light-switch-white-1.png", price: "180", hours: "4", fullName: "configurator.outDoorLightSwitch.leftWhite", badge: "white" },
+            { src: "/outdoor-light-switch-selector-2.svg", objectSrc: "/outdoor-light-switch-white-2.png", price: "180", hours: "4", fullName: "configurator.outDoorLightSwitch.rightWhite", badge: "white" },
           ]
         },
       ]
@@ -298,6 +313,7 @@ export const MATERIALS = {
     // },
     {
       key: "wall-lamps",
+      calculation:"per-p",
       name: "configurator.wallLamps.title",
       description: "configurator.wallLamps.description",
       items: [
@@ -305,23 +321,24 @@ export const MATERIALS = {
           name: "configurator.badge.dark",
           items: [
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-1.png", price: "400", fullName: "configurator.wallLamps.leftDark", badge: "configurator.badge.dark" },
-            { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-2.png", price: "560", fullName: "configurator.wallLamps.rightDark", badge: "configurator.badge.dark" },
-            { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-3.png", price: "770", fullName: "configurator.wallLamps.leftAndRightDark", badge: "configurator.badge.dark" },
+            { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-1.png", price: "250", hours: "7", fullName: "configurator.wallLamps.leftDark", badge: "configurator.badge.dark" },
+            { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-2.png", price: "250", hours: "7", fullName: "configurator.wallLamps.rightDark", badge: "configurator.badge.dark" },
+            { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-3.png", price: "250", piece : 2 , hours: "7", fullName: "configurator.wallLamps.leftAndRightDark", badge: "configurator.badge.dark" },
           ]
         },
         {
           name: "configurator.badge.dark",
           items: [
-            { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-white-1.png", price: "770", fullName: "configurator.wallLamps.leftWhite", badge: "configurator.badge.white" },
-            { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-white-2.png", price: "770", fullName: "configurator.wallLamps.rightWhite", badge: "configurator.badge.white" },
-            { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-white-3.png", price: "770", fullName: "configurator.wallLamps.leftAndRightDark", badge: "configurator.badge.white" },
+            { src: "/wall-lamps-selector-1.svg", objectSrc: "/wall-lamps-white-1.png", price: "250", hours: "7", fullName: "configurator.wallLamps.leftWhite", badge: "configurator.badge.white" },
+            { src: "/wall-lamps-selector-2.svg", objectSrc: "/wall-lamps-white-2.png", price: "250", hours: "7", fullName: "configurator.wallLamps.rightWhite", badge: "configurator.badge.white" },
+            { src: "/wall-lamps-selector-3.svg", objectSrc: "/wall-lamps-white-3.png", price: "250", piece : 2 , hours: "7", fullName: "configurator.wallLamps.leftAndRightDark", badge: "configurator.badge.white" },
           ]
         }
       ]
     },
     {
       key: "light-point",
+      calculation:"per-p",
       name: "configurator.lightPoint.title",
       description: "configurator.lightPoint.description",
       items: [
@@ -329,9 +346,9 @@ export const MATERIALS = {
           name: "configurator.lightPoint.align",
           items: [
             { src: "/remove.svg", objectSrc: "", price: "", fullName: "" },
-            { src: "/light-point-selector-1.svg", objectSrc: "/light-point-1.png", price: "400", fullName: "configurator.lightPoint.left" },
-            { src: "/light-point-selector-2.svg", objectSrc: "/light-point-2.png", price: "560", fullName: "configurator.lightPoint.right" },
-            { src: "/light-point-selector-3.svg", objectSrc: "/light-point-3.png", price: "770", fullName: "configurator.lightPoint.leftAndRight" },
+            { src: "/light-point-selector-1.svg", objectSrc: "/light-point-1.png", price: "180", hours: "5", fullName: "configurator.lightPoint.left" },
+            { src: "/light-point-selector-2.svg", objectSrc: "/light-point-2.png", price: "180", hours: "5", fullName: "configurator.lightPoint.right" },
+            { src: "/light-point-selector-3.svg", objectSrc: "/light-point-3.png", price: "180", piece : 2 ,hours: "5", fullName: "configurator.lightPoint.leftAndRight" },
           ]
         }
       ]

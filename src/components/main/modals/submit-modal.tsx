@@ -14,7 +14,7 @@ import { formatEuroPrice } from "@/lib/utils";
 import { Button } from "../../ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { DateRange } from "react-day-picker";
-import { addDays } from "date-fns";
+import { addDays, format } from "date-fns";
 import { useLang } from "@/contexts/LangContext";
 import emailjs from "@emailjs/browser";
 
@@ -26,8 +26,8 @@ export default function SubmitModal() {
 
     const [emailLoading, setEmailLoading] = useState<boolean>(false);
     const [date, setDate] = useState<DateRange | undefined>({
-        from: new Date(2022, 0, 20),
-        to: addDays(new Date(2022, 0, 20), 20),
+        from: new Date(),
+        to: addDays(new Date(), 20),
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -36,13 +36,57 @@ export default function SubmitModal() {
     const dispatch = useDispatch();
 
     const getExteriorPrice = useCallback(() => {
-        return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+        return finalQuote.exterior.reduce((total: number, item: any) => {
+            return total + (
+                item.calc === 'per-sq' || item.calc === 'per-m'
+                    ? Number(item.price) * Number(item.meter) :
+                    (item.calc === 'per-p' && item.piece) ? Number(item.price * item.piece) || 0
+                        : Number(item.price) || 0
+            );
+        }, 0);
     }, [finalQuote]);
+
 
     const getInsidePrice = useCallback(() => {
-        return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+        return finalQuote.interior.reduce((total: number, item: any) => {
+            return total + (
+                item.calc === 'per-sq' || item.calc === 'per-m'
+                    ? Number(item.price) * Number(item.meter) :
+                    (item.calc === 'per-p' && item.piece) ? Number(item.price * item.piece) || 0
+                        : Number(item.price) || 0
+            );
+        }, 0);
     }, [finalQuote]);
 
+    const getExteriorHours = useCallback(() => {
+        return finalQuote.exterior.reduce((total: number, item: any) => {
+            let hours = 0;
+
+            if (item.calc === 'per-sq' && item.key === 'daklicht') {
+                hours = Number(item.hours) || 0;
+            } else if (item.calc === 'per-sq' || item.calc === 'per-m') {
+                hours = (Number(item.hours) || 0) * (Number(item.meter) || 0);
+            } else {
+                hours = Number(item.hours) || 0;
+            }
+
+            return total + hours;
+        }, 0);
+    }, [finalQuote]);
+
+
+    const getInsideHours = useCallback(() => {
+        return finalQuote.interior.reduce((total: number, item: any) => {
+            let hours = 0;
+            if (item.calc === 'per-sq' || item.calc === 'per-m') {
+                hours = (Number(item.hours) || 0) * (Number(item.meter) || 0);
+            } else {
+                hours = Number(item.hours) || 0;
+            }
+
+            return total + hours;
+        }, 0);
+    }, [finalQuote]);
 
     // const sendEmail = useCallback(async (data: any) => {
     //     setEmailLoading(true);
@@ -89,6 +133,11 @@ export default function SubmitModal() {
     //     }
     // }, [dispatch, finalQuote, getExteriorPrice, getInsidePrice]);
 
+    const allSelectedServices = [...finalQuote.exterior, ...finalQuote.interior]
+        .map((item) => t(item.objectName))
+        .join(' --- ');
+
+    console.log(allSelectedServices)
 
     const sendEmail = async (data: any) => {
         setEmailLoading(true);
@@ -106,9 +155,12 @@ export default function SubmitModal() {
                     surface: finalQuote.surface,
                     depth: finalQuote.depth,
                     width: finalQuote.width,
-                    date: `from ${date?.from} to ${date?.to}`,
-                    exteriorPrice: getExteriorPrice(),
-                    insidePrice: getInsidePrice(),
+                    date: `from ${format( date?.from || new Date() , "PPP")} to ${format( date?.to || new Date() , "PPP")}`,
+                    exteriorPrice: `${getExteriorPrice()} (€)`,
+                    exteriorHours: getExteriorHours(),
+                    insideHours: getInsideHours(),
+                    orders: allSelectedServices,
+                    insidePrice: `${getInsidePrice()} (€)`,
                     totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
                 },
                 "UnRKLwsh1brqQCDWV"
@@ -120,16 +172,19 @@ export default function SubmitModal() {
                 {
                     from_name: "Persian top Manager",
                     to_name: data.fullName,
-                    to_email: "ali.melllo@yahoo.com",
+                    to_email: data.email,
                     address: data.address,
                     phone: data.phone,
                     zipcode: data.zipcode,
                     surface: finalQuote.surface,
                     depth: finalQuote.depth,
                     width: finalQuote.width,
-                    date: `from ${date?.from} to ${date?.to}`,
-                    exteriorPrice: getExteriorPrice(),
-                    insidePrice: getInsidePrice(),
+                    date: `from ${format( date?.from || new Date() , "PPP")} to ${format( date?.to || new Date() , "PPP")}`,
+                    exteriorPrice: `${getExteriorPrice()} (€)`,
+                    exteriorHours: getExteriorHours(),
+                    orders: allSelectedServices,
+                    insideHours: getInsideHours(),
+                    insidePrice: `${getInsidePrice()} (€)`,
                     totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
                 },
                 "UnRKLwsh1brqQCDWV"
@@ -172,11 +227,11 @@ export default function SubmitModal() {
                                 </div>
                                 <div className="flex flex-row justify-between gap-x-3 items-center">
                                     <Label className="font-semibold text-base">{t("finalQuote.exterior")}:</Label>
-                                    <Label className="text-base text-muted-foreground">€ {getExteriorPrice()} , {Math.trunc(getExteriorPrice() / 3)} {t("finalQuote.hours")}</Label>
+                                    <Label className="text-base text-muted-foreground">€ {getExteriorPrice()} , {getExteriorHours()} {t("finalQuote.hours")}</Label>
                                 </div>
                                 <div className="flex flex-row justify-between gap-x-3 items-center">
                                     <Label className="font-semibold text-base">{t("finalQuote.inside")}:</Label>
-                                    <Label className="text-base text-muted-foreground">€ {getInsidePrice()} , {Math.trunc(getInsidePrice() / 3)} {t("finalQuote.hours")}</Label>
+                                    <Label className="text-base text-muted-foreground">€ {getInsidePrice()} , {getInsideHours()} {t("finalQuote.hours")}</Label>
                                 </div>
                                 <div className="flex flex-row justify-between gap-x-3 items-center">
                                     <Label className="font-semibold text-base">{t("finalQuote.total")}:</Label>

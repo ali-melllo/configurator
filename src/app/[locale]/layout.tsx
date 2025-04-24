@@ -1,6 +1,5 @@
 import "./styles/globals.css";
 import ClientProviders from "./ClientProviders";
-import { notFound } from 'next/navigation';
 import LangProvider from "@/contexts/LangContext";
 
 export default async function RootLayout({

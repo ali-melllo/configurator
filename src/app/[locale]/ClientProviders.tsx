@@ -10,7 +10,7 @@ import FrequentlyAskedModal from "@/components/main/modals/frequently-asked-moda
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
+    <ThemeProvider attribute="class" defaultTheme="dark">
       <TooltipProvider delayDuration={0}>
         <Toaster />
         <Provider store={store}>

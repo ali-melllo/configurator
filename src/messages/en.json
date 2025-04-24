@@ -112,13 +112,14 @@
     "surface": {
       "title": "Surface Area",
       "width": "Width",
+      "meter":"Meter",
       "depth": "Depth",
       "guide": "Please Enter Your house or apartment Surface area to get an estimated price for your quote request."
     },
     "inside": "Inside",
     "exterior": "Exterior",
     "totalEstimate": "Total Estimate",
-    "details": "seeDetails",
+    "details": "See Details",
     "houseBefore1980": "House Is Built Before 1980",
     "checkoutTitle": "Check Out Order Price",
     "checkoutNote": "You'll see an estimated price below , you'll the exact price after craftsman called you",

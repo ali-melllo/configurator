@@ -21,22 +21,22 @@ interface GlobalState {
     interior: any[],
     constructionOld: boolean
   };
-  buildingStep:number | null;
+  buildingStep: number | null;
 }
 
 const initialState: GlobalState = {
   showExterior: false,
   showFrequentlyAskedModal: false,
   showFinalQuoteModal: false,
-  buildingStep:null,
+  buildingStep: null,
   showInside: false,
-  showPreview:false,
+  showPreview: false,
   view: "exterior",
   finalQuote: {
     surface: "",
     width: "",
     depth: "",
-    constructionOld:false,
+    constructionOld: false,
     exterior: [],
     interior: []
   }
@@ -97,6 +97,12 @@ export const globalSlice: any = createSlice({
         state.finalQuote.exterior.push(action.payload);
       }
     },
+    updateExteriorItemMeter: (state, action: PayloadAction<any>) => {
+      const existingIndex = state.finalQuote.exterior.findIndex(item => item.key === action.payload.key);
+      if (existingIndex !== -1) {
+        state.finalQuote.exterior[existingIndex].meter = action.payload.meter;
+      }
+    },
     addToInside: (state, action: PayloadAction<any>) => {
       const existingIndex = state.finalQuote.interior.findIndex(item => item.key === action.payload.key);
       if (existingIndex !== -1) {
@@ -126,7 +132,8 @@ export const {
   changeFrequentlyAskedModal,
   setBuildingStep,
   changeConstructionOld,
-  changePreview
+  changePreview,
+  updateExteriorItemMeter
 } = globalSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

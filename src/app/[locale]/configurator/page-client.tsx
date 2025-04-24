@@ -29,14 +29,28 @@ export default function PageClient() {
   }, [dispatch])
 
   const getExteriorPrice = useCallback(() => {
-    return finalQuote.exterior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+    return finalQuote.exterior.reduce((total: number, item: any) => {
+      return total + (
+        item.calc === 'per-sq' || item.calc === 'per-m'
+          ? Number(item.price) * Number(item.meter) :
+          (item.calc === 'per-p' && item.piece) ? Number(item.price * item.piece) || 0
+            : Number(item.price) || 0
+      );
+    }, 0);
   }, [finalQuote]);
+
 
   const getInsidePrice = useCallback(() => {
-    return finalQuote.interior.reduce((total: any, item: any) => total + (Number(item.price) || 0), 0);
+    return finalQuote.interior.reduce((total: number, item: any) => {
+      return total + (
+        item.calc === 'per-sq' || item.calc === 'per-m'
+          ? Number(item.price) * Number(item.meter) :
+          (item.calc === 'per-p' && item.piece) ? Number(item.price * item.piece) || 0
+            : Number(item.price) || 0
+      );
+    }, 0);
   }, [finalQuote]);
 
-  
   return (
     <main className="relative overflow-hidden shadow-2xl flex h-6/12 md:h-screen">
 
@@ -107,7 +121,7 @@ export default function PageClient() {
 
       <SubmitModal />
 
-      <PreviewModal/>
+      <PreviewModal />
 
     </main>
   );
