@@ -605,7 +605,8 @@
     "total": "Totaal",
     "hours": "Uren",
     "preview": "3D Voorbeeld",
-    "submit": "Aanvraag indienen"
+    "submit": "Aanvraag indienen",
+    "cancel": "Annuleren"
   },
   "form": {
     "fullName": "Volledige naam",

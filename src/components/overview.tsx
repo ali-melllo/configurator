@@ -27,6 +27,7 @@ import emailjs from "@emailjs/browser";
 export default function Overview({ selectedSteps, estimate, estimateHours }: { selectedSteps: any[], estimate: number, estimateHours: number; }) {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [open, setOpen] = useState(false);
 
     const { t } = useLang();
 
@@ -160,6 +161,7 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
             toast.error("An error occurred. Please try again.");
             console.error("EmailJS error:", error);
         } finally {
+            setOpen(false);
             setLoading(false);
             dispatch(setBuildingStep(null));
         }
@@ -241,15 +243,13 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
 
             </div>
 
-            <AlertDialog>
-                <AlertDialogTrigger>
+            <Button onClick={() => setOpen(true)} className="absolute flex top-32 md:top-20 right-3 md:right-10 font-semibold text-base" >
+                <Send />
+                {loading ? <Loader className="animate-spin" /> : t("stepper.send")}
+            </Button>
 
-                    <Button className="absolute flex top-32 md:top-20 right-3 md:right-10 font-semibold text-base" >
-                        <Send />
-                        {loading ? <Loader className="animate-spin" /> : t("stepper.send")}
-                    </Button>
+            <AlertDialog open={open} onOpenChange={setOpen}>
 
-                </AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
                         <AlertDialogTitle>{t("finalQuote.title")}</AlertDialogTitle>
@@ -303,11 +303,11 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
                             </div>
 
                             <AlertDialogFooter>
-                                <AlertDialogCancel className="md:w-6/12 h-12">{t("common.cancel")}</AlertDialogCancel>
-                                <AlertDialogAction className="md:w-6/12 h-12 font-semibold" disabled={loading} type="submit">
+                                <AlertDialogCancel className="md:w-6/12 h-12">{t("finalQuote.cancel")}</AlertDialogCancel>
+                                <Button className="md:w-6/12 h-12 font-semibold" disabled={loading} type="submit">
                                     <Send />
                                     {loading ? <Loader className="animate-spin" /> : t("finalQuote.submit")}
-                                </AlertDialogAction>
+                                </Button>
                             </AlertDialogFooter>
                         </form>
                     </div>
