@@ -22,8 +22,9 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { useForm } from "react-hook-form";
 import { useLang } from "@/contexts/LangContext";
+import emailjs from "@emailjs/browser";
 
-export default function Overview({ selectedSteps, estimate }: { selectedSteps: any[], estimate: number }) {
+export default function Overview({ selectedSteps, estimate, estimateHours }: { selectedSteps: any[], estimate: number, estimateHours: number; }) {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -64,32 +65,105 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
         return formattedData;
     }, [selectedSteps])
 
+
+    const prepareDataForEmailSubmission = useCallback(() => {
+        const flattenedSteps = selectedSteps.flat(Infinity);
+
+        let resultString = "";
+
+        flattenedSteps.forEach((step) => {
+            if (typeof step === "object" && step !== null) {
+
+                const label = step.title || step.question || "Unnamed Step";
+
+                if (step.type === "date" && step.date) {
+                    const from = step.date?.from ? format(new Date(step.date.from), "PPP") : "N/A";
+                    const to = step.date?.to ? format(new Date(step.date.to), "PPP") : "N/A";
+                    resultString += ` ${t(label)}: From ${from} to ${to}\n`;
+                } else if (step.value !== undefined) {
+                    resultString += ` ${t(label)}: ${step.value}\n`;
+                }
+            }
+        });
+
+        return resultString.trim(); // remove trailing newline
+    }, [selectedSteps, t]);
+
+
+    // const sendEmail = useCallback(async (data: any) => {
+    //     setLoading(true);
+    //     const submissionData = prepareDataForSubmission();
+
+    //     try {
+    //         const response = await fetch("https://formspree.io/f/xnnjyppv", {
+    //             method: "POST",
+    //             headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    //             body: JSON.stringify({ ...submissionData, ...data, estimate: `${estimate} €` }),
+    //         });
+
+    //         const result = await response.json();
+
+    //         if (response.ok) {
+    //             toast.success(t("notifications.requestSuccess"));
+    //             dispatch(setBuildingStep(null));
+    //         } else {
+    //             toast.error(`Failed to send email: ${result.error || "Unknown error"}`);
+    //         }
+    //     } catch (error) {
+    //         toast.error("An error occurred. Please try again.");
+    //         console.error("Submission error:", error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // }, [dispatch, estimate, prepareDataForSubmission, t]);
+
+
     const sendEmail = useCallback(async (data: any) => {
         setLoading(true);
-        const submissionData = prepareDataForSubmission();
+        const submissionData = prepareDataForEmailSubmission();
 
         try {
-            const response = await fetch("https://formspree.io/f/xnnjyppv", {
-                method: "POST",
-                headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify({ ...submissionData, ...data, estimate: `${estimate} €` }),
-            });
+            const templateParams = {
+                ...data,
+                estimate: `${estimate} €`,
+                estimateHours: `${estimateHours} H`,
+            };
 
-            const result = await response.json();
+            await emailjs.send(
+                "service_qgdd31g",
+                "template_etjfih4",
+                {
+                    surface: "------",
+                    depth: "------",
+                    width: "------",
+                    from_name: "Persian top Company",
+                    to_name: templateParams.fullName,
+                    to_email: templateParams.email,
+                    address: templateParams.address,
+                    phone: templateParams.phone,
+                    zipcode: templateParams.zipcode,
+                    date: `from ${format(date?.from || new Date(), "PPP")} to ${format(date?.to || new Date(), "PPP")}`,
+                    orders: submissionData,
+                    insideHours: "--------",
+                    insidePrice: "--------",
+                    exteriorHours: "--------",
+                    exteriorPrice: "--------",
+                    totalPrice: templateParams.estimate,
+                    totalHours: templateParams.estimateHours,
+                },
+                "UnRKLwsh1brqQCDWV"
+            );
 
-            if (response.ok) {
-                toast.success(t("notifications.requestSuccess"));
-                dispatch(setBuildingStep(null));
-            } else {
-                toast.error(`Failed to send email: ${result.error || "Unknown error"}`);
-            }
+            toast.success(t("notifications.requestSuccess"));
+
         } catch (error) {
             toast.error("An error occurred. Please try again.");
-            console.error("Submission error:", error);
+            console.error("EmailJS error:", error);
         } finally {
             setLoading(false);
+            dispatch(setBuildingStep(null));
         }
-    }, [dispatch, estimate, prepareDataForSubmission, t]);
+    }, [date?.from, date?.to, dispatch, estimate, estimateHours, prepareDataForEmailSubmission, t]);
 
 
     return (
@@ -159,7 +233,9 @@ export default function Overview({ selectedSteps, estimate }: { selectedSteps: a
                         <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
                     </div> */}
                     <div className="flex items-center gap-3 ml-3 mt-3">
-                        <p className="font-semibold ">{t("stepper.estimate")} : </p><p className="text-primary font-bold text-xl">23,000 $</p>
+                        <p className="font-semibold">{t("stepper.estimate")} : </p><p className="text-primary font-bold text-xl"> {estimate} €</p>
+                        <p className="font-semibold">{t("stepper.estimateHours")} : </p><p className="text-primary font-bold text-xl">{estimateHours} H</p>
+
                     </div>
                 </div>
 

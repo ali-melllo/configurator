@@ -90,7 +90,7 @@ export default function Stepper() {
 
                     return returnData
                 } else {
-                    const returnData = [...prevData, { title: item.name, items: item.items || [], price: item.minPrice || 0 , hours : item.hours || 0 }]
+                    const returnData = [...prevData, { title: item.name, items: item.items || [], price: item.minPrice || 0, hours: item.hours || 0 }]
 
                     const prices = returnData.map((obj: any) => Number(obj.price) || 0);
                     const hours = returnData.map((obj: any) => Number(obj.hours) || 0);
@@ -313,7 +313,13 @@ export default function Stepper() {
                 </div>
 
 
-                {finalCheck && <Overview estimate={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} selectedSteps={gatheredData} />}
+                {finalCheck &&
+                    <Overview
+                        estimate={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)}
+                        estimateHours={[...stepHours, hours].reduce((sum: any, currentValue: any) => sum + currentValue, 0)}
+                        selectedSteps={gatheredData}
+                    />
+                }
 
 
                 {currentStep.type !== 'select' &&

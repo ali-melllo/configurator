@@ -137,8 +137,6 @@ export default function SubmitModal() {
         .map((item) => t(item.objectName))
         .join(' --- ');
 
-    console.log(allSelectedServices)
-
     const sendEmail = async (data: any) => {
         setEmailLoading(true);
         try {
@@ -170,7 +168,7 @@ export default function SubmitModal() {
                 "service_qgdd31g",
                 "template_etjfih4",
                 {
-                    from_name: "Persian top Manager",
+                    from_name: "Persian top Company",
                     to_name: data.fullName,
                     to_email: data.email,
                     address: data.address,
