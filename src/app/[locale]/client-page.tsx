@@ -15,7 +15,7 @@ import { useLang } from "@/contexts/LangContext";
 import { GALLERY_DATA } from "@/data/static";
 import { cn } from "@/lib/utils";
 import { setBuildingStep } from "@/redux/globalSlice";
-import { LayoutDashboard, Phone, Wrench } from "lucide-react";
+import { Box, Home, LayoutDashboard, Phone, Pointer, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -32,15 +32,22 @@ export default function ClientPage() {
 
   return (
     <div>
-      {buildingStep === null && <main className={`md:h-screen overflow-hidden w-full flex flex-col-reverse md:flex-row gap-10 items-center pt-24 md:pt-10 relative`}>
 
-        <div className="size-full  absolute inset-0">
+      {buildingStep === null && <div className="fixed flex justify-center items-center bottom-3 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]  right-3 md:bottom-8 md:right-8 size-14 rounded-full bg-primary shadow z-50">
+        <a href="tel:+31612345678" className="flex justify-center items-center size-full  cursor-pointer">
+  <Phone color="#ffffff" />
+</a>
+      </div>}
+
+      {buildingStep === null && <main className={`md:h-screen overflow-hidden w-full flex flex-col justify-center md:flex-row gap-10 items-center pt-0 md:pt-10 relative`}>
+
+        <div className="size-full h-screen inset-0">
           <img
             alt={'Persian Top'}
             src={'/test-hero.jpg'}
-            className="object-cover size-full [mask-image:radial-gradient(1300px_circle_at_right,white,transparent)]"
+            className=" object-cover size-full [mask-image:radial-gradient(3500px_circle_at_right,white,transparent)] dark:[mask-image:radial-gradient(500px_circle_at_center,white,transparent)] md:dark:[mask-image:radial-gradient(1800px_circle_at_right,white,transparent)]"
           />
-              <div className="bg-gradient-to-t from-background via-background/25 to-transparent size-full absolute inset-0"></div>
+          <div className="bg-gradient-to-t from-background via-transparent dark:via-background/10 to-transparent size-full absolute inset-0"></div>
         </div>
 
 
@@ -65,13 +72,13 @@ export default function ClientPage() {
           )}
         /> */}
 
-        <div className="flex z-20 items-center w-full px-20">
+        <div className="absolute flex z-20 items-center w-full px-3 md:px-20">
 
-          <div className="flex md:mt-0 flex-col w-6/12 justify-center">
-            <TextAnimate className="text-3xl break-words text-wrap mx-auto text-center md:text-left md:text-5xl font-bold" duration={500} animation="blurInUp" by="word">
+          <div className="flex md:mt-0 flex-col items-center w-full md:w-6/12 md:items-start">
+            <TextAnimate className="text-3xl break-words text-white text-wrap mx-auto md:mx-0 text-center md:text-left md:text-5xl !font-bold" duration={500} animation="blurInUp" by="word">
               {t('HomePage.title')}
             </TextAnimate>
-            <p className="text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
+            <p className="text-gray-300 dark:text-muted-foreground text-sm md:text-base text-center md:text-left mt-5">
               {t('HomePage.description')}
               <a
                 href="https://www.werkspot.nl/profiel/persian-top/reviews"
@@ -83,18 +90,21 @@ export default function ClientPage() {
               </a>
             </p>
 
-            <Button className="h-12 lg:h-14 z-30 px-5 mt-5 mx-auto md:mt-10 w-11/12 md:w-full font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
-              <Link href={`/${params.locale}/configurator`}>
+            <Button
+              className="h-24 md:h-28 z-30 px-5 mt-5 mx-auto md:mx-0 dark:bg-background hover:scale-105 hover:bg-bg-background transition-all duration-200 transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] md:mt-10 w-full md:w-10/12 text-base md:text-2xl font-bold rounded-xl shadow-2xl">
+              <Link
+                className="flex items-center justify-center gap-5"
+                href={`/${params.locale}/configurator`}>
+                <Box className="!size-16" />
                 {t("HomePage.3dButton")}
               </Link>
             </Button>
+
             <Button
               onClick={() => dispatch(setBuildingStep(0))}
-              className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
+              className="flex items-center justify-center gap-5 h-24 md:h-28 z-30 px-5 mx-auto md:mx-0 dark:bg-background hover:scale-105 hover:bg-bg-background transition-all duration-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] mt-3 md:mt-5 w-full md:w-10/12 text-base md:text-2xl font-bold rounded-xl shadow-2xl">
+              <Home className="!size-16" />
               {t('HomePage.manualButton')}
-            </Button>
-            <Button className="h-12 lg:h-14 z-30 px-5 mt-5 w-11/12 md:w-full mx-auto  font-semibold text-base md:text-2xl rounded-xl shadow-2xl">
-              {t('HomePage.phoneButton')}
             </Button>
           </div>
         </div>
