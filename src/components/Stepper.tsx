@@ -217,7 +217,7 @@ export default function Stepper() {
                 <h2 className="text-sm md:text-lg px-5 md:px-0 font-medium text-muted-foreground mb-5">{!finalCheck ? t(currentStep.description || currentStep.nextStep?.description) : ""}</h2>
 
 
-                <div className={`grid px-5 md:px-0 pb-20 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'date') ? "md:grid-cols-1" : currentStep.type === 'multi' ? "md:grid-cols-3" : "md:grid-cols-2"} gap-5`}>
+                <div className={`grid items-center bg-slate- px-5 md:px-0 pb-20 md:pb-0 grid-cols-1 my-auto ${(currentStep.type === 'check' || currentStep.type === 'date') ? "md:grid-cols-1" : currentStep.type === 'multi' ? "md:grid-cols-3" : "md:grid-cols-2"} gap-5`}>
                     {!finalCheck && (currentStep.type === 'select' || currentStep.type === 'multi' || currentStep.type === 'check' || currentStep.type === 'text') &&
                         currentStep.items?.map((item: any, index: number) =>
                             currentStep.type === 'select' ? (
@@ -242,7 +242,7 @@ export default function Stepper() {
                             ) : currentStep.type === 'multi' ? (
                                 <BlurFade>
                                     <div className={`relative`}>
-                                        {item.disabled && <Badge className={`${item.disabled ? "opacity-60" : ""}  absolute !rounded-2xl text-sm right-0`}>{t("stepper.comingSoon")}</Badge>}
+                                        {item.disabled && <Badge className={`${item.disabled ? "opacity-70" : ""}  absolute !rounded-2xl text-sm right-0 md:-right-1 z-20`}>{t("stepper.comingSoon")}</Badge>}
                                         <ToggleGroup
                                             onValueChange={() => currentFormHandler(item, 'multi')}
                                             key={item.name}
@@ -250,7 +250,7 @@ export default function Stepper() {
                                             type="single"
                                         >
                                             <ToggleGroupItem
-                                                className="cursor-pointer w-full !py-10 border rounded-lg hover:border-primary"
+                                                className="cursor-pointer w-full !py-10 rounded-lg hover:border-primary hover:border-2"
                                                 value={item.name}
                                                 aria-label="Toggle bold"
                                             >
@@ -322,19 +322,33 @@ export default function Stepper() {
                 }
 
 
+               
+
+                <div className="flex bg-background w-full flex-col z-50 px-5 md:px-0 sticky items-center md:translate-y-14 py-3 md:pb-10 bottom-0">
+                    
                 {currentStep.type !== 'select' &&
-                    <BlurFade>
-                        <div className="md:text-lg w-full bottom-0 font-bold z-[999] md:hidden sticky flex items-center gap-3 justify-between px-5 py-7 mt-3 md:min-w-96 rounded-t-2xl h-12 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                            <p>{t('stepper.estimate')} :</p>
+                    <BlurFade className="w-full">
+                        <div className="md:text-lg w-full font-bold z-[999] md:hidden flex flex-col items-center justify-center gap-3 px-5 rounded-t-2xl h-24 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                           <div className="flex items-center justify-between w-full">
+                             <p>{t('stepper.estimate')} :</p>
                             <div className="flex items-center gap-2 text-primary">
                                 <span className="text-muted-foreground !font-normal text-xs">From</span>
                                 <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{price}</NumberTicker>
                                 €
                             </div>
+                           </div>
+                           <div className="flex items-center justify-between w-full">
+                             <p>{t('stepper.estimateHours')} :</p>
+                            <div className="flex items-center gap-2 text-primary">
+                                <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{hours}</NumberTicker>
+                                H
+                            </div>
+                           </div>
                         </div>
+                        
                     </BlurFade>}
-
-                <div className="flex bg-background w-full z-50 px-5 md:px-0 sticky items-center md:translate-y-14 py-5 md:pb-10 bottom-0 justify-between">
+                    
+                    <div className="flex items-center justify-between w-full mt-2">
                     <Button
                         className="md:text-xl w-28 md:w-48 py-5"
                         onClick={() => {
@@ -358,8 +372,8 @@ export default function Stepper() {
                     </Button>
 
                     {currentStep.type !== 'select' &&
-                        <BlurFade>
-                            <div className="text-lg font-bold hidden md:flex items-center mt-3 justify-between m-0 px-5 py-6 min-w-96 rounded-2xl h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                        <BlurFade className="flex items-center">
+                            <div className="text-lg font-bold hidden md:flex items-center mt-3 justify-between m-0 px-5 py-6 min-w-96 rounded-2xl rounded-r-none h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                                 <p>{t('stepper.estimateHours')} :</p>
                                 <div className="flex items-center gap-2 text-primary">
                                     <span className="text-muted-foreground !font-normal text-sm">{t("finalQuote.hours")}</span>
@@ -367,7 +381,7 @@ export default function Stepper() {
                                     H
                                 </div>
                             </div>
-                            <div className="text-lg font-bold hidden md:flex items-center mt-3 justify-between m-0 px-5 py-6 min-w-96 rounded-2xl h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                            <div className="text-lg font-bold hidden md:flex items-center mt-3 justify-between m-0 px-5 py-6 min-w-96 rounded-2xl rounded-l-none h-10 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                                 <p>{t('stepper.estimate')} :</p>
                                 <div className="flex items-center gap-2 text-primary">
                                     <span className="text-muted-foreground !font-normal text-sm">{t("stepper.from")}</span>
@@ -445,7 +459,10 @@ export default function Stepper() {
                             {currentStep.lastStep ? t("stepper.finalCheck") : currentStep.key === "gather-steps" ? t("stepper.start") : t("stepper.next")}
                         </Button>
                     }
+                    </div>
                 </div>
+
+                
             </div>
         </BlurFade>
 

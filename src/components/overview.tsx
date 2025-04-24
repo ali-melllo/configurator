@@ -167,12 +167,12 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
 
 
     return (
-        <div className="bg-background size-full overflow-scroll px-2 md:px-0 flex flex-col md:flex-row mx-auto">
+        <div className="bg-background size-full overflow-scroll px-2 md:px-0 flex flex-col md:flex-row justify-between mx-auto">
 
             {flattenedSteps.length === 0 ? (
                 <p className="text-gray-500">No data selected yet.</p>
             ) : (
-                <div className="space-y-4">
+                <div className="space-y-4 w-full md:w-6/12">
                     {flattenedSteps.map((step, index) => {
                         // If step is an array, handle it as a separate list
                         if (Array.isArray(step)) {
@@ -216,7 +216,7 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
                 </div>
             )}
 
-            <div className="flex flex-col items-center w-full">
+            <div className="flex flex-col pr-6 md:pr-0 items-center w-full md:w-6/12">
                 <div>
                     <Calendar
                         initialFocus
@@ -232,7 +232,7 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
                     {/* <div className="flex items-center gap-3 ml-3 mt-5">
                         <p className="font-semibold">Estimated Working Hours : </p><p className="text-primary font-bold text-xl">185 H</p>
                     </div> */}
-                    <div className="flex items-center gap-3 ml-3 mt-3">
+                    <div className="hidden md:flex flex-row items-center gap-3 ml-3 mt-3">
                         <p className="font-semibold">{t("stepper.estimate")} : </p><p className="text-primary font-bold text-xl"> {estimate} €</p>
                         <p className="font-semibold">{t("stepper.estimateHours")} : </p><p className="text-primary font-bold text-xl">{estimateHours} H</p>
 
