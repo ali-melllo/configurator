@@ -340,7 +340,7 @@ export default function Stepper() {
                            <div className="flex items-center justify-between w-full">
                              <p>{t('stepper.estimateHours')} :</p>
                             <div className="flex items-center gap-2 text-primary">
-                                <NumberTicker delay={0.1} value={[...stepPrice, price].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{hours}</NumberTicker>
+                                <NumberTicker delay={0.1} value={[...stepHours, hours].reduce((sum: any, currentValue: any) => sum + currentValue, 0)} className="!text-primary text-xl">{hours}</NumberTicker>
                                 H
                             </div>
                            </div>

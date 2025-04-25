@@ -32,8 +32,8 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
     const { t } = useLang();
 
     const [date, setDate] = useState<DateRange | undefined>({
-        from: new Date(2022, 0, 20),
-        to: addDays(new Date(2022, 0, 20), 20),
+        from: new Date(),
+        to: addDays(new Date(), 20),
     })
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -131,8 +131,34 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
             };
 
             await emailjs.send(
-                "service_qgdd31g",
-                "template_etjfih4",
+                "service_6q6znli",
+                "template_c0gom1n",
+                {
+                    surface: "------",
+                    depth: "------",
+                    width: "------",
+                    from_name: "Persian top Company",
+                    to_name: templateParams.fullName,
+                    to_email: "arshiyaelias@gmail.com",
+                    address: templateParams.address,
+                    phone: templateParams.phone,
+                    zipcode: templateParams.zipcode,
+                    date: `from ${format(date?.from || new Date(), "PPP")} to ${format(date?.to || new Date(), "PPP")}`,
+                    orders: submissionData,
+                    insideHours: "--------",
+                    insidePrice: "--------",
+                    exteriorHours: "--------",
+                    exteriorPrice: "--------",
+                    totalPrice: templateParams.estimate,
+                    totalHours: templateParams.estimateHours,
+                },
+                "6oaMkLxoCGxZdHdZl"
+            );
+
+
+            await emailjs.send(
+                "service_6q6znli",
+                "template_pc7jbxm",
                 {
                     surface: "------",
                     depth: "------",
@@ -152,7 +178,7 @@ export default function Overview({ selectedSteps, estimate, estimateHours }: { s
                     totalPrice: templateParams.estimate,
                     totalHours: templateParams.estimateHours,
                 },
-                "UnRKLwsh1brqQCDWV"
+                "6oaMkLxoCGxZdHdZl"
             );
 
             toast.success(t("notifications.requestSuccess"));

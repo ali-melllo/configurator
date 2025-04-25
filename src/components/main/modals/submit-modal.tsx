@@ -141,12 +141,12 @@ export default function SubmitModal() {
         setEmailLoading(true);
         try {
             await emailjs.send(
-                "service_qgdd31g",
-                "template_dbbw77f",
+                "service_6q6znli",
+                "template_c0gom1n",
                 {
                     from_name: data.fullName,
                     to_name: "Persian Top Owner",
-                    to_email: "alimelllo32@gmail.com",
+                    to_email: "arshiyaelias@gmail.com",
                     address: data.address,
                     phone: data.phone,
                     zipcode: data.zipcode,
@@ -161,12 +161,12 @@ export default function SubmitModal() {
                     insidePrice: `${getInsidePrice()} (€)`,
                     totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
                 },
-                "UnRKLwsh1brqQCDWV"
+                "6oaMkLxoCGxZdHdZl"
             );
 
             await emailjs.send(
-                "service_qgdd31g",
-                "template_etjfih4",
+                "service_6q6znli",
+                "template_pc7jbxm",
                 {
                     from_name: "Persian top Company",
                     to_name: data.fullName,
@@ -185,7 +185,7 @@ export default function SubmitModal() {
                     insidePrice: `${getInsidePrice()} (€)`,
                     totalPrice: formatEuroPrice(getInsidePrice() + getExteriorPrice()),
                 },
-                "UnRKLwsh1brqQCDWV"
+                "6oaMkLxoCGxZdHdZl"
             );
 
             toast.success(t("notifications.requestSuccess"));
